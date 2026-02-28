@@ -1,49 +1,24 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
-import { Component, inject } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import {
-  MAT_DIALOG_DATA,
-  MatDialogRef,
-  MatDialogTitle,
-  MatDialogContent,
-  MatDialogActions,
-  MatDialogClose
-} from '@angular/material/dialog';
-import { CdkScrollable } from '@angular/cdk/scrolling';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
+import { Component, Inject } from '@angular/core';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'mifosx-loan-delinquency-action-dialog',
   templateUrl: './loan-delinquency-action-dialog.component.html',
-  styleUrls: ['./loan-delinquency-action-dialog.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    MatDialogTitle,
-    CdkScrollable,
-    MatDialogContent,
-    MatDialogActions,
-    MatDialogClose
-  ]
+  styleUrls: ['./loan-delinquency-action-dialog.component.scss']
 })
 export class LoanDelinquencyActionDialogComponent {
-  dialogRef = inject<MatDialogRef<LoanDelinquencyActionDialogComponent>>(MatDialogRef);
-  data = inject(MAT_DIALOG_DATA);
-  private formBuilder = inject(UntypedFormBuilder);
-
   delinquencyActionForm: UntypedFormGroup;
   /** Minimum date allowed. */
   minDate = new Date(2000, 0, 1);
   /** Maximum date allowed. */
   maxDate = new Date(2100, 0, 1);
 
-  constructor() {
+  constructor(
+    public dialogRef: MatDialogRef<LoanDelinquencyActionDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private formBuilder: UntypedFormBuilder
+  ) {
     this.createDelinquencyActionForm();
   }
 

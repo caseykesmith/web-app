@@ -1,53 +1,10 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
-import {
-  MatTableDataSource,
-  MatTable,
-  MatColumnDef,
-  MatHeaderCellDef,
-  MatHeaderCell,
-  MatCellDef,
-  MatCell,
-  MatHeaderRowDef,
-  MatHeaderRow,
-  MatRowDef,
-  MatRow
-} from '@angular/material/table';
-import { MatCheckbox } from '@angular/material/checkbox';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { MatStepperPrevious, MatStepperNext } from '@angular/material/stepper';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'mifosx-savings-active-client-members',
   templateUrl: './savings-active-client-members.component.html',
-  styleUrls: ['./savings-active-client-members.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    MatTable,
-    MatColumnDef,
-    MatHeaderCellDef,
-    MatHeaderCell,
-    MatCheckbox,
-    FormsModule,
-    MatCellDef,
-    MatCell,
-    MatHeaderRowDef,
-    MatHeaderRow,
-    MatRowDef,
-    MatRow,
-    MatStepperPrevious,
-    FaIconComponent,
-    MatStepperNext
-  ]
+  styleUrls: ['./savings-active-client-members.component.scss']
 })
 export class SavingsActiveClientMembersComponent implements OnInit {
   @Input() activeClientMembers?: any;
@@ -62,6 +19,7 @@ export class SavingsActiveClientMembersComponent implements OnInit {
 
   dataSource: any;
   ngOnInit(): void {
+    console.log('Active Client Members in LoansActiveClientMembersComponent:', this.activeClientMembers);
     this.dataSource = new MatTableDataSource<any>(this.activeClientMembers);
   }
   get selectedClientMembers() {

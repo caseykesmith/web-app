@@ -1,34 +1,12 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, OnInit, ViewChild, inject } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSort, MatSortHeader } from '@angular/material/sort';
-import {
-  MatTableDataSource,
-  MatTable,
-  MatColumnDef,
-  MatHeaderCellDef,
-  MatHeaderCell,
-  MatCellDef,
-  MatCell,
-  MatHeaderRowDef,
-  MatHeaderRow,
-  MatRowDef,
-  MatRow
-} from '@angular/material/table';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { ActivatedRoute } from '@angular/router';
 
 /** rxjs Imports */
 import { of } from 'rxjs';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 /**
  * Products Mix component.
@@ -36,28 +14,9 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 @Component({
   selector: 'mifosx-products-mix',
   templateUrl: './products-mix.component.html',
-  styleUrls: ['./products-mix.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    FaIconComponent,
-    MatTable,
-    MatSort,
-    MatColumnDef,
-    MatHeaderCellDef,
-    MatHeaderCell,
-    MatSortHeader,
-    MatCellDef,
-    MatCell,
-    MatHeaderRowDef,
-    MatHeaderRow,
-    MatRowDef,
-    MatRow,
-    MatPaginator
-  ]
+  styleUrls: ['./products-mix.component.scss']
 })
 export class ProductsMixComponent implements OnInit {
-  private route = inject(ActivatedRoute);
-
   /** productMix data. */
   productMixData: any;
   /** Columns to be displayed in products mix table. */
@@ -73,7 +32,7 @@ export class ProductsMixComponent implements OnInit {
    * Retrieves the products data from `resolve`.
    * @param {ActivatedRoute} route Activated Route.
    */
-  constructor() {
+  constructor(private route: ActivatedRoute) {
     this.route.data.subscribe((data: { products: any }) => {
       this.productMixData = data.products;
     });

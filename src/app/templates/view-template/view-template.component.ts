@@ -1,14 +1,6 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, inject } from '@angular/core';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 
 /** Custom Services */
@@ -16,8 +8,6 @@ import { TemplatesService } from '../templates.service';
 
 /** Custom Components */
 import { DeleteDialogComponent } from 'app/shared/delete-dialog/delete-dialog.component';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 /**
  * View Template Component.
@@ -25,18 +15,9 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 @Component({
   selector: 'mifosx-view-template',
   templateUrl: './view-template.component.html',
-  styleUrls: ['./view-template.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    FaIconComponent
-  ]
+  styleUrls: ['./view-template.component.scss']
 })
 export class ViewTemplateComponent {
-  private route = inject(ActivatedRoute);
-  private templatesService = inject(TemplatesService);
-  private router = inject(Router);
-  private dialog = inject(MatDialog);
-
   /** Template Data */
   templateData: any;
 
@@ -47,7 +28,12 @@ export class ViewTemplateComponent {
    * @param {Router} router Router for navigation.
    * @param {MatDialog} dialog Dialog reference.
    */
-  constructor() {
+  constructor(
+    private route: ActivatedRoute,
+    private templatesService: TemplatesService,
+    private router: Router,
+    private dialog: MatDialog
+  ) {
     this.route.data.subscribe((data: { template: any }) => {
       this.templateData = data.template;
     });

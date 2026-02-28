@@ -1,14 +1,6 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, OnInit, inject } from '@angular/core';
-import { ActivatedRoute, Router, RouterLinkActive, RouterLink, RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 
 /** Custom Dialogs */
@@ -25,26 +17,7 @@ import { Currency } from 'app/shared/models/general.model';
 import { TranslateService } from '@ngx-translate/core';
 
 /** Environment Configuration */
-import { environment } from '../../../environments/environment';
-import {
-  MatCard,
-  MatCardHeader,
-  MatCardTitleGroup,
-  MatCardMdImage,
-  MatCardTitle,
-  MatCardContent
-} from '@angular/material/card';
-import { MatTooltip } from '@angular/material/tooltip';
-import { NgClass, CurrencyPipe } from '@angular/common';
-import { LongTextComponent } from '../../shared/long-text/long-text.component';
-import { AccountNumberComponent } from '../../shared/account-number/account-number.component';
-import { MatIconButton } from '@angular/material/button';
-import { MatMenuTrigger, MatMenu, MatMenuItem } from '@angular/material/menu';
-import { MatIcon } from '@angular/material/icon';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { MatTabNav, MatTabLink, MatTabNavPanel } from '@angular/material/tabs';
-import { StatusLookupPipe } from '../../pipes/status-lookup.pipe';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
+import { environment } from 'environments/environment';
 
 /**
  * Savings Account View Component
@@ -52,39 +25,9 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 @Component({
   selector: 'mifosx-savings-account-view',
   templateUrl: './savings-account-view.component.html',
-  styleUrls: ['./savings-account-view.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    MatCardHeader,
-    MatCardTitleGroup,
-    MatCardMdImage,
-    MatTooltip,
-    MatCardTitle,
-    NgClass,
-    LongTextComponent,
-    AccountNumberComponent,
-    MatIconButton,
-    MatMenuTrigger,
-    MatIcon,
-    FaIconComponent,
-    MatMenu,
-    MatMenuItem,
-    MatTabNav,
-    MatTabLink,
-    RouterLinkActive,
-    MatTabNavPanel,
-    RouterOutlet,
-    CurrencyPipe,
-    StatusLookupPipe
-  ]
+  styleUrls: ['./savings-account-view.component.scss']
 })
 export class SavingsAccountViewComponent implements OnInit {
-  private route = inject(ActivatedRoute);
-  private router = inject(Router);
-  private savingsService = inject(SavingsService);
-  private translateService = inject(TranslateService);
-  dialog = inject(MatDialog);
-
   /** Savings Account Data */
   savingsAccountData: any;
   /** Savings Data Tables */
@@ -103,7 +46,13 @@ export class SavingsAccountViewComponent implements OnInit {
    * @param {Router} router Router
    * @param {SavingsService} savingsService Savings Service
    */
-  constructor() {
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private savingsService: SavingsService,
+    private translateService: TranslateService,
+    public dialog: MatDialog
+  ) {
     this.route.data.subscribe((data: { savingsAccountData: any; savingsDatatables: any }) => {
       this.savingsAccountData = data.savingsAccountData;
       this.currency = this.savingsAccountData.currency;
@@ -136,7 +85,7 @@ export class SavingsAccountViewComponent implements OnInit {
         taskPermissionName: 'CREATE_ACCOUNTTRANSFER'
       });
     }
-    if (this.savingsAccountData.externalId && environment.mifosInterbankTransfersEnabled) {
+    if (this.savingsAccountData.externalId && environment.interbankTransfers === 'true') {
       this.buttonConfig.addOption({
         name: 'Interbank Transfer',
         taskPermissionName: 'CREATE_ACCOUNTTRANSFER'

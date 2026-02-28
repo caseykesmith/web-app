@@ -1,14 +1,6 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports. */
-import { Component, OnInit, inject } from '@angular/core';
-import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit, Input } from '@angular/core';
+import { UntypedFormGroup, UntypedFormBuilder, Validators, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Dates } from 'app/core/utils/dates';
 
@@ -16,10 +8,6 @@ import { Dates } from 'app/core/utils/dates';
 import { LoansService } from 'app/loans/loans.service';
 import { SettingsService } from 'app/settings/settings.service';
 import { Currency } from 'app/shared/models/general.model';
-import { InputAmountComponent } from '../../../../shared/input-amount/input-amount.component';
-import { CdkTextareaAutosize } from '@angular/cdk/text-field';
-import { FormatNumberPipe } from '../../../../pipes/format-number.pipe';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 /**
  * Approve Loan component.
@@ -27,22 +15,9 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 @Component({
   selector: 'mifosx-approve-loan',
   templateUrl: './approve-loan.component.html',
-  styleUrls: ['./approve-loan.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    InputAmountComponent,
-    CdkTextareaAutosize,
-    FormatNumberPipe
-  ]
+  styleUrls: ['./approve-loan.component.scss']
 })
 export class ApproveLoanComponent implements OnInit {
-  private formBuilder = inject(UntypedFormBuilder);
-  private route = inject(ActivatedRoute);
-  private dateUtils = inject(Dates);
-  private loanService = inject(LoansService);
-  private router = inject(Router);
-  private settingsService = inject(SettingsService);
-
   /** Approve Loan form. */
   approveLoanForm: UntypedFormGroup;
   /** Loan data. */
@@ -64,7 +39,14 @@ export class ApproveLoanComponent implements OnInit {
    * @param router Router.
    * @param {SettingsService} settingsService Settings Service
    */
-  constructor() {
+  constructor(
+    private formBuilder: UntypedFormBuilder,
+    private route: ActivatedRoute,
+    private dateUtils: Dates,
+    private loanService: LoansService,
+    private router: Router,
+    private settingsService: SettingsService
+  ) {
     this.route.data.subscribe((data: { actionButtonData: any }) => {
       this.loanData = data.actionButtonData;
       this.currency = data.actionButtonData.currency;
@@ -79,19 +61,6 @@ export class ApproveLoanComponent implements OnInit {
       this.approveLoanForm.patchValue({
         expectedDisbursementDate: new Date(response.timeline.expectedDisbursementDate)
       });
-    });
-
-    // Get delinquency data for available disbursement amount with over applied
-    this.loanService.getLoanDelinquencyDataForTemplate(this.loanId).subscribe((delinquencyData: any) => {
-      // Check if the field is at root level
-      if (delinquencyData.availableDisbursementAmountWithOverApplied !== undefined) {
-        this.loanData.availableDisbursementAmountWithOverApplied =
-          delinquencyData.availableDisbursementAmountWithOverApplied;
-      }
-      // Also check if it's in delinquent object
-      if (delinquencyData.delinquent) {
-        this.loanData.delinquent = delinquencyData.delinquent;
-      }
     });
   }
 

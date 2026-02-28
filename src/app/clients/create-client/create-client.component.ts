@@ -1,13 +1,5 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, QueryList, ViewChild, ViewChildren, inject } from '@angular/core';
+import { Component, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 /** Custom Services */
@@ -21,10 +13,6 @@ import { ClientDatatableStepComponent } from '../client-stepper/client-datatable
 
 /** Custom Services */
 import { SettingsService } from 'app/settings/settings.service';
-import { MatStepper, MatStepperIcon, MatStep, MatStepLabel } from '@angular/material/stepper';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { ClientPreviewStepComponent } from '../client-stepper/client-preview-step/client-preview-step.component';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 /**
  * Create Client Component.
@@ -32,27 +20,9 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 @Component({
   selector: 'mifosx-create-client',
   templateUrl: './create-client.component.html',
-  styleUrls: ['./create-client.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    MatStepper,
-    MatStepperIcon,
-    FaIconComponent,
-    MatStep,
-    MatStepLabel,
-    ClientGeneralStepComponent,
-    ClientFamilyMembersStepComponent,
-    ClientAddressStepComponent,
-    ClientDatatableStepComponent,
-    ClientPreviewStepComponent
-  ]
+  styleUrls: ['./create-client.component.scss']
 })
 export class CreateClientComponent {
-  private route = inject(ActivatedRoute);
-  private router = inject(Router);
-  private clientsService = inject(ClientsService);
-  private settingsService = inject(SettingsService);
-
   /** Client General Step */
   @ViewChild(ClientGeneralStepComponent, { static: true }) clientGeneralStep: ClientGeneralStepComponent;
   /** Client Family Members Step */
@@ -77,7 +47,12 @@ export class CreateClientComponent {
    * @param {ClientsService} clientsService Clients Service
    * @param {SettingsService} settingsService Setting service
    */
-  constructor() {
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private clientsService: ClientsService,
+    private settingsService: SettingsService
+  ) {
     this.route.data.subscribe((data: { clientTemplate: any; clientAddressFieldConfig: any }) => {
       this.clientTemplate = data.clientTemplate;
       this.clientAddressFieldConfig = data.clientAddressFieldConfig;
@@ -161,9 +136,7 @@ export class CreateClientComponent {
       this.clientDatatables.forEach((clientDatatable: ClientDatatableStepComponent) => {
         datatables.push(clientDatatable.payload);
       });
-      if (datatables.length > 0) {
-        clientData['datatables'] = datatables;
-      }
+      clientData['datatables'] = datatables;
     }
 
     this.clientsService.createClient(clientData).subscribe((response: any) => {

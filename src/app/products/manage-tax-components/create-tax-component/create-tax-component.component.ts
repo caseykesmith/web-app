@@ -1,28 +1,12 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, OnInit, inject } from '@angular/core';
-import {
-  UntypedFormGroup,
-  UntypedFormBuilder,
-  Validators,
-  UntypedFormControl,
-  ReactiveFormsModule
-} from '@angular/forms';
-import { Router, ActivatedRoute, RouterLink } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { UntypedFormGroup, UntypedFormBuilder, Validators, UntypedFormControl } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 /** Custom Services */
 import { ProductsService } from '../../products.service';
 import { SettingsService } from 'app/settings/settings.service';
 import { Dates } from 'app/core/utils/dates';
-import { GlAccountSelectorComponent } from '../../../shared/accounting/gl-account-selector/gl-account-selector.component';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 /**
  * Create Tax Component component.
@@ -30,20 +14,9 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 @Component({
   selector: 'mifosx-create-tax-component',
   templateUrl: './create-tax-component.component.html',
-  styleUrls: ['./create-tax-component.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    GlAccountSelectorComponent
-  ]
+  styleUrls: ['./create-tax-component.component.scss']
 })
 export class CreateTaxComponentComponent implements OnInit {
-  private formBuilder = inject(UntypedFormBuilder);
-  private productsService = inject(ProductsService);
-  private route = inject(ActivatedRoute);
-  private router = inject(Router);
-  private dateUtils = inject(Dates);
-  private settingsService = inject(SettingsService);
-
   /** Minimum start date allowed. */
   minDate = new Date();
   /** Maximum start date allowed. */
@@ -70,7 +43,14 @@ export class CreateTaxComponentComponent implements OnInit {
    * @param {Dates} dateUtils Date Utils to format date.
    * @param {SettingsService} settingsService Settings Service.
    */
-  constructor() {
+  constructor(
+    private formBuilder: UntypedFormBuilder,
+    private productsService: ProductsService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private dateUtils: Dates,
+    private settingsService: SettingsService
+  ) {
     this.route.data.subscribe((data: { taxComponentTemplate: any }) => {
       this.taxComponentTemplateData = data.taxComponentTemplate;
     });
@@ -101,8 +81,7 @@ export class CreateTaxComponentComponent implements OnInit {
         [
           Validators.required,
           Validators.pattern('^(0*[1-9][0-9]*(\\.[0-9]+)?|0+\\.[0-9]*[1-9][0-9]*)$'),
-          Validators.max(100)
-        ]
+          Validators.max(100)]
       ],
       creditAccountType: [''],
       debitAccountType: [''],
@@ -119,11 +98,11 @@ export class CreateTaxComponentComponent implements OnInit {
   setConditionalControls() {
     this.taxComponentForm.get('debitAccountType').valueChanges.subscribe((debitAccountTypeId) => {
       this.debitAccountData = this.getAccountsData(debitAccountTypeId);
-      this.taxComponentForm.addControl('debitAccountId', new UntypedFormControl('', Validators.required));
+      this.taxComponentForm.addControl('debitAcountId', new UntypedFormControl('', Validators.required));
     });
     this.taxComponentForm.get('creditAccountType').valueChanges.subscribe((creditAccountTypeId) => {
       this.creditAccountData = this.getAccountsData(creditAccountTypeId);
-      this.taxComponentForm.addControl('creditAccountId', new UntypedFormControl('', Validators.required));
+      this.taxComponentForm.addControl('creditAcountId', new UntypedFormControl('', Validators.required));
     });
   }
 

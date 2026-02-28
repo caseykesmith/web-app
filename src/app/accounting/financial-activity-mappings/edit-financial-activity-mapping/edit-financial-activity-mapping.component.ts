@@ -1,21 +1,11 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, OnInit, inject } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { Router, ActivatedRoute, RouterLink } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 /** Custom Services */
 import { AccountingService } from '../../accounting.service';
 import { GLAccount } from 'app/shared/models/general.model';
-import { GlAccountSelectorComponent } from '../../../shared/accounting/gl-account-selector/gl-account-selector.component';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 /**
  * Edit financial activity mapping component.
@@ -23,18 +13,9 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 @Component({
   selector: 'mifosx-edit-financial-activity-mapping',
   templateUrl: './edit-financial-activity-mapping.component.html',
-  styleUrls: ['./edit-financial-activity-mapping.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    GlAccountSelectorComponent
-  ]
+  styleUrls: ['./edit-financial-activity-mapping.component.scss']
 })
 export class EditFinancialActivityMappingComponent implements OnInit {
-  private formBuider = inject(UntypedFormBuilder);
-  private accountingService = inject(AccountingService);
-  private route = inject(ActivatedRoute);
-  private router = inject(Router);
-
   /** Financial activity mapping form. */
   financialActivityMappingForm: UntypedFormGroup;
   /** GL Account options. */
@@ -57,7 +38,12 @@ export class EditFinancialActivityMappingComponent implements OnInit {
    * @param {ActivatedRoute} route Activated Route.
    * @param {Router} router Router for navigation.
    */
-  constructor() {
+  constructor(
+    private formBuider: UntypedFormBuilder,
+    private accountingService: AccountingService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
     this.route.data.subscribe((data: { financialActivityAccountAndTemplate: any }) => {
       this.financialActivityAccountId = data.financialActivityAccountAndTemplate.id;
       this.financialActivityId = data.financialActivityAccountAndTemplate.financialActivityData.id;

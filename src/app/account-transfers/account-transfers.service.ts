@@ -1,20 +1,12 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Injectable, inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 /** rxjs Imports */
 import { Observable } from 'rxjs';
 
 /** Environment Configuration */
-import { environment } from '../../environments/environment';
+import { environment } from 'environments/environment';
 import { switchMap } from 'rxjs/operators';
 
 /**
@@ -24,7 +16,7 @@ import { switchMap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AccountTransfersService {
-  private http = inject(HttpClient);
+  constructor(private http: HttpClient) {}
 
   /**
    * @params standingInstructionsId
@@ -132,7 +124,7 @@ export class AccountTransfersService {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http
       .post(
-        `${environment.mifosInterbankTransfersApiUrl}${environment.mifosInterbankTransfersApiVersion}${environment.mifosInterbankTransfersApiProvider}/participant`,
+        `${environment.vNextApiUrl}${environment.vNextApiVersion}${environment.vNextApiProvider}/participant`,
         JSON.stringify(payload),
         { headers }
       )
@@ -140,7 +132,7 @@ export class AccountTransfersService {
         switchMap((participant: any) => {
           const body = JSON.stringify({ ...payload, ownerFspId: participant.fspId });
           return this.http.post(
-            `${environment.mifosInterbankTransfersApiUrl}${environment.mifosInterbankTransfersApiVersion}${environment.mifosInterbankTransfersApiProvider}/partyinfo`,
+            `${environment.vNextApiUrl}${environment.vNextApiVersion}${environment.vNextApiProvider}/partyinfo`,
             body,
             { headers }
           );
@@ -151,7 +143,7 @@ export class AccountTransfersService {
   sendInterbankTransfer(body: any): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.post(
-      `${environment.mifosInterbankTransfersApiUrl}${environment.mifosInterbankTransfersApiVersion}${environment.mifosInterbankTransfersApiProvider}/executetransfer`,
+      `${environment.vNextApiUrl}${environment.vNextApiVersion}${environment.vNextApiProvider}/executetransfer`,
       body,
       { headers }
     );

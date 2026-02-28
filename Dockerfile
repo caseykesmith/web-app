@@ -1,8 +1,8 @@
 ###############
 ### STAGE 1: Build app
 ###############
-ARG BUILDER_IMAGE=node:24-alpine3.22
-ARG NGINX_IMAGE=nginx:1.29-alpine3.22-slim
+ARG BUILDER_IMAGE=node:22.9.0-alpine
+ARG NGINX_IMAGE=nginx:1.27.4-alpine3.21-slim
 
 FROM $BUILDER_IMAGE AS builder
 ARG NPM_REGISTRY_URL=https://registry.npmjs.org/
@@ -41,7 +41,7 @@ RUN sh -c "ng build --output-path=/dist $BUILD_ENVIRONMENT_OPTIONS"
 ###############
 FROM $NGINX_IMAGE
 
-COPY --from=builder /dist/browser /usr/share/nginx/html
+COPY --from=builder /dist /usr/share/nginx/html
 
 EXPOSE 80
 

@@ -1,26 +1,6 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, inject } from '@angular/core';
-import {
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-  MatDialogTitle,
-  MatDialogContent,
-  MatDialogActions,
-  MatDialogClose
-} from '@angular/material/dialog';
-import { CdkScrollable } from '@angular/cdk/scrolling';
-import { DateFormatPipe } from '../../../pipes/date-format.pipe';
-import { DatetimeFormatPipe } from '../../../pipes/datetime-format.pipe';
-import { FormatNumberPipe } from '../../../pipes/format-number.pipe';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
+import { Component, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 /**
  * View journal entry dialog component.
@@ -28,31 +8,18 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 @Component({
   selector: 'mifosx-view-journal-entry',
   templateUrl: './view-journal-entry.component.html',
-  styleUrls: ['./view-journal-entry.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    MatDialogTitle,
-    CdkScrollable,
-    MatDialogContent,
-    MatDialogActions,
-    MatDialogClose,
-    DateFormatPipe,
-    DatetimeFormatPipe,
-    FormatNumberPipe
-  ]
+  styleUrls: ['./view-journal-entry.component.scss']
 })
 export class ViewJournalEntryComponent {
-  dialogRef = inject<MatDialogRef<ViewJournalEntryComponent>>(MatDialogRef);
-  data = inject(MAT_DIALOG_DATA);
-
   existsPaymentDetails = false;
   /**
    * @param {MatDialogRef} dialogRef Component reference to dialog.
    * @param {any} data Provides journal entry.
    */
-  constructor() {
-    const data = this.data;
-
+  constructor(
+    public dialogRef: MatDialogRef<ViewJournalEntryComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {
     this.existsPaymentDetails =
       data.journalEntry.transactionDetails != null && data.journalEntry.transactionDetails.paymentDetails != null;
   }

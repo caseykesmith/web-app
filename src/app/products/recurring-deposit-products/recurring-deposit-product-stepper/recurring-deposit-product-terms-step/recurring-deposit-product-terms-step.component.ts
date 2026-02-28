@@ -1,33 +1,12 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
-import { Component, OnInit, Input, inject } from '@angular/core';
-import { UntypedFormGroup, UntypedFormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
-import { MatDivider } from '@angular/material/divider';
-import { MatStepperPrevious, MatStepperNext } from '@angular/material/stepper';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
+import { Component, OnInit, Input } from '@angular/core';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'mifosx-recurring-deposit-product-terms-step',
   templateUrl: './recurring-deposit-product-terms-step.component.html',
-  styleUrls: ['./recurring-deposit-product-terms-step.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    MatDivider,
-    MatStepperPrevious,
-    FaIconComponent,
-    MatStepperNext
-  ]
+  styleUrls: ['./recurring-deposit-product-terms-step.component.scss']
 })
 export class RecurringDepositProductTermsStepComponent implements OnInit {
-  private formBuilder = inject(UntypedFormBuilder);
-
   @Input() recurringDepositProductsTemplate: any;
 
   recurringDepositProductTermsForm: UntypedFormGroup;
@@ -37,7 +16,7 @@ export class RecurringDepositProductTermsStepComponent implements OnInit {
   interestCalculationTypeData: any;
   interestCalculationDaysInYearTypeData: any;
 
-  constructor() {
+  constructor(private formBuilder: UntypedFormBuilder) {
     this.createrecurringDepositProductTermsForm();
   }
 
@@ -64,21 +43,12 @@ export class RecurringDepositProductTermsStepComponent implements OnInit {
 
   createrecurringDepositProductTermsForm() {
     this.recurringDepositProductTermsForm = this.formBuilder.group({
-      minDepositAmount: [
-        '',
-        Validators.min(0)
-      ],
+      minDepositAmount: [''],
       depositAmount: [
         '',
-        [
-          Validators.required,
-          Validators.min(0)
-        ]
+        Validators.required
       ],
-      maxDepositAmount: [
-        '',
-        Validators.min(0)
-      ],
+      maxDepositAmount: [''],
       interestCompoundingPeriodType: [
         '',
         Validators.required

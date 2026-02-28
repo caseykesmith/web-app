@@ -1,11 +1,3 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -15,7 +7,6 @@ import { Route } from '../core/route/route.service';
 /** Custom Components */
 import { IndividualCollectionSheetComponent } from './individual-collection-sheet/individual-collection-sheet.component';
 import { OfficesResolver } from 'app/organization/offices/common-resolvers/offices.resolver';
-import { CollectionSheetComponent } from './collection-sheet/collection-sheet.component';
 
 const routes: Routes = [
   Route.withShell([
@@ -33,22 +24,11 @@ const routes: Routes = [
           resolve: {
             officesData: OfficesResolver
           }
-        },
-        {
-          path: 'collection-sheet',
-          data: {
-            title: 'Collection Sheet',
-            breadcrumb: 'Collection Sheet',
-            routeParamBreadcrumb: false
-          },
-          component: CollectionSheetComponent,
-          resolve: {
-            officesData: OfficesResolver
-          }
         }
       ]
     }
   ])
+
 ];
 
 @NgModule({

@@ -1,24 +1,9 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, inject } from '@angular/core';
-import {
-  UntypedFormGroup,
-  UntypedFormBuilder,
-  UntypedFormArray,
-  Validators,
-  FormControl,
-  ReactiveFormsModule
-} from '@angular/forms';
+import { Component } from '@angular/core';
+import { UntypedFormGroup, UntypedFormBuilder, UntypedFormArray, Validators, FormControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { CdkDragDrop, moveItemInArray, CdkDropList, CdkDrag } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 /** Custom Services */
 import { SystemService } from '../../system.service';
@@ -28,12 +13,6 @@ import { CancelDialogComponent } from '../../../shared/cancel-dialog/cancel-dial
 
 /** Survey Models */
 import { Survey, QuestionData, ResponseData } from './../survey.model';
-import { CdkTextareaAutosize } from '@angular/cdk/text-field';
-import { MatButton, MatIconButton } from '@angular/material/button';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { MatDivider } from '@angular/material/divider';
-import { MatTooltip } from '@angular/material/tooltip';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 /**
  * Edit survey component.
@@ -41,25 +20,9 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 @Component({
   selector: 'mifosx-edit-survey',
   templateUrl: './edit-survey.component.html',
-  styleUrls: ['./edit-survey.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    CdkTextareaAutosize,
-    CdkDropList,
-    CdkDrag,
-    FaIconComponent,
-    MatDivider,
-    MatIconButton,
-    MatTooltip
-  ]
+  styleUrls: ['./edit-survey.component.scss']
 })
 export class EditSurveyComponent {
-  private formBuilder = inject(UntypedFormBuilder);
-  private systemService = inject(SystemService);
-  private route = inject(ActivatedRoute);
-  private router = inject(Router);
-  dialog = inject(MatDialog);
-
   /** Survey form. */
   surveyForm: UntypedFormGroup;
 
@@ -70,7 +33,13 @@ export class EditSurveyComponent {
    * @param {Router} router Router for navigation.
    * @param {MatDialog} dialog Dialog reference.
    */
-  constructor() {
+  constructor(
+    private formBuilder: UntypedFormBuilder,
+    private systemService: SystemService,
+    private route: ActivatedRoute,
+    private router: Router,
+    public dialog: MatDialog
+  ) {
     this.createSurveyForm();
     this.route.data.subscribe((data: { survey: any }) => {
       this.prepareSurveyForm(data.survey);
@@ -136,8 +105,7 @@ export class EditSurveyComponent {
         '',
         [
           Validators.required,
-          Validators.pattern('^\\s*([A-Za-z]{2})?\\s*$')
-        ]
+          Validators.pattern('^\\s*([A-Za-z]{2})?\\s*$')]
       ],
       description: [''],
       questionDatas: this.formBuilder.array([])
@@ -216,8 +184,7 @@ export class EditSurveyComponent {
         '',
         [
           Validators.required,
-          Validators.pattern('^\\s*[-]?\\d{0,4}\\s*$')
-        ]
+          Validators.pattern('^\\s*[-]?\\d{0,4}\\s*$')]
       ],
       sequenceNo: ['']
     });

@@ -1,12 +1,4 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
-import { Component, Input, OnChanges, OnInit, SimpleChanges, inject } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { UntypedFormArray, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -16,73 +8,19 @@ import { FormDialogComponent } from 'app/shared/form-dialog/form-dialog.componen
 import { TranslateService } from '@ngx-translate/core';
 import { FormfieldBase } from 'app/shared/form-dialog/formfield/model/formfield-base';
 import { SelectBase } from 'app/shared/form-dialog/formfield/model/select-base';
-import {
-  ChargeOffReasonToExpenseAccountMapping,
-  ClassificationToIncomeAccountMapping
-} from 'app/shared/models/general.model';
-import { DeferredIncomeRecognition } from '../loan-product-payment-strategy-step/payment-allocation-model';
-import { MatRadioGroup, MatRadioButton } from '@angular/material/radio';
-import { MatDivider } from '@angular/material/divider';
-import { MatCheckbox } from '@angular/material/checkbox';
-import { GlAccountSelectorComponent } from '../../../../shared/accounting/gl-account-selector/gl-account-selector.component';
-import { MatIconButton } from '@angular/material/button';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import {
-  MatTable,
-  MatColumnDef,
-  MatHeaderCellDef,
-  MatHeaderCell,
-  MatCellDef,
-  MatCell,
-  MatHeaderRowDef,
-  MatHeaderRow,
-  MatRowDef,
-  MatRow
-} from '@angular/material/table';
-import { MatStepperPrevious, MatStepperNext } from '@angular/material/stepper';
-import { FindPipe } from '../../../../pipes/find.pipe';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
-import { AdvancedAccountingMappingRuleComponent } from './advanced-accounting-mapping-rule/advanced-accounting-mapping-rule.component';
-import { AccountingMappingDTO, AdvancedMappingDTO } from '../../models/loan-product.model';
+import { ChargeOffReasonToExpenseAccountMapping } from 'app/shared/models/general.model';
+import { CapitalizedIncome } from '../loan-product-payment-strategy-step/payment-allocation-model';
 
 @Component({
   selector: 'mifosx-loan-product-accounting-step',
   templateUrl: './loan-product-accounting-step.component.html',
-  styleUrls: ['./loan-product-accounting-step.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    MatRadioGroup,
-    MatRadioButton,
-    MatDivider,
-    MatCheckbox,
-    GlAccountSelectorComponent,
-    FaIconComponent,
-    MatTable,
-    MatColumnDef,
-    MatHeaderCellDef,
-    MatHeaderCell,
-    MatCellDef,
-    MatCell,
-    MatIconButton,
-    MatHeaderRowDef,
-    MatHeaderRow,
-    MatRowDef,
-    MatRow,
-    MatStepperPrevious,
-    MatStepperNext,
-    FindPipe,
-    AdvancedAccountingMappingRuleComponent
-  ]
+  styleUrls: ['./loan-product-accounting-step.component.scss']
 })
 export class LoanProductAccountingStepComponent implements OnInit, OnChanges {
-  private formBuilder = inject(UntypedFormBuilder);
-  dialog = inject(MatDialog);
-  private translateService = inject(TranslateService);
-
   @Input() loanProductsTemplate: any;
   @Input() accountingRuleData: any;
   @Input() loanProductFormValid: boolean;
-  @Input() deferredIncomeRecognition: DeferredIncomeRecognition;
+  @Input() capitalizedIncome: CapitalizedIncome;
 
   loanProductAccountingForm: UntypedFormGroup;
 
@@ -96,9 +34,6 @@ export class LoanProductAccountingStepComponent implements OnInit, OnChanges {
   incomeAndLiabilityAccountData: any;
   assetAndLiabilityAccountData: any;
   chargeOffReasonOptions: any;
-  capitalizedIncomeClassificationOptions: any[] = [];
-  buydownFeeClassificationOptions: any[] = [];
-  writeOffReasonOptions: any[] = [];
 
   currentFormValues: any[] = [];
   allowAddChargeOffReasonExpense = true;
@@ -119,13 +54,17 @@ export class LoanProductAccountingStepComponent implements OnInit, OnChanges {
     'actions'
   ];
 
-  constructor() {
+  constructor(
+    private formBuilder: UntypedFormBuilder,
+    public dialog: MatDialog,
+    private translateService: TranslateService
+  ) {
     this.createLoanProductAccountingForm();
     this.setConditionalControls();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.setDeferredIncomeRecognitionControls();
+    this.setCapitalizedIncomeControls();
   }
 
   ngOnInit() {
@@ -140,17 +79,13 @@ export class LoanProductAccountingStepComponent implements OnInit, OnChanges {
     this.assetAndLiabilityAccountData =
       this.loanProductsTemplate.accountingMappingOptions.assetAndLiabilityAccountOptions || [];
     this.chargeOffReasonOptions = this.loanProductsTemplate.chargeOffReasonOptions || [];
-    this.capitalizedIncomeClassificationOptions =
-      this.loanProductsTemplate.capitalizedIncomeClassificationOptions || [];
-    this.buydownFeeClassificationOptions = this.loanProductsTemplate.buydownFeeClassificationOptions || [];
-    this.writeOffReasonOptions = this.loanProductsTemplate.writeOffReasonOptions || [];
 
     this.loanProductAccountingForm.patchValue({
       accountingRule: this.loanProductsTemplate.accountingRule.id
     });
 
     const accountingMappings = this.loanProductsTemplate.accountingMappings;
-    this.setDeferredIncomeRecognitionControls();
+    this.setCapitalizedIncomeControls();
     switch (this.loanProductsTemplate.accountingRule.id) {
       case 3:
       case 4:
@@ -162,24 +97,11 @@ export class LoanProductAccountingStepComponent implements OnInit, OnChanges {
         this.loanProductAccountingForm.patchValue({
           enableAccrualActivityPosting: this.loanProductsTemplate.enableAccrualActivityPosting
         });
-        if (this.deferredIncomeRecognition) {
-          if (this.deferredIncomeRecognition.capitalizedIncome?.enableIncomeCapitalization) {
-            this.loanProductAccountingForm.patchValue({
-              deferredIncomeLiabilityAccountId: accountingMappings.deferredIncomeLiabilityAccount.id,
-              incomeFromCapitalizationAccountId: accountingMappings.incomeFromCapitalizationAccount.id
-            });
-          }
-          if (this.deferredIncomeRecognition.buyDownFee?.enableBuyDownFee) {
-            this.loanProductAccountingForm.patchValue({
-              deferredIncomeLiabilityAccountId: accountingMappings.deferredIncomeLiabilityAccount.id,
-              incomeFromBuyDownAccountId: accountingMappings.incomeFromBuyDownAccount.id
-            });
-            if (this.deferredIncomeRecognition.buyDownFee?.merchantBuyDownFee) {
-              this.loanProductAccountingForm.patchValue({
-                buyDownExpenseAccountId: accountingMappings.buyDownExpenseAccount?.id
-              });
-            }
-          }
+        if (this.capitalizedIncome.enableIncomeCapitalization) {
+          this.loanProductAccountingForm.patchValue({
+            deferredIncomeLiabilityAccountId: accountingMappings.deferredIncomeLiabilityAccount.id,
+            incomeFromCapitalizationAccountId: accountingMappings.incomeFromCapitalizationAccount.id
+          });
         }
       /* falls through */
       case 2:
@@ -192,7 +114,7 @@ export class LoanProductAccountingStepComponent implements OnInit, OnChanges {
           incomeFromPenaltyAccountId: accountingMappings.incomeFromPenaltyAccount.id,
           incomeFromRecoveryAccountId: accountingMappings.incomeFromRecoveryAccount.id,
           writeOffAccountId: accountingMappings.writeOffAccount.id,
-          goodwillCreditAccountId: accountingMappings.goodwillCreditAccount?.id || null,
+          goodwillCreditAccountId: accountingMappings.goodwillCreditAccount.id,
           overpaymentLiabilityAccountId: accountingMappings.overpaymentLiabilityAccount.id,
           chargeOffFraudExpenseAccountId: accountingMappings.chargeOffFraudExpenseAccount
             ? accountingMappings.chargeOffFraudExpenseAccount.id
@@ -222,10 +144,7 @@ export class LoanProductAccountingStepComponent implements OnInit, OnChanges {
             this.loanProductsTemplate.paymentChannelToFundSourceMappings ||
             this.loanProductsTemplate.feeToIncomeAccountMappings ||
             this.loanProductsTemplate.penaltyToIncomeAccountMappings ||
-            this.loanProductsTemplate.chargeOffReasonToExpenseAccountMappings ||
-            this.loanProductsTemplate.buydownFeeClassificationToIncomeAccountMappings ||
-            this.loanProductsTemplate.capitalizedIncomeClassificationToIncomeAccountMappings ||
-            this.loanProductsTemplate.writeOffReasonsToExpenseMappings
+            this.loanProductsTemplate.chargeOffReasonToExpenseAccountMappings
               ? true
               : false
         });
@@ -262,41 +181,8 @@ export class LoanProductAccountingStepComponent implements OnInit, OnChanges {
           this.formBuilder.array(
             (this.loanProductsTemplate.chargeOffReasonToExpenseAccountMappings || []).map(
               (m: ChargeOffReasonToExpenseAccountMapping) => ({
-                chargeOffReasonCodeValueId: m.reasonCodeValue.id,
+                chargeOffReasonCodeValueId: m.chargeOffReasonCodeValue.id,
                 expenseAccountId: m.expenseAccount.id
-              })
-            )
-          )
-        );
-        this.loanProductAccountingForm.setControl(
-          'buydownfeeClassificationToIncomeAccountMappings',
-          this.formBuilder.array(
-            (this.loanProductsTemplate.buydownFeeClassificationToIncomeAccountMappings || []).map(
-              (m: ClassificationToIncomeAccountMapping) => ({
-                value: m.classificationCodeValue,
-                glAccount: m.incomeAccount
-              })
-            )
-          )
-        );
-        this.loanProductAccountingForm.setControl(
-          'capitalizedIncomeClassificationToIncomeAccountMappings',
-          this.formBuilder.array(
-            (this.loanProductsTemplate.capitalizedIncomeClassificationToIncomeAccountMappings || []).map(
-              (m: ClassificationToIncomeAccountMapping) => ({
-                value: m.classificationCodeValue,
-                glAccount: m.incomeAccount
-              })
-            )
-          )
-        );
-        this.loanProductAccountingForm.setControl(
-          'writeOffReasonsToExpenseMappings',
-          this.formBuilder.array(
-            (this.loanProductsTemplate.writeOffReasonsToExpenseMappings || []).map(
-              (m: ChargeOffReasonToExpenseAccountMapping) => ({
-                value: m.reasonCodeValue,
-                glAccount: m.expenseAccount
               })
             )
           )
@@ -398,15 +284,6 @@ export class LoanProductAccountingStepComponent implements OnInit, OnChanges {
                 'chargeOffReasonToExpenseAccountMappings',
                 this.formBuilder.array([])
               );
-              this.loanProductAccountingForm.addControl(
-                'buydownfeeClassificationToIncomeAccountMappings',
-                this.formBuilder.array([])
-              );
-              this.loanProductAccountingForm.addControl(
-                'capitalizedIncomeClassificationToIncomeAccountMappings',
-                this.formBuilder.array([])
-              );
-              this.loanProductAccountingForm.addControl('writeOffReasonsToExpenseMappings', this.formBuilder.array([]));
             } else {
               this.loanProductAccountingForm.setControl(
                 'paymentChannelToFundSourceMappings',
@@ -418,15 +295,6 @@ export class LoanProductAccountingStepComponent implements OnInit, OnChanges {
                 'chargeOffReasonToExpenseAccountMappings',
                 this.formBuilder.array([])
               );
-              this.loanProductAccountingForm.setControl(
-                'buydownfeeClassificationToIncomeAccountMappings',
-                this.formBuilder.array([])
-              );
-              this.loanProductAccountingForm.setControl(
-                'capitalizedIncomeClassificationToIncomeAccountMappings',
-                this.formBuilder.array([])
-              );
-              this.loanProductAccountingForm.setControl('writeOffReasonsToExpenseMappings', this.formBuilder.array([]));
             }
           });
       } else {
@@ -488,20 +356,6 @@ export class LoanProductAccountingStepComponent implements OnInit, OnChanges {
 
   get chargeOffReasonToExpenseAccountMappings(): UntypedFormArray {
     return this.loanProductAccountingForm.get('chargeOffReasonToExpenseAccountMappings') as UntypedFormArray;
-  }
-
-  get buydownfeeClassificationToIncomeAccountMappings(): UntypedFormArray {
-    return this.loanProductAccountingForm.get('buydownfeeClassificationToIncomeAccountMappings') as UntypedFormArray;
-  }
-
-  get capitalizedIncomeClassificationToIncomeAccountMappings(): UntypedFormArray {
-    return this.loanProductAccountingForm.get(
-      'capitalizedIncomeClassificationToIncomeAccountMappings'
-    ) as UntypedFormArray;
-  }
-
-  get writeOffReasonsToExpenseMappings(): UntypedFormArray {
-    return this.loanProductAccountingForm.get('writeOffReasonsToExpenseMappings') as UntypedFormArray;
   }
 
   setLoanProductAccountingFormDirty() {
@@ -600,6 +454,7 @@ export class LoanProductAccountingStepComponent implements OnInit, OnChanges {
         required: true,
         order: 2
       })
+
     ];
     return formfields;
   }
@@ -622,6 +477,7 @@ export class LoanProductAccountingStepComponent implements OnInit, OnChanges {
         required: true,
         order: 2
       })
+
     ];
     return formfields;
   }
@@ -644,6 +500,7 @@ export class LoanProductAccountingStepComponent implements OnInit, OnChanges {
         required: true,
         order: 2
       })
+
     ];
     return formfields;
   }
@@ -667,6 +524,7 @@ export class LoanProductAccountingStepComponent implements OnInit, OnChanges {
         required: true,
         order: 2
       })
+
     ];
     return formfields;
   }
@@ -680,79 +538,21 @@ export class LoanProductAccountingStepComponent implements OnInit, OnChanges {
     return this.loanProductAccountingForm.value;
   }
 
-  setDeferredIncomeRecognitionControls() {
+  setCapitalizedIncomeControls() {
     if (this.isAccountingAccrualBased) {
-      if (this.deferredIncomeRecognition) {
-        if (
-          this.deferredIncomeRecognition.capitalizedIncome?.enableIncomeCapitalization ||
-          this.deferredIncomeRecognition.buyDownFee?.enableBuyDownFee
-        ) {
-          this.loanProductAccountingForm.addControl(
-            'deferredIncomeLiabilityAccountId',
-            new UntypedFormControl('', Validators.required)
-          );
-        } else {
-          this.loanProductAccountingForm.removeControl('deferredIncomeLiabilityAccountId');
-        }
-        if (this.deferredIncomeRecognition.capitalizedIncome?.enableIncomeCapitalization) {
-          this.loanProductAccountingForm.addControl(
-            'incomeFromCapitalizationAccountId',
-            new UntypedFormControl('', Validators.required)
-          );
-        } else {
-          this.loanProductAccountingForm.removeControl('incomeFromCapitalizationAccountId');
-        }
-        if (this.deferredIncomeRecognition.buyDownFee?.enableBuyDownFee) {
-          if (this.deferredIncomeRecognition.buyDownFee?.merchantBuyDownFee) {
-            this.loanProductAccountingForm.addControl(
-              'buyDownExpenseAccountId',
-              new UntypedFormControl('', Validators.required)
-            );
-          }
-          this.loanProductAccountingForm.addControl(
-            'incomeFromBuyDownAccountId',
-            new UntypedFormControl('', Validators.required)
-          );
-        } else {
-          this.loanProductAccountingForm.removeControl('buyDownExpenseAccountId');
-          this.loanProductAccountingForm.removeControl('incomeFromBuyDownAccountId');
-        }
+      if (this.capitalizedIncome.enableIncomeCapitalization) {
+        this.loanProductAccountingForm.addControl(
+          'deferredIncomeLiabilityAccountId',
+          new UntypedFormControl('', Validators.required)
+        );
+        this.loanProductAccountingForm.addControl(
+          'incomeFromCapitalizationAccountId',
+          new UntypedFormControl('', Validators.required)
+        );
+      } else {
+        this.loanProductAccountingForm.removeControl('deferredIncomeLiabilityAccountId');
+        this.loanProductAccountingForm.removeControl('incomeFromCapitalizationAccountId');
       }
     }
-  }
-
-  formChangeEvent(accountingData: AdvancedMappingDTO) {
-    if (accountingData.formType === 'BuydownFeeClassificationToIncome') {
-      this.loanProductAccountingForm.setControl(
-        'buydownfeeClassificationToIncomeAccountMappings',
-        this.formBuilder.array(
-          (accountingData.values || []).map((m: AccountingMappingDTO) => ({
-            classificationCodeValueId: m.value.id,
-            incomeAccountId: m.glAccount.id
-          }))
-        )
-      );
-    } else if (accountingData.formType === 'CapitalizedIncomeClassificationToIncome') {
-      this.loanProductAccountingForm.setControl(
-        'capitalizedIncomeClassificationToIncomeAccountMappings',
-        this.formBuilder.array(
-          (accountingData.values || []).map((m: AccountingMappingDTO) => ({
-            classificationCodeValueId: m.value.id,
-            incomeAccountId: m.glAccount.id
-          }))
-        )
-      );
-    } else if (accountingData.formType === 'WriteOffReasonToExpense') {
-      this.loanProductAccountingForm.setControl(
-        'writeOffReasonsToExpenseMappings',
-        this.formBuilder.array(
-          (accountingData.values || []).map((m: AccountingMappingDTO) => ({
-            writeOffReasonCodeValueId: m.value.id,
-            expenseAccountId: m.glAccount.id
-          }))
-        )
-      );
-    }
-    this.setLoanProductAccountingFormDirty();
   }
 }

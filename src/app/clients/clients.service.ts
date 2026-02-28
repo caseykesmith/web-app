@@ -1,21 +1,9 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Injectable, inject } from '@angular/core';
-import { HttpClient, HttpParams, HttpBackend, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 /** rxjs Imports */
-import { Observable, of, throwError } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
-
-import { environment } from 'environments/environment';
-
+import { Observable } from 'rxjs';
 /**
  * Clients service.
  */
@@ -23,11 +11,10 @@ import { environment } from 'environments/environment';
   providedIn: 'root'
 })
 export class ClientsService {
-  private http = inject(HttpClient);
-  private httpBackend = inject(HttpBackend);
-
-  /** Separate HttpClient that bypasses interceptors (for external API calls) */
-  private externalHttp = new HttpClient(this.httpBackend);
+  /**
+   * @param {HttpClient} http Http Client to send requests.
+   */
+  constructor(private http: HttpClient) {}
 
   getFilteredClients(
     orderBy: string,
@@ -183,23 +170,9 @@ export class ClientsService {
 
   getClientProfileImage(clientId: string) {
     const httpParams = new HttpParams().set('maxHeight', '150');
-    // Keep it simple since our interceptor will handle the 404 errors
     return this.http
-      .get(`/clients/${clientId}/images`, {
-        params: httpParams,
-        responseType: 'text'
-      })
-      .pipe(
-        // Handle the error here and return null when no image is found (404)
-        catchError((error) => {
-          if (error.status === 404) {
-            // Client has no profile image - return null without propagating error
-            return of(null);
-          }
-          // For other errors, rethrow the error
-          return throwError(() => error);
-        })
-      );
+      .skipErrorHandler()
+      .get(`/clients/${clientId}/images`, { params: httpParams, responseType: 'text' });
   }
 
   uploadClientProfileImage(clientId: string, image: File) {
@@ -365,7 +338,7 @@ export class ClientsService {
 
   retrieveClientReportTemplate(templateId: string, clientId: string) {
     const httpParams = new HttpParams().set('clientId', clientId);
-    return this.http.get(`/templates/${templateId}`, { params: httpParams, responseType: 'text' });
+    return this.http.post(`/templates/${templateId}`, {}, { params: httpParams, responseType: 'text' });
   }
 
   /**
@@ -441,35 +414,5 @@ export class ClientsService {
       };
     }
     return this.http.post(`/v2/clients/search`, request);
-  }
-
-  /**
-   * Lookup external National ID from the configured external system.
-   * Uses a separate HttpClient (via HttpBackend) to bypass Angular interceptors
-   * so that Fineract auth headers are not sent to the external API.
-   *
-   * In development, requests go through the dev proxy (/external-nationalid).
-   * In production, requests go through the nginx reverse proxy.
-   *
-   * @param externalId The National ID string (e.g. CURP)
-   */
-  lookupExternalNationalId(externalId: string): Observable<any> {
-    const apiUrl = environment.externalNationalIdSystemUrl;
-    if (!apiUrl) {
-      return throwError(() => new Error('External National ID System URL is not configured'));
-    }
-
-    let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    const apiHeader = environment.externalNationalIdSystemApiHeader;
-    const apiKey = environment.externalNationalIdSystemApiKey;
-    if (apiHeader && apiKey) {
-      // Validate header name to prevent Angular from throwing on invalid header
-      if (!/^[a-zA-Z][a-zA-Z0-9-]*$/.test(apiHeader)) {
-        return throwError(() => new Error(`Invalid API header name: '${apiHeader}'`));
-      }
-      headers = headers.set(apiHeader, apiKey);
-    }
-
-    return this.externalHttp.post(apiUrl, { externalId }, { headers });
   }
 }

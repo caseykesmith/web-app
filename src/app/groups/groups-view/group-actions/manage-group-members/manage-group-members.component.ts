@@ -1,14 +1,6 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, OnInit, AfterViewInit, inject } from '@angular/core';
-import { FormGroup, FormBuilder, UntypedFormControl, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { FormGroup, FormBuilder, UntypedFormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
 /** Custom Dialogs */
@@ -18,13 +10,6 @@ import { DeleteDialogComponent } from 'app/shared/delete-dialog/delete-dialog.co
 import { GroupsService } from 'app/groups/groups.service';
 import { ClientsService } from 'app/clients/clients.service';
 import { MatDialog } from '@angular/material/dialog';
-import { MatAutocompleteTrigger, MatAutocomplete, MatOption } from '@angular/material/autocomplete';
-import { MatIconButton } from '@angular/material/button';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { MatListSubheaderCssMatStyler, MatNavList } from '@angular/material/list';
-import { MatLine } from '@angular/material/grid-list';
-import { MatTooltip } from '@angular/material/tooltip';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 /**
  * Manage Group Members Component
@@ -32,25 +17,9 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 @Component({
   selector: 'mifosx-manage-group-members',
   templateUrl: './manage-group-members.component.html',
-  styleUrls: ['./manage-group-members.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    MatAutocompleteTrigger,
-    MatAutocomplete,
-    MatIconButton,
-    FaIconComponent,
-    MatListSubheaderCssMatStyler,
-    MatNavList,
-    MatLine,
-    MatTooltip
-  ]
+  styleUrls: ['./manage-group-members.component.scss']
 })
 export class ManageGroupMembersComponent implements AfterViewInit {
-  private route = inject(ActivatedRoute);
-  private groupsService = inject(GroupsService);
-  private clientsService = inject(ClientsService);
-  dialog = inject(MatDialog);
-
   /** Group Data */
   groupData: any;
   /** Client data. */
@@ -67,7 +36,12 @@ export class ManageGroupMembersComponent implements AfterViewInit {
    * @param {ClientsService} clientsService Clients Service
    * @param {MatDialog} dialog Mat Dialog
    */
-  constructor() {
+  constructor(
+    private route: ActivatedRoute,
+    private groupsService: GroupsService,
+    private clientsService: ClientsService,
+    public dialog: MatDialog
+  ) {
     this.route.data.subscribe((data: { groupActionData: any }) => {
       this.groupData = data.groupActionData;
       this.clientMembers = data.groupActionData.clientMembers || [];

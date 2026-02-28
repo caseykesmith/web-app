@@ -1,31 +1,10 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, OnInit, inject } from '@angular/core';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SelectionModel } from '@angular/cdk/collections';
-import { UntypedFormBuilder, UntypedFormGroup, ReactiveFormsModule } from '@angular/forms';
-import {
-  MatTableDataSource,
-  MatTable,
-  MatColumnDef,
-  MatHeaderCellDef,
-  MatHeaderCell,
-  MatCellDef,
-  MatCell,
-  MatHeaderRowDef,
-  MatHeaderRow,
-  MatRowDef,
-  MatRow
-} from '@angular/material/table';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
+import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
-import { MatIcon } from '@angular/material/icon';
 
 /** Custom Services */
 import { TasksService } from '../../tasks.service';
@@ -35,43 +14,13 @@ import { SettingsService } from 'app/settings/settings.service';
 import { ConfirmationDialogComponent } from 'app/shared/confirmation-dialog/confirmation-dialog.component';
 import { Dates } from 'app/core/utils/dates';
 import { TranslateService } from '@ngx-translate/core';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { MatCheckbox } from '@angular/material/checkbox';
-import { DateFormatPipe } from '../../../pipes/date-format.pipe';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 @Component({
   selector: 'mifosx-checker-inbox',
   templateUrl: './checker-inbox.component.html',
-  styleUrls: ['./checker-inbox.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    FaIconComponent,
-    MatTable,
-    MatColumnDef,
-    MatHeaderCellDef,
-    MatHeaderCell,
-    MatCheckbox,
-    MatCellDef,
-    MatCell,
-    MatHeaderRowDef,
-    MatHeaderRow,
-    MatRowDef,
-    MatRow,
-    DateFormatPipe,
-    MatIcon
-  ]
+  styleUrls: ['./checker-inbox.component.scss']
 })
 export class CheckerInboxComponent implements OnInit {
-  private route = inject(ActivatedRoute);
-  private dialog = inject(MatDialog);
-  private dateUtils = inject(Dates);
-  private router = inject(Router);
-  private translateService = inject(TranslateService);
-  private tasksService = inject(TasksService);
-  private settingsService = inject(SettingsService);
-  private formBuilder = inject(UntypedFormBuilder);
-
   /** Data to be displayed */
   searchData: any;
   /** Maker Checker Template */
@@ -80,8 +29,6 @@ export class CheckerInboxComponent implements OnInit {
   noSearchedData = false;
   /** Checks if there is any checker data */
   checkerData = false;
-  /** Show/hide advanced search form */
-  showAdvancedSearch = false;
   /** Maker Checker Search Form */
   makerCheckerSearchForm: UntypedFormGroup;
   /** Minimum date allowed. */
@@ -113,7 +60,16 @@ export class CheckerInboxComponent implements OnInit {
    * @param {TasksService} tasksService Tasks Service.
    * @param {FormBuilder} formBuilder Form Builder.
    */
-  constructor() {
+  constructor(
+    private route: ActivatedRoute,
+    private dialog: MatDialog,
+    private dateUtils: Dates,
+    private router: Router,
+    private translateService: TranslateService,
+    private tasksService: TasksService,
+    private settingsService: SettingsService,
+    private formBuilder: UntypedFormBuilder
+  ) {
     this.route.data.subscribe((data: { makerCheckerResource: any; makerCheckerTemplate: any }) => {
       this.searchData = data.makerCheckerResource;
       if (this.searchData.length > 0) {
@@ -140,13 +96,6 @@ export class CheckerInboxComponent implements OnInit {
       entityName: [''],
       resourceId: ['']
     });
-  }
-
-  /**
-   * Toggle advanced search form visibility.
-   */
-  toggleAdvancedSearch() {
-    this.showAdvancedSearch = !this.showAdvancedSearch;
   }
 
   search() {

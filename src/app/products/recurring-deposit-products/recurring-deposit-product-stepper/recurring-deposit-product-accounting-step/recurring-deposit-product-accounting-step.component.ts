@@ -1,20 +1,5 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
-import { Component, OnInit, Input, inject } from '@angular/core';
-import {
-  UntypedFormGroup,
-  UntypedFormBuilder,
-  UntypedFormArray,
-  Validators,
-  UntypedFormControl,
-  ReactiveFormsModule
-} from '@angular/forms';
+import { Component, OnInit, Input } from '@angular/core';
+import { UntypedFormGroup, UntypedFormBuilder, UntypedFormArray, Validators, UntypedFormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 
 import { FormDialogComponent } from 'app/shared/form-dialog/form-dialog.component';
@@ -24,62 +9,13 @@ import { FormfieldBase } from 'app/shared/form-dialog/formfield/model/formfield-
 import { SelectBase } from 'app/shared/form-dialog/formfield/model/select-base';
 import { Accounting } from 'app/core/utils/accounting';
 import { TranslateService } from '@ngx-translate/core';
-import { MatRadioGroup, MatRadioButton } from '@angular/material/radio';
-import { MatDivider } from '@angular/material/divider';
-import { GlAccountSelectorComponent } from '../../../../shared/accounting/gl-account-selector/gl-account-selector.component';
-import { MatCheckbox } from '@angular/material/checkbox';
-import { MatButton, MatIconButton } from '@angular/material/button';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import {
-  MatTable,
-  MatColumnDef,
-  MatHeaderCellDef,
-  MatHeaderCell,
-  MatCellDef,
-  MatCell,
-  MatHeaderRowDef,
-  MatHeaderRow,
-  MatRowDef,
-  MatRow
-} from '@angular/material/table';
-import { MatStepperPrevious, MatStepperNext } from '@angular/material/stepper';
-import { FindPipe } from '../../../../pipes/find.pipe';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 @Component({
   selector: 'mifosx-recurring-deposit-product-accounting-step',
   templateUrl: './recurring-deposit-product-accounting-step.component.html',
-  styleUrls: ['./recurring-deposit-product-accounting-step.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    MatRadioGroup,
-    MatRadioButton,
-    MatDivider,
-    GlAccountSelectorComponent,
-    MatCheckbox,
-    FaIconComponent,
-    MatTable,
-    MatColumnDef,
-    MatHeaderCellDef,
-    MatHeaderCell,
-    MatCellDef,
-    MatCell,
-    MatIconButton,
-    MatHeaderRowDef,
-    MatHeaderRow,
-    MatRowDef,
-    MatRow,
-    MatStepperPrevious,
-    MatStepperNext,
-    FindPipe
-  ]
+  styleUrls: ['./recurring-deposit-product-accounting-step.component.scss']
 })
 export class RecurringDepositProductAccountingStepComponent implements OnInit {
-  private formBuilder = inject(UntypedFormBuilder);
-  private dialog = inject(MatDialog);
-  private accounting = inject(Accounting);
-  private translateService = inject(TranslateService);
-
   @Input() recurringDepositProductsTemplate: any;
   @Input() accountingRuleData: any;
   @Input() recurringDepositProductFormValid: boolean;
@@ -105,7 +41,12 @@ export class RecurringDepositProductAccountingStepComponent implements OnInit {
     'actions'
   ];
 
-  constructor() {
+  constructor(
+    private formBuilder: UntypedFormBuilder,
+    private dialog: MatDialog,
+    private accounting: Accounting,
+    private translateService: TranslateService
+  ) {
     this.createrecurringDepositProductAccountingForm();
     this.setConditionalControls();
   }
@@ -396,6 +337,7 @@ export class RecurringDepositProductAccountingStepComponent implements OnInit {
         required: true,
         order: 2
       })
+
     ];
     return formfields;
   }
@@ -418,6 +360,7 @@ export class RecurringDepositProductAccountingStepComponent implements OnInit {
         required: true,
         order: 2
       })
+
     ];
     return formfields;
   }
@@ -440,6 +383,7 @@ export class RecurringDepositProductAccountingStepComponent implements OnInit {
         required: true,
         order: 2
       })
+
     ];
     return formfields;
   }

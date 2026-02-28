@@ -1,11 +1,3 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -44,7 +36,7 @@ import { EntityDatatableTabComponent } from './tabs/entity-datatable-tab/entity-
 import { DatatableSingleRowComponent } from './tabs/entity-datatable-tab/datatable-single-row/datatable-single-row.component';
 import { DatatableMultiRowComponent } from './tabs/entity-datatable-tab/datatable-multi-row/datatable-multi-row.component';
 import { SvgIconComponent } from './svg-icon/svg-icon.component';
-// import { NgxMatDatetimePickerModule, NgxMatNativeDateModule } from '@angular-material-components/datetime-picker';
+import { NgxMatDatetimePickerModule, NgxMatNativeDateModule } from '@angular-material-components/datetime-picker';
 import { ViewJournalEntryComponent } from './accounting/view-journal-entry/view-journal-entry.component';
 import { ViewJournalEntryTransactionComponent } from './accounting/view-journal-entry-transaction/view-journal-entry-transaction.component';
 import { AccountNumberComponent } from './account-number/account-number.component';
@@ -59,7 +51,6 @@ import { LongTextComponent } from './long-text/long-text.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { InputAmountComponent } from './input-amount/input-amount.component';
 import { InputPasswordComponent } from './input-password/input-password.component';
-import { DatetimePickerStubComponent } from './datetime-picker-stub/datetime-picker-stub.component'; // import Datetime Picker Stub
 
 /**
  * Shared Module
@@ -75,8 +66,10 @@ import { DatetimePickerStubComponent } from './datetime-picker-stub/datetime-pic
     TranslateModule,
     PipesModule,
     DirectivesModule,
-    // NgxMatDatetimePickerModule,
-    // NgxMatNativeDateModule
+    NgxMatDatetimePickerModule,
+    NgxMatNativeDateModule
+  ],
+  declarations: [
     FormfieldComponent,
     FormDialogComponent,
     DeleteDialogComponent,
@@ -115,8 +108,7 @@ import { DatetimePickerStubComponent } from './datetime-picker-stub/datetime-pic
     LongTextComponent,
     DropdownComponent,
     InputAmountComponent,
-    InputPasswordComponent,
-    DatetimePickerStubComponent // temporarily added stub for datetime picker
+    InputPasswordComponent
   ],
   exports: [
     FileUploadComponent,
@@ -151,8 +143,7 @@ import { DatetimePickerStubComponent } from './datetime-picker-stub/datetime-pic
     ThemeToggleComponent,
     LongTextComponent,
     DropdownComponent,
-    InputAmountComponent,
-    DatetimePickerStubComponent // Export stub for datetime picker
+    InputAmountComponent
   ]
 })
 export class SharedModule {}

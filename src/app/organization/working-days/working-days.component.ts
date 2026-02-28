@@ -1,21 +1,7 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, OnInit, TemplateRef, ElementRef, ViewChild, AfterViewInit, inject } from '@angular/core';
-import {
-  UntypedFormGroup,
-  UntypedFormBuilder,
-  UntypedFormArray,
-  UntypedFormControl,
-  ReactiveFormsModule
-} from '@angular/forms';
-import { Router, ActivatedRoute, RouterLink } from '@angular/router';
+import { Component, OnInit, TemplateRef, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { UntypedFormGroup, UntypedFormBuilder, UntypedFormArray, UntypedFormControl } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 
 /** Custom Services */
@@ -26,8 +12,6 @@ import { ConfigurationWizardService } from '../../configuration-wizard/configura
 
 /** Custom Dialog Components */
 import { NextStepDialogComponent } from '../../configuration-wizard/next-step-dialog/next-step-dialog.component';
-import { MatCheckbox } from '@angular/material/checkbox';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 /** Recurrence default value. */
 const recurrenceDefaultValue = 'FREQ=WEEKLY;INTERVAL=1;BYDAY=';
@@ -38,22 +22,9 @@ const recurrenceDefaultValue = 'FREQ=WEEKLY;INTERVAL=1;BYDAY=';
 @Component({
   selector: 'mifosx-working-days',
   templateUrl: './working-days.component.html',
-  styleUrls: ['./working-days.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    MatCheckbox
-  ]
+  styleUrls: ['./working-days.component.scss']
 })
 export class WorkingDaysComponent implements OnInit, AfterViewInit {
-  private formBuilder = inject(UntypedFormBuilder);
-  private route = inject(ActivatedRoute);
-  private organizationService = inject(OrganizationService);
-  private settingsService = inject(SettingsService);
-  private router = inject(Router);
-  private dialog = inject(MatDialog);
-  private configurationWizardService = inject(ConfigurationWizardService);
-  private popoverService = inject(PopoverService);
-
   /** Working days form. */
   workingDaysForm: UntypedFormGroup;
   /** Working days data. */
@@ -87,7 +58,16 @@ export class WorkingDaysComponent implements OnInit, AfterViewInit {
    * @param {ConfigurationWizardService} configurationWizardService ConfigurationWizard Service.
    * @param {PopoverService} popoverService PopoverService.
    */
-  constructor() {
+  constructor(
+    private formBuilder: UntypedFormBuilder,
+    private route: ActivatedRoute,
+    private organizationService: OrganizationService,
+    private settingsService: SettingsService,
+    private router: Router,
+    private dialog: MatDialog,
+    private configurationWizardService: ConfigurationWizardService,
+    private popoverService: PopoverService
+  ) {
     this.route.data.subscribe((data: { workingDays: any }) => {
       this.workingDaysData = data.workingDays;
     });
@@ -153,7 +133,7 @@ export class WorkingDaysComponent implements OnInit, AfterViewInit {
     }
     workingDays.recurrence = recurrence;
     this.organizationService.updateWorkingDays(workingDays).subscribe((response) => {
-      if (this.configurationWizardService.showDefineWorkingDays) {
+      if (this.configurationWizardService.showDefineWorkingDays === true) {
         this.configurationWizardService.showDefineWorkingDays = false;
         this.openNextStepDialog();
       } else {
@@ -182,7 +162,7 @@ export class WorkingDaysComponent implements OnInit, AfterViewInit {
    * To show popover.
    */
   ngAfterViewInit() {
-    if (this.configurationWizardService.showDefineWorkingDays) {
+    if (this.configurationWizardService.showDefineWorkingDays === true) {
       setTimeout(() => {
         this.showPopover(this.templateWorkingDaysFormRef, this.workingDaysFormRef.nativeElement, 'right', true);
       });

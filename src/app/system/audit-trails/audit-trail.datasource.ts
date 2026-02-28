@@ -1,11 +1,3 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
 import { CollectionViewer, DataSource } from '@angular/cdk/collections';
 
@@ -47,6 +39,8 @@ export class AuditTrailsDataSource implements DataSource<any> {
     pageIndex: number = 0,
     limit: number = 10
   ) {
+    console.log(pageIndex);
+    console.log(limit);
     this.auditTrailsSubject.next([]);
     this.systemService
       .getAuditTrails(filterBy, orderBy, sortOrder, pageIndex * limit, limit)

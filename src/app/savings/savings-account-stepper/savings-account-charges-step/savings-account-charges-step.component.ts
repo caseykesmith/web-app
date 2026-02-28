@@ -1,13 +1,5 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, OnInit, OnChanges, Input, inject } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UntypedFormControl } from '@angular/forms';
 
@@ -19,27 +11,8 @@ import { FormfieldBase } from 'app/shared/form-dialog/formfield/model/formfield-
 import { InputBase } from 'app/shared/form-dialog/formfield/model/input-base';
 import { DatepickerBase } from 'app/shared/form-dialog/formfield/model/datepicker-base';
 import { Dates } from 'app/core/utils/dates';
-import {
-  MatTableDataSource,
-  MatTable,
-  MatColumnDef,
-  MatHeaderCellDef,
-  MatHeaderCell,
-  MatCellDef,
-  MatCell,
-  MatHeaderRowDef,
-  MatHeaderRow,
-  MatRowDef,
-  MatRow
-} from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material/table';
 import { TranslateService } from '@ngx-translate/core';
-import { MatButton, MatIconButton } from '@angular/material/button';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { MatStepperPrevious, MatStepperNext } from '@angular/material/stepper';
-import { ChargesFilterPipe } from '../../../pipes/charges-filter.pipe';
-import { DateFormatPipe } from '../../../pipes/date-format.pipe';
-import { FormatNumberPipe } from '../../../pipes/format-number.pipe';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 /**
  * Savings Account Charges Step
@@ -47,33 +20,9 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 @Component({
   selector: 'mifosx-savings-account-charges-step',
   templateUrl: './savings-account-charges-step.component.html',
-  styleUrls: ['./savings-account-charges-step.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    FaIconComponent,
-    MatTable,
-    MatColumnDef,
-    MatHeaderCellDef,
-    MatHeaderCell,
-    MatCellDef,
-    MatCell,
-    MatIconButton,
-    MatHeaderRowDef,
-    MatHeaderRow,
-    MatRowDef,
-    MatRow,
-    MatStepperPrevious,
-    MatStepperNext,
-    ChargesFilterPipe,
-    DateFormatPipe,
-    FormatNumberPipe
-  ]
+  styleUrls: ['./savings-account-charges-step.component.scss']
 })
 export class SavingsAccountChargesStepComponent implements OnInit, OnChanges {
-  private dialog = inject(MatDialog);
-  private dateUtils = inject(Dates);
-  private translateService = inject(TranslateService);
-
   /** Savings Account Product Template */
   @Input() savingsAccountProductTemplate: any;
   /** Savings Account Template */
@@ -113,6 +62,15 @@ export class SavingsAccountChargesStepComponent implements OnInit, OnChanges {
     'id',
     'name'
   ];
+
+  /**
+   * @param {MatDialog} dialog Mat Dialog
+   */
+  constructor(
+    private dialog: MatDialog,
+    private dateUtils: Dates,
+    private translateService: TranslateService
+  ) {}
 
   ngOnInit() {
     if (this.savingsAccountTemplate) {
@@ -157,6 +115,7 @@ export class SavingsAccountChargesStepComponent implements OnInit, OnChanges {
         type: 'number',
         required: false
       })
+
     ];
     const data = {
       title: this.translateService.instant('labels.heading.Edit Charge Amount'),
@@ -187,6 +146,7 @@ export class SavingsAccountChargesStepComponent implements OnInit, OnChanges {
         type: 'datetime-local',
         required: false
       })
+
     ];
     const data = {
       title: this.translateService.instant('labels.heading.Edit Charge Date'),
@@ -230,6 +190,7 @@ export class SavingsAccountChargesStepComponent implements OnInit, OnChanges {
         type: 'text',
         required: false
       })
+
     ];
     const data = {
       title: 'Edit Charge Fee Interval',

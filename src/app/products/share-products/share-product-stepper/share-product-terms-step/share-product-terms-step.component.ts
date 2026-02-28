@@ -1,41 +1,18 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
-import { Component, OnInit, Input, inject } from '@angular/core';
-import { UntypedFormGroup, UntypedFormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Component, OnInit, Input } from '@angular/core';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { combineLatest } from 'rxjs';
-import { MatFormField, MatLabel, MatError, MatHint } from '@angular/material/form-field';
-import { MatTooltip } from '@angular/material/tooltip';
-import { MatStepperPrevious, MatStepperNext } from '@angular/material/stepper';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 @Component({
   selector: 'mifosx-share-product-terms-step',
   templateUrl: './share-product-terms-step.component.html',
-  styleUrls: ['./share-product-terms-step.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    MatTooltip,
-    MatHint,
-    MatStepperPrevious,
-    FaIconComponent,
-    MatStepperNext
-  ]
+  styleUrls: ['./share-product-terms-step.component.scss']
 })
 export class ShareProductTermsStepComponent implements OnInit {
-  private formBuilder = inject(UntypedFormBuilder);
-
   @Input() shareProductsTemplate: any;
 
   shareProductTermsForm: UntypedFormGroup;
 
-  constructor() {
+  constructor(private formBuilder: UntypedFormBuilder) {
     this.createShareProductTermsForm();
   }
 
@@ -66,24 +43,15 @@ export class ShareProductTermsStepComponent implements OnInit {
     this.shareProductTermsForm = this.formBuilder.group({
       totalShares: [
         '',
-        [
-          Validators.required,
-          Validators.min(1)
-        ]
+        Validators.required
       ],
       sharesIssued: [
         '',
-        [
-          Validators.required,
-          Validators.min(1)
-        ]
+        Validators.required
       ],
       unitPrice: [
         '',
-        [
-          Validators.required,
-          Validators.min(1)
-        ]
+        Validators.required
       ],
       shareCapital: ['']
     });

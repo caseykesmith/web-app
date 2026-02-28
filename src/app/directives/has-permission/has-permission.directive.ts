@@ -1,34 +1,18 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Directive, Input, TemplateRef, ViewContainerRef, inject } from '@angular/core';
+import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 
 /** Custom Services */
 import { AuthenticationService } from '../../core/authentication/authentication.service';
 
-/** Environment */
-import { environment } from '../../../environments/environment';
-
 /**
  * Has Permission Directive
  */
-@Directive({ selector: '[mifosxHasPermission]', standalone: true })
+@Directive({
+  selector: '[mifosxHasPermission]'
+})
 export class HasPermissionDirective {
-  private templateRef = inject<TemplateRef<any>>(TemplateRef);
-  private viewContainer = inject(ViewContainerRef);
-  private authenticationService = inject(AuthenticationService);
-
   /** User Permissions */
   private userPermissions: any[];
-
-  /** RBAC Feature Flag */
-  private rbacEnabled: boolean = environment.productionModeEnableRBAC;
 
   /**
    * Extracts User Permissions from User Credentials
@@ -36,7 +20,11 @@ export class HasPermissionDirective {
    * @param {ViewContainerRef} viewContainer View Container Reference
    * @param {AuthenticationService} authenticationService AuthenticationService
    */
-  constructor() {
+  constructor(
+    private templateRef: TemplateRef<any>,
+    private viewContainer: ViewContainerRef,
+    private authenticationService: AuthenticationService
+  ) {
     const savedCredentials = this.authenticationService.getCredentials();
     this.userPermissions = savedCredentials.permissions;
   }
@@ -61,7 +49,6 @@ export class HasPermissionDirective {
    * Checks if user is permitted.
    * @param {string} permission Permission
    * @returns {true}
-   * - RBAC is disabled (backward compatibility mode)
    * -`ALL_FUNCTIONS`: user is a Super user.
    * -`ALL_FUNCTIONS_READ`: user has all read permissions and passed permission is 'read' type.
    * - User has special permission to access that feature.
@@ -70,11 +57,6 @@ export class HasPermissionDirective {
    * - No value was passed to the has permission directive.
    */
   private hasPermission(permission: string) {
-    // If RBAC is disabled, show all menus/buttons (backward compatibility)
-    if (!this.rbacEnabled) {
-      return true;
-    }
-
     permission = permission.trim();
     if (this.userPermissions.includes('ALL_FUNCTIONS')) {
       return true;

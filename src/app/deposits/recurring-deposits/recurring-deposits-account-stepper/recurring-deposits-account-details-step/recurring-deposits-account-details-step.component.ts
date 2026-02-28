@@ -1,22 +1,10 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, OnInit, Input, Output, EventEmitter, inject } from '@angular/core';
-import { UntypedFormGroup, UntypedFormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { SettingsService } from 'app/settings/settings.service';
 
 /** Custom Services */
 import { RecurringDepositsService } from '../../recurring-deposits.service';
-import { MatTooltip } from '@angular/material/tooltip';
-import { MatStepperPrevious, MatStepperNext } from '@angular/material/stepper';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 /**
  * Recurring Deposits Account Details Step
@@ -24,20 +12,9 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 @Component({
   selector: 'mifosx-recurring-deposits-account-details-step',
   templateUrl: './recurring-deposits-account-details-step.component.html',
-  styleUrls: ['./recurring-deposits-account-details-step.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    MatTooltip,
-    MatStepperPrevious,
-    FaIconComponent,
-    MatStepperNext
-  ]
+  styleUrls: ['./recurring-deposits-account-details-step.component.scss']
 })
 export class RecurringDepositsAccountDetailsStepComponent implements OnInit {
-  private formBuilder = inject(UntypedFormBuilder);
-  private recurringDepositsService = inject(RecurringDepositsService);
-  private settingsService = inject(SettingsService);
-
   /** Recurring Deposits Account Template */
   @Input() recurringDepositsAccountTemplate: any;
 
@@ -65,7 +42,11 @@ export class RecurringDepositsAccountDetailsStepComponent implements OnInit {
    * @param {RecurringDepositsService} recurringDepositsService Recurring Deposits Service.
    * @param {SettingsService} settingsService Settings Service
    */
-  constructor() {
+  constructor(
+    private formBuilder: UntypedFormBuilder,
+    private recurringDepositsService: RecurringDepositsService,
+    private settingsService: SettingsService
+  ) {
     this.createRecurringDepositsAccountDetailsForm();
   }
 

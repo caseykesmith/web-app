@@ -1,63 +1,18 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
-import { Component, OnInit, Input, inject } from '@angular/core';
-import {
-  MatTableDataSource,
-  MatTable,
-  MatColumnDef,
-  MatHeaderCellDef,
-  MatHeaderCell,
-  MatCellDef,
-  MatCell,
-  MatHeaderRowDef,
-  MatHeaderRow,
-  MatRowDef,
-  MatRow
-} from '@angular/material/table';
-import { ActivatedRoute, RouterLink } from '@angular/router';
-import { MatCheckbox } from '@angular/material/checkbox';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { MatStepperPrevious, MatStepperNext } from '@angular/material/stepper';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
+import { Component, OnInit, Input } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'mifosx-loans-active-client-members',
   templateUrl: './loans-active-client-members.component.html',
-  styleUrls: ['./loans-active-client-members.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    MatTable,
-    MatColumnDef,
-    MatHeaderCellDef,
-    MatHeaderCell,
-    MatCheckbox,
-    FormsModule,
-    MatCellDef,
-    MatCell,
-    MatHeaderRowDef,
-    MatHeaderRow,
-    MatRowDef,
-    MatRow,
-    MatStepperPrevious,
-    FaIconComponent,
-    MatStepperNext
-  ]
+  styleUrls: ['./loans-active-client-members.component.scss']
 })
 export class LoansActiveClientMembersComponent implements OnInit {
-  private route = inject(ActivatedRoute);
-
   loanId: any = null;
   @Input() activeClientMembers?: any;
   @Input() loansAccountFormValid: boolean;
 
-  constructor() {
+  constructor(private route: ActivatedRoute) {
     this.loanId = this.route.snapshot.params['loanId'];
   }
   dataSource: any;
@@ -75,10 +30,13 @@ export class LoansActiveClientMembersComponent implements OnInit {
   ];
 
   ngOnInit(): void {
+    // console.log("Active Client Members in LoansActiveClientMembersComponent:", this.activeClientMembers);
+
     this.dataSource = new MatTableDataSource<any>(this.activeClientMembers);
   }
 
   get isValid() {
+    // console.log("LoansActiveClientMembersComponent isValid:", this.selectedClientMembers?.selectedMembers?.reduce((acc: any, cur: any) => acc + (cur.principal ?? 0), 0) > 0);
     return (
       !this.activeClientMembers ||
       this.selectedClientMembers?.selectedMembers?.reduce((acc: any, cur: any) => acc + (cur.principal ?? 0), 0) > 0

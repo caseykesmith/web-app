@@ -1,29 +1,9 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, OnInit, TemplateRef, ElementRef, ViewChild, AfterViewInit, inject } from '@angular/core';
+import { Component, OnInit, TemplateRef, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSort, MatSortHeader } from '@angular/material/sort';
-import {
-  MatTableDataSource,
-  MatTable,
-  MatColumnDef,
-  MatHeaderCellDef,
-  MatHeaderCell,
-  MatCellDef,
-  MatCell,
-  MatHeaderRowDef,
-  MatHeaderRow,
-  MatRowDef,
-  MatRow
-} from '@angular/material/table';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { ActivatedRoute, Router } from '@angular/router';
 
 /** rxjs Imports */
 import { of } from 'rxjs';
@@ -34,10 +14,6 @@ import { ConfigurationWizardService } from '../../configuration-wizard/configura
 import { Charges } from 'app/core/utils/charges';
 import { OptionData } from 'app/shared/models/option-data.model';
 import { Charge } from './models/charge.model';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { MatTooltip } from '@angular/material/tooltip';
-import { FormatNumberPipe } from '../../pipes/format-number.pipe';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 /**
  * Charges component.
@@ -45,34 +21,9 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 @Component({
   selector: 'mifosx-charges',
   templateUrl: './charges.component.html',
-  styleUrls: ['./charges.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    FaIconComponent,
-    MatTable,
-    MatSort,
-    MatColumnDef,
-    MatHeaderCellDef,
-    MatHeaderCell,
-    MatSortHeader,
-    MatCellDef,
-    MatCell,
-    MatTooltip,
-    MatHeaderRowDef,
-    MatHeaderRow,
-    MatRowDef,
-    MatRow,
-    MatPaginator,
-    FormatNumberPipe
-  ]
+  styleUrls: ['./charges.component.scss']
 })
 export class ChargesComponent implements OnInit, AfterViewInit {
-  private route = inject(ActivatedRoute);
-  private router = inject(Router);
-  private configurationWizardService = inject(ConfigurationWizardService);
-  private popoverService = inject(PopoverService);
-  private charges = inject(Charges);
-
   /** Charge data. */
   chargeData: Charge[] = [];
   /** Columns to be displayed in charges table. */
@@ -111,7 +62,13 @@ export class ChargesComponent implements OnInit, AfterViewInit {
    * @param {ConfigurationWizardService} configurationWizardService ConfigurationWizard Service.
    * @param {PopoverService} popoverService PopoverService.
    */
-  constructor() {
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private configurationWizardService: ConfigurationWizardService,
+    private popoverService: PopoverService,
+    private charges: Charges
+  ) {
     this.route.data.subscribe((data: { charges: any }) => {
       this.chargeData = data.charges;
     });
@@ -154,13 +111,13 @@ export class ChargesComponent implements OnInit, AfterViewInit {
    * To show popover.
    */
   ngAfterViewInit() {
-    if (this.configurationWizardService.showChargesPage) {
+    if (this.configurationWizardService.showChargesPage === true) {
       setTimeout(() => {
         this.showPopover(this.templateButtonCreateCharge, this.buttonCreateCharge.nativeElement, 'bottom', true);
       });
     }
 
-    if (this.configurationWizardService.showChargesList) {
+    if (this.configurationWizardService.showChargesList === true) {
       setTimeout(() => {
         this.showPopover(this.templateChargesTable, this.chargesTable.nativeElement, 'top', true);
       });

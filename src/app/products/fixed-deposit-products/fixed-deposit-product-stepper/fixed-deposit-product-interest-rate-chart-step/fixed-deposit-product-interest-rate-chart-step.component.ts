@@ -1,21 +1,7 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, Input, OnInit, inject } from '@angular/core';
-import {
-  UntypedFormArray,
-  UntypedFormBuilder,
-  UntypedFormGroup,
-  Validators,
-  ReactiveFormsModule
-} from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { UntypedFormArray, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 
 /** Custom Components */
@@ -32,27 +18,6 @@ import { SelectBase } from 'app/shared/form-dialog/formfield/model/select-base';
 import { TranslateService } from '@ngx-translate/core';
 import { Dates } from 'app/core/utils/dates';
 import { SettingsService } from 'app/settings/settings.service';
-import { MatTooltip } from '@angular/material/tooltip';
-import { MatButton, MatIconButton } from '@angular/material/button';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-
-import { MatDivider } from '@angular/material/divider';
-import { MatCheckbox } from '@angular/material/checkbox';
-import {
-  MatTable,
-  MatColumnDef,
-  MatHeaderCellDef,
-  MatHeaderCell,
-  MatCellDef,
-  MatCell,
-  MatHeaderRowDef,
-  MatHeaderRow,
-  MatRowDef,
-  MatRow
-} from '@angular/material/table';
-import { MatStepperPrevious, MatStepperNext } from '@angular/material/stepper';
-import { FindPipe } from '../../../../pipes/find.pipe';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 @Component({
   selector: 'mifosx-fixed-deposit-product-interest-rate-chart-step',
@@ -62,38 +27,11 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
     trigger('expandChartSlab', [
       state('collapsed', style({ height: '0px', minHeight: '0' })),
       state('expanded', style({ height: '*' })),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
-    ])
-  ],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    MatTooltip,
-    FaIconComponent,
-    MatDivider,
-    MatIconButton,
-    MatCheckbox,
-    MatTable,
-    MatColumnDef,
-    MatHeaderCellDef,
-    MatHeaderCell,
-    MatCellDef,
-    MatCell,
-    MatHeaderRowDef,
-    MatHeaderRow,
-    MatRowDef,
-    MatRow,
-    MatStepperPrevious,
-    MatStepperNext,
-    FindPipe
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))])
+
   ]
 })
 export class FixedDepositProductInterestRateChartStepComponent implements OnInit {
-  private formBuilder = inject(UntypedFormBuilder);
-  dialog = inject(MatDialog);
-  private dateUtils = inject(Dates);
-  private settingsService = inject(SettingsService);
-  private translateService = inject(TranslateService);
-
   @Input() fixedDepositProductsTemplate: any;
 
   fixedDepositProductInterestRateChartForm: UntypedFormGroup;
@@ -133,7 +71,13 @@ export class FixedDepositProductInterestRateChartStepComponent implements OnInit
    * @param {SettingsService} settingsService Settings Service.
    */
 
-  constructor() {
+  constructor(
+    private formBuilder: UntypedFormBuilder,
+    public dialog: MatDialog,
+    private dateUtils: Dates,
+    private settingsService: SettingsService,
+    private translateService: TranslateService
+  ) {
     this.createFixedDepositProductInterestRateChartForm();
   }
 
@@ -147,7 +91,7 @@ export class FixedDepositProductInterestRateChartStepComponent implements OnInit
     this.clientClassificationData = this.fixedDepositProductsTemplate.chartTemplate.clientClassificationOptions;
     this.incentiveTypeData = this.fixedDepositProductsTemplate.chartTemplate.incentiveTypeOptions;
 
-    if (this.fixedDepositProductsTemplate) {
+    if (!(this.fixedDepositProductsTemplate === undefined)) {
       this.assignFormData();
     }
   }
@@ -201,7 +145,7 @@ export class FixedDepositProductInterestRateChartStepComponent implements OnInit
         formArray.push(chartSlabInfo);
 
         // Iterate for every slab in chartSlab
-        const chartIncentiveControl = (chartDetailControl.controls['chartSlabs'] as UntypedFormArray).controls[j];
+        const chartIncentiveControl = chartDetailControl.controls['chartSlabs']['controls'][j];
 
         // Iterate to input all the incentive for particular chart slab
         this.chartsDetail[i].chartSlabs[j].incentives.forEach((chartIncentiveDetail: any) => {
@@ -214,8 +158,8 @@ export class FixedDepositProductInterestRateChartStepComponent implements OnInit
               chartIncentiveDetail.attributeName,
               Validators.required
             ],
-            attributeValue: [
-              chartIncentiveDetail.attributeValue,
+            attribureValue: [
+              chartIncentiveDetail.attribureValue,
               Validators.required
             ],
             conditionType: [
@@ -231,7 +175,7 @@ export class FixedDepositProductInterestRateChartStepComponent implements OnInit
               Validators.required
             ]
           });
-          const newFormArray = (chartIncentiveControl as UntypedFormGroup).controls['incentives'] as UntypedFormArray;
+          const newFormArray = chartIncentiveControl['controls']['incentives'] as UntypedFormArray;
           newFormArray.push(incentiveInfo);
         });
       });
@@ -239,8 +183,8 @@ export class FixedDepositProductInterestRateChartStepComponent implements OnInit
   }
 
   getChartsDetailsData() {
-    this.chartDetailData.forEach((chartData: ChartData) => {
-      const chart: Chart = {
+    this.chartDetailData.forEach((chartData: any) => {
+      const chart = {
         endDate: chartData.endDate ? new Date(chartData.endDate) : '',
         fromDate: chartData.fromDate ? new Date(chartData.fromDate) : '',
         isPrimaryGroupingByAmount: chartData.isPrimaryGroupingByAmount,
@@ -249,7 +193,7 @@ export class FixedDepositProductInterestRateChartStepComponent implements OnInit
         chartSlabs: this.getChartSlabsData(chartData)
       };
       if (chartData.id) {
-        chart.id = chartData.id;
+        chart['id'] = chartData.id;
       }
       this.chartsDetail.push(chart);
     });
@@ -269,17 +213,7 @@ export class FixedDepositProductInterestRateChartStepComponent implements OnInit
     }
 
     chartSlabData.forEach((eachChartSlabData: any) => {
-      const chartSlab: {
-        id?: any;
-        periodType: any;
-        amountRangeFrom: any;
-        amountRangeTo: any;
-        annualInterestRate: any;
-        description: any;
-        fromPeriod: any;
-        toPeriod: any;
-        incentives: any[];
-      } = {
+      const chartSlab = {
         periodType: eachChartSlabData.periodType.id,
         amountRangeFrom: eachChartSlabData.amountRangeFrom,
         amountRangeTo: eachChartSlabData.amountRangeTo,
@@ -287,7 +221,7 @@ export class FixedDepositProductInterestRateChartStepComponent implements OnInit
         description: eachChartSlabData.description ? eachChartSlabData.description : '',
         fromPeriod: eachChartSlabData.fromPeriod,
         toPeriod: eachChartSlabData.toPeriod,
-        incentives: this.getIncentivesData(eachChartSlabData)
+        incentives: this.getIncentivesData(chartSlabData)
       };
       if (eachChartSlabData.id) {
         chartSlab['id'] = eachChartSlabData.id;
@@ -465,32 +399,28 @@ export class FixedDepositProductInterestRateChartStepComponent implements OnInit
         value: values ? values.fromPeriod : undefined,
         type: 'number',
         required: true,
-        order: 2,
-        min: 0
+        order: 2
       }),
       new InputBase({
         controlName: 'toPeriod',
         label: this.translateService.instant('labels.inputs.Period To'),
         value: values ? values.toPeriod : undefined,
         type: 'number',
-        order: 3,
-        min: 0
+        order: 3
       }),
       new InputBase({
         controlName: 'amountRangeFrom',
         label: this.translateService.instant('labels.inputs.Amount Range From'),
         value: values ? values.amountRangeFrom : undefined,
         type: 'number',
-        order: 4,
-        min: 0
+        order: 4
       }),
       new InputBase({
         controlName: 'amountRangeTo',
         label: this.translateService.instant('labels.inputs.Amount Range To'),
         value: values ? values.amountRangeTo : undefined,
         type: 'number',
-        order: 5,
-        min: 0
+        order: 5
       }),
       new InputBase({
         controlName: 'annualInterestRate',
@@ -498,8 +428,7 @@ export class FixedDepositProductInterestRateChartStepComponent implements OnInit
         value: values ? values.annualInterestRate : undefined,
         type: 'number',
         required: true,
-        order: 6,
-        min: 0
+        order: 6
       }),
       new InputBase({
         controlName: 'description',
@@ -508,6 +437,7 @@ export class FixedDepositProductInterestRateChartStepComponent implements OnInit
         required: true,
         order: 7
       })
+
     ];
     return formfields;
   }
@@ -537,29 +467,4 @@ export class FixedDepositProductInterestRateChartStepComponent implements OnInit
     }
     return fixedDepositProductInterestRateChart;
   }
-}
-
-interface ChartData {
-  id?: number;
-  endDate?: string;
-  fromDate?: string;
-  isPrimaryGroupingByAmount: boolean;
-  name: string;
-  description: string;
-  chartSlabs: ChartSlab[];
-}
-
-interface ChartSlab {
-  periodType?: string;
-  fromPeriod?: number;
-  toPeriod?: number;
-  amountRangeFrom?: number;
-  amountRangeTo?: number;
-  annualInterestRate?: number;
-  description?: string;
-}
-
-interface Chart extends Omit<ChartData, 'endDate' | 'fromDate'> {
-  endDate: Date | string;
-  fromDate: Date | string;
 }

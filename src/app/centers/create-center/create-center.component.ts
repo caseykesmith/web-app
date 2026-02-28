@@ -1,33 +1,13 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, OnInit, inject } from '@angular/core';
-import {
-  UntypedFormGroup,
-  UntypedFormBuilder,
-  UntypedFormControl,
-  Validators,
-  ReactiveFormsModule
-} from '@angular/forms';
-import { Router, ActivatedRoute, RouterLink } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { UntypedFormGroup, UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 /** Custom Services */
 import { GroupsService } from 'app/groups/groups.service';
 import { CentersService } from '../centers.service';
 import { SettingsService } from 'app/settings/settings.service';
 import { Dates } from 'app/core/utils/dates';
-import { MatCheckbox } from '@angular/material/checkbox';
-import { MatIconButton, MatButton } from '@angular/material/button';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { MatNavList, MatListSubheaderCssMatStyler } from '@angular/material/list';
-import { MatLine } from '@angular/material/grid-list';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 /**
  * Create Center component.
@@ -35,26 +15,9 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 @Component({
   selector: 'mifosx-create-center',
   templateUrl: './create-center.component.html',
-  styleUrls: ['./create-center.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    MatCheckbox,
-    MatIconButton,
-    FaIconComponent,
-    MatNavList,
-    MatListSubheaderCssMatStyler,
-    MatLine
-  ]
+  styleUrls: ['./create-center.component.scss']
 })
 export class CreateCenterComponent implements OnInit {
-  private formBuilder = inject(UntypedFormBuilder);
-  private route = inject(ActivatedRoute);
-  private router = inject(Router);
-  private centerService = inject(CentersService);
-  private settingsService = inject(SettingsService);
-  private groupService = inject(GroupsService);
-  private dateUtils = inject(Dates);
-
   /** Minimum date allowed. */
   minDate = new Date(2000, 0, 1);
   /** Maximum date allowed. */
@@ -82,7 +45,15 @@ export class CreateCenterComponent implements OnInit {
    * @param {GroupsService} groupService GroupsService.
    * @param {Dates} dateUtils Date Utils to format date.
    */
-  constructor() {
+  constructor(
+    private formBuilder: UntypedFormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    private centerService: CentersService,
+    private settingsService: SettingsService,
+    private groupService: GroupsService,
+    private dateUtils: Dates
+  ) {
     this.route.data.subscribe((data: { offices: any }) => {
       this.officeData = data.offices;
     });
@@ -105,8 +76,7 @@ export class CreateCenterComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.pattern('(^[A-z]).*')
-        ]
+          Validators.pattern('(^[A-z]).*')]
       ],
       officeId: [
         '',

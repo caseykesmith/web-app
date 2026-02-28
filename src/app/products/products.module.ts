@@ -1,11 +1,3 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
 import { NgModule } from '@angular/core';
 
@@ -129,8 +121,7 @@ import { LoanProductPaymentStrategyStepComponent } from './loan-products/loan-pr
 import { ViewAdvancePaymenyAllocationComponent } from './loan-products/view-loan-product/shared/view-advance-paymeny-allocation/view-advance-paymeny-allocation.component';
 import { AdvancePaymentAllocationTabComponent } from './loan-products/loan-product-stepper/loan-product-payment-strategy-step/advance-payment-allocation-tab/advance-payment-allocation-tab.component';
 import { LoanProductSummaryComponent } from './loan-products/common/loan-product-summary/loan-product-summary.component';
-import { LoanProductDeferredIncomeRecognitionStepComponent } from './loan-products/loan-product-stepper/loan-product-capitalized-income-step/loan-product-deferred-income-recognition-step.component';
-import { AdvancedAccountingMappingRuleComponent } from './loan-products/loan-product-stepper/loan-product-accounting-step/advanced-accounting-mapping-rule/advanced-accounting-mapping-rule.component';
+import { LoanProductCapitalizedIncomeStepComponent } from './loan-products/loan-product-stepper/loan-product-capitalized-income-step/loan-product-capitalized-income-step.component';
 
 /**
  * Products Module
@@ -142,7 +133,9 @@ import { AdvancedAccountingMappingRuleComponent } from './loan-products/loan-pro
     SharedModule,
     ProductsRoutingModule,
     PipesModule,
-    DirectivesModule,
+    DirectivesModule
+  ],
+  declarations: [
     ProductsComponent,
     LoanProductsComponent,
     LoanProductDetailsStepComponent,
@@ -258,8 +251,7 @@ import { AdvancedAccountingMappingRuleComponent } from './loan-products/loan-pro
     ViewAdvancePaymenyAllocationComponent,
     AdvancePaymentAllocationTabComponent,
     LoanProductSummaryComponent,
-    LoanProductDeferredIncomeRecognitionStepComponent,
-    AdvancedAccountingMappingRuleComponent
+    LoanProductCapitalizedIncomeStepComponent
   ]
 })
 export class ProductsModule {}
