@@ -1,13 +1,5 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Injectable, inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
 /** rxjs Imports */
@@ -23,31 +15,37 @@ import { SettingsService } from 'app/settings/settings.service';
   providedIn: 'root'
 })
 export class ProductsService {
-  private http = inject(HttpClient);
-  private settingsService = inject(SettingsService);
+  /**
+   * @param {HttpClient} http Http Client to send requests.
+   * @param {SettingsService} settingsService Settings Service.
+   */
+  constructor(
+    private http: HttpClient,
+    private settingsService: SettingsService
+  ) {}
 
   /**
    * @returns {Observable<any>} Loan products data
    */
-  getLoanProducts(productType: string): Observable<any> {
-    return this.http.get(`/${productType}`);
+  getLoanProducts(): Observable<any> {
+    return this.http.get('/loanproducts');
   }
 
-  createLoanProduct(productType: string, loanProduct: any): Observable<any> {
-    return this.http.post(`/${productType}`, loanProduct);
+  createLoanProduct(loanProduct: string): Observable<any> {
+    return this.http.post('/loanproducts', loanProduct);
   }
 
-  getLoanProductsTemplate(productType: string): Observable<any> {
-    return this.http.get(`/${productType}/template`);
+  getLoanProductsTemplate(): Observable<any> {
+    return this.http.get('/loanproducts/template');
   }
 
-  getLoanProduct(productType: string, loanProductId: string, template: boolean = false): Observable<any> {
+  getLoanProduct(loanProductId: string, template: boolean = false): Observable<any> {
     const httpParams = new HttpParams().set('template', template.toString());
-    return this.http.get(`/${productType}/${loanProductId}`, { params: httpParams });
+    return this.http.get(`/loanproducts/${loanProductId}`, { params: httpParams });
   }
 
-  updateLoanProduct(productType: string, loanProductId: string, loanProduct: any): Observable<any> {
-    return this.http.put(`/${productType}/${loanProductId}`, loanProduct);
+  updateLoanProduct(loanProductId: string, loanProduct: any): Observable<any> {
+    return this.http.put(`/loanproducts/${loanProductId}`, loanProduct);
   }
 
   /**

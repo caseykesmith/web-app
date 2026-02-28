@@ -1,13 +1,5 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, ViewChild, inject } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 /** Custom Components */
@@ -20,10 +12,6 @@ import { SavingsActiveClientMembersComponent } from '../../savings-account-stepp
 import { SavingsService } from '../../savings.service';
 import { SettingsService } from 'app/settings/settings.service';
 import { Dates } from 'app/core/utils/dates';
-import { MatStepper, MatStepperIcon, MatStep, MatStepLabel } from '@angular/material/stepper';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { SavingsAccountPreviewStepComponent } from '../../savings-account-stepper/savings-account-preview-step/savings-account-preview-step.component';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 /**
  * Create GSIM Account Component
@@ -31,28 +19,9 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 @Component({
   selector: 'mifosx-create-gsim-account',
   templateUrl: './create-gsim-account.component.html',
-  styleUrls: ['./create-gsim-account.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    MatStepper,
-    MatStepperIcon,
-    FaIconComponent,
-    MatStep,
-    MatStepLabel,
-    SavingsAccountDetailsStepComponent,
-    SavingsAccountTermsStepComponent,
-    SavingsAccountChargesStepComponent,
-    SavingsActiveClientMembersComponent,
-    SavingsAccountPreviewStepComponent
-  ]
+  styleUrls: ['./create-gsim-account.component.scss']
 })
 export class CreateGsimAccountComponent {
-  private route = inject(ActivatedRoute);
-  private router = inject(Router);
-  private dateUtils = inject(Dates);
-  private savingsService = inject(SavingsService);
-  private settingsService = inject(SettingsService);
-
   /** Savings Account Template */
   savingsAccountTemplate: any;
   /** Savings Account Product Template */
@@ -83,7 +52,13 @@ export class CreateGsimAccountComponent {
    * @param {SavingsService} savingsService Savings Service
    * @param {SettingsService} settingsService Settings Service
    */
-  constructor() {
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private dateUtils: Dates,
+    private savingsService: SavingsService,
+    private settingsService: SettingsService
+  ) {
     this.route.data.subscribe((data: { savingsAccountTemplate: any; groupsData: any }) => {
       this.savingsAccountTemplate = data.savingsAccountTemplate;
       this.dataSource = data.groupsData.activeClientMembers;

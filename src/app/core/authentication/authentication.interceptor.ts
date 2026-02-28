@@ -1,13 +1,5 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Injectable, inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
 
 /** rxjs Imports */
@@ -18,7 +10,7 @@ import { environment } from '../../../environments/environment';
 import { SettingsService } from 'app/settings/settings.service';
 
 /** Http request (default) options headers. */
-const httpOptions: { headers: { [key: string]: string } } = {
+const httpOptions = {
   headers: {
     'Fineract-Platform-TenantId': environment.fineractPlatformTenantId
   }
@@ -35,16 +27,12 @@ const twoFactorAccessTokenHeader = 'Fineract-Platform-TFA-Token';
  */
 @Injectable()
 export class AuthenticationInterceptor implements HttpInterceptor {
-  private settingsService = inject(SettingsService);
+  constructor(private settingsService: SettingsService) {}
 
   /**
    * Intercepts a Http request and sets the request headers.
    */
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    // Skip Fineract auth headers for external API calls (e.g. remittance, national ID)
-    if (request.url.startsWith('http://') || request.url.startsWith('https://')) {
-      return next.handle(request);
-    }
     if (this.settingsService.tenantIdentifier) {
       httpOptions.headers['Fineract-Platform-TenantId'] = this.settingsService.tenantIdentifier;
     }

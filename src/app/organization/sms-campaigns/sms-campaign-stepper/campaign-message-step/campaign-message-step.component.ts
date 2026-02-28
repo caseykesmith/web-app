@@ -1,17 +1,6 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
 import { Component, Input, OnChanges } from '@angular/core';
-import { UntypedFormControl, ReactiveFormsModule } from '@angular/forms';
-import { MatStepperPrevious, MatStepperNext } from '@angular/material/stepper';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
+import { UntypedFormControl } from '@angular/forms';
 
 /**
  * Campaign Message Step
@@ -19,13 +8,7 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 @Component({
   selector: 'mifosx-campaign-message-step',
   templateUrl: './campaign-message-step.component.html',
-  styleUrls: ['./campaign-message-step.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    MatStepperPrevious,
-    FaIconComponent,
-    MatStepperNext
-  ]
+  styleUrls: ['./campaign-message-step.component.scss']
 })
 export class CampaignMessageStepComponent implements OnChanges {
   /** Column headers */

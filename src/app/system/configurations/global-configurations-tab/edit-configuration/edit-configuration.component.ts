@@ -1,22 +1,11 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, OnInit, inject } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SettingsService } from 'app/settings/settings.service';
-import { Dates } from 'app/core/utils/dates';
 
 /** Custom Services */
 import { SystemService } from '../../../system.service';
-import { CdkTextareaAutosize } from '@angular/cdk/text-field';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 /**
  * Edit Configuration Component
@@ -24,20 +13,9 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 @Component({
   selector: 'mifosx-edit-configuration',
   templateUrl: './edit-configuration.component.html',
-  styleUrls: ['./edit-configuration.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    CdkTextareaAutosize
-  ]
+  styleUrls: ['./edit-configuration.component.scss']
 })
 export class EditConfigurationComponent implements OnInit {
-  private formBuilder = inject(UntypedFormBuilder);
-  private systemService = inject(SystemService);
-  private settingsService = inject(SettingsService);
-  private route = inject(ActivatedRoute);
-  private router = inject(Router);
-  private dateUtils = inject(Dates);
-
   /** Minimum transaction date allowed. */
   minDate = new Date(2000, 0, 1);
   /** Maximum transaction date allowed. */
@@ -56,7 +34,13 @@ export class EditConfigurationComponent implements OnInit {
    * @param {ActivatedRoute} route Activated Route.
    * @param {Router} router Router for navigation.
    */
-  constructor() {
+  constructor(
+    private formBuilder: UntypedFormBuilder,
+    private systemService: SystemService,
+    private settingsService: SettingsService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
     this.route.data.subscribe((data: { configuration: any }) => {
       this.configuration = data.configuration;
     });
@@ -96,33 +80,20 @@ export class EditConfigurationComponent implements OnInit {
       this.configurationForm.value.stringValue != null ||
       this.configurationForm.value.dateValue != null
     ) {
-      const payload: any = {
+      const payload = {
         ...this.configurationForm.value
       };
-
       if (!this.configurationForm.value.stringValue) {
         delete payload.stringValue;
       }
-
       if (this.configurationForm.value.dateValue != null) {
-        // Format the date according to the dateFormat setting
-        const dateFormat = this.settingsService.dateFormat || 'dd MMMM yyyy';
-
-        const formattedDate = this.dateUtils.formatDate(this.configurationForm.value.dateValue, dateFormat);
-
-        if (formattedDate) {
-          payload.dateValue = formattedDate;
-          payload.locale = this.settingsService.language.code;
-          payload.dateFormat = dateFormat;
-        } else {
-          // Avoid sending invalid/null date to backend
-          delete payload.dateValue;
-        }
+        payload.locale = this.settingsService.language.code;
+        payload.dateFormat = this.settingsService.dateFormat;
       } else {
         delete payload.dateValue;
       }
 
-      this.systemService.updateConfiguration(this.configuration.id, payload).subscribe(() => {
+      this.systemService.updateConfiguration(this.configuration.id, payload).subscribe((response: any) => {
         this.router.navigate(['../../'], { relativeTo: this.route });
       });
     }

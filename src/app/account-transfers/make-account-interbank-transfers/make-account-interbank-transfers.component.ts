@@ -1,26 +1,10 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 import { Component, Input } from '@angular/core';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { CdkTextareaAutosize } from '@angular/cdk/text-field';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'mifosx-make-account-interbank-transfers',
   templateUrl: './make-account-interbank-transfers.component.html',
-  styleUrls: ['./make-account-interbank-transfers.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    FaIconComponent,
-    CdkTextareaAutosize
-  ]
+  styleUrls: ['./make-account-interbank-transfers.component.scss']
 })
 export class MakeAccountInterbankTransfersComponent {
   @Input() makeAccountTransferForm: FormGroup;

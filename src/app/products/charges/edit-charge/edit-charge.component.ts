@@ -1,25 +1,13 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, OnInit, inject } from '@angular/core';
-import { UntypedFormGroup, UntypedFormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 /** Custom Services */
 import { ProductsService } from 'app/products/products.service';
 import { SettingsService } from 'app/settings/settings.service';
 import { maxNumberValueValidator } from 'app/shared/validators/max-number-value.validator';
 import { minNumberValueValidator } from 'app/shared/validators/min-number-value.validator';
-import { ValidateOnFocusDirective } from '../../../directives/validate-on-focus.directive';
-import { GlAccountSelectorComponent } from '../../../shared/accounting/gl-account-selector/gl-account-selector.component';
-import { MatCheckbox } from '@angular/material/checkbox';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 /**
  * Edit Charge component.
@@ -27,21 +15,9 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 @Component({
   selector: 'mifosx-edit-charge',
   templateUrl: './edit-charge.component.html',
-  styleUrls: ['./edit-charge.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    ValidateOnFocusDirective,
-    GlAccountSelectorComponent,
-    MatCheckbox
-  ]
+  styleUrls: ['./edit-charge.component.scss']
 })
 export class EditChargeComponent implements OnInit {
-  private productsService = inject(ProductsService);
-  private formBuilder = inject(UntypedFormBuilder);
-  private route = inject(ActivatedRoute);
-  private router = inject(Router);
-  private settingsService = inject(SettingsService);
-
   /** Selected Data. */
   chargeData: any;
   /** Charge form. */
@@ -77,7 +53,13 @@ export class EditChargeComponent implements OnInit {
    * @param {Router} router Router for navigation.
    * @param {SettingsService} settingsService Settings Service
    */
-  constructor() {
+  constructor(
+    private productsService: ProductsService,
+    private formBuilder: UntypedFormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    private settingsService: SettingsService
+  ) {
     this.route.data.subscribe((data: { chargesTemplate: any }) => {
       this.chargeData = data.chargesTemplate;
     });
@@ -169,7 +151,7 @@ export class EditChargeComponent implements OnInit {
         this.addFeeFrequency = false;
         this.chargeForm.addControl(
           'incomeAccountId',
-          this.formBuilder.control(this.chargeData.incomeOrLiabilityAccount?.id, Validators.required)
+          this.formBuilder.control(this.chargeData.incomeOrLiabilityAccount.id, Validators.required)
         );
         break;
       }

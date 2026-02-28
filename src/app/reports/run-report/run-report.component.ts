@@ -1,22 +1,7 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, OnInit, inject } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
-import {
-  AbstractControl,
-  UntypedFormControl,
-  UntypedFormGroup,
-  ValidatorFn,
-  Validators,
-  ReactiveFormsModule
-} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 
 /** Custom Services */
 import { ReportsService } from '../reports.service';
@@ -28,15 +13,8 @@ import { SelectOption } from '../common-models/select-option.model';
 import { Dates } from 'app/core/utils/dates';
 import { GlobalConfiguration } from 'app/system/configurations/global-configurations-tab/configuration.model';
 
-import * as ExcelJS from 'exceljs';
+import * as XLSX from 'xlsx';
 import { AlertService } from 'app/core/alert/alert.service';
-import { NgIf, NgFor, NgSwitch, NgSwitchCase } from '@angular/common';
-import { MatCheckbox } from '@angular/material/checkbox';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { TableAndSmsComponent } from './table-and-sms/table-and-sms.component';
-import { ChartComponent } from './chart/chart.component';
-import { PentahoComponent } from './pentaho/pentaho.component';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 /**
  * Run report component.
@@ -44,25 +22,9 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 @Component({
   selector: 'mifosx-run-report',
   templateUrl: './run-report.component.html',
-  styleUrls: ['./run-report.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    NgSwitch,
-    NgSwitchCase,
-    MatCheckbox,
-    FaIconComponent,
-    TableAndSmsComponent,
-    ChartComponent,
-    PentahoComponent
-  ]
+  styleUrls: ['./run-report.component.scss']
 })
 export class RunReportComponent implements OnInit {
-  private route = inject(ActivatedRoute);
-  private reportsService = inject(ReportsService);
-  private settingsService = inject(SettingsService);
-  private alertService = inject(AlertService);
-  private dateUtils = inject(Dates);
-
   /** Minimum date allowed. */
   minDate = new Date(2000, 0, 1);
   /** Maximum date allowed. */
@@ -108,7 +70,13 @@ export class RunReportComponent implements OnInit {
    * @param {SettingsService} settingsService Settings Service
    * @param {Dates} dateUtils Date Utils
    */
-  constructor() {
+  constructor(
+    private route: ActivatedRoute,
+    private reportsService: ReportsService,
+    private settingsService: SettingsService,
+    private alertService: AlertService,
+    private dateUtils: Dates
+  ) {
     this.report.name = this.route.snapshot.params['name'];
     this.route.queryParams.subscribe((queryParams: { type: any; id: any }) => {
       this.report.type = queryParams.type;
@@ -189,9 +157,8 @@ export class RunReportComponent implements OnInit {
     if (this.exportToS3Allowed) {
       this.reportForm.addControl('exportOutputToS3', new UntypedFormControl(false));
     }
-    this.decimalChoice.patchValue('2');
+    this.decimalChoice.patchValue('0');
     this.setChildControls();
-    this.addDateRangeValidator();
   }
 
   /**
@@ -220,62 +187,6 @@ export class RunReportComponent implements OnInit {
         param.pentahoName = `R_${entry.reportParameterName}`;
       });
     });
-  }
-
-  addDateRangeValidator(): void {
-    const dateParams = this.paramData.filter((param: ReportParameter) => param.displayType === 'date');
-    const startParam = dateParams.find((param: ReportParameter) => this.isStartDateParam(param));
-    const endParam = dateParams.find((param: ReportParameter) => this.isEndDateParam(param));
-
-    if (!startParam || !endParam) {
-      return;
-    }
-
-    const startControl = this.reportForm.get(startParam.name);
-    const endControl = this.reportForm.get(endParam.name);
-
-    if (!startControl || !endControl) {
-      return;
-    }
-
-    endControl.addValidators(this.endDateAfterStartValidator(startParam.name));
-    endControl.updateValueAndValidity({ emitEvent: false });
-    startControl.valueChanges.subscribe(() => endControl.updateValueAndValidity({ emitEvent: false }));
-  }
-
-  endDateAfterStartValidator(startControlName: string): ValidatorFn {
-    return (control: AbstractControl) => {
-      const startControl = control.parent?.get(startControlName);
-      const startValue = startControl?.value;
-      const endValue = control.value;
-
-      if (!startValue || !endValue) {
-        return null;
-      }
-
-      const startDate = new Date(startValue);
-      const endDate = new Date(endValue);
-
-      if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
-        return null;
-      }
-
-      if (endDate < startDate) {
-        return { endBeforeStart: true };
-      }
-
-      return null;
-    };
-  }
-
-  isStartDateParam(param: ReportParameter): boolean {
-    const identifier = `${param.name}${param.variable}${param.label}`.toLowerCase();
-    return identifier.includes('start') || identifier.includes('from');
-  }
-
-  isEndDateParam(param: ReportParameter): boolean {
-    const identifier = `${param.name}${param.variable}${param.label}`.toLowerCase();
-    return identifier.includes('end') || identifier.includes('to');
   }
 
   /**
@@ -340,7 +251,7 @@ export class RunReportComponent implements OnInit {
           formattedResponse[newKey] = value;
           break;
         case 'select':
-          formattedResponse[newKey] = (value as { id: string | number })['id'];
+          formattedResponse[newKey] = value['id'];
           break;
         case 'date':
           if (this.isTableReport()) {
@@ -428,46 +339,18 @@ export class RunReportComponent implements OnInit {
     });
   }
 
-  async exportToXLS(reportName: string, csvData: any, displayedColumns: string[]): Promise<void> {
+  exportToXLS(reportName: string, csvData: any, displayedColumns: string[]): void {
     const fileName = `${reportName}.xlsx`;
-
-    // Format data for ExcelJS
     const data = csvData.map((object: any) => {
-      const row: Record<string, any> = {};
+      const row = {};
       for (let i = 0; i < displayedColumns.length; i++) {
         row[displayedColumns[i]] = object.row[i];
       }
       return row;
     });
-
-    // Create workbook and worksheet
-    const workbook = new ExcelJS.Workbook();
-    const worksheet = workbook.addWorksheet('report');
-
-    // Add header
-    worksheet.addRow(displayedColumns);
-
-    // Add data rows
-    data.forEach((rowObj: any) => {
-      worksheet.addRow(displayedColumns.map((col) => rowObj[col]));
-    });
-
-    // Write to buffer and trigger download
-    const buffer = await workbook.xlsx.writeBuffer();
-    const blob = new Blob([buffer], {
-      type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-    });
-
-    // Native download logic (no FileSaver)
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = fileName;
-    document.body.appendChild(a);
-    a.click();
-    setTimeout(() => {
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-    }, 0);
+    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(data, { header: displayedColumns });
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'report');
+    XLSX.writeFile(wb, fileName);
   }
 }

@@ -1,22 +1,12 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports. */
-import { Component, OnInit, inject } from '@angular/core';
-import { UntypedFormGroup, UntypedFormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
-import { Router, ActivatedRoute, RouterLink } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 /** Custom services. */
 import { LoansService } from 'app/loans/loans.service';
 import { SettingsService } from 'app/settings/settings.service';
 import { Dates } from 'app/core/utils/dates';
-import { CdkTextareaAutosize } from '@angular/cdk/text-field';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 /**
  * Reject Loan component.
@@ -24,20 +14,9 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 @Component({
   selector: 'mifosx-reject-loan',
   templateUrl: './reject-loan.component.html',
-  styleUrls: ['./reject-loan.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    CdkTextareaAutosize
-  ]
+  styleUrls: ['./reject-loan.component.scss']
 })
 export class RejectLoanComponent implements OnInit {
-  private formBuilder = inject(UntypedFormBuilder);
-  private router = inject(Router);
-  private route = inject(ActivatedRoute);
-  private loanService = inject(LoansService);
-  private dateUtils = inject(Dates);
-  private settingsService = inject(SettingsService);
-
   /** Loan Id. */
   loanId: any;
   /** Reject Loan form. */
@@ -54,7 +33,14 @@ export class RejectLoanComponent implements OnInit {
    * @param route Activated Route.
    * @param {SettingsService} settingsService Settings Service
    */
-  constructor() {
+  constructor(
+    private formBuilder: UntypedFormBuilder,
+    private router: Router,
+    private route: ActivatedRoute,
+    private loanService: LoansService,
+    private dateUtils: Dates,
+    private settingsService: SettingsService
+  ) {
     this.loanId = this.route.snapshot.params['loanId'];
   }
 

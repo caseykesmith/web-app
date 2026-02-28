@@ -1,15 +1,7 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, OnInit, TemplateRef, ElementRef, ViewChild, AfterViewInit, inject } from '@angular/core';
-import { ActivatedRoute, Router, NavigationEnd, RouterLink } from '@angular/router';
-import { UntypedFormControl, ReactiveFormsModule } from '@angular/forms';
+import { Component, OnInit, TemplateRef, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { UntypedFormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 
 /** rxjs Imports */
@@ -24,15 +16,9 @@ import { WarningDialogComponent } from './warning-dialog/warning-dialog.componen
 import { AuthenticationService } from '../core/authentication/authentication.service';
 import { PopoverService } from '../configuration-wizard/popover/popover.service';
 import { ConfigurationWizardService } from '../configuration-wizard/configuration-wizard.service';
-import { SettingsService } from 'app/settings/settings.service';
 
 /** Custom Components */
 import { NextStepDialogComponent } from '../configuration-wizard/next-step-dialog/next-step-dialog.component';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { MatCard, MatCardHeader, MatCardTitle, MatCardContent, MatCardImage } from '@angular/material/card';
-import { MatAutocompleteTrigger, MatAutocomplete, MatOption } from '@angular/material/autocomplete';
-import { AsyncPipe } from '@angular/common';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 /**
  * Home component.
@@ -40,31 +26,11 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 @Component({
   selector: 'mifosx-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    FaIconComponent,
-    MatCardHeader,
-    MatCardTitle,
-    MatAutocompleteTrigger,
-    MatAutocomplete,
-    MatCardImage,
-    AsyncPipe
-  ]
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, AfterViewInit {
-  private authenticationService = inject(AuthenticationService);
-  private activatedRoute = inject(ActivatedRoute);
-  private router = inject(Router);
-  private dialog = inject(MatDialog);
-  private configurationWizardService = inject(ConfigurationWizardService);
-  private popoverService = inject(PopoverService);
-  private settingsService = inject(SettingsService);
-
   /** Username of authenticated user. */
   username: string;
-  /** Tenant name */
-  tenant: string;
   /** Activity Form. */
   activityForm: any;
   /** Search Text. */
@@ -83,8 +49,22 @@ export class HomeComponent implements OnInit, AfterViewInit {
   /* Template for popover on search activity */
   @ViewChild('templateSearchActivity', { static: false }) templateSearchActivity: TemplateRef<any>;
 
-  // All dependencies are injected using inject() above. No constructor needed.
-  constructor() {}
+  /**
+   * @param {AuthenticationService} authenticationService Authentication Service.
+   * @param {ActivatedRoute} activatedRoute ActivatedRoute.
+   * @param {Router} router Router.
+   * @param {MatDialog} dialog MatDialog.
+   * @param {ConfigurationWizardService} configurationWizardService ConfigurationWizard Service.
+   * @param {PopoverService} popoverService PopoverService.
+   */
+  constructor(
+    private authenticationService: AuthenticationService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private dialog: MatDialog,
+    private configurationWizardService: ConfigurationWizardService,
+    private popoverService: PopoverService
+  ) {}
 
   /**
    * Sets the username of the authenticated user.
@@ -93,7 +73,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     const credentials = this.authenticationService.getCredentials();
     this.username = credentials.username;
-    this.tenant = this.tenantIdentifier();
     this.setFilteredActivities();
     if (!this.authenticationService.hasDialogBeenShown()) {
       this.dialog.open(WarningDialogComponent);
@@ -141,12 +120,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
    * To show popover.
    */
   ngAfterViewInit() {
-    if (this.configurationWizardService.showHome) {
+    if (this.configurationWizardService.showHome === true) {
       setTimeout(() => {
         this.showPopover(this.templateButtonDashboard, this.buttonDashboard.nativeElement, 'bottom', true);
       });
     }
-    if (this.configurationWizardService.showHomeSearchActivity) {
+    if (this.configurationWizardService.showHomeSearchActivity === true) {
       setTimeout(() => {
         this.showPopover(this.templateSearchActivity, this.searchActivity.nativeElement, 'bottom', true);
       });
@@ -198,12 +177,5 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.router.onSameUrlNavigation = 'reload';
     this.router.navigate(['/home']);
-  }
-
-  tenantIdentifier() {
-    if (!this.settingsService.tenantIdentifier || this.settingsService.tenantIdentifier === '') {
-      return 'default';
-    }
-    return this.settingsService.tenantIdentifier;
   }
 }

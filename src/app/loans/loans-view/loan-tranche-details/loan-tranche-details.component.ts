@@ -1,12 +1,4 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Dates } from 'app/core/utils/dates';
@@ -18,58 +10,13 @@ import { FormDialogComponent } from 'app/shared/form-dialog/form-dialog.componen
 import { DatepickerBase } from 'app/shared/form-dialog/formfield/model/datepicker-base';
 import { FormfieldBase } from 'app/shared/form-dialog/formfield/model/formfield-base';
 import { InputBase } from 'app/shared/form-dialog/formfield/model/input-base';
-import { MatButton, MatIconButton } from '@angular/material/button';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import {
-  MatTable,
-  MatColumnDef,
-  MatHeaderCellDef,
-  MatHeaderCell,
-  MatCellDef,
-  MatCell,
-  MatHeaderRowDef,
-  MatHeaderRow,
-  MatRowDef,
-  MatRow
-} from '@angular/material/table';
-import { MatTooltip } from '@angular/material/tooltip';
-import { DateFormatPipe } from '../../../pipes/date-format.pipe';
-import { FormatNumberPipe } from '../../../pipes/format-number.pipe';
-import { YesnoPipe } from '../../../pipes/yesno.pipe';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 @Component({
   selector: 'mifosx-loan-tranche-details',
   templateUrl: './loan-tranche-details.component.html',
-  styleUrls: ['./loan-tranche-details.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    FaIconComponent,
-    MatTable,
-    MatColumnDef,
-    MatHeaderCellDef,
-    MatHeaderCell,
-    MatCellDef,
-    MatCell,
-    MatIconButton,
-    MatTooltip,
-    MatHeaderRowDef,
-    MatHeaderRow,
-    MatRowDef,
-    MatRow,
-    DateFormatPipe,
-    FormatNumberPipe,
-    YesnoPipe
-  ]
+  styleUrls: ['./loan-tranche-details.component.scss']
 })
 export class LoanTrancheDetailsComponent implements OnInit {
-  private route = inject(ActivatedRoute);
-  private router = inject(Router);
-  private dialog = inject(MatDialog);
-  private loanServices = inject(LoansService);
-  private settingsService = inject(SettingsService);
-  private dateUtils = inject(Dates);
-
   loanDetails: any;
   return: any;
   status: any;
@@ -98,7 +45,14 @@ export class LoanTrancheDetailsComponent implements OnInit {
    * Retrieves the loans data from `resolve`.
    * @param {ActivatedRoute} route Activated Route.
    */
-  constructor() {
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private dialog: MatDialog,
+    private loanServices: LoansService,
+    private settingsService: SettingsService,
+    private dateUtils: Dates
+  ) {
     this.route.parent.data.subscribe((data: { loanDetailsData: any }) => {
       this.loanId = data.loanDetailsData.id;
       this.loanDetails = data.loanDetailsData;
@@ -187,6 +141,7 @@ export class LoanTrancheDetailsComponent implements OnInit {
         required: true,
         order: 2
       })
+
     ];
     return formBase;
   }

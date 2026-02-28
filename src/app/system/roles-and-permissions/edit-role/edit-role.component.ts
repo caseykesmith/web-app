@@ -1,23 +1,10 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, OnInit, inject } from '@angular/core';
-import { UntypedFormGroup, UntypedFormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 /** Custom Services */
 import { SystemService } from '../../system.service';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
-
-/** Custom Service Zitadel */
-import { environment } from '../../../../environments/environment';
-import { AuthService } from 'app/zitadel/auth.service';
 
 /**
  * Edit Role Description Component.
@@ -25,18 +12,9 @@ import { AuthService } from 'app/zitadel/auth.service';
 @Component({
   selector: 'mifosx-edit-role',
   templateUrl: './edit-role.component.html',
-  styleUrls: ['./edit-role.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS
-  ]
+  styleUrls: ['./edit-role.component.scss']
 })
 export class EditRoleComponent implements OnInit {
-  private formBuilder = inject(UntypedFormBuilder);
-  private systemService = inject(SystemService);
-  private route = inject(ActivatedRoute);
-  private router = inject(Router);
-  private authService = inject(AuthService);
-
   /** Role Form */
   roleForm: UntypedFormGroup;
   /** Role Data */
@@ -49,7 +27,12 @@ export class EditRoleComponent implements OnInit {
    * @param {ActivatedRoute} route Activated Route.
    * @param {Router} router Router for navigation.
    */
-  constructor() {
+  constructor(
+    private formBuilder: UntypedFormBuilder,
+    private systemService: SystemService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
     this.route.data.subscribe((data: { role: any }) => {
       this.roleData = data.role;
     });
@@ -84,13 +67,6 @@ export class EditRoleComponent implements OnInit {
    */
   submit() {
     this.systemService.updateRole(this.roleForm.value, this.roleData.id).subscribe(() => {
-      if (environment.OIDC.oidcServerEnabled) {
-        this.authService.updateRole(
-          this.roleData.id,
-          this.roleForm.get('name')?.value,
-          this.roleForm.value.description
-        );
-      }
       this.router.navigate(['../../'], { relativeTo: this.route });
     });
   }

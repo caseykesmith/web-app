@@ -1,28 +1,12 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, OnInit, OnDestroy, ViewEncapsulation, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 
 /** RxJS Imports */
 import { forkJoin } from 'rxjs';
 
 /** Custom Services */
 import { NotificationsService } from 'app/notifications/notifications.service';
-import { environment } from '../../../environments/environment';
-import { MatIconButton } from '@angular/material/button';
-import { MatTooltip } from '@angular/material/tooltip';
-import { MatMenuTrigger, MatMenu, MatMenuItem } from '@angular/material/menu';
-import { MatBadge } from '@angular/material/badge';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { MatIcon } from '@angular/material/icon';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
+import { environment } from 'environments/environment';
 
 /**
  * Notifications Tray Component
@@ -31,23 +15,9 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
   selector: 'mifosx-notifications-tray',
   templateUrl: './notifications-tray.component.html',
   styleUrls: ['./notifications-tray.component.scss'],
-  encapsulation: ViewEncapsulation.None,
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    MatIconButton,
-    MatTooltip,
-    MatMenuTrigger,
-    MatBadge,
-    FaIconComponent,
-    MatMenu,
-    MatIcon,
-    MatMenuItem
-  ]
+  encapsulation: ViewEncapsulation.None
 })
 export class NotificationsTrayComponent implements OnInit, OnDestroy {
-  notificationsService = inject(NotificationsService);
-  private router = inject(Router);
-
   /** Wait time between API status calls 60 seg */
   waitTime = environment.waitTimeForNotifications || 60;
   /** Read Notifications */
@@ -79,11 +49,10 @@ export class NotificationsTrayComponent implements OnInit, OnDestroy {
   /**
    * @param {NotificationsService} notificationsService Notifications Service
    */
-  constructor() {
+  constructor(public notificationsService: NotificationsService) {
     forkJoin([
       this.notificationsService.getNotifications(true, 9),
-      this.notificationsService.getNotifications(false, 9)
-    ]).subscribe((response: any[]) => {
+      this.notificationsService.getNotifications(false, 9)]).subscribe((response: any[]) => {
       this.readNotifications = response[0].pageItems;
       this.unreadNotifications = response[1].pageItems;
       this.setNotifications();
@@ -144,93 +113,5 @@ export class NotificationsTrayComponent implements OnInit, OnDestroy {
       this.unreadNotifications = this.unreadNotifications.concat(response.pageItems);
       this.setNotifications();
     });
-  }
-
-  /**
-   * Navigate to notification object with proper entity context
-   * @param {any} notification Notification object
-   * @param {Event} event Click event
-   */
-  navigateToNotification(notification: any, event: Event): void {
-    event.preventDefault();
-    event.stopPropagation();
-
-    const objectType = notification.objectType;
-    const objectId = notification.objectId;
-
-    // For entities that don't require parent context (client, group, center, products)
-    if ([
-        'client',
-        'group',
-        'center',
-        'shareProduct',
-        'loanProduct'
-      ].includes(objectType)) {
-      this.router.navigate([
-        this.routeMap[objectType],
-        objectId
-      ]);
-      return;
-    }
-
-    // For account types that require parent entity (client/group) ID
-    switch (objectType) {
-      case 'loan':
-        this.notificationsService.getLoanAccount(objectId).subscribe((account) => {
-          if (account && (account.clientId || account.groupId)) {
-            const entityType = account.clientId ? 'clients' : 'groups';
-            const entityId = account.clientId || account.groupId;
-            this.router.navigate([`/${entityType}/${entityId}/loans-accounts/${account.accountId}`]);
-          }
-        });
-        break;
-
-      case 'savingsAccount':
-        this.notificationsService.getSavingsAccount(objectId).subscribe((account) => {
-          if (account && (account.clientId || account.groupId)) {
-            const entityType = account.clientId ? 'clients' : 'groups';
-            const entityId = account.clientId || account.groupId;
-            this.router.navigate([`/${entityType}/${entityId}/savings-accounts/${account.accountId}`]);
-          }
-        });
-        break;
-
-      case 'fixedDeposit':
-        this.notificationsService.getFixedDepositAccount(objectId).subscribe((account) => {
-          if (account && (account.clientId || account.groupId)) {
-            const entityType = account.clientId ? 'clients' : 'groups';
-            const entityId = account.clientId || account.groupId;
-            this.router.navigate([`/${entityType}/${entityId}/fixed-deposits-accounts/${account.accountId}`]);
-          }
-        });
-        break;
-
-      case 'recurringDepositAccount':
-        this.notificationsService.getRecurringDepositAccount(objectId).subscribe((account) => {
-          if (account && (account.clientId || account.groupId)) {
-            const entityType = account.clientId ? 'clients' : 'groups';
-            const entityId = account.clientId || account.groupId;
-            this.router.navigate([`/${entityType}/${entityId}/recurring-deposits-accounts/${account.accountId}`]);
-          }
-        });
-        break;
-
-      case 'shareAccount':
-        this.notificationsService.getShareAccount(objectId).subscribe((account) => {
-          if (account && (account.clientId || account.groupId)) {
-            const entityType = account.clientId ? 'clients' : 'groups';
-            const entityId = account.clientId || account.groupId;
-            this.router.navigate([`/${entityType}/${entityId}/shares-accounts/${account.accountId}`]);
-          }
-        });
-        break;
-
-      default:
-        // Fallback to old behavior for unknown types
-        this.router.navigate([
-          this.routeMap[objectType],
-          objectId
-        ]);
-    }
   }
 }

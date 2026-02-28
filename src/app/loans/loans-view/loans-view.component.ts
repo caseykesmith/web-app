@@ -1,14 +1,6 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, OnInit, inject } from '@angular/core';
-import { ActivatedRoute, NavigationExtras, Router, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 
 /** Custom Services */
@@ -26,69 +18,17 @@ import { DelinquencyPausePeriod } from '../models/loan-account.model';
 import { TranslateService } from '@ngx-translate/core';
 import { LoanTransaction } from 'app/products/loan-products/models/loan-account.model';
 import { OptionData } from 'app/shared/models/option-data.model';
-import { MatCardHeader, MatCardTitleGroup, MatCardTitle } from '@angular/material/card';
-import { SvgIconComponent } from '../../shared/svg-icon/svg-icon.component';
-import { MatTooltip } from '@angular/material/tooltip';
-import { NgClass, CurrencyPipe } from '@angular/common';
-import { LongTextComponent } from '../../shared/long-text/long-text.component';
-import { AccountNumberComponent } from '../../shared/account-number/account-number.component';
-import { ExternalIdentifierComponent } from '../../shared/external-identifier/external-identifier.component';
-import { MatIconButton } from '@angular/material/button';
-import { MatMenuTrigger, MatMenu, MatMenuItem } from '@angular/material/menu';
-import { MatIcon } from '@angular/material/icon';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { MatTabNav, MatTabLink, MatTabNavPanel } from '@angular/material/tabs';
-import { StatusLookupPipe } from '../../pipes/status-lookup.pipe';
-import { DateFormatPipe } from '../../pipes/date-format.pipe';
-import { FormatNumberPipe } from '../../pipes/format-number.pipe';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
-import { LoanProducts } from 'app/products/loan-products/loan-products';
 
 @Component({
   selector: 'mifosx-loans-view',
   templateUrl: './loans-view.component.html',
-  styleUrls: ['./loans-view.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    MatCardHeader,
-    MatCardTitleGroup,
-    SvgIconComponent,
-    MatTooltip,
-    MatCardTitle,
-    NgClass,
-    LongTextComponent,
-    AccountNumberComponent,
-    ExternalIdentifierComponent,
-    MatIconButton,
-    MatMenuTrigger,
-    MatIcon,
-    FaIconComponent,
-    MatMenu,
-    MatMenuItem,
-    MatTabNav,
-    MatTabLink,
-    RouterLinkActive,
-    MatTabNavPanel,
-    RouterOutlet,
-    CurrencyPipe,
-    StatusLookupPipe,
-    DateFormatPipe,
-    FormatNumberPipe
-  ]
+  styleUrls: ['./loans-view.component.scss']
 })
 export class LoansViewComponent implements OnInit {
-  private route = inject(ActivatedRoute);
-  private router = inject(Router);
-  loansService = inject(LoansService);
-  private translateService = inject(TranslateService);
-  dialog = inject(MatDialog);
-
   /** Loan Details Data */
   loanDetailsData: any;
   /** Loan Datatables */
   loanDatatables: any;
-  /** Whether datatable filtering has completed */
-  datatablesReady = false;
   /** Recalculate Interest */
   recalculateInterest: any;
   /** loan Arrears Delinquency config value */
@@ -112,9 +52,13 @@ export class LoansViewComponent implements OnInit {
   loanReAged = false;
   loanReAmortized = false;
 
-  constructor() {
-    const loansService = this.loansService;
-
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    public loansService: LoansService,
+    private translateService: TranslateService,
+    public dialog: MatDialog
+  ) {
     this.route.data.subscribe(
       (data: { loanDetailsData: any; loanDatatables: any; loanArrearsDelinquencyConfig: any }) => {
         this.loanDetailsData = data.loanDetailsData;
@@ -136,8 +80,6 @@ export class LoansViewComponent implements OnInit {
           });
         }
         this.setConditionalButtons();
-        // Filter datatables based on entity datatable checks
-        this.filterDatatablesByProduct();
       }
     );
     this.loanId = this.route.snapshot.params['loanId'];
@@ -175,76 +117,6 @@ export class LoansViewComponent implements OnInit {
     this.loanDelinquencyClassification();
   }
 
-  /**
-   * Filter datatables based on entity datatable checks configuration.
-   * Only shows datatables that are linked to the current loan's product.
-   *
-   * Logic:
-   * - If a datatable has product-specific entity checks for ANY loan product,
-   *   it is only shown for products where it is explicitly configured.
-   * - If a datatable has NO product-specific entity checks at all,
-   *   it is shown for all products (backward compatibility).
-   */
-  filterDatatablesByProduct(): void {
-    this.datatablesReady = false;
-
-    if (!this.loanDatatables || this.loanDatatables.length === 0) {
-      this.datatablesReady = true;
-      return;
-    }
-
-    const loanProductId = this.loanDetailsData?.loanProductId;
-
-    if (!loanProductId || loanProductId <= 0) {
-      this.datatablesReady = true;
-      return; // Keep all datatables if product ID is not available or invalid
-    }
-
-    this.loansService.getEntityDataTableChecks().subscribe({
-      next: (response: any) => {
-        const entityChecks = response?.pageItems || [];
-
-        // Get all entity checks for the m_loan entity
-        const loanEntityChecks = entityChecks.filter((check: any) => check.entity === 'm_loan');
-
-        if (loanEntityChecks.length === 0) {
-          this.datatablesReady = true;
-          return; // No entity datatable checks configured at all, keep all datatables
-        }
-
-        // Collect datatable names that have product-specific configurations (for ANY product)
-        const productSpecificDatatables = new Set<string>(
-          loanEntityChecks
-            .filter((check: any) => check.productId && check.productId > 0)
-            .map((check: any) => check.datatableName)
-        );
-
-        // Collect datatable names allowed for the current product
-        const allowedForCurrentProduct = new Set<string>(
-          loanEntityChecks
-            .filter((check: any) => check.productId === loanProductId)
-            .map((check: any) => check.datatableName)
-        );
-
-        // Filter: keep a datatable if:
-        // 1. It has no product-specific configuration anywhere → show for all products
-        // 2. It is explicitly configured for the current product
-        this.loanDatatables = this.loanDatatables.filter((datatable: any) => {
-          const tableName = datatable.registeredTableName;
-          if (!productSpecificDatatables.has(tableName)) {
-            return true;
-          }
-          return allowedForCurrentProduct.has(tableName);
-        });
-        this.datatablesReady = true;
-      },
-      error: () => {
-        // If API fails, keep all datatables (fallback to current behavior)
-        this.datatablesReady = true;
-      }
-    });
-  }
-
   // Defines the buttons based on the status of the loan account
   setConditionalButtons() {
     this.buttonConfig = new LoansAccountButtonConfiguration(this.status, this.loanSubStatus);
@@ -270,18 +142,11 @@ export class LoansViewComponent implements OnInit {
         taskPermissionName: 'DISBURSE_LOAN'
       });
     } else if (this.status === 'Active') {
-      if (this.loanDetailsData.enableBuyDownFee) {
-        this.buttonConfig.addButton({
-          name: 'Buy Down Fee',
-          icon: 'plus',
-          taskPermissionName: 'BUYDOWNFEE_LOAN'
-        });
-      }
       if (this.loanDetailsData.enableIncomeCapitalization) {
         this.buttonConfig.addButton({
           name: 'Capitalized Income',
           icon: 'coins',
-          taskPermissionName: 'CAPITALIZEDINCOME_LOAN'
+          taskPermissionName: 'CAPITALIZED_INCOME_LOAN'
         });
       }
 
@@ -372,21 +237,6 @@ export class LoansViewComponent implements OnInit {
           name: 'Undo Re-Amortize',
           icon: 'undo',
           taskPermissionName: 'UNDO_REAMORTIZE_LOAN'
-        });
-      }
-    } else if (this.status === 'Closed (obligations met)' || this.status === 'Overpaid') {
-      if (this.loanDetailsData.multiDisburseLoan) {
-        this.buttonConfig.addButton({
-          name: 'Disburse',
-          icon: 'hand-holding-usd',
-          taskPermissionName: 'DISBURSE_LOAN'
-        });
-      }
-      if (LoanProducts.isAdvancedPaymentAllocationStrategy(this.loanDetailsData.transactionProcessingStrategyCode)) {
-        this.buttonConfig.addButton({
-          name: 'Reschedule',
-          icon: 'calendar',
-          taskPermissionName: 'CREATE_RESCHEDULELOAN'
         });
       }
     }

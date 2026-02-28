@@ -1,15 +1,7 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** TODO: Separate services for feature modules for cleaner accounting service. */
 
 /** Angular Imports */
-import { Injectable, inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
 /** rxjs Imports */
@@ -22,7 +14,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AccountingService {
-  private http = inject(HttpClient);
+  /**
+   * @param {HttpClient} http Http Client to send requests.
+   */
+  constructor(private http: HttpClient) {}
 
   /**
    * @returns {Observable<any>} Offices data ordered by id.

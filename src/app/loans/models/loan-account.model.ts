@@ -1,12 +1,4 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
-import { CodeValue, Currency } from 'app/shared/models/general.model';
+import { Currency } from 'app/shared/models/general.model';
 
 export interface DelinquencyRange {
   id: number;
@@ -16,7 +8,6 @@ export interface DelinquencyRange {
 
 export interface DelinquentData {
   availableDisbursementAmount: number;
-  availableDisbursementAmountWithOverApplied: number;
   pastDueDays: number;
   nextPaymentDueDate: number[];
   delinquentDays: number;
@@ -130,54 +121,4 @@ export interface DisbursementData {
   expectedDisbursementDate: Date;
   principal: number;
   id?: number;
-}
-
-export interface LoanDeferredIncomeData {
-  capitalizedIncomeData: LoanCapitalizedIncomeData[];
-}
-
-export interface LoanCapitalizedIncomeData {
-  amount: number;
-  amortizedAmount?: number;
-  unrecognizedAmount?: number;
-  amountAdjustment?: number;
-}
-
-export interface BuyDownFeeAmortizationDetails {
-  id: number;
-  loanId: number;
-  transactionId: number;
-  buyDownFeeDate: string;
-  buyDownFeeAmount: number;
-  amortizedAmount: number;
-  notYetAmortizedAmount: number;
-  adjustedAmount: number;
-  chargedOffAmount: number;
-}
-
-export interface EditablePeriod extends RepaymentSchedulePeriod {
-  changed?: boolean;
-}
-
-export interface EditableRepaymentSchedule extends RepaymentSchedule {
-  periods: EditablePeriod[];
-}
-
-export interface RepaymentScheduleEditCache {
-  edit: boolean;
-  data: RepaymentSchedulePeriod;
-}
-
-export interface ScheduleChangeRecord {
-  dueDate: string;
-  installmentAmount: number;
-}
-
-export interface LoanOriginator {
-  id: number;
-  externalId: string;
-  name: string;
-  status: string;
-  originatorType: CodeValue;
-  channelType: CodeValue;
 }

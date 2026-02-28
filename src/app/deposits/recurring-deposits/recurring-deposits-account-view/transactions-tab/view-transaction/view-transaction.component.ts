@@ -1,14 +1,6 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, inject } from '@angular/core';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 
 /** Custom Services */
@@ -19,11 +11,7 @@ import { SettingsService } from 'app/settings/settings.service';
 import { RecurringDepositConfirmationDialogComponent } from '../../custom-dialogs/recurring-deposit-confirmation-dialog/recurring-deposit-confirmation-dialog.component';
 import { Dates } from 'app/core/utils/dates';
 import { TranslateService } from '@ngx-translate/core';
-import { Location, NgClass, CurrencyPipe } from '@angular/common';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { TransactionPaymentDetailComponent } from '../../../../../shared/transaction-payment-detail/transaction-payment-detail.component';
-import { DateFormatPipe } from '../../../../../pipes/date-format.pipe';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
+import { Location } from '@angular/common';
 
 /**
  * View Transaction Component.
@@ -32,26 +20,9 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 @Component({
   selector: 'mifosx-view-transaction',
   templateUrl: './view-transaction.component.html',
-  styleUrls: ['./view-transaction.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    FaIconComponent,
-    NgClass,
-    TransactionPaymentDetailComponent,
-    CurrencyPipe,
-    DateFormatPipe
-  ]
+  styleUrls: ['./view-transaction.component.scss']
 })
 export class ViewTransactionComponent {
-  private recurringDepositsService = inject(RecurringDepositsService);
-  private route = inject(ActivatedRoute);
-  private location = inject(Location);
-  private dateUtils = inject(Dates);
-  private router = inject(Router);
-  dialog = inject(MatDialog);
-  private translateService = inject(TranslateService);
-  private settingsService = inject(SettingsService);
-
   /** Transaction data. */
   transactionData: any;
 
@@ -64,7 +35,16 @@ export class ViewTransactionComponent {
    * @param {Dates} dateUtils Date Utils.
    * @param {SettingsService} settingsService Settings Service
    */
-  constructor() {
+  constructor(
+    private recurringDepositsService: RecurringDepositsService,
+    private route: ActivatedRoute,
+    private location: Location,
+    private dateUtils: Dates,
+    private router: Router,
+    public dialog: MatDialog,
+    private translateService: TranslateService,
+    private settingsService: SettingsService
+  ) {
     this.route.data.subscribe((data: { recurringDepositsAccountTransaction: any }) => {
       this.transactionData = data.recurringDepositsAccountTransaction;
     });

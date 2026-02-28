@@ -1,19 +1,10 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, OnInit, inject } from '@angular/core';
-import { UntypedFormGroup, UntypedFormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { UntypedFormGroup, UntypedFormBuilder } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 /** Custom Services */
 import { GroupsService } from 'app/groups/groups.service';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 /**
  * Groups Assign Staff Component
@@ -21,17 +12,9 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 @Component({
   selector: 'mifosx-group-assign-staff',
   templateUrl: './group-assign-staff.component.html',
-  styleUrls: ['./group-assign-staff.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS
-  ]
+  styleUrls: ['./group-assign-staff.component.scss']
 })
 export class GroupAssignStaffComponent implements OnInit {
-  private formBuilder = inject(UntypedFormBuilder);
-  private groupsService = inject(GroupsService);
-  private route = inject(ActivatedRoute);
-  private router = inject(Router);
-
   /** Group Assign Staff form. */
   groupAssignStaffForm: UntypedFormGroup;
   /** Staff Data */
@@ -46,7 +29,12 @@ export class GroupAssignStaffComponent implements OnInit {
    * @param {ActivatedRoute} route Activated Route
    * @param {Router} router Router
    */
-  constructor() {
+  constructor(
+    private formBuilder: UntypedFormBuilder,
+    private groupsService: GroupsService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
     this.route.data.subscribe((data: { groupActionData: any }) => {
       this.groupData = data.groupActionData;
     });

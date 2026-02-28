@@ -1,14 +1,6 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, inject } from '@angular/core';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 
 /** Custom Services */
@@ -26,10 +18,6 @@ import { FormfieldBase } from 'app/shared/form-dialog/formfield/model/formfield-
 import { InputBase } from 'app/shared/form-dialog/formfield/model/input-base';
 import { DatepickerBase } from 'app/shared/form-dialog/formfield/model/datepicker-base';
 import { Dates } from 'app/core/utils/dates';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { DateFormatPipe } from '../../../pipes/date-format.pipe';
-import { FormatNumberPipe } from '../../../pipes/format-number.pipe';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 /**
  * View Charge Component.
@@ -37,22 +25,9 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 @Component({
   selector: 'mifosx-view-charge',
   templateUrl: './view-charge.component.html',
-  styleUrls: ['./view-charge.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    FaIconComponent,
-    DateFormatPipe,
-    FormatNumberPipe
-  ]
+  styleUrls: ['./view-charge.component.scss']
 })
 export class ViewChargeComponent {
-  private savingsService = inject(SavingsService);
-  private route = inject(ActivatedRoute);
-  private dateUtils = inject(Dates);
-  private router = inject(Router);
-  dialog = inject(MatDialog);
-  private settingsService = inject(SettingsService);
-
   /** Charge data. */
   chargeData: any;
   /** Savings Account Data */
@@ -67,7 +42,14 @@ export class ViewChargeComponent {
    * @param {Dates} dateUtils Date Utils.
    * @param {SettingsService} settingsService Setting service
    */
-  constructor() {
+  constructor(
+    private savingsService: SavingsService,
+    private route: ActivatedRoute,
+    private dateUtils: Dates,
+    private router: Router,
+    public dialog: MatDialog,
+    private settingsService: SettingsService
+  ) {
     this.route.data.subscribe((data: { savingsAccountCharge: any }) => {
       this.chargeData = data.savingsAccountCharge;
     });
@@ -95,6 +77,7 @@ export class ViewChargeComponent {
         type: 'date',
         required: true
       })
+
     ];
     const data = {
       title: 'Pay Charge',
@@ -167,6 +150,7 @@ export class ViewChargeComponent {
         type: 'number',
         required: true
       })
+
     ];
     const data = {
       title: 'Edit Charge',

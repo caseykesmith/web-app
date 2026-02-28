@@ -1,15 +1,7 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 /** Custom Services */
 import { ProductsService } from 'app/products/products.service';
@@ -17,10 +9,6 @@ import { ProductsService } from 'app/products/products.service';
 /** Custom Components */
 import { TranslateService } from '@ngx-translate/core';
 import { DeleteDialogComponent } from '../../../shared/delete-dialog/delete-dialog.component';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { GlAccountDisplayComponent } from '../../../shared/accounting/gl-account-display/gl-account-display.component';
-import { YesnoPipe } from '../../../pipes/yesno.pipe';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 /**
  * View Charge Component.
@@ -28,21 +16,9 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 @Component({
   selector: 'mifosx-view-charge',
   templateUrl: './view-charge.component.html',
-  styleUrls: ['./view-charge.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    FaIconComponent,
-    GlAccountDisplayComponent,
-    YesnoPipe
-  ]
+  styleUrls: ['./view-charge.component.scss']
 })
 export class ViewChargeComponent {
-  private productsService = inject(ProductsService);
-  private route = inject(ActivatedRoute);
-  private router = inject(Router);
-  private dialog = inject(MatDialog);
-  private translateService = inject(TranslateService);
-
   /** Charge data. */
   chargeData: any;
   /** Boolean for MinCap and MaxCap */
@@ -56,7 +32,13 @@ export class ViewChargeComponent {
    * @param {MatDialog} dialog Dialog reference.
    * @param {TranslateService} translateService Translate Service.
    */
-  constructor() {
+  constructor(
+    private productsService: ProductsService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private dialog: MatDialog,
+    private translateService: TranslateService
+  ) {
     this.route.data.subscribe((data: { charge: any }) => {
       this.chargeData = data.charge;
       if (this.chargeData.minCap) {

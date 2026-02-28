@@ -1,11 +1,3 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** TODO: Separate routing into feature modules for cleaner accounting module. */
 
 /** Angular Imports */
@@ -70,7 +62,6 @@ import { ProvisioningJournalEntriesResolver } from './provisioning-entries/view-
 import { ViewJournalEntryTransactionComponent } from 'app/shared/accounting/view-journal-entry-transaction/view-journal-entry-transaction.component';
 import { JournalEntryTransactionResolver } from './common-resolvers/journal-entry-transaction.resolver';
 import { ExternalAssetOwnerJournalEntryResolver } from 'app/loans/common-resolvers/external-asset-owner-journal-entry.resolver';
-import { ExternalAssetConfigurationResolver } from './common-resolvers/external-asset-configuration.resolver';
 
 /** Accounting Routes */
 const routes: Routes = [
@@ -114,8 +105,7 @@ const routes: Routes = [
                 offices: OfficesResolver,
                 currencies: CurrenciesResolver,
                 paymentTypes: PaymentTypesResolver,
-                glAccounts: GlAccountsResolver,
-                globalConfig: ExternalAssetConfigurationResolver
+                glAccounts: GlAccountsResolver
               }
             },
             {
@@ -394,6 +384,7 @@ const routes: Routes = [
       ]
     }
   ])
+
 ];
 
 /**
@@ -428,8 +419,7 @@ const routes: Routes = [
     ProvisioningEntryEntriesResolver,
     LoanProductsResolver,
     ProvisioningCategoriesResolver,
-    ProvisioningJournalEntriesResolver,
-    ExternalAssetConfigurationResolver
+    ProvisioningJournalEntriesResolver
   ]
 })
 export class AccountingRoutingModule {}

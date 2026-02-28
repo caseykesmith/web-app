@@ -1,14 +1,6 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports  */
-import { Component, OnInit, inject } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators, FormArray, ReactiveFormsModule } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as _ from 'lodash';
@@ -19,16 +11,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { DeleteDialogComponent } from '../../../shared/delete-dialog/delete-dialog.component';
 import { DisableDialogComponent } from '../../../shared/disable-dialog/disable-dialog.component';
 import { EnableDialogComponent } from '../../../shared/enable-dialog/enable-dialog.component';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { NgClass } from '@angular/common';
-import { MatList, MatListItem } from '@angular/material/list';
-import { MatDivider } from '@angular/material/divider';
-import { MatCheckbox } from '@angular/material/checkbox';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
-
-/** Custom Service Zitadel */
-import { environment } from '../../../../environments/environment';
-import { AuthService } from 'app/zitadel/auth.service';
 
 /**
  * View Role and Permissions Component
@@ -36,26 +18,9 @@ import { AuthService } from 'app/zitadel/auth.service';
 @Component({
   selector: 'mifosx-view-role',
   templateUrl: './view-role.component.html',
-  styleUrls: ['./view-role.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    FaIconComponent,
-    MatList,
-    MatListItem,
-    NgClass,
-    MatDivider,
-    MatCheckbox
-  ]
+  styleUrls: ['./view-role.component.scss']
 })
 export class ViewRoleComponent implements OnInit {
-  private route = inject(ActivatedRoute);
-  private systemService = inject(SystemService);
-  private router = inject(Router);
-  private formBuilder = inject(UntypedFormBuilder);
-  private translateService = inject(TranslateService);
-  dialog = inject(MatDialog);
-  private authService = inject(AuthService);
-
   /** Role Permissions Data */
   rolePermissionService: any;
   /** Stores the current grouping */
@@ -80,15 +45,12 @@ export class ViewRoleComponent implements OnInit {
   backupform: UntypedFormGroup;
   /** Temporarily stores Permission data */
   tempPermissionUIData: {
-    [key: string]: {
-      permissions: { code: string; id: number; selected?: boolean }[];
-    };
-  } = {};
+    permissions: { code: string }[];
+  }[];
   /** Stores permissions */
   permissions: {
     permissions: { code: string; id: number }[];
-  } = { permissions: [] };
-  /** Add role zitadel */
+  };
 
   /**
    * Retrieves the roledetails data from `resolve`.
@@ -99,7 +61,14 @@ export class ViewRoleComponent implements OnInit {
    * @param {MatDialog} dialog Shared Dialog Boxes.
    * @param {TranslateService} translateService Translate Service.
    */
-  constructor() {
+  constructor(
+    private route: ActivatedRoute,
+    private systemService: SystemService,
+    private router: Router,
+    private formBuilder: UntypedFormBuilder,
+    private translateService: TranslateService,
+    public dialog: MatDialog
+  ) {
     this.route.data.subscribe((data: { roledetails: any }) => {
       this.rolePermissionService = data.roledetails;
     });
@@ -152,7 +121,11 @@ export class ViewRoleComponent implements OnInit {
    * Groups the permissions based on rules
    */
   groupRules() {
-    this.tempPermissionUIData = {};
+    this.tempPermissionUIData = [
+      {
+        permissions: []
+      }
+    ];
     for (const i in this.rolePermissionService.permissionUsageData) {
       if (this.rolePermissionService.permissionUsageData[i]) {
         if (this.rolePermissionService.permissionUsageData[i].grouping !== this.currentGrouping) {
@@ -162,7 +135,7 @@ export class ViewRoleComponent implements OnInit {
         }
         const temp = {
           code: this.rolePermissionService.permissionUsageData[i].code,
-          id: +i,
+          id: i,
           selected: this.rolePermissionService.permissionUsageData[i].selected
         };
         this.tempPermissionUIData[this.currentGrouping].permissions.push(temp);
@@ -184,20 +157,7 @@ export class ViewRoleComponent implements OnInit {
    * Formats the Role Name
    * @param string String
    */
-  formatName(string: string) {
-    if (!string) {
-      return string;
-    }
-    // Try to translate first
-    const translationKey = `labels.catalogs.${string}`;
-    const translated = this.translateService.instant(translationKey);
-
-    // If translation exists (and is different from key), use it
-    if (translated && translated !== translationKey) {
-      return translated;
-    }
-
-    // Otherwise, format the original string
+  formatName(string: any) {
     if (string.indexOf('portfolio_') > -1) {
       string = string.replace('portfolio_', '');
     }
@@ -217,7 +177,7 @@ export class ViewRoleComponent implements OnInit {
     name = name || '';
     // replace '_' with ' '
     name = name.replace(/_/g, ' ');
-    // for reports replace read with view
+    // for reorts replace read with view
     if (this.previousGrouping === 'report') {
       name = name.replace(/READ/g, 'View');
     }
@@ -225,7 +185,7 @@ export class ViewRoleComponent implements OnInit {
   }
 
   /**
-   * Backups the values
+   * Backups the valued
    */
   backupCheckValues() {
     this.backupform = _.cloneDeep(this.formGroup) as UntypedFormGroup;
@@ -260,7 +220,7 @@ export class ViewRoleComponent implements OnInit {
    */
   submit() {
     const value = this.formGroup.get('roster').value;
-    const data: { [key: string]: boolean } = {};
+    const data = {};
     const permissionData = {
       permissions: {}
     };
@@ -278,9 +238,8 @@ export class ViewRoleComponent implements OnInit {
    * Selects all the permission of a particular role
    */
   selectAll() {
-    const roster = this.formGroup.get('roster') as FormArray;
     for (let i = 0; i < this.permissions.permissions.length; i++) {
-      roster.at(this.permissions.permissions[i].id).patchValue({
+      this.formGroup.controls.roster['controls'][this.permissions.permissions[i].id].patchValue({
         selected: true
       });
     }
@@ -290,9 +249,8 @@ export class ViewRoleComponent implements OnInit {
    * Deselects all the permissions of a particular role
    */
   deselectAll() {
-    const roster = this.formGroup.get('roster') as FormArray;
     for (let i = 0; i < this.permissions.permissions.length; i++) {
-      roster.at(this.permissions.permissions[i].id).patchValue({
+      this.formGroup.controls.roster['controls'][this.permissions.permissions[i].id].patchValue({
         selected: false
       });
     }
@@ -308,9 +266,6 @@ export class ViewRoleComponent implements OnInit {
     deleteRoleDialogRef.afterClosed().subscribe((response: any) => {
       if (response.delete) {
         this.systemService.deleteRole(this.roleId).subscribe(() => {
-          if (environment.OIDC.oidcServerEnabled) {
-            this.authService.deleteRole(this.roleId);
-          }
           this.router.navigate(['/system/roles-and-permissions']);
         });
       } else {

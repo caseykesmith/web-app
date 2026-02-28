@@ -1,30 +1,10 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, OnInit, ViewChild, inject } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { MatSort, MatSortHeader } from '@angular/material/sort';
-import {
-  MatTableDataSource,
-  MatTable,
-  MatColumnDef,
-  MatHeaderCellDef,
-  MatHeaderCell,
-  MatCellDef,
-  MatCell,
-  MatHeaderRowDef,
-  MatHeaderRow,
-  MatRowDef,
-  MatRow
-} from '@angular/material/table';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgModule } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -38,12 +18,6 @@ import { SystemService } from '../../system.service';
 import { TranslateService } from '@ngx-translate/core';
 import { DeleteDialogComponent } from 'app/shared/delete-dialog/delete-dialog.component';
 import { AddEventDialogComponent } from '../add-event-dialog/add-event-dialog.component';
-import { MatFormField, MatLabel, MatError, MatHint } from '@angular/material/form-field';
-import { MatCheckbox } from '@angular/material/checkbox';
-import { MatDivider } from '@angular/material/divider';
-import { MatButton, MatIconButton } from '@angular/material/button';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 /**
  * Edit Hook Component.
@@ -52,38 +26,9 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 @Component({
   selector: 'mifosx-edit-hook',
   templateUrl: './edit-hook.component.html',
-  styleUrls: ['./edit-hook.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    MatCheckbox,
-    MatHint,
-    MatDivider,
-    FaIconComponent,
-    MatTable,
-    MatSort,
-    MatColumnDef,
-    MatHeaderCellDef,
-    MatHeaderCell,
-    MatSortHeader,
-    MatCellDef,
-    MatCell,
-    MatIconButton,
-    MatHeaderRowDef,
-    MatHeaderRow,
-    MatRowDef,
-    MatRow
-  ]
+  styleUrls: ['./edit-hook.component.scss']
 })
 export class EditHookComponent implements OnInit {
-  private route = inject(ActivatedRoute);
-  private systemService = inject(SystemService);
-  private router = inject(Router);
-  private formBuilder = inject(UntypedFormBuilder);
-  private dialog = inject(MatDialog);
-  private translateService = inject(TranslateService);
-  private snackBar = inject(MatSnackBar);
-  private cdr = inject(ChangeDetectorRef);
-
   @NgModule({
     imports: [
       MatSnackBarModule
@@ -120,7 +65,16 @@ export class EditHookComponent implements OnInit {
    * @param {MatDialog} dialog Dialog Reference.
    * @param {TranslateService} translateService Translate Service.
    */
-  constructor() {
+  constructor(
+    private route: ActivatedRoute,
+    private systemService: SystemService,
+    private router: Router,
+    private formBuilder: UntypedFormBuilder,
+    private dialog: MatDialog,
+    private translateService: TranslateService,
+    private snackBar: MatSnackBar,
+    private cdr: ChangeDetectorRef
+  ) {
     this.route.data.subscribe((data: { hooksTemplate: any; hook: any }) => {
       this.hooksTemplateData = data.hooksTemplate;
       this.hookData = data.hook;
@@ -164,6 +118,7 @@ export class EditHookComponent implements OnInit {
           disabled: this.hookData.name !== 'SMS Bridge'
         },
         Validators.required
+
       ],
       smsProvider: [
         {
@@ -171,6 +126,7 @@ export class EditHookComponent implements OnInit {
           disabled: this.hookData.name !== 'SMS Bridge'
         },
         Validators.required
+
       ],
       smsProviderAccountId: [
         {
@@ -178,6 +134,7 @@ export class EditHookComponent implements OnInit {
           disabled: this.hookData.name !== 'SMS Bridge'
         },
         Validators.required
+
       ],
       smsProviderToken: [
         {
@@ -185,6 +142,7 @@ export class EditHookComponent implements OnInit {
           disabled: this.hookData.name !== 'SMS Bridge'
         },
         Validators.required
+
       ],
       contentType: [
         {
@@ -192,6 +150,7 @@ export class EditHookComponent implements OnInit {
           disabled: this.hookData.name !== 'Web'
         },
         Validators.required
+
       ],
       payloadUrl: [
         this.hookData.name === 'Web' ? this.hookData.config[1].fieldValue : this.hookData.config[0].fieldValue,

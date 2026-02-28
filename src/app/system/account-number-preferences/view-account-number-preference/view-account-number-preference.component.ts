@@ -1,15 +1,7 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 /** Custom Services */
 import { SystemService } from '../../system.service';
@@ -17,8 +9,6 @@ import { SystemService } from '../../system.service';
 /** Custom Components */
 import { TranslateService } from '@ngx-translate/core';
 import { DeleteDialogComponent } from 'app/shared/delete-dialog/delete-dialog.component';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 /**
  * View Account Number Preference Component.
@@ -26,19 +16,9 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 @Component({
   selector: 'mifosx-view-account-number-preference',
   templateUrl: './view-account-number-preference.component.html',
-  styleUrls: ['./view-account-number-preference.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    FaIconComponent
-  ]
+  styleUrls: ['./view-account-number-preference.component.scss']
 })
 export class ViewAccountNumberPreferenceComponent {
-  private route = inject(ActivatedRoute);
-  private systemService = inject(SystemService);
-  private router = inject(Router);
-  private dialog = inject(MatDialog);
-  private translateService = inject(TranslateService);
-
   /** Account Number Preference Data */
   accountNumberPreferenceData: any;
 
@@ -50,7 +30,13 @@ export class ViewAccountNumberPreferenceComponent {
    * @param {MatDialog} dialog Dialog reference.
    * @param {TranslateService} translateService Translate Service.
    */
-  constructor() {
+  constructor(
+    private route: ActivatedRoute,
+    private systemService: SystemService,
+    private router: Router,
+    private dialog: MatDialog,
+    private translateService: TranslateService
+  ) {
     this.route.data.subscribe((data: { accountNumberPreference: any }) => {
       this.accountNumberPreferenceData = data.accountNumberPreference;
     });

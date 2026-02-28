@@ -1,35 +1,14 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, ViewChild, inject } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { Component, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import {
-  MatTable,
-  MatColumnDef,
-  MatHeaderCellDef,
-  MatHeaderCell,
-  MatCellDef,
-  MatCell,
-  MatHeaderRowDef,
-  MatHeaderRow,
-  MatRowDef,
-  MatRow
-} from '@angular/material/table';
+import { MatTable } from '@angular/material/table';
 
 /** Custom Dialogs */
 import { UnassignRoleDialogComponent } from '../custom-dialogs/unassign-role-dialog/unassign-role-dialog.component';
 
 /** Custom Services */
 import { GroupsService } from 'app/groups/groups.service';
-import { MatTooltip } from '@angular/material/tooltip';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 /**
  * Groups Committee Tab Component
@@ -37,27 +16,9 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 @Component({
   selector: 'mifosx-committee-tab',
   templateUrl: './committee-tab.component.html',
-  styleUrls: ['./committee-tab.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    MatTable,
-    MatColumnDef,
-    MatHeaderCellDef,
-    MatHeaderCell,
-    MatCellDef,
-    MatCell,
-    MatTooltip,
-    MatHeaderRowDef,
-    MatHeaderRow,
-    MatRowDef,
-    MatRow
-  ]
+  styleUrls: ['./committee-tab.component.scss']
 })
 export class CommitteeTabComponent {
-  private route = inject(ActivatedRoute);
-  private groupsService = inject(GroupsService);
-  dialog = inject(MatDialog);
-
   /** Group Status */
   groupStatus: any;
   /** Group Roles Data */
@@ -81,7 +42,11 @@ export class CommitteeTabComponent {
    * @param {GroupsService} groupsService Groups Service
    * @param {MatDialog} dialog Mat Dialog
    */
-  constructor() {
+  constructor(
+    private route: ActivatedRoute,
+    private groupsService: GroupsService,
+    public dialog: MatDialog
+  ) {
     this.route.parent.data.subscribe((data: { groupViewData: any }) => {
       this.groupViewData = data.groupViewData;
       this.groupRolesData = this.groupViewData.groupRoles;

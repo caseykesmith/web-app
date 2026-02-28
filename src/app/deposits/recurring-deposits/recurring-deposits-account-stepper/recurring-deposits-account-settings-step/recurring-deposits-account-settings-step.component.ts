@@ -1,28 +1,7 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, OnInit, Input, OnChanges, inject } from '@angular/core';
-import {
-  UntypedFormGroup,
-  UntypedFormBuilder,
-  Validators,
-  UntypedFormControl,
-  ReactiveFormsModule
-} from '@angular/forms';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { UntypedFormGroup, UntypedFormBuilder, Validators, UntypedFormControl } from '@angular/forms';
 import { SettingsService } from 'app/settings/settings.service';
-import { Currency } from 'app/shared/models/general.model';
-import { MatCheckbox } from '@angular/material/checkbox';
-import { InputAmountComponent } from '../../../../shared/input-amount/input-amount.component';
-import { MatDivider } from '@angular/material/divider';
-import { MatStepperPrevious, MatStepperNext } from '@angular/material/stepper';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 /** Custom Services */
 
@@ -32,21 +11,9 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 @Component({
   selector: 'mifosx-recurring-deposits-account-settings-step',
   templateUrl: './recurring-deposits-account-settings-step.component.html',
-  styleUrls: ['./recurring-deposits-account-settings-step.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    MatCheckbox,
-    InputAmountComponent,
-    MatDivider,
-    MatStepperPrevious,
-    FaIconComponent,
-    MatStepperNext
-  ]
+  styleUrls: ['./recurring-deposits-account-settings-step.component.scss']
 })
 export class RecurringDepositsAccountSettingsStepComponent implements OnInit, OnChanges {
-  private formBuilder = inject(UntypedFormBuilder);
-  private settingsService = inject(SettingsService);
-
   @Input() isNew = true;
   @Input() recurringDepositsAccountTemplate: any;
   @Input() recurringDepositsAccountProductTemplate: any;
@@ -65,13 +32,15 @@ export class RecurringDepositsAccountSettingsStepComponent implements OnInit, On
   preClosurePenalInterestOnTypeData: any;
   /** Tax Group */
   taxGroup: any;
-  currency: Currency | null = null;
 
   /**
    * @param {FormBuilder} formBuilder Form Builder
    * @param {SettingsService} settingsService Settings Service
    */
-  constructor() {
+  constructor(
+    private formBuilder: UntypedFormBuilder,
+    private settingsService: SettingsService
+  ) {
     this.createRecurringDepositAccountSettingsForm();
     this.buildDependencies();
   }
@@ -81,7 +50,6 @@ export class RecurringDepositsAccountSettingsStepComponent implements OnInit, On
       ? this.recurringDepositsAccountProductTemplate
       : this.recurringDepositsAccountTemplate;
     if (recurringDepositsAccount) {
-      this.currency = recurringDepositsAccount.currency;
       this.recurringDepositAccountSettingsForm.patchValue({
         isMandatoryDeposit: recurringDepositsAccount.isMandatoryDeposit,
         adjustAdvanceTowardsFuturePayments: recurringDepositsAccount.adjustAdvanceTowardsFuturePayments,

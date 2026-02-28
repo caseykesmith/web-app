@@ -1,14 +1,3 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
-import { CodeValue, Currency } from 'app/shared/models/general.model';
-import { OptionData } from 'app/shared/models/option-data.model';
-
 export interface LoanTransactionType {
   id: number;
   code: string;
@@ -45,24 +34,4 @@ export interface LoanTransactionType {
   reAmortize: boolean;
   capitalizedIncome: boolean;
   capitalizedIncomeAdjustment: boolean;
-  capitalizedIncomeAmortization: boolean;
-  capitalizedIncomeAmortizationAdjustment: boolean;
-  contractTermination: boolean;
-  buyDownFee: boolean;
-  buyDownFeeAdjustment: boolean;
-  buyDownFeeAmortizationAdjustment: boolean;
-}
-
-export interface LoanTransactionTemplate {
-  loanId: number;
-  externalLoanId: string;
-  type: LoanTransactionType;
-  date: number[];
-  currency: Currency;
-  amount: number;
-  netDisbursalAmount: number;
-  manuallyReversed: boolean;
-  reAgeReasonOptions: CodeValue[];
-  periodFrequencyOptions: string[];
-  reAgeInterestHandlingOptions: OptionData[];
 }

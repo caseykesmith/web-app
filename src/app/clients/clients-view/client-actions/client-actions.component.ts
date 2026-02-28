@@ -1,32 +1,6 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ClientAssignStaffComponent } from './client-assign-staff/client-assign-staff.component';
-import { CloseClientComponent } from './close-client/close-client.component';
-import { ViewSurveyComponent } from './view-survey/view-survey.component';
-import { RejectClientComponent } from './reject-client/reject-client.component';
-import { ActivateClientComponent } from './activate-client/activate-client.component';
-import { WithdrawClientComponent } from './withdraw-client/withdraw-client.component';
-import { UpdateClientSavingsAccountComponent } from './update-client-savings-account/update-client-savings-account.component';
-import { TransferClientComponent } from './transfer-client/transfer-client.component';
-import { UndoClientTransferComponent } from './undo-client-transfer/undo-client-transfer.component';
-import { RejectClientTransferComponent } from './reject-client-transfer/reject-client-transfer.component';
-import { AcceptClientTransferComponent } from './accept-client-transfer/accept-client-transfer.component';
-import { ReactivateClientComponent } from './reactivate-client/reactivate-client.component';
-import { UndoClientRejectionComponent } from './undo-client-rejection/undo-client-rejection.component';
-import { AddClientChargeComponent } from './add-client-charge/add-client-charge.component';
-import { TakeSurveyComponent } from './take-survey/take-survey.component';
-import { ClientScreenReportsComponent } from './client-screen-reports/client-screen-reports.component';
-import { AddClientCollateralComponent } from './add-client-collateral/add-client-collateral.component';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 /**
  * Client actions component.
@@ -34,32 +8,9 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 @Component({
   selector: 'mifosx-client-actions',
   templateUrl: './client-actions.component.html',
-  styleUrls: ['./client-actions.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    ClientAssignStaffComponent,
-    CloseClientComponent,
-    ViewSurveyComponent,
-    RejectClientComponent,
-    ActivateClientComponent,
-    WithdrawClientComponent,
-    UpdateClientSavingsAccountComponent,
-    TransferClientComponent,
-    UndoClientTransferComponent,
-    RejectClientTransferComponent,
-    AcceptClientTransferComponent,
-    ReactivateClientComponent,
-    UndoClientRejectionComponent,
-    AddClientChargeComponent,
-    TakeSurveyComponent,
-    ClientScreenReportsComponent,
-    AddClientCollateralComponent
-  ]
+  styleUrls: ['./client-actions.component.scss']
 })
 export class ClientActionsComponent {
-  private route = inject(ActivatedRoute);
-  private router = inject(Router);
-
   /** Flag object to store possible actions and render appropriate UI to the user */
   actions: {
     'Assign Staff': boolean;
@@ -73,7 +24,6 @@ export class ClientActionsComponent {
     'Accept Transfer': boolean;
     'Reject Transfer': boolean;
     Reactivate: boolean;
-    Activate: boolean;
     'Undo Rejection': boolean;
     'Add Charge': boolean;
     'Take Survey': boolean;
@@ -91,7 +41,6 @@ export class ClientActionsComponent {
     'Accept Transfer': false,
     'Reject Transfer': false,
     Reactivate: false,
-    Activate: false,
     'Undo Rejection': false,
     'Add Charge': false,
     'Take Survey': false,
@@ -103,9 +52,12 @@ export class ClientActionsComponent {
    * @param {ActivatedRoute} route Activated Route
    * @param {Router} router Router
    */
-  constructor() {
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-    const name = this.route.snapshot.params['name'] as keyof typeof this.actions;
+    const name = this.route.snapshot.params['name'];
     this.actions[name] = true;
   }
 }

@@ -1,14 +1,5 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, QueryList, ViewChild, ViewChildren, inject } from '@angular/core';
-import { I18nService } from 'app/core/i18n/i18n.service';
+import { Component, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 /** Custom Services */
@@ -23,41 +14,13 @@ import { LoansActiveClientMembersComponent } from '../../loans-account-stepper/l
 import { LoansAccountTermsStepComponent } from '../../loans-account-stepper/loans-account-terms-step/loans-account-terms-step.component';
 import { LoansAccountChargesStepComponent } from '../../loans-account-stepper/loans-account-charges-step/loans-account-charges-step.component';
 import { LoansAccountDatatableStepComponent } from '../../loans-account-stepper/loans-account-datatable-step/loans-account-datatable-step.component';
-import { MatStepper, MatStepperIcon, MatStep, MatStepLabel } from '@angular/material/stepper';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { LoansAccountScheduleStepComponent } from '../../loans-account-stepper/loans-account-schedule-step/loans-account-schedule-step.component';
-import { LoansAccountPreviewStepComponent } from '../../loans-account-stepper/loans-account-preview-step/loans-account-preview-step.component';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 @Component({
   selector: 'mifosx-create-glim-account',
   templateUrl: './create-glim-account.component.html',
-  styleUrls: ['./create-glim-account.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    MatStepper,
-    MatStepperIcon,
-    FaIconComponent,
-    MatStep,
-    MatStepLabel,
-    LoansAccountDetailsStepComponent,
-    LoansAccountTermsStepComponent,
-    LoansAccountChargesStepComponent,
-    LoansActiveClientMembersComponent,
-    LoansAccountScheduleStepComponent,
-    LoansAccountDatatableStepComponent,
-    LoansAccountPreviewStepComponent
-  ]
+  styleUrls: ['./create-glim-account.component.scss']
 })
 export class CreateGlimAccountComponent {
-  private route = inject(ActivatedRoute);
-  private router = inject(Router);
-  private loansService = inject(LoansService);
-  private settingsService = inject(SettingsService);
-  private clientService = inject(ClientsService);
-  private dateUtils = inject(Dates);
-  private i18nService = inject(I18nService);
-
   /** Imports all the step component */
   @ViewChild(LoansAccountDetailsStepComponent, { static: true })
   loansAccountDetailsStep: LoansAccountDetailsStepComponent;
@@ -95,7 +58,14 @@ export class CreateGlimAccountComponent {
    * @param {SettingsService} settingsService Settings Service
    * @param {ClientsService} clientService Client Service
    */
-  constructor() {
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private loansService: LoansService,
+    private settingsService: SettingsService,
+    private clientService: ClientsService,
+    private dateUtils: Dates
+  ) {
     this.route.data.subscribe((data: { loansAccountTemplate: any; groupsData: any }) => {
       this.loansAccountTemplate = data.loansAccountTemplate;
       this.dataSource = data.groupsData.activeClientMembers;
@@ -191,31 +161,10 @@ export class CreateGlimAccountComponent {
     // const monthDayFormat = 'dd MMMM';
     const data = {
       ...this.loansAccount,
-      charges: (this.loansAccount.charges ?? [])
-        .map((charge: any) => {
-          const chargeId = charge.chargeId ?? charge.id;
-          if (chargeId == null) {
-            return null;
-          }
-          const mappedCharge: any = {
-            chargeId,
-            amount: charge.amount
-          };
-          if (charge.id && charge.id !== chargeId) {
-            mappedCharge.id = charge.id;
-          }
-          if (charge.dueDate) {
-            mappedCharge.dueDate = this.dateUtils.formatDate(charge.dueDate, dateFormat);
-          }
-          if (charge.feeInterval !== undefined) {
-            mappedCharge.feeInterval = charge.feeInterval;
-          }
-          if (charge.feeOnMonthDay !== undefined) {
-            mappedCharge.feeOnMonthDay = charge.feeOnMonthDay;
-          }
-          return mappedCharge;
-        })
-        .filter(Boolean),
+      charges: this.loansAccount.charges.map((charge: any) => ({
+        chargeId: charge.id,
+        amount: charge.amount
+      })),
       clientId: client.id,
       totalLoan: totalLoan,
       loanType: 'glim',
@@ -243,7 +192,7 @@ export class CreateGlimAccountComponent {
   /** Request Body Data */
   buildRequestData(): any[] {
     const requestData = [];
-    const memberSelected = this.selectedMembers?.selectedMembers ?? [];
+    const memberSelected = this.selectedMembers.selectedMembers;
     const totalLoan = this.totalLoanAmount();
     for (let index = 0; index < memberSelected.length; index++) {
       requestData.push({
@@ -258,7 +207,7 @@ export class CreateGlimAccountComponent {
 
   totalLoanAmount(): number {
     let total = 0;
-    const memberSelected = this.selectedMembers?.selectedMembers ?? [];
+    const memberSelected = this.selectedMembers.selectedMembers;
     for (let index = 0; index < memberSelected.length; index++) {
       total += memberSelected[index].principal;
     }
@@ -269,30 +218,6 @@ export class CreateGlimAccountComponent {
    * Creates a new GLIM account.
    */
   submit() {
-    this.selectedMembers = this.loansActiveClientMembers?.selectedClientMembers;
-    const memberSelected = this.loansActiveClientMembers?.selectedClientMembers?.selectedMembers ?? [];
-    if (!memberSelected.length) return;
-    const gsimMemberIds = new Set(this.dataSource.map((m: any) => Number(m.id)));
-    for (const member of memberSelected) {
-      const memberId = Number(member.id);
-      // Validate savings account ownership
-      const ownerId = Number(member.linkAccountOwnerId);
-      if (member.linkAccountId && member.linkAccountOwnerId && ownerId !== memberId) {
-        this.i18nService.translate('errors.linkedSavingsAccountOwnership').subscribe((msg: string) => {
-          this.notify({ defaultUserMessage: msg, errors: [] }, { memberId });
-        });
-        return;
-      }
-      // Validate GSIM membership
-      if (!gsimMemberIds.has(memberId)) {
-        this.i18nService.translate('errors.clientNotInGSIM', { id: memberId }).subscribe((msg: string) => {
-          this.notify({ defaultUserMessage: msg, errors: [] }, { memberId });
-        });
-        return;
-      }
-    }
-
-    // Use date format from settingsService for interestChargedFromDate
     const data = this.buildRequestData();
     this.loansService.createGlimAccount(data).subscribe((response: any) => {
       const body = JSON.parse(response[0].body);
@@ -305,17 +230,15 @@ export class CreateGlimAccountComponent {
           { relativeTo: this.route }
         );
       } else {
-        this.notify(body, { batchSize: data.length });
+        this.notify(body, data);
       }
     });
   }
 
-  notify(body: any, context?: { [k: string]: unknown }) {
-    const parts: string[] = [String(body?.defaultUserMessage ?? '')];
-    if (Array.isArray(body?.errors)) {
-      for (const e of body.errors) parts.push(String(e?.developerMessage ?? ''));
-    }
-    if (context) parts.push(`Context: ${JSON.stringify(context)}`);
-    console.error(parts.join(' ').trim());
+  notify(body: any, data: any) {
+    let message = body.defaultUserMessage + ' ';
+    while (body.errors?.length > 0) message += body.errors.pop().developerMessage + ' ';
+    message += 'Data: ' + JSON.stringify(data);
+    console.error(message);
   }
 }

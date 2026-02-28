@@ -1,37 +1,23 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from 'app/core/authentication/authentication.service';
 import { SavingsService } from 'app/savings/savings.service';
-import { EntityNotesTabComponent } from '../../../shared/tabs/entity-notes-tab/entity-notes-tab.component';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 @Component({
   selector: 'mifosx-notes-tab',
   templateUrl: './notes-tab.component.html',
-  styleUrls: ['./notes-tab.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    EntityNotesTabComponent
-  ]
+  styleUrls: ['./notes-tab.component.scss']
 })
 export class NotesTabComponent {
-  private route = inject(ActivatedRoute);
-  private savingsService = inject(SavingsService);
-  private authenticationService = inject(AuthenticationService);
-
   entityId: string;
   username: string;
   entityNotes: any;
 
-  constructor() {
+  constructor(
+    private route: ActivatedRoute,
+    private savingsService: SavingsService,
+    private authenticationService: AuthenticationService
+  ) {
     const savedCredentials = this.authenticationService.getCredentials();
     this.username = savedCredentials.username;
     this.entityId = this.route.parent.snapshot.params['savingAccountId'];

@@ -1,13 +1,5 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, ViewChild, inject } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 /** Custom Services */
@@ -20,11 +12,6 @@ import { RecurringDepositsAccountTermsStepComponent } from '../recurring-deposit
 import { RecurringDepositsAccountSettingsStepComponent } from '../recurring-deposits-account-stepper/recurring-deposits-account-settings-step/recurring-deposits-account-settings-step.component';
 import { RecurringDepositsAccountChargesStepComponent } from '../recurring-deposits-account-stepper/recurring-deposits-account-charges-step/recurring-deposits-account-charges-step.component';
 import { Dates } from 'app/core/utils/dates';
-import { MatStepper, MatStepperIcon, MatStep, MatStepLabel } from '@angular/material/stepper';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { RecurringDepositsAccountInterestRateChartStepComponent } from '../recurring-deposits-account-stepper/recurring-deposits-account-interest-rate-chart-step/recurring-deposits-account-interest-rate-chart-step.component';
-import { RecurringDepositsAccountPreviewStepComponent } from '../recurring-deposits-account-stepper/recurring-deposits-account-preview-step/recurring-deposits-account-preview-step.component';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 /**
  * Edit new recurring deposit account
@@ -32,29 +19,9 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 @Component({
   selector: 'mifosx-edit-recurring-deposit-account',
   templateUrl: './edit-recurring-deposit-account.component.html',
-  styleUrls: ['./edit-recurring-deposit-account.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    MatStepper,
-    MatStepperIcon,
-    FaIconComponent,
-    MatStep,
-    MatStepLabel,
-    RecurringDepositsAccountDetailsStepComponent,
-    RecurringDepositsAccountTermsStepComponent,
-    RecurringDepositsAccountSettingsStepComponent,
-    RecurringDepositsAccountInterestRateChartStepComponent,
-    RecurringDepositsAccountChargesStepComponent,
-    RecurringDepositsAccountPreviewStepComponent
-  ]
+  styleUrls: ['./edit-recurring-deposit-account.component.scss']
 })
 export class EditRecurringDepositAccountComponent {
-  private route = inject(ActivatedRoute);
-  private router = inject(Router);
-  private dateUtils = inject(Dates);
-  private recurringDepositsService = inject(RecurringDepositsService);
-  private settingsService = inject(SettingsService);
-
   /** Imports all the step component */
   @ViewChild(RecurringDepositsAccountDetailsStepComponent, { static: true })
   recurringDepositsAccountDetailsStep: RecurringDepositsAccountDetailsStepComponent;
@@ -70,7 +37,13 @@ export class EditRecurringDepositAccountComponent {
   /** Recurring Deposit Account Product Template */
   recurringDepositsAccountProductTemplate: any;
 
-  constructor() {
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private dateUtils: Dates,
+    private recurringDepositsService: RecurringDepositsService,
+    private settingsService: SettingsService
+  ) {
     this.route.data.subscribe((data: { recurringDepositsAccountAndTemplate: any }) => {
       this.recurringDepositsAccountAndTemplate = data.recurringDepositsAccountAndTemplate;
     });

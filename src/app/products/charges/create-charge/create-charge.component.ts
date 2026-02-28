@@ -1,21 +1,7 @@
-/**
- * Copyright since 2025 Mifos Initiative
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-
 /** Angular Imports */
-import { Component, OnInit, inject } from '@angular/core';
-import {
-  UntypedFormGroup,
-  UntypedFormBuilder,
-  UntypedFormControl,
-  Validators,
-  ReactiveFormsModule
-} from '@angular/forms';
-import { Router, ActivatedRoute, RouterLink } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { UntypedFormGroup, UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 /** Custom Services */
 import { ProductsService } from '../../products.service';
@@ -23,11 +9,6 @@ import { SettingsService } from 'app/settings/settings.service';
 import { Dates } from 'app/core/utils/dates';
 import { minNumberValueValidator } from 'app/shared/validators/min-number-value.validator';
 import { maxNumberValueValidator } from 'app/shared/validators/max-number-value.validator';
-import { MatDivider } from '@angular/material/divider';
-import { MatCheckbox } from '@angular/material/checkbox';
-import { ValidateOnFocusDirective } from '../../../directives/validate-on-focus.directive';
-import { GlAccountSelectorComponent } from '../../../shared/accounting/gl-account-selector/gl-account-selector.component';
-import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 
 /**
  * Create charge component.
@@ -35,23 +16,9 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
 @Component({
   selector: 'mifosx-create-charge',
   templateUrl: './create-charge.component.html',
-  styleUrls: ['./create-charge.component.scss'],
-  imports: [
-    ...STANDALONE_SHARED_IMPORTS,
-    MatDivider,
-    MatCheckbox,
-    ValidateOnFocusDirective,
-    GlAccountSelectorComponent
-  ]
+  styleUrls: ['./create-charge.component.scss']
 })
 export class CreateChargeComponent implements OnInit {
-  private formBuilder = inject(UntypedFormBuilder);
-  private productsService = inject(ProductsService);
-  private route = inject(ActivatedRoute);
-  private router = inject(Router);
-  private dateUtils = inject(Dates);
-  private settingsService = inject(SettingsService);
-
   /** Charge form. */
   chargeForm: UntypedFormGroup;
   /** Charges template data. */
@@ -80,15 +47,23 @@ export class CreateChargeComponent implements OnInit {
    * @param {Dates} dateUtils Date Utils to format date.
    * @param {SettingsService} settingsService Settings Service
    */
-  constructor() {
+  constructor(
+    private formBuilder: UntypedFormBuilder,
+    private productsService: ProductsService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private dateUtils: Dates,
+    private settingsService: SettingsService
+  ) {
     this.route.data.subscribe((data: { chargesTemplate: any }) => {
       this.chargesTemplateData = data.chargesTemplate;
-      const incomeOptions = data.chargesTemplate.incomeOrLiabilityAccountOptions.incomeAccountOptions || [];
-      const liabilityOptions = data.chargesTemplate.incomeOrLiabilityAccountOptions.liabilityAccountOptions || [];
-      if (liabilityOptions.length > 0) {
-        this.incomeAndLiabilityAccountData = incomeOptions.concat(liabilityOptions);
+      if (data.chargesTemplate.incomeOrLiabilityAccountOptions.liabilityAccountOptions) {
+        this.incomeAndLiabilityAccountData =
+          data.chargesTemplate.incomeOrLiabilityAccountOptions.incomeAccountOptions.concat(
+            data.chargesTemplate.incomeOrLiabilityAccountOptions.liabilityAccountOptions
+          );
       } else {
-        this.incomeAndLiabilityAccountData = incomeOptions;
+        this.incomeAndLiabilityAccountData = data.chargesTemplate.incomeOrLiabilityAccountOptions.incomeAccountOptions;
       }
     });
   }
@@ -131,8 +106,7 @@ export class CreateChargeComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.pattern('^\\s*(?=.*[1-9])\\d*(?:\\.\\d+)?\\s*$')
-        ]
+          Validators.pattern('^\\s*(?=.*[1-9])\\d*(?:\\.\\d+)?\\s*$')]
       ],
       active: [false],
       penalty: [false],
@@ -272,8 +246,7 @@ export class CreateChargeComponent implements OnInit {
               Validators.required,
               Validators.min(1),
               Validators.max(12),
-              Validators.pattern('^[1-9]\\d*$')
-            ])
+              Validators.pattern('^[1-9]\\d*$')])
           );
           this.repeatEveryLabel = 'Months';
           break;
@@ -287,8 +260,7 @@ export class CreateChargeComponent implements OnInit {
                 'feeInterval',
                 new UntypedFormControl('', [
                   Validators.required,
-                  Validators.pattern('^[1-9]\\d*$')
-                ])
+                  Validators.pattern('^[1-9]\\d*$')])
               );
             } else {
               this.chargeForm.removeControl('feeFrequency');
@@ -301,8 +273,7 @@ export class CreateChargeComponent implements OnInit {
             'feeInterval',
             new UntypedFormControl('', [
               Validators.required,
-              Validators.pattern('^[1-9]\\d*$')
-            ])
+              Validators.pattern('^[1-9]\\d*$')])
           );
           this.repeatEveryLabel = 'Weeks';
           break;
