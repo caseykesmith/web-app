@@ -10,10 +10,10 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Location } from '@angular/common';
 
 @Component({
-    selector: 'mifosx-view-journal-entry-transaction',
-    templateUrl: './view-journal-entry-transaction.component.html',
-    styleUrls: ['./view-journal-entry-transaction.component.scss'],
-    standalone: false
+  selector: 'mifosx-view-journal-entry-transaction',
+  templateUrl: './view-journal-entry-transaction.component.html',
+  styleUrls: ['./view-journal-entry-transaction.component.scss'],
+  standalone: false
 })
 export class ViewJournalEntryTransactionComponent implements OnInit {
   title: string;

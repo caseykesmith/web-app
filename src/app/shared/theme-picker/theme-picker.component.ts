@@ -13,11 +13,11 @@ import { ThemeStorageService } from './theme-storage.service';
  * TODO: Customization of theme for every component and custom background with darker contrast.
  */
 @Component({
-    selector: 'mifosx-theme-picker',
-    templateUrl: './theme-picker.component.html',
-    styleUrls: ['./theme-picker.component.scss'],
-    encapsulation: ViewEncapsulation.None,
-    standalone: false
+  selector: 'mifosx-theme-picker',
+  templateUrl: './theme-picker.component.html',
+  styleUrls: ['./theme-picker.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+  standalone: false
 })
 export class ThemePickerComponent implements OnInit {
   /** Default theme for the application. */

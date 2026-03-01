@@ -8,10 +8,10 @@ import { SettingsService } from 'app/settings/settings.service';
 import { OptionData } from 'app/shared/models/option-data.model';
 
 @Component({
-    selector: 'mifosx-loan-reaging',
-    templateUrl: './loan-reaging.component.html',
-    styleUrls: ['./loan-reaging.component.scss'],
-    standalone: false
+  selector: 'mifosx-loan-reaging',
+  templateUrl: './loan-reaging.component.html',
+  styleUrls: ['./loan-reaging.component.scss'],
+  standalone: false
 })
 export class LoanReagingComponent implements OnInit {
   @Input() dataObject: any;

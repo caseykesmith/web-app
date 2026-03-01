@@ -21,10 +21,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Create Loan Provisioning Criteria Component.
  */
 @Component({
-    selector: 'mifosx-create-loan-provisioning-criteria',
-    templateUrl: './create-loan-provisioning-criteria.component.html',
-    styleUrls: ['./create-loan-provisioning-criteria.component.scss'],
-    standalone: false
+  selector: 'mifosx-create-loan-provisioning-criteria',
+  templateUrl: './create-loan-provisioning-criteria.component.html',
+  styleUrls: ['./create-loan-provisioning-criteria.component.scss'],
+  standalone: false
 })
 export class CreateLoanProvisioningCriteriaComponent implements OnInit {
   /** Loan Provisioning Criteria form. */

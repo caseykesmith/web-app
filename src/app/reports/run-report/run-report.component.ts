@@ -20,10 +20,10 @@ import { AlertService } from 'app/core/alert/alert.service';
  * Run report component.
  */
 @Component({
-    selector: 'mifosx-run-report',
-    templateUrl: './run-report.component.html',
-    styleUrls: ['./run-report.component.scss'],
-    standalone: false
+  selector: 'mifosx-run-report',
+  templateUrl: './run-report.component.html',
+  styleUrls: ['./run-report.component.scss'],
+  standalone: false
 })
 export class RunReportComponent implements OnInit {
   /** Minimum date allowed. */

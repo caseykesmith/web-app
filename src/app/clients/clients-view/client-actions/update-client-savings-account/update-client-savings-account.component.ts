@@ -10,10 +10,10 @@ import { ClientsService } from 'app/clients/clients.service';
  * Clients Update Savings Account Component
  */
 @Component({
-    selector: 'mifosx-update-client-savings-account',
-    templateUrl: './update-client-savings-account.component.html',
-    styleUrls: ['./update-client-savings-account.component.scss'],
-    standalone: false
+  selector: 'mifosx-update-client-savings-account',
+  templateUrl: './update-client-savings-account.component.html',
+  styleUrls: ['./update-client-savings-account.component.scss'],
+  standalone: false
 })
 export class UpdateClientSavingsAccountComponent implements OnInit {
   /** Client Update Savings Account form. */

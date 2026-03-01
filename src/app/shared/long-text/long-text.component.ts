@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'mifosx-long-text',
-    templateUrl: './long-text.component.html',
-    styleUrls: ['./long-text.component.scss'],
-    standalone: false
+  selector: 'mifosx-long-text',
+  templateUrl: './long-text.component.html',
+  styleUrls: ['./long-text.component.scss'],
+  standalone: false
 })
 export class LongTextComponent implements OnInit {
   @Input() textValue: string;

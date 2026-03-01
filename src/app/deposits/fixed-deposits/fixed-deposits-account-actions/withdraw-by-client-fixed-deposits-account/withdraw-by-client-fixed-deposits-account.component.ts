@@ -12,10 +12,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Withdrawn by Client Fixed Deposits Account Component
  */
 @Component({
-    selector: 'mifosx-withdraw-by-client-fixed-deposits-account',
-    templateUrl: './withdraw-by-client-fixed-deposits-account.component.html',
-    styleUrls: ['./withdraw-by-client-fixed-deposits-account.component.scss'],
-    standalone: false
+  selector: 'mifosx-withdraw-by-client-fixed-deposits-account',
+  templateUrl: './withdraw-by-client-fixed-deposits-account.component.html',
+  styleUrls: ['./withdraw-by-client-fixed-deposits-account.component.scss'],
+  standalone: false
 })
 export class WithdrawByClientFixedDepositsAccountComponent implements OnInit {
   /** Minimum date allowed. */

@@ -6,10 +6,10 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
  * Cancel dialog component.
  */
 @Component({
-    selector: 'mifosx-cancel-dialog',
-    templateUrl: './cancel-dialog.component.html',
-    styleUrls: ['./cancel-dialog.component.scss'],
-    standalone: false
+  selector: 'mifosx-cancel-dialog',
+  templateUrl: './cancel-dialog.component.html',
+  styleUrls: ['./cancel-dialog.component.scss'],
+  standalone: false
 })
 export class CancelDialogComponent {
   /**

@@ -8,10 +8,10 @@ import { Currency } from 'app/shared/models/general.model';
 import { SystemService } from 'app/system/system.service';
 
 @Component({
-    selector: 'mifosx-manage-savings-account',
-    templateUrl: './manage-savings-account.component.html',
-    styleUrls: ['./manage-savings-account.component.scss'],
-    standalone: false
+  selector: 'mifosx-manage-savings-account',
+  templateUrl: './manage-savings-account.component.html',
+  styleUrls: ['./manage-savings-account.component.scss'],
+  standalone: false
 })
 export class ManageSavingsAccountComponent implements OnInit {
   @Input() currency: Currency;

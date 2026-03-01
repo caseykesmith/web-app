@@ -9,10 +9,10 @@ import { ActivatedRoute } from '@angular/router';
  * Templates component.
  */
 @Component({
-    selector: 'mifosx-templates',
-    templateUrl: './templates.component.html',
-    styleUrls: ['./templates.component.scss'],
-    standalone: false
+  selector: 'mifosx-templates',
+  templateUrl: './templates.component.html',
+  styleUrls: ['./templates.component.scss'],
+  standalone: false
 })
 export class TemplatesComponent implements OnInit {
   /** Templates data. */

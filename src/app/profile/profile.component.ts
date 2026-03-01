@@ -13,10 +13,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Profile Component.
  */
 @Component({
-    selector: 'mifosx-profile',
-    templateUrl: './profile.component.html',
-    styleUrls: ['./profile.component.scss'],
-    standalone: false
+  selector: 'mifosx-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.scss'],
+  standalone: false
 })
 export class ProfileComponent implements OnInit {
   /** Profile Data */

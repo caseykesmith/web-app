@@ -2,10 +2,10 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-    selector: 'mifosx-staff-navigation',
-    templateUrl: './staff-navigation.component.html',
-    styleUrls: ['./staff-navigation.component.scss'],
-    standalone: false
+  selector: 'mifosx-staff-navigation',
+  templateUrl: './staff-navigation.component.html',
+  styleUrls: ['./staff-navigation.component.scss'],
+  standalone: false
 })
 export class StaffNavigationComponent {
   @Input() employeeData: any;

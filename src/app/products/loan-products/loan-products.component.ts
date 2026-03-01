@@ -10,10 +10,10 @@ import { PopoverService } from '../../configuration-wizard/popover/popover.servi
 import { ConfigurationWizardService } from '../../configuration-wizard/configuration-wizard.service';
 
 @Component({
-    selector: 'mifosx-loan-products',
-    templateUrl: './loan-products.component.html',
-    styleUrls: ['./loan-products.component.scss'],
-    standalone: false
+  selector: 'mifosx-loan-products',
+  templateUrl: './loan-products.component.html',
+  styleUrls: ['./loan-products.component.scss'],
+  standalone: false
 })
 export class LoanProductsComponent implements OnInit, AfterViewInit {
   loanProductsData: any;

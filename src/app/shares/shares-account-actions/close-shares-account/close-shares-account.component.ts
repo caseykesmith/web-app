@@ -12,10 +12,10 @@ import { Dates } from 'app/core/utils/dates';
  * Close Shares Account Component
  */
 @Component({
-    selector: 'mifosx-close-shares-account',
-    templateUrl: './close-shares-account.component.html',
-    styleUrls: ['./close-shares-account.component.scss'],
-    standalone: false
+  selector: 'mifosx-close-shares-account',
+  templateUrl: './close-shares-account.component.html',
+  styleUrls: ['./close-shares-account.component.scss'],
+  standalone: false
 })
 export class CloseSharesAccountComponent implements OnInit {
   /** Minimum date allowed. */

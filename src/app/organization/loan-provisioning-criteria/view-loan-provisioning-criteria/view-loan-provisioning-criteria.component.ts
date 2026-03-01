@@ -14,10 +14,10 @@ import { DeleteDialogComponent } from 'app/shared/delete-dialog/delete-dialog.co
  * View Loan Provisioning
  */
 @Component({
-    selector: 'mifosx-view-loan-provisioning-criteria',
-    templateUrl: './view-loan-provisioning-criteria.component.html',
-    styleUrls: ['./view-loan-provisioning-criteria.component.scss'],
-    standalone: false
+  selector: 'mifosx-view-loan-provisioning-criteria',
+  templateUrl: './view-loan-provisioning-criteria.component.html',
+  styleUrls: ['./view-loan-provisioning-criteria.component.scss'],
+  standalone: false
 })
 export class ViewLoanProvisioningCriteriaComponent implements OnInit {
   /** Loan Provisioning data. */

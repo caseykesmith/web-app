@@ -24,10 +24,10 @@ import { DeleteDialogComponent } from '../../shared/delete-dialog/delete-dialog.
  * Entity to Entity Mapping Component
  */
 @Component({
-    selector: 'mifosx-entity-to-entity-mapping',
-    templateUrl: './entity-to-entity-mapping.component.html',
-    styleUrls: ['./entity-to-entity-mapping.component.scss'],
-    standalone: false
+  selector: 'mifosx-entity-to-entity-mapping',
+  templateUrl: './entity-to-entity-mapping.component.html',
+  styleUrls: ['./entity-to-entity-mapping.component.scss'],
+  standalone: false
 })
 export class EntityToEntityMappingComponent implements OnInit {
   /** Stores entity to entity mapping data */
@@ -254,7 +254,6 @@ export class EntityToEntityMappingComponent implements OnInit {
         type: 'date',
         required: false
       })
-
     ];
     const data = {
       title:
@@ -309,7 +308,6 @@ export class EntityToEntityMappingComponent implements OnInit {
         type: 'date',
         required: false
       })
-
     ];
     const data = {
       title:

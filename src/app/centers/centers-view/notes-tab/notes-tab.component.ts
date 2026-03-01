@@ -13,10 +13,10 @@ import { AuthenticationService } from '../../../core/authentication/authenticati
 import { CentersService } from '../../centers.service';
 
 @Component({
-    selector: 'mifosx-notes-tab',
-    templateUrl: './notes-tab.component.html',
-    styleUrls: ['./notes-tab.component.scss'],
-    standalone: false
+  selector: 'mifosx-notes-tab',
+  templateUrl: './notes-tab.component.html',
+  styleUrls: ['./notes-tab.component.scss'],
+  standalone: false
 })
 export class NotesTabComponent implements OnInit {
   centerId: string;

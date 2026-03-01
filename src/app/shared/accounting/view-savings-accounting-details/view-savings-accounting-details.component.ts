@@ -3,10 +3,10 @@ import { Accounting } from 'app/core/utils/accounting';
 import { OptionData } from 'app/shared/models/option-data.model';
 
 @Component({
-    selector: 'mifosx-view-savings-accounting-details',
-    templateUrl: './view-savings-accounting-details.component.html',
-    styleUrls: ['./view-savings-accounting-details.component.scss'],
-    standalone: false
+  selector: 'mifosx-view-savings-accounting-details',
+  templateUrl: './view-savings-accounting-details.component.html',
+  styleUrls: ['./view-savings-accounting-details.component.scss'],
+  standalone: false
 })
 export class ViewSavingsAccountingDetailsComponent {
   @Input() accountingRule: OptionData;

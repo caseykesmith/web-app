@@ -5,10 +5,10 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
  * Shares account preview step
  */
 @Component({
-    selector: 'mifosx-shares-account-preview-step',
-    templateUrl: './shares-account-preview-step.component.html',
-    styleUrls: ['./shares-account-preview-step.component.scss'],
-    standalone: false
+  selector: 'mifosx-shares-account-preview-step',
+  templateUrl: './shares-account-preview-step.component.html',
+  styleUrls: ['./shares-account-preview-step.component.scss'],
+  standalone: false
 })
 export class SharesAccountPreviewStepComponent {
   /** Shares Account Product Template */

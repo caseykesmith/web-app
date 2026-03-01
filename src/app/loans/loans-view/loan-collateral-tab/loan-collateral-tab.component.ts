@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-    selector: 'mifosx-loan-collateral-tab',
-    templateUrl: './loan-collateral-tab.component.html',
-    styleUrls: ['./loan-collateral-tab.component.scss'],
-    standalone: false
+  selector: 'mifosx-loan-collateral-tab',
+  templateUrl: './loan-collateral-tab.component.html',
+  styleUrls: ['./loan-collateral-tab.component.scss'],
+  standalone: false
 })
 export class LoanCollateralTabComponent implements OnInit {
   /** Loan Collateral Details */

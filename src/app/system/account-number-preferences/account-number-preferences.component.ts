@@ -9,10 +9,10 @@ import { ActivatedRoute } from '@angular/router';
  * Account Number Preferences Component.
  */
 @Component({
-    selector: 'mifosx-account-number-preferences',
-    templateUrl: './account-number-preferences.component.html',
-    styleUrls: ['./account-number-preferences.component.scss'],
-    standalone: false
+  selector: 'mifosx-account-number-preferences',
+  templateUrl: './account-number-preferences.component.html',
+  styleUrls: ['./account-number-preferences.component.scss'],
+  standalone: false
 })
 export class AccountNumberPreferencesComponent implements OnInit {
   /** Account Number Preferences data. */

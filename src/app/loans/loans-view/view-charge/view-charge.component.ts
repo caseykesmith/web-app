@@ -23,10 +23,10 @@ import { TranslateService } from '@ngx-translate/core';
  * View Charge Component.
  */
 @Component({
-    selector: 'mifosx-view-charge',
-    templateUrl: './view-charge.component.html',
-    styleUrls: ['./view-charge.component.scss'],
-    standalone: false
+  selector: 'mifosx-view-charge',
+  templateUrl: './view-charge.component.html',
+  styleUrls: ['./view-charge.component.scss'],
+  standalone: false
 })
 export class ViewChargeComponent {
   /** Charge data. */
@@ -74,7 +74,6 @@ export class ViewChargeComponent {
         type: 'date',
         required: true
       })
-
     ];
     const data = {
       title: `Pay Charge ${this.chargeData.id}`,
@@ -145,7 +144,6 @@ export class ViewChargeComponent {
         maxDate: this.settingsService.maxAllowedDate,
         required: true
       })
-
     ];
     const data = {
       title: 'Edit Charge',

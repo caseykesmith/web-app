@@ -18,10 +18,10 @@ import { TranslateService } from '@ngx-translate/core';
  * Migrate opening balances component.
  */
 @Component({
-    selector: 'mifosx-migrate-opening-balances',
-    templateUrl: './migrate-opening-balances.component.html',
-    styleUrls: ['./migrate-opening-balances.component.scss'],
-    standalone: false
+  selector: 'mifosx-migrate-opening-balances',
+  templateUrl: './migrate-opening-balances.component.html',
+  styleUrls: ['./migrate-opening-balances.component.scss'],
+  standalone: false
 })
 export class MigrateOpeningBalancesComponent implements OnInit, AfterViewInit {
   /** Minimum opening balances date allowed. */

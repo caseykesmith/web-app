@@ -19,10 +19,10 @@ import { Charge, Currency } from 'app/shared/models/general.model';
  * Recurring Deposit Account Charges Step
  */
 @Component({
-    selector: 'mifosx-recurring-deposits-account-charges-step',
-    templateUrl: './recurring-deposits-account-charges-step.component.html',
-    styleUrls: ['./recurring-deposits-account-charges-step.component.scss'],
-    standalone: false
+  selector: 'mifosx-recurring-deposits-account-charges-step',
+  templateUrl: './recurring-deposits-account-charges-step.component.html',
+  styleUrls: ['./recurring-deposits-account-charges-step.component.scss'],
+  standalone: false
 })
 export class RecurringDepositsAccountChargesStepComponent implements OnInit, OnChanges {
   @Input() recurringDepositsAccountTemplate: any;
@@ -105,7 +105,6 @@ export class RecurringDepositsAccountChargesStepComponent implements OnInit, OnC
         type: 'number',
         required: false
       })
-
     ];
     const data = {
       title: 'Edit Charge Amount',
@@ -136,7 +135,6 @@ export class RecurringDepositsAccountChargesStepComponent implements OnInit, OnC
         type: 'datetime-local',
         required: false
       })
-
     ];
     const data = {
       title: 'Edit Charge Date',
@@ -178,7 +176,6 @@ export class RecurringDepositsAccountChargesStepComponent implements OnInit, OnC
         type: 'text',
         required: false
       })
-
     ];
     const data = {
       title: 'Edit Charge Fee Interval',

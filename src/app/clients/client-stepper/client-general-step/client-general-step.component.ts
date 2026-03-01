@@ -11,10 +11,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Create Client Component
  */
 @Component({
-    selector: 'mifosx-client-general-step',
-    templateUrl: './client-general-step.component.html',
-    styleUrls: ['./client-general-step.component.scss'],
-    standalone: false
+  selector: 'mifosx-client-general-step',
+  templateUrl: './client-general-step.component.html',
+  styleUrls: ['./client-general-step.component.scss'],
+  standalone: false
 })
 export class ClientGeneralStepComponent implements OnInit {
   @Output() legalFormChangeEvent = new EventEmitter<{ legalForm: number }>();
@@ -132,14 +132,16 @@ export class ClientGeneralStepComponent implements OnInit {
           'firstname',
           new UntypedFormControl('', [
             Validators.required,
-            Validators.pattern('(^[A-z]).*')])
+            Validators.pattern('(^[A-z]).*')
+          ])
         );
         this.createClientForm.addControl('middlename', new UntypedFormControl('', Validators.pattern('(^[A-z]).*')));
         this.createClientForm.addControl(
           'lastname',
           new UntypedFormControl('', [
             Validators.required,
-            Validators.pattern('(^[A-z]).*')])
+            Validators.pattern('(^[A-z]).*')
+          ])
         );
       } else {
         this.createClientForm.removeControl('firstname');
@@ -149,7 +151,8 @@ export class ClientGeneralStepComponent implements OnInit {
           'fullname',
           new UntypedFormControl('', [
             Validators.required,
-            Validators.pattern('(^[A-z]).*')])
+            Validators.pattern('(^[A-z]).*')
+          ])
         );
         this.createClientForm.addControl(
           'clientNonPersonDetails',

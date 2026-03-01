@@ -13,10 +13,10 @@ import { Currency } from 'app/shared/models/general.model';
  * Loan Recovery Repayment Action
  */
 @Component({
-    selector: 'mifosx-recovery-repayment',
-    templateUrl: './recovery-repayment.component.html',
-    styleUrls: ['./recovery-repayment.component.scss'],
-    standalone: false
+  selector: 'mifosx-recovery-repayment',
+  templateUrl: './recovery-repayment.component.html',
+  styleUrls: ['./recovery-repayment.component.scss'],
+  standalone: false
 })
 export class RecoveryRepaymentComponent implements OnInit {
   @Input() dataObject: any;

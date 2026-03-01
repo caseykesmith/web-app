@@ -6,10 +6,10 @@ import { LoanAccountTableComponent } from '../loan-account-table/loan-account-ta
 import { SavingsAccountTableComponent } from '../savings-account-table/savings-account-table.component';
 
 @Component({
-    selector: 'mifosx-center-navigation',
-    templateUrl: './center-navigation.component.html',
-    styleUrls: ['./center-navigation.component.scss'],
-    standalone: false
+  selector: 'mifosx-center-navigation',
+  templateUrl: './center-navigation.component.html',
+  styleUrls: ['./center-navigation.component.scss'],
+  standalone: false
 })
 export class CenterNavigationComponent {
   @ViewChild(LoanAccountTableComponent) loanAccountTableComponent: LoanAccountTableComponent;

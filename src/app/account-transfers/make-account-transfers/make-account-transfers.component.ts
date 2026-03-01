@@ -23,10 +23,10 @@ import { environment } from 'environments/environment';
  * Create account transfers
  */
 @Component({
-    selector: 'mifosx-make-account-transfers',
-    templateUrl: './make-account-transfers.component.html',
-    styleUrls: ['./make-account-transfers.component.scss'],
-    standalone: false
+  selector: 'mifosx-make-account-transfers',
+  templateUrl: './make-account-transfers.component.html',
+  styleUrls: ['./make-account-transfers.component.scss'],
+  standalone: false
 })
 export class MakeAccountTransfersComponent implements OnInit, AfterViewInit {
   /** Standing Instructions Data */
@@ -144,7 +144,8 @@ export class MakeAccountTransfersComponent implements OnInit, AfterViewInit {
         [
           Validators.required,
           Validators.min(0.01),
-          this.amountExceedsBalanceValidator.bind(this)]
+          this.amountExceedsBalanceValidator.bind(this)
+        ]
       ],
       transferDate: [
         this.settingsService.businessDate,
@@ -180,7 +181,8 @@ export class MakeAccountTransfersComponent implements OnInit, AfterViewInit {
         [
           Validators.required,
           Validators.min(0.01),
-          this.amountExceedsBalanceValidator.bind(this)]
+          this.amountExceedsBalanceValidator.bind(this)
+        ]
       ],
       transferDate: [
         this.settingsService.businessDate,

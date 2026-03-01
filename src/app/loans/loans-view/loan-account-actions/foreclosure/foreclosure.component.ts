@@ -8,10 +8,10 @@ import { SettingsService } from 'app/settings/settings.service';
 import { Dates } from 'app/core/utils/dates';
 
 @Component({
-    selector: 'mifosx-foreclosure',
-    templateUrl: './foreclosure.component.html',
-    styleUrls: ['./foreclosure.component.scss'],
-    standalone: false
+  selector: 'mifosx-foreclosure',
+  templateUrl: './foreclosure.component.html',
+  styleUrls: ['./foreclosure.component.scss'],
+  standalone: false
 })
 export class ForeclosureComponent implements OnInit {
   @Input() dataObject: any;

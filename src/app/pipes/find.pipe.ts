@@ -1,8 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-    name: 'find',
-    standalone: false
+  name: 'find',
+  standalone: false
 })
 export class FindPipe implements PipeTransform {
   transform(value: any, options: any, key: string, property: string): any {

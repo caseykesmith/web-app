@@ -13,10 +13,10 @@ import { TranslateService } from '@ngx-translate/core';
  * Edit tax component.
  */
 @Component({
-    selector: 'mifosx-edit-tax-component',
-    templateUrl: './edit-tax-component.component.html',
-    styleUrls: ['./edit-tax-component.component.scss'],
-    standalone: false
+  selector: 'mifosx-edit-tax-component',
+  templateUrl: './edit-tax-component.component.html',
+  styleUrls: ['./edit-tax-component.component.scss'],
+  standalone: false
 })
 export class EditTaxComponentComponent implements OnInit {
   /** Minimum date allowed. */
@@ -80,7 +80,8 @@ export class EditTaxComponentComponent implements OnInit {
         [
           Validators.required,
           Validators.pattern('^(0*[1-9][0-9]*(\\.[0-9]+)?|0+\\.[0-9]*[1-9][0-9]*)$'),
-          Validators.max(100)]
+          Validators.max(100)
+        ]
       ],
       startDate: [this.taxComponentData.startDate && new Date(this.taxComponentData.startDate)],
       creditAccountType: [

@@ -9,10 +9,10 @@ import { ActivatedRoute } from '@angular/router';
  * Accounting rules component.
  */
 @Component({
-    selector: 'mifosx-accounting-rules',
-    templateUrl: './accounting-rules.component.html',
-    styleUrls: ['./accounting-rules.component.scss'],
-    standalone: false
+  selector: 'mifosx-accounting-rules',
+  templateUrl: './accounting-rules.component.html',
+  styleUrls: ['./accounting-rules.component.scss'],
+  standalone: false
 })
 export class AccountingRulesComponent implements OnInit {
   /** Accounting rule data. */

@@ -9,10 +9,10 @@ import { ActivatedRoute } from '@angular/router';
  * Notifications Page Component
  */
 @Component({
-    selector: 'mifosx-notifications-page',
-    templateUrl: './notifications-page.component.html',
-    styleUrls: ['./notifications-page.component.scss'],
-    standalone: false
+  selector: 'mifosx-notifications-page',
+  templateUrl: './notifications-page.component.html',
+  styleUrls: ['./notifications-page.component.scss'],
+  standalone: false
 })
 export class NotificationsPageComponent implements OnInit {
   /** Notifications data. */

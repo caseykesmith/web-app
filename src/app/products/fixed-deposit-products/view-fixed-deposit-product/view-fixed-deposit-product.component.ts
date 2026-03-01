@@ -6,10 +6,10 @@ import { ActivatedRoute } from '@angular/router';
  * Fixed Deposit Product component.
  */
 @Component({
-    selector: 'mifosx-view-fixed-deposit-product',
-    templateUrl: './view-fixed-deposit-product.component.html',
-    styleUrls: ['./view-fixed-deposit-product.component.scss'],
-    standalone: false
+  selector: 'mifosx-view-fixed-deposit-product',
+  templateUrl: './view-fixed-deposit-product.component.html',
+  styleUrls: ['./view-fixed-deposit-product.component.scss'],
+  standalone: false
 })
 export class ViewFixedDepositProductComponent {
   fixedDepositDatatables: any = [];

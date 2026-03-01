@@ -6,10 +6,10 @@ import { ActivatedRoute, Router } from '@angular/router';
  * Loan Account Actions component.
  */
 @Component({
-    selector: 'mifosx-loan-account-actions',
-    templateUrl: './loan-account-actions.component.html',
-    styleUrls: ['./loan-account-actions.component.scss'],
-    standalone: false
+  selector: 'mifosx-loan-account-actions',
+  templateUrl: './loan-account-actions.component.html',
+  styleUrls: ['./loan-account-actions.component.scss'],
+  standalone: false
 })
 export class LoanAccountActionsComponent {
   /** Loan Details Data */

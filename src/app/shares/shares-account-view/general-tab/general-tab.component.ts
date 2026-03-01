@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-    selector: 'mifosx-general-tab',
-    templateUrl: './general-tab.component.html',
-    styleUrls: ['./general-tab.component.scss'],
-    standalone: false
+  selector: 'mifosx-general-tab',
+  templateUrl: './general-tab.component.html',
+  styleUrls: ['./general-tab.component.scss'],
+  standalone: false
 })
 export class GeneralTabComponent {
   /** Shares Account Data */

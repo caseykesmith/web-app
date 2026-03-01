@@ -12,10 +12,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Reject Fixed Deposits Account Component
  */
 @Component({
-    selector: 'mifosx-reject-fixed-deposits-account',
-    templateUrl: './reject-fixed-deposits-account.component.html',
-    styleUrls: ['./reject-fixed-deposits-account.component.scss'],
-    standalone: false
+  selector: 'mifosx-reject-fixed-deposits-account',
+  templateUrl: './reject-fixed-deposits-account.component.html',
+  styleUrls: ['./reject-fixed-deposits-account.component.scss'],
+  standalone: false
 })
 export class RejectFixedDepositsAccountComponent implements OnInit {
   /** Minimum date allowed. */

@@ -9,10 +9,10 @@ import { SettingsService } from 'app/settings/settings.service';
 import { Dates } from 'app/core/utils/dates';
 
 @Component({
-    selector: 'mifosx-loans-account-close',
-    templateUrl: './loans-account-close.component.html',
-    styleUrls: ['./loans-account-close.component.scss'],
-    standalone: false
+  selector: 'mifosx-loans-account-close',
+  templateUrl: './loans-account-close.component.html',
+  styleUrls: ['./loans-account-close.component.scss'],
+  standalone: false
 })
 export class LoansAccountCloseComponent implements OnInit {
   @Input() dataObject: any;

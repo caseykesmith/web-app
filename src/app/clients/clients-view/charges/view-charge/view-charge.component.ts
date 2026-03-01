@@ -7,10 +7,10 @@ import { ClientsService } from 'app/clients/clients.service';
  * View Charge component.
  */
 @Component({
-    selector: 'mifosx-view-charge',
-    templateUrl: './view-charge.component.html',
-    styleUrls: ['./view-charge.component.scss'],
-    standalone: false
+  selector: 'mifosx-view-charge',
+  templateUrl: './view-charge.component.html',
+  styleUrls: ['./view-charge.component.scss'],
+  standalone: false
 })
 export class ViewChargeComponent {
   /** Charge Data. */

@@ -12,10 +12,10 @@ import { Dates } from 'app/core/utils/dates';
  * Create Add Loan Charge component.
  */
 @Component({
-    selector: 'mifosx-add-loan-charge',
-    templateUrl: './add-loan-charge.component.html',
-    styleUrls: ['./add-loan-charge.component.scss'],
-    standalone: false
+  selector: 'mifosx-add-loan-charge',
+  templateUrl: './add-loan-charge.component.html',
+  styleUrls: ['./add-loan-charge.component.scss'],
+  standalone: false
 })
 export class AddLoanChargeComponent implements OnInit {
   /** Minimum Due Date allowed. */

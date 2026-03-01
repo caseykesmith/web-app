@@ -33,10 +33,10 @@ import { Currency } from 'app/shared/models/general.model';
  * Manage Currencies component.
  */
 @Component({
-    selector: 'mifosx-manage-currencies',
-    templateUrl: './manage-currencies.component.html',
-    styleUrls: ['./manage-currencies.component.scss'],
-    standalone: false
+  selector: 'mifosx-manage-currencies',
+  templateUrl: './manage-currencies.component.html',
+  styleUrls: ['./manage-currencies.component.scss'],
+  standalone: false
 })
 export class ManageCurrenciesComponent implements OnInit, AfterViewInit, OnDestroy, OnChanges {
   //** Defining PlaceHolders for the search bar */

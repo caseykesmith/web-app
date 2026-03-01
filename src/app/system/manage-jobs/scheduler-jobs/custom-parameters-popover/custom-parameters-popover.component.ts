@@ -42,10 +42,10 @@ interface JobDataType {
 }
 
 @Component({
-    selector: 'mifosx-custom-parameters-popover',
-    templateUrl: './custom-parameters-popover.component.html',
-    styleUrls: ['./custom-parameters-popover.component.scss'],
-    standalone: false
+  selector: 'mifosx-custom-parameters-popover',
+  templateUrl: './custom-parameters-popover.component.html',
+  styleUrls: ['./custom-parameters-popover.component.scss'],
+  standalone: false
 })
 export class CustomParametersPopoverComponent implements OnInit {
   /* Job table childer */

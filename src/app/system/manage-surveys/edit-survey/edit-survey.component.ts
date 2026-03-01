@@ -18,10 +18,10 @@ import { Survey, QuestionData, ResponseData } from './../survey.model';
  * Edit survey component.
  */
 @Component({
-    selector: 'mifosx-edit-survey',
-    templateUrl: './edit-survey.component.html',
-    styleUrls: ['./edit-survey.component.scss'],
-    standalone: false
+  selector: 'mifosx-edit-survey',
+  templateUrl: './edit-survey.component.html',
+  styleUrls: ['./edit-survey.component.scss'],
+  standalone: false
 })
 export class EditSurveyComponent {
   /** Survey form. */
@@ -106,7 +106,8 @@ export class EditSurveyComponent {
         '',
         [
           Validators.required,
-          Validators.pattern('^\\s*([A-Za-z]{2})?\\s*$')]
+          Validators.pattern('^\\s*([A-Za-z]{2})?\\s*$')
+        ]
       ],
       description: [''],
       questionDatas: this.formBuilder.array([])
@@ -185,7 +186,8 @@ export class EditSurveyComponent {
         '',
         [
           Validators.required,
-          Validators.pattern('^\\s*[-]?\\d{0,4}\\s*$')]
+          Validators.pattern('^\\s*[-]?\\d{0,4}\\s*$')
+        ]
       ],
       sequenceNo: ['']
     });

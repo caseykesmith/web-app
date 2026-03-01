@@ -28,10 +28,10 @@ import { DatatableColumn } from '../datatable-column.model';
  * Create Data Table Component.
  */
 @Component({
-    selector: 'mifosx-create-data-table',
-    templateUrl: './create-data-table.component.html',
-    styleUrls: ['./create-data-table.component.scss'],
-    standalone: false
+  selector: 'mifosx-create-data-table',
+  templateUrl: './create-data-table.component.html',
+  styleUrls: ['./create-data-table.component.scss'],
+  standalone: false
 })
 export class CreateDataTableComponent implements OnInit, AfterViewInit {
   /** Data Table Form */

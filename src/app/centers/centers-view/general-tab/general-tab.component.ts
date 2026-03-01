@@ -6,10 +6,10 @@ import { ActivatedRoute } from '@angular/router';
  * Create Center General Tab Component
  */
 @Component({
-    selector: 'mifosx-general-tab',
-    templateUrl: './general-tab.component.html',
-    styleUrls: ['./general-tab.component.scss'],
-    standalone: false
+  selector: 'mifosx-general-tab',
+  templateUrl: './general-tab.component.html',
+  styleUrls: ['./general-tab.component.scss'],
+  standalone: false
 })
 export class GeneralTabComponent {
   /** Savings Account Table Columns */

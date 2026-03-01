@@ -13,10 +13,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Fixed deposits endpoint is not supported so using Savings endpoint.
  */
 @Component({
-    selector: 'mifosx-add-charge-fixed-deposits-account',
-    templateUrl: './add-charge-fixed-deposits-account.component.html',
-    styleUrls: ['./add-charge-fixed-deposits-account.component.scss'],
-    standalone: false
+  selector: 'mifosx-add-charge-fixed-deposits-account',
+  templateUrl: './add-charge-fixed-deposits-account.component.html',
+  styleUrls: ['./add-charge-fixed-deposits-account.component.scss'],
+  standalone: false
 })
 export class AddChargeFixedDepositsAccountComponent implements OnInit {
   /** Minimum Due Date allowed. */

@@ -12,10 +12,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Edit Holiday component.
  */
 @Component({
-    selector: 'mifosx-edit-holiday',
-    templateUrl: './edit-holiday.component.html',
-    styleUrls: ['./edit-holiday.component.scss'],
-    standalone: false
+  selector: 'mifosx-edit-holiday',
+  templateUrl: './edit-holiday.component.html',
+  styleUrls: ['./edit-holiday.component.scss'],
+  standalone: false
 })
 export class EditHolidayComponent implements OnInit {
   /** Edit Holiday form. */

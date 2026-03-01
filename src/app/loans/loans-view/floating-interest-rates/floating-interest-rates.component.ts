@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-    selector: 'mifosx-floating-interest-rates',
-    templateUrl: './floating-interest-rates.component.html',
-    styleUrls: ['./floating-interest-rates.component.scss'],
-    standalone: false
+  selector: 'mifosx-floating-interest-rates',
+  templateUrl: './floating-interest-rates.component.html',
+  styleUrls: ['./floating-interest-rates.component.scss'],
+  standalone: false
 })
 export class FloatingInterestRatesComponent implements OnInit {
   /** Loan Details */

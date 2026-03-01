@@ -13,10 +13,10 @@ import { Currency } from 'app/shared/models/general.model';
  * Loan Make Repayment Component
  */
 @Component({
-    selector: 'mifosx-make-repayment',
-    templateUrl: './make-repayment.component.html',
-    styleUrls: ['./make-repayment.component.scss'],
-    standalone: false
+  selector: 'mifosx-make-repayment',
+  templateUrl: './make-repayment.component.html',
+  styleUrls: ['./make-repayment.component.scss'],
+  standalone: false
 })
 export class MakeRepaymentComponent implements OnInit {
   @Input() dataObject: any;
@@ -88,14 +88,16 @@ export class MakeRepaymentComponent implements OnInit {
         new UntypedFormControl('', [
           Validators.required,
           Validators.min(0.001),
-          Validators.max(this.dataObject.amount)])
+          Validators.max(this.dataObject.amount)
+        ])
       );
     } else {
       this.repaymentLoanForm.addControl(
         'transactionAmount',
         new UntypedFormControl('', [
           Validators.required,
-          Validators.min(0.001)])
+          Validators.min(0.001)
+        ])
       );
     }
   }

@@ -13,10 +13,10 @@ import { OrganizationService } from 'app/organization/organization.service';
  * Cashier Transactions Component.
  */
 @Component({
-    selector: 'mifosx-transactions',
-    templateUrl: './transactions.component.html',
-    styleUrls: ['./transactions.component.scss'],
-    standalone: false
+  selector: 'mifosx-transactions',
+  templateUrl: './transactions.component.html',
+  styleUrls: ['./transactions.component.scss'],
+  standalone: false
 })
 export class TransactionsComponent implements OnInit {
   /** Currency selector. */

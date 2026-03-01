@@ -8,8 +8,8 @@ import { AuthenticationService } from '../../core/authentication/authentication.
  * Has Permission Directive
  */
 @Directive({
-    selector: '[mifosxHasPermission]',
-    standalone: false
+  selector: '[mifosxHasPermission]',
+  standalone: false
 })
 export class HasPermissionDirective {
   /** User Permissions */

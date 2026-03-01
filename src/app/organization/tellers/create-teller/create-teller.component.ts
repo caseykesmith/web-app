@@ -12,10 +12,10 @@ import { Dates } from 'app/core/utils/dates';
  * Create teller component.
  */
 @Component({
-    selector: 'mifosx-create-teller',
-    templateUrl: './create-teller.component.html',
-    styleUrls: ['./create-teller.component.scss'],
-    standalone: false
+  selector: 'mifosx-create-teller',
+  templateUrl: './create-teller.component.html',
+  styleUrls: ['./create-teller.component.scss'],
+  standalone: false
 })
 export class CreateTellerComponent implements OnInit {
   /** Minimum date allowed. */
@@ -76,7 +76,8 @@ export class CreateTellerComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.pattern('(^[A-z]).*')]
+          Validators.pattern('(^[A-z]).*')
+        ]
       ],
       description: [''],
       startDate: [

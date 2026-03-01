@@ -16,10 +16,10 @@ import { ConfigurationWizardService } from '../../configuration-wizard/configura
  * Currencies component.
  */
 @Component({
-    selector: 'mifosx-currencies',
-    templateUrl: './currencies.component.html',
-    styleUrls: ['./currencies.component.scss'],
-    standalone: false
+  selector: 'mifosx-currencies',
+  templateUrl: './currencies.component.html',
+  styleUrls: ['./currencies.component.scss'],
+  standalone: false
 })
 export class CurrenciesComponent implements OnInit, AfterViewInit {
   /** Currencies data. */

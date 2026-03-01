@@ -9,10 +9,10 @@ import { OrganizationService } from 'app/organization/organization.service';
 import { SettingsService } from 'app/settings/settings.service';
 
 @Component({
-    selector: 'mifosx-settle-cash',
-    templateUrl: './settle-cash.component.html',
-    styleUrls: ['./settle-cash.component.scss'],
-    standalone: false
+  selector: 'mifosx-settle-cash',
+  templateUrl: './settle-cash.component.html',
+  styleUrls: ['./settle-cash.component.scss'],
+  standalone: false
 })
 export class SettleCashComponent implements OnInit {
   /** Minimum Date allowed. */

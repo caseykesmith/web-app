@@ -16,10 +16,10 @@ import { LoansAccountChargesStepComponent } from '../../loans-account-stepper/lo
 import { LoansAccountDatatableStepComponent } from '../../loans-account-stepper/loans-account-datatable-step/loans-account-datatable-step.component';
 
 @Component({
-    selector: 'mifosx-create-glim-account',
-    templateUrl: './create-glim-account.component.html',
-    styleUrls: ['./create-glim-account.component.scss'],
-    standalone: false
+  selector: 'mifosx-create-glim-account',
+  templateUrl: './create-glim-account.component.html',
+  styleUrls: ['./create-glim-account.component.scss'],
+  standalone: false
 })
 export class CreateGlimAccountComponent {
   /** Imports all the step component */

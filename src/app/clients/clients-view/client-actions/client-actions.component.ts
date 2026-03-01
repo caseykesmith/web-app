@@ -6,10 +6,10 @@ import { ActivatedRoute, Router } from '@angular/router';
  * Client actions component.
  */
 @Component({
-    selector: 'mifosx-client-actions',
-    templateUrl: './client-actions.component.html',
-    styleUrls: ['./client-actions.component.scss'],
-    standalone: false
+  selector: 'mifosx-client-actions',
+  templateUrl: './client-actions.component.html',
+  styleUrls: ['./client-actions.component.scss'],
+  standalone: false
 })
 export class ClientActionsComponent {
   /** Flag object to store possible actions and render appropriate UI to the user */

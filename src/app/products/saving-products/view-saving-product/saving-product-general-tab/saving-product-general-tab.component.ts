@@ -3,10 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { Accounting } from 'app/core/utils/accounting';
 
 @Component({
-    selector: 'mifosx-saving-product-general-tab',
-    templateUrl: './saving-product-general-tab.component.html',
-    styleUrls: ['./saving-product-general-tab.component.scss'],
-    standalone: false
+  selector: 'mifosx-saving-product-general-tab',
+  templateUrl: './saving-product-general-tab.component.html',
+  styleUrls: ['./saving-product-general-tab.component.scss'],
+  standalone: false
 })
 export class SavingProductGeneralTabComponent {
   savingProduct: any;

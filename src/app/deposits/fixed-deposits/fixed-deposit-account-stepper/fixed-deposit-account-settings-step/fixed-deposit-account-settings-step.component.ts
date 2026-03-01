@@ -8,10 +8,10 @@ import { OptionData } from 'app/shared/models/option-data.model';
  * Fixed Deposits Account Settings Step
  */
 @Component({
-    selector: 'mifosx-fixed-deposit-account-settings-step',
-    templateUrl: './fixed-deposit-account-settings-step.component.html',
-    styleUrls: ['./fixed-deposit-account-settings-step.component.scss'],
-    standalone: false
+  selector: 'mifosx-fixed-deposit-account-settings-step',
+  templateUrl: './fixed-deposit-account-settings-step.component.html',
+  styleUrls: ['./fixed-deposit-account-settings-step.component.scss'],
+  standalone: false
 })
 export class FixedDepositAccountSettingsStepComponent implements OnInit, OnChanges {
   /** Fixed deposits account template */

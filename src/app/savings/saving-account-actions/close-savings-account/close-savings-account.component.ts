@@ -12,10 +12,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Close Savings Account Component
  */
 @Component({
-    selector: 'mifosx-close-savings-account',
-    templateUrl: './close-savings-account.component.html',
-    styleUrls: ['./close-savings-account.component.scss'],
-    standalone: false
+  selector: 'mifosx-close-savings-account',
+  templateUrl: './close-savings-account.component.html',
+  styleUrls: ['./close-savings-account.component.scss'],
+  standalone: false
 })
 export class CloseSavingsAccountComponent implements OnInit {
   /** Minimum date allowed. */

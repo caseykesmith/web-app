@@ -5,10 +5,10 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
  * Custom file upload component based on angular material.
  */
 @Component({
-    selector: 'mifosx-file-upload',
-    templateUrl: './file-upload.component.html',
-    styleUrls: ['./file-upload.component.scss'],
-    standalone: false
+  selector: 'mifosx-file-upload',
+  templateUrl: './file-upload.component.html',
+  styleUrls: ['./file-upload.component.scss'],
+  standalone: false
 })
 export class FileUploadComponent implements OnInit {
   /** Form field flex dimension */

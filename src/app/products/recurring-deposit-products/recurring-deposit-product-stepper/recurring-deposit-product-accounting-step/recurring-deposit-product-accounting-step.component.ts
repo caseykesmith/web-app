@@ -11,10 +11,10 @@ import { Accounting } from 'app/core/utils/accounting';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-    selector: 'mifosx-recurring-deposit-product-accounting-step',
-    templateUrl: './recurring-deposit-product-accounting-step.component.html',
-    styleUrls: ['./recurring-deposit-product-accounting-step.component.scss'],
-    standalone: false
+  selector: 'mifosx-recurring-deposit-product-accounting-step',
+  templateUrl: './recurring-deposit-product-accounting-step.component.html',
+  styleUrls: ['./recurring-deposit-product-accounting-step.component.scss'],
+  standalone: false
 })
 export class RecurringDepositProductAccountingStepComponent implements OnInit {
   @Input() recurringDepositProductsTemplate: any;
@@ -338,7 +338,6 @@ export class RecurringDepositProductAccountingStepComponent implements OnInit {
         required: true,
         order: 2
       })
-
     ];
     return formfields;
   }
@@ -361,7 +360,6 @@ export class RecurringDepositProductAccountingStepComponent implements OnInit {
         required: true,
         order: 2
       })
-
     ];
     return formfields;
   }
@@ -384,7 +382,6 @@ export class RecurringDepositProductAccountingStepComponent implements OnInit {
         required: true,
         order: 2
       })
-
     ];
     return formfields;
   }

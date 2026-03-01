@@ -6,10 +6,10 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
  * Toggle withhold tax dialog dialog component.
  */
 @Component({
-    selector: 'mifosx-toggle-withhold-tax-dialog',
-    templateUrl: './toggle-withhold-tax-dialog.component.html',
-    styleUrls: ['./toggle-withhold-tax-dialog.component.scss'],
-    standalone: false
+  selector: 'mifosx-toggle-withhold-tax-dialog',
+  templateUrl: './toggle-withhold-tax-dialog.component.html',
+  styleUrls: ['./toggle-withhold-tax-dialog.component.scss'],
+  standalone: false
 })
 export class ToggleWithholdTaxDialogComponent {
   /**

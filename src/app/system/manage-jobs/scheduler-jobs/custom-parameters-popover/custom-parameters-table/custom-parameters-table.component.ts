@@ -2,10 +2,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { JobIdAndParameterType, JobParameterType } from '../custom-parameters-popover.component';
 
 @Component({
-    selector: 'mifosx-custom-parameters-table',
-    templateUrl: './custom-parameters-table.component.html',
-    styleUrls: ['./custom-parameters-table.component.scss'],
-    standalone: false
+  selector: 'mifosx-custom-parameters-table',
+  templateUrl: './custom-parameters-table.component.html',
+  styleUrls: ['./custom-parameters-table.component.scss'],
+  standalone: false
 })
 export class CustomParametersTableComponent implements OnInit {
   /* Job name for table title */

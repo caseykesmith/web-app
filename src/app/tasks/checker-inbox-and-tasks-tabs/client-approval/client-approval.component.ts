@@ -17,10 +17,10 @@ import { SettingsService } from 'app/settings/settings.service';
 import { Dates } from 'app/core/utils/dates';
 
 @Component({
-    selector: 'mifosx-client-approval',
-    templateUrl: './client-approval.component.html',
-    styleUrls: ['./client-approval.component.scss'],
-    standalone: false
+  selector: 'mifosx-client-approval',
+  templateUrl: './client-approval.component.html',
+  styleUrls: ['./client-approval.component.scss'],
+  standalone: false
 })
 export class ClientApprovalComponent {
   /** Grouped Clients Data */
@@ -102,7 +102,6 @@ export class ClientApprovalComponent {
         type: 'datetime-local',
         required: true
       })
-
     ];
     const data = {
       title: 'Enter Clients Activation Date',

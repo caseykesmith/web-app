@@ -6,10 +6,10 @@ import { ActivatedRoute } from '@angular/router';
  * View Scheduler Job component.
  */
 @Component({
-    selector: 'mifosx-view-scheduler-job',
-    templateUrl: './view-scheduler-job.component.html',
-    styleUrls: ['./view-scheduler-job.component.scss'],
-    standalone: false
+  selector: 'mifosx-view-scheduler-job',
+  templateUrl: './view-scheduler-job.component.html',
+  styleUrls: ['./view-scheduler-job.component.scss'],
+  standalone: false
 })
 export class ViewSchedulerJobComponent {
   /** Job Data. */

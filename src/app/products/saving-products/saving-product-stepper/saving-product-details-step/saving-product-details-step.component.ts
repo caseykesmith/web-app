@@ -2,10 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 
 @Component({
-    selector: 'mifosx-saving-product-details-step',
-    templateUrl: './saving-product-details-step.component.html',
-    styleUrls: ['./saving-product-details-step.component.scss'],
-    standalone: false
+  selector: 'mifosx-saving-product-details-step',
+  templateUrl: './saving-product-details-step.component.html',
+  styleUrls: ['./saving-product-details-step.component.scss'],
+  standalone: false
 })
 export class SavingProductDetailsStepComponent implements OnInit {
   @Input() savingProductsTemplate: any;

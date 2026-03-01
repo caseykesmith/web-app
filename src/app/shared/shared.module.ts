@@ -64,7 +64,7 @@ import { InputPasswordComponent } from './input-password/input-password.componen
     ReactiveFormsModule,
     TranslateModule,
     PipesModule,
-    DirectivesModule,
+    DirectivesModule
   ],
   declarations: [
     FormfieldComponent,

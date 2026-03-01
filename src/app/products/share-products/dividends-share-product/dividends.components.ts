@@ -9,10 +9,10 @@ import { ActivatedRoute, Router } from '@angular/router';
  * Dividends component.
  */
 @Component({
-    selector: 'mifosx-dividends-share-product',
-    templateUrl: './dividends.component.html',
-    styleUrls: ['./dividends.component.scss'],
-    standalone: false
+  selector: 'mifosx-dividends-share-product',
+  templateUrl: './dividends.component.html',
+  styleUrls: ['./dividends.component.scss'],
+  standalone: false
 })
 export class ShareProductsDividendsComponent implements OnInit {
   /** Dividends data. */

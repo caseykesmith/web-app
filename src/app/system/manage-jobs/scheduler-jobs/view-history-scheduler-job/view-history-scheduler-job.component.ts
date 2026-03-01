@@ -8,10 +8,10 @@ import { ErrorDialogComponent } from 'app/shared/error-dialog/error-dialog.compo
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-    selector: 'mifosx-view-history-scheduler-job',
-    templateUrl: './view-history-scheduler-job.component.html',
-    styleUrls: ['./view-history-scheduler-job.component.scss'],
-    standalone: false
+  selector: 'mifosx-view-history-scheduler-job',
+  templateUrl: './view-history-scheduler-job.component.html',
+  styleUrls: ['./view-history-scheduler-job.component.scss'],
+  standalone: false
 })
 export class ViewHistorySchedulerJobComponent implements OnInit {
   /** Job History data. */

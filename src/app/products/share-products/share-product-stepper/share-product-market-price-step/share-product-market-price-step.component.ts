@@ -16,10 +16,10 @@ import { Dates } from 'app/core/utils/dates';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-    selector: 'mifosx-share-product-market-price-step',
-    templateUrl: './share-product-market-price-step.component.html',
-    styleUrls: ['./share-product-market-price-step.component.scss'],
-    standalone: false
+  selector: 'mifosx-share-product-market-price-step',
+  templateUrl: './share-product-market-price-step.component.html',
+  styleUrls: ['./share-product-market-price-step.component.scss'],
+  standalone: false
 })
 export class ShareProductMarketPriceStepComponent implements OnInit {
   @Input() shareProductsTemplate: any;
@@ -133,7 +133,6 @@ export class ShareProductMarketPriceStepComponent implements OnInit {
         required: true,
         order: 2
       })
-
     ];
     return formfields;
   }

@@ -3,8 +3,8 @@ import { SettingsService } from 'app/settings/settings.service';
 import * as moment from 'moment';
 
 @Pipe({
-    name: 'dateFormat',
-    standalone: false
+  name: 'dateFormat',
+  standalone: false
 })
 export class DateFormatPipe implements PipeTransform {
   constructor(private settingsService: SettingsService) {}

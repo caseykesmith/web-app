@@ -13,17 +13,17 @@ import { SettingsService } from 'app/settings/settings.service';
 import { CancelDialogComponent } from 'app/shared/cancel-dialog/cancel-dialog.component';
 
 @Component({
-    selector: 'mifosx-investors',
-    templateUrl: './investors.component.html',
-    styleUrls: ['./investors.component.scss'],
-    animations: [
-        trigger('detailExpand', [
-            state('collapsed', style({ height: '0px', minHeight: '0' })),
-            state('expanded', style({ height: '*' })),
-            transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
-        ])
-    ],
-    standalone: false
+  selector: 'mifosx-investors',
+  templateUrl: './investors.component.html',
+  styleUrls: ['./investors.component.scss'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('expanded', style({ height: '*' })),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
+    ])
+  ],
+  standalone: false
 })
 export class InvestorsComponent implements OnInit {
   /** Minimum transaction date allowed. */

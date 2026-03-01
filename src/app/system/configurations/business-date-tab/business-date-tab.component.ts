@@ -12,10 +12,10 @@ import { Subscription } from 'rxjs';
 import { SystemService } from '../../system.service';
 
 @Component({
-    selector: 'mifosx-business-date-tab',
-    templateUrl: './business-date-tab.component.html',
-    styleUrls: ['./business-date-tab.component.scss'],
-    standalone: false
+  selector: 'mifosx-business-date-tab',
+  templateUrl: './business-date-tab.component.html',
+  styleUrls: ['./business-date-tab.component.scss'],
+  standalone: false
 })
 export class BusinessDateTabComponent implements OnInit {
   /** Subscription to alerts. */

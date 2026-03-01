@@ -13,10 +13,10 @@ import { SettingsService } from 'app/settings/settings.service';
  *       to provide language support in the application.
  */
 @Component({
-    selector: 'mifosx-language-selector',
-    templateUrl: './language-selector.component.html',
-    styleUrls: ['./language-selector.component.scss'],
-    standalone: false
+  selector: 'mifosx-language-selector',
+  templateUrl: './language-selector.component.html',
+  styleUrls: ['./language-selector.component.scss'],
+  standalone: false
 })
 export class LanguageSelectorComponent {
   /** Language selector form control. */

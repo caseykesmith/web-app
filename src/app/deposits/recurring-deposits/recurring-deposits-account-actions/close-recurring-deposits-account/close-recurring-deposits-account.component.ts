@@ -12,10 +12,10 @@ import { Dates } from 'app/core/utils/dates';
  * Close Recurring Deposits Account Component
  */
 @Component({
-    selector: 'mifosx-close-recurring-deposits-account',
-    templateUrl: './close-recurring-deposits-account.component.html',
-    styleUrls: ['./close-recurring-deposits-account.component.scss'],
-    standalone: false
+  selector: 'mifosx-close-recurring-deposits-account',
+  templateUrl: './close-recurring-deposits-account.component.html',
+  styleUrls: ['./close-recurring-deposits-account.component.scss'],
+  standalone: false
 })
 export class CloseRecurringDepositsAccountComponent implements OnInit {
   /** Maturity Amount */

@@ -12,10 +12,10 @@ import { Dates } from 'app/core/utils/dates';
  * Edit Standing Instructions
  */
 @Component({
-    selector: 'mifosx-edit-standing-instructions',
-    templateUrl: './edit-standing-instructions.component.html',
-    styleUrls: ['./edit-standing-instructions.component.scss'],
-    standalone: false
+  selector: 'mifosx-edit-standing-instructions',
+  templateUrl: './edit-standing-instructions.component.html',
+  styleUrls: ['./edit-standing-instructions.component.scss'],
+  standalone: false
 })
 export class EditStandingInstructionsComponent implements OnInit {
   /** Standing Instructions Data */

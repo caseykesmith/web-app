@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-    selector: 'mifosx-entity-datatable-tab',
-    templateUrl: './entity-datatable-tab.component.html',
-    styleUrls: ['./entity-datatable-tab.component.scss'],
-    standalone: false
+  selector: 'mifosx-entity-datatable-tab',
+  templateUrl: './entity-datatable-tab.component.html',
+  styleUrls: ['./entity-datatable-tab.component.scss'],
+  standalone: false
 })
 export class EntityDatatableTabComponent {
   @Input() multiRowDatatableFlag = false;

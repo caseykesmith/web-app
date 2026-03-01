@@ -19,17 +19,17 @@ import { Dates } from 'app/core/utils/dates';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-    selector: 'mifosx-recurring-deposit-product-interest-rate-chart-step',
-    templateUrl: './recurring-deposit-product-interest-rate-chart-step.component.html',
-    styleUrls: ['./recurring-deposit-product-interest-rate-chart-step.component.scss'],
-    animations: [
-        trigger('expandChartSlab', [
-            state('collapsed', style({ height: '0px', minHeight: '0' })),
-            state('expanded', style({ height: '*' })),
-            transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
-        ])
-    ],
-    standalone: false
+  selector: 'mifosx-recurring-deposit-product-interest-rate-chart-step',
+  templateUrl: './recurring-deposit-product-interest-rate-chart-step.component.html',
+  styleUrls: ['./recurring-deposit-product-interest-rate-chart-step.component.scss'],
+  animations: [
+    trigger('expandChartSlab', [
+      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('expanded', style({ height: '*' })),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
+    ])
+  ],
+  standalone: false
 })
 export class RecurringDepositProductInterestRateChartStepComponent implements OnInit {
   @Input() recurringDepositProductsTemplate: any;
@@ -434,7 +434,6 @@ export class RecurringDepositProductInterestRateChartStepComponent implements On
         required: true,
         order: 7
       })
-
     ];
     return formfields;
   }

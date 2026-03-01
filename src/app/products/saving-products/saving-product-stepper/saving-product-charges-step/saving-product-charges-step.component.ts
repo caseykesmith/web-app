@@ -6,10 +6,10 @@ import { TranslateService } from '@ngx-translate/core';
 import { DeleteDialogComponent } from 'app/shared/delete-dialog/delete-dialog.component';
 
 @Component({
-    selector: 'mifosx-saving-product-charges-step',
-    templateUrl: './saving-product-charges-step.component.html',
-    styleUrls: ['./saving-product-charges-step.component.scss'],
-    standalone: false
+  selector: 'mifosx-saving-product-charges-step',
+  templateUrl: './saving-product-charges-step.component.html',
+  styleUrls: ['./saving-product-charges-step.component.scss'],
+  standalone: false
 })
 export class SavingProductChargesStepComponent implements OnInit {
   @Input() savingProductsTemplate: any;

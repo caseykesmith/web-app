@@ -12,10 +12,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Post Interest Savings Account Component
  */
 @Component({
-    selector: 'mifosx-post-interest-as-on-savings-account',
-    templateUrl: './post-interest-as-on-savings-account.component.html',
-    styleUrls: ['./post-interest-as-on-savings-account.component.scss'],
-    standalone: false
+  selector: 'mifosx-post-interest-as-on-savings-account',
+  templateUrl: './post-interest-as-on-savings-account.component.html',
+  styleUrls: ['./post-interest-as-on-savings-account.component.scss'],
+  standalone: false
 })
 export class PostInterestAsOnSavingsAccountComponent implements OnInit {
   /** Minimum date allowed. */

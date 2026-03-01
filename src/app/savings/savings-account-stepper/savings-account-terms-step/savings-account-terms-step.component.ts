@@ -7,10 +7,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Savings Account Terms Step
  */
 @Component({
-    selector: 'mifosx-savings-account-terms-step',
-    templateUrl: './savings-account-terms-step.component.html',
-    styleUrls: ['./savings-account-terms-step.component.scss'],
-    standalone: false
+  selector: 'mifosx-savings-account-terms-step',
+  templateUrl: './savings-account-terms-step.component.html',
+  styleUrls: ['./savings-account-terms-step.component.scss'],
+  standalone: false
 })
 export class SavingsAccountTermsStepComponent implements OnChanges, OnInit {
   /** Savings Account and Product Template */

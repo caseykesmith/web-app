@@ -9,10 +9,10 @@ import { FormGroupService } from './form-group.service';
 const layoutGap = 2;
 
 @Component({
-    selector: 'mifosx-form-dialog',
-    templateUrl: './form-dialog.component.html',
-    styleUrls: ['./form-dialog.component.scss'],
-    standalone: false
+  selector: 'mifosx-form-dialog',
+  templateUrl: './form-dialog.component.html',
+  styleUrls: ['./form-dialog.component.scss'],
+  standalone: false
 })
 export class FormDialogComponent implements OnInit {
   layout: {

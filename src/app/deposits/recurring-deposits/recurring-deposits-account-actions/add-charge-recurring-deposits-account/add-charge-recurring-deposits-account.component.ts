@@ -13,10 +13,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Recurring deposits endpoint is not supported so using Savings endpoint.
  */
 @Component({
-    selector: 'mifosx-add-charge-recurring-deposits-account',
-    templateUrl: './add-charge-recurring-deposits-account.component.html',
-    styleUrls: ['./add-charge-recurring-deposits-account.component.scss'],
-    standalone: false
+  selector: 'mifosx-add-charge-recurring-deposits-account',
+  templateUrl: './add-charge-recurring-deposits-account.component.html',
+  styleUrls: ['./add-charge-recurring-deposits-account.component.scss'],
+  standalone: false
 })
 export class AddChargeRecurringDepositsAccountComponent implements OnInit {
   /** Minimum Due Date allowed. */

@@ -12,10 +12,10 @@ import { of } from 'rxjs';
  * Manage Tax Groups component.
  */
 @Component({
-    selector: 'mifosx-manage-tax-groups',
-    templateUrl: './manage-tax-groups.component.html',
-    styleUrls: ['./manage-tax-groups.component.scss'],
-    standalone: false
+  selector: 'mifosx-manage-tax-groups',
+  templateUrl: './manage-tax-groups.component.html',
+  styleUrls: ['./manage-tax-groups.component.scss'],
+  standalone: false
 })
 export class ManageTaxGroupsComponent implements OnInit {
   /** Tax Groups data. */

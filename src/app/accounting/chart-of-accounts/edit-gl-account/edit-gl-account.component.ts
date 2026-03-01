@@ -10,10 +10,10 @@ import { AccountingService } from '../../accounting.service';
  * Edit gl account component.
  */
 @Component({
-    selector: 'mifosx-edit-gl-account',
-    templateUrl: './edit-gl-account.component.html',
-    styleUrls: ['./edit-gl-account.component.scss'],
-    standalone: false
+  selector: 'mifosx-edit-gl-account',
+  templateUrl: './edit-gl-account.component.html',
+  styleUrls: ['./edit-gl-account.component.scss'],
+  standalone: false
 })
 export class EditGlAccountComponent implements OnInit {
   /** GL account form. */

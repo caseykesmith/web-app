@@ -3,10 +3,10 @@ import { Currency } from '../models/general.model';
 import { UntypedFormControl } from '@angular/forms';
 
 @Component({
-    selector: 'mifosx-input-amount',
-    templateUrl: './input-amount.component.html',
-    styleUrls: ['./input-amount.component.scss'],
-    standalone: false
+  selector: 'mifosx-input-amount',
+  templateUrl: './input-amount.component.html',
+  styleUrls: ['./input-amount.component.scss'],
+  standalone: false
 })
 export class InputAmountComponent {
   @Input() isRequired = false;

@@ -13,10 +13,10 @@ import { Dates } from 'app/core/utils/dates';
  */
 
 @Component({
-    selector: 'mifosx-edit-teller',
-    templateUrl: './edit-teller.component.html',
-    styleUrls: ['./edit-teller.component.scss'],
-    standalone: false
+  selector: 'mifosx-edit-teller',
+  templateUrl: './edit-teller.component.html',
+  styleUrls: ['./edit-teller.component.scss'],
+  standalone: false
 })
 export class EditTellerComponent implements OnInit {
   /** Minimum date allowed. */
@@ -85,7 +85,8 @@ export class EditTellerComponent implements OnInit {
         this.tellerData.name,
         [
           Validators.required,
-          Validators.pattern('(^[A-z]).*')]
+          Validators.pattern('(^[A-z]).*')
+        ]
       ],
       description: [this.tellerData.description],
       startDate: [

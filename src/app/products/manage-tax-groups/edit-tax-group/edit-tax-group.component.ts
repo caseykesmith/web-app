@@ -21,10 +21,10 @@ import { SelectBase } from 'app/shared/form-dialog/formfield/model/select-base';
  * Edit Tax Group component.
  */
 @Component({
-    selector: 'mifosx-edit-tax-group',
-    templateUrl: './edit-tax-group.component.html',
-    styleUrls: ['./edit-tax-group.component.scss'],
-    standalone: false
+  selector: 'mifosx-edit-tax-group',
+  templateUrl: './edit-tax-group.component.html',
+  styleUrls: ['./edit-tax-group.component.scss'],
+  standalone: false
 })
 export class EditTaxGroupComponent implements OnInit {
   /** Minimum start date allowed. */
@@ -110,7 +110,6 @@ export class EditTaxGroupComponent implements OnInit {
         maxDate: this.maxDate,
         order: 2
       })
-
     ];
     const data = {
       title: 'Add Tax Component',
@@ -149,7 +148,6 @@ export class EditTaxGroupComponent implements OnInit {
         maxDate: this.maxDate,
         order: 2
       })
-
     ];
     if (!taxComponent.isNew) {
       formfields.push(

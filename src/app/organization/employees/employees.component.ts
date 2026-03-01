@@ -16,10 +16,10 @@ import { ConfigurationWizardService } from '../../configuration-wizard/configura
  * Employees component.
  */
 @Component({
-    selector: 'mifosx-employees',
-    templateUrl: './employees.component.html',
-    styleUrls: ['./employees.component.scss'],
-    standalone: false
+  selector: 'mifosx-employees',
+  templateUrl: './employees.component.html',
+  styleUrls: ['./employees.component.scss'],
+  standalone: false
 })
 export class EmployeesComponent implements OnInit, AfterViewInit {
   /** Employees data. */

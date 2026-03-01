@@ -21,10 +21,10 @@ import { TranslateService } from '@ngx-translate/core';
  * Create Tax Group component.
  */
 @Component({
-    selector: 'mifosx-create-tax-group',
-    templateUrl: './create-tax-group.component.html',
-    styleUrls: ['./create-tax-group.component.scss'],
-    standalone: false
+  selector: 'mifosx-create-tax-group',
+  templateUrl: './create-tax-group.component.html',
+  styleUrls: ['./create-tax-group.component.scss'],
+  standalone: false
 })
 export class CreateTaxGroupComponent implements OnInit {
   /** Minimum start date allowed. */
@@ -108,7 +108,6 @@ export class CreateTaxGroupComponent implements OnInit {
         maxDate: this.maxDate,
         order: 2
       })
-
     ];
     const data = {
       title:
@@ -146,7 +145,6 @@ export class CreateTaxGroupComponent implements OnInit {
         maxDate: this.maxDate,
         order: 2
       })
-
     ];
     const data = {
       title: 'Edit Tax Component',

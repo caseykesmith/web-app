@@ -12,10 +12,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Close Group Component
  */
 @Component({
-    selector: 'mifosx-close-group',
-    templateUrl: './close-group.component.html',
-    styleUrls: ['./close-group.component.scss'],
-    standalone: false
+  selector: 'mifosx-close-group',
+  templateUrl: './close-group.component.html',
+  styleUrls: ['./close-group.component.scss'],
+  standalone: false
 })
 export class CloseGroupComponent implements OnInit {
   /** Minimum date allowed. */

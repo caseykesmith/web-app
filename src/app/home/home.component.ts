@@ -24,10 +24,10 @@ import { NextStepDialogComponent } from '../configuration-wizard/next-step-dialo
  * Home component.
  */
 @Component({
-    selector: 'mifosx-home',
-    templateUrl: './home.component.html',
-    styleUrls: ['./home.component.scss'],
-    standalone: false
+  selector: 'mifosx-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
+  standalone: false
 })
 export class HomeComponent implements OnInit, AfterViewInit {
   /** Username of authenticated user. */

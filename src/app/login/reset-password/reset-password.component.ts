@@ -16,10 +16,10 @@ import { PasswordsUtility } from 'app/core/utils/passwords-utility';
  * Reset password component.
  */
 @Component({
-    selector: 'mifosx-reset-password',
-    templateUrl: './reset-password.component.html',
-    styleUrls: ['./reset-password.component.scss'],
-    standalone: false
+  selector: 'mifosx-reset-password',
+  templateUrl: './reset-password.component.html',
+  styleUrls: ['./reset-password.component.scss'],
+  standalone: false
 })
 export class ResetPasswordComponent implements OnInit {
   /** Reset password form group. */

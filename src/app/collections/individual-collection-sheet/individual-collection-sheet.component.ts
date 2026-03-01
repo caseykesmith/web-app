@@ -26,10 +26,10 @@ import { Dates } from 'app/core/utils/dates';
  * Individual Collection Sheet
  */
 @Component({
-    selector: 'mifosx-individual-collection-sheet',
-    templateUrl: './individual-collection-sheet.component.html',
-    styleUrls: ['./individual-collection-sheet.component.scss'],
-    standalone: false
+  selector: 'mifosx-individual-collection-sheet',
+  templateUrl: './individual-collection-sheet.component.html',
+  styleUrls: ['./individual-collection-sheet.component.scss'],
+  standalone: false
 })
 export class IndividualCollectionSheetComponent implements OnInit {
   /** Offices Data */
@@ -250,7 +250,6 @@ export class IndividualCollectionSheetComponent implements OnInit {
         type: 'number',
         required: false
       })
-
     ];
     const data = {
       title: `Payment for ${type === 'loans' ? 'Loan' : 'Saving'} Id ${type === 'loans' ? selectedData.loanId : selectedData.savingsId}`,
@@ -341,8 +340,10 @@ export class IndividualCollectionSheetComponent implements OnInit {
   submit() {
     const locale = this.settingsService.language.code;
     const dateFormat = this.settingsService.dateFormat;
-    (this.bulkDisbursementTransactionsData as Record<string, any>)['bulkRepaymentTransactions'] = this.bulkRepaymentTransactions;
-    (this.bulkDisbursementTransactionsData as Record<string, any>)['bulkSavingsDueTransactions'] = this.bulkSavingsDueTransactions;
+    (this.bulkDisbursementTransactionsData as Record<string, any>)['bulkRepaymentTransactions'] =
+      this.bulkRepaymentTransactions;
+    (this.bulkDisbursementTransactionsData as Record<string, any>)['bulkSavingsDueTransactions'] =
+      this.bulkSavingsDueTransactions;
     const finalSubmitData = {
       dateFormat,
       locale,

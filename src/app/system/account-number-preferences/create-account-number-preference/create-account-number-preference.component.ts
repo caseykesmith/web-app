@@ -10,10 +10,10 @@ import { SystemService } from '../../system.service';
  * Create Account Number Preference Component.
  */
 @Component({
-    selector: 'mifosx-create-account-number-preference',
-    templateUrl: './create-account-number-preference.component.html',
-    styleUrls: ['./create-account-number-preference.component.scss'],
-    standalone: false
+  selector: 'mifosx-create-account-number-preference',
+  templateUrl: './create-account-number-preference.component.html',
+  styleUrls: ['./create-account-number-preference.component.scss'],
+  standalone: false
 })
 export class CreateAccountNumberPreferenceComponent implements OnInit {
   /** Account Number Preferences Form */

@@ -6,17 +6,17 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
  * Recurring Deposit Preview Step
  */
 @Component({
-    selector: 'mifosx-recurring-deposits-account-preview-step',
-    templateUrl: './recurring-deposits-account-preview-step.component.html',
-    styleUrls: ['./recurring-deposits-account-preview-step.component.scss'],
-    animations: [
-        trigger('expandChartSlab', [
-            state('collapsed', style({ height: '0px', minHeight: '0' })),
-            state('expanded', style({ height: '*' })),
-            transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
-        ])
-    ],
-    standalone: false
+  selector: 'mifosx-recurring-deposits-account-preview-step',
+  templateUrl: './recurring-deposits-account-preview-step.component.html',
+  styleUrls: ['./recurring-deposits-account-preview-step.component.scss'],
+  animations: [
+    trigger('expandChartSlab', [
+      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('expanded', style({ height: '*' })),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
+    ])
+  ],
+  standalone: false
 })
 export class RecurringDepositsAccountPreviewStepComponent implements OnChanges {
   /** Input Data */

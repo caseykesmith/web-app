@@ -12,10 +12,10 @@ import { InputBase } from 'app/shared/form-dialog/formfield/model/input-base';
 import { SelectBase } from 'app/shared/form-dialog/formfield/model/select-base';
 
 @Component({
-    selector: 'mifosx-edit-repayment-schedule',
-    templateUrl: './edit-repayment-schedule.component.html',
-    styleUrls: ['./edit-repayment-schedule.component.scss'],
-    standalone: false
+  selector: 'mifosx-edit-repayment-schedule',
+  templateUrl: './edit-repayment-schedule.component.html',
+  styleUrls: ['./edit-repayment-schedule.component.scss'],
+  standalone: false
 })
 export class EditRepaymentScheduleComponent implements OnInit {
   /** Loan ID. */
@@ -92,7 +92,6 @@ export class EditRepaymentScheduleComponent implements OnInit {
         type: 'number',
         required: true
       })
-
     ];
     const data = {
       title: 'Pattern Update',

@@ -5,10 +5,10 @@ import { ProductsService } from 'app/products/products.service';
 import { SettingsService } from 'app/settings/settings.service';
 
 @Component({
-    selector: 'mifosx-create-range',
-    templateUrl: './create-range.component.html',
-    styleUrls: ['./create-range.component.scss'],
-    standalone: false
+  selector: 'mifosx-create-range',
+  templateUrl: './create-range.component.html',
+  styleUrls: ['./create-range.component.scss'],
+  standalone: false
 })
 export class CreateRangeComponent implements OnInit {
   /** Delinquency Range form. */
@@ -40,13 +40,15 @@ export class CreateRangeComponent implements OnInit {
         [
           Validators.required,
           Validators.pattern('^(0*[1-9][0-9]*?)$'),
-          Validators.max(1000)]
+          Validators.max(1000)
+        ]
       ],
       maximumAgeDays: [
         '',
         [
           Validators.pattern('^(0*[1-9][0-9]*?)$'),
-          Validators.max(10000)]
+          Validators.max(10000)
+        ]
       ]
     });
   }

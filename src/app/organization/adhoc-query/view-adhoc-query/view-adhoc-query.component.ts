@@ -13,10 +13,10 @@ import { DeleteDialogComponent } from 'app/shared/delete-dialog/delete-dialog.co
  * View Adhoc Query Component.
  */
 @Component({
-    selector: 'mifosx-view-adhoc-query',
-    templateUrl: './view-adhoc-query.component.html',
-    styleUrls: ['./view-adhoc-query.component.scss'],
-    standalone: false
+  selector: 'mifosx-view-adhoc-query',
+  templateUrl: './view-adhoc-query.component.html',
+  styleUrls: ['./view-adhoc-query.component.scss'],
+  standalone: false
 })
 export class ViewAdhocQueryComponent {
   /** Adhoc query data. */

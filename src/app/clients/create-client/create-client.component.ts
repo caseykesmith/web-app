@@ -18,10 +18,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Create Client Component.
  */
 @Component({
-    selector: 'mifosx-create-client',
-    templateUrl: './create-client.component.html',
-    styleUrls: ['./create-client.component.scss'],
-    standalone: false
+  selector: 'mifosx-create-client',
+  templateUrl: './create-client.component.html',
+  styleUrls: ['./create-client.component.scss'],
+  standalone: false
 })
 export class CreateClientComponent {
   /** Client General Step */

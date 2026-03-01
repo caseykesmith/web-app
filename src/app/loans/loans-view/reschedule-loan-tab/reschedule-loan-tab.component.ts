@@ -9,10 +9,10 @@ import { SettingsService } from 'app/settings/settings.service';
 import { ConfirmationDialogComponent } from 'app/shared/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
-    selector: 'mifosx-reschedule-loan-tab',
-    templateUrl: './reschedule-loan-tab.component.html',
-    styleUrls: ['./reschedule-loan-tab.component.scss'],
-    standalone: false
+  selector: 'mifosx-reschedule-loan-tab',
+  templateUrl: './reschedule-loan-tab.component.html',
+  styleUrls: ['./reschedule-loan-tab.component.scss'],
+  standalone: false
 })
 export class RescheduleLoanTabComponent {
   @Input() loanStatus: LoanStatus;

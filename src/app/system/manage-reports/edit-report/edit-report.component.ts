@@ -18,10 +18,10 @@ import { DeleteDialogComponent } from 'app/shared/delete-dialog/delete-dialog.co
  * Edit Report Component.
  */
 @Component({
-    selector: 'mifosx-edit-report',
-    templateUrl: './edit-report.component.html',
-    styleUrls: ['./edit-report.component.scss'],
-    standalone: false
+  selector: 'mifosx-edit-report',
+  templateUrl: './edit-report.component.html',
+  styleUrls: ['./edit-report.component.scss'],
+  standalone: false
 })
 export class EditReportComponent implements OnInit {
   /** Report Data. */
@@ -141,7 +141,6 @@ export class EditReportComponent implements OnInit {
           disabled: this.reportData.coreReport || this.reportData.reportType === 'Pentaho'
         },
         Validators.required
-
       ]
     });
   }

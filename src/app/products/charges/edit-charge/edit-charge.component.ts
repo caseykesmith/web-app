@@ -13,10 +13,10 @@ import { minNumberValueValidator } from 'app/shared/validators/min-number-value.
  * Edit Charge component.
  */
 @Component({
-    selector: 'mifosx-edit-charge',
-    templateUrl: './edit-charge.component.html',
-    styleUrls: ['./edit-charge.component.scss'],
-    standalone: false
+  selector: 'mifosx-edit-charge',
+  templateUrl: './edit-charge.component.html',
+  styleUrls: ['./edit-charge.component.scss'],
+  standalone: false
 })
 export class EditChargeComponent implements OnInit {
   /** Selected Data. */

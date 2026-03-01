@@ -6,10 +6,10 @@ import { TranslateService } from '@ngx-translate/core';
 import { DeleteDialogComponent } from 'app/shared/delete-dialog/delete-dialog.component';
 
 @Component({
-    selector: 'mifosx-fixed-deposit-product-charges-step',
-    templateUrl: './fixed-deposit-product-charges-step.component.html',
-    styleUrls: ['./fixed-deposit-product-charges-step.component.scss'],
-    standalone: false
+  selector: 'mifosx-fixed-deposit-product-charges-step',
+  templateUrl: './fixed-deposit-product-charges-step.component.html',
+  styleUrls: ['./fixed-deposit-product-charges-step.component.scss'],
+  standalone: false
 })
 export class FixedDepositProductChargesStepComponent implements OnInit {
   @Input() fixedDepositProductsTemplate: any;

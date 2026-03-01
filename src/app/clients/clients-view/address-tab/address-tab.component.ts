@@ -17,10 +17,10 @@ import { ClientsService } from '../../clients.service';
  * Clients Address Tab Component
  */
 @Component({
-    selector: 'mifosx-address-tab',
-    templateUrl: './address-tab.component.html',
-    styleUrls: ['./address-tab.component.scss'],
-    standalone: false
+  selector: 'mifosx-address-tab',
+  templateUrl: './address-tab.component.html',
+  styleUrls: ['./address-tab.component.scss'],
+  standalone: false
 })
 export class AddressTabComponent {
   /** Client Address Data */

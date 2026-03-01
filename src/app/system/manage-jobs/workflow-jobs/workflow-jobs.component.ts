@@ -12,10 +12,10 @@ import { SystemService } from 'app/system/system.service';
 import { JobStep } from './workflow-diagram/workflow-diagram.component';
 
 @Component({
-    selector: 'mifosx-workflow-jobs',
-    templateUrl: './workflow-jobs.component.html',
-    styleUrls: ['./workflow-jobs.component.scss'],
-    standalone: false
+  selector: 'mifosx-workflow-jobs',
+  templateUrl: './workflow-jobs.component.html',
+  styleUrls: ['./workflow-jobs.component.scss'],
+  standalone: false
 })
 export class WorkflowJobsComponent implements OnInit {
   stepOrderHasChanged = false;
@@ -132,7 +132,6 @@ export class WorkflowJobsComponent implements OnInit {
                 options: { label: 'stepDescription', value: 'stepName', data: this.jobAvailableStepsData },
                 order: 1
               })
-
             ];
             const data = {
               title: this.translateService.instant('labels.text.Add Job Step to Workflow'),

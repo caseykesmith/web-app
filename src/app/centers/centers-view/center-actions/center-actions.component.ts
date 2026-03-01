@@ -6,10 +6,10 @@ import { ActivatedRoute, Router } from '@angular/router';
  * Center actions component.
  */
 @Component({
-    selector: 'mifosx-center-actions',
-    templateUrl: './center-actions.component.html',
-    styleUrls: ['./center-actions.component.scss'],
-    standalone: false
+  selector: 'mifosx-center-actions',
+  templateUrl: './center-actions.component.html',
+  styleUrls: ['./center-actions.component.scss'],
+  standalone: false
 })
 export class CenterActionsComponent {
   /** Flag object to store possible actions and render appropriate UI to the user */

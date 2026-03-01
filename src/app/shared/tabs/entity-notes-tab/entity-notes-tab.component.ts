@@ -9,10 +9,10 @@ import { DeleteDialogComponent } from 'app/shared/delete-dialog/delete-dialog.co
 import { FormDialogComponent } from 'app/shared/form-dialog/form-dialog.component';
 
 @Component({
-    selector: 'mifosx-entity-notes-tab',
-    templateUrl: './entity-notes-tab.component.html',
-    styleUrls: ['./entity-notes-tab.component.scss'],
-    standalone: false
+  selector: 'mifosx-entity-notes-tab',
+  templateUrl: './entity-notes-tab.component.html',
+  styleUrls: ['./entity-notes-tab.component.scss'],
+  standalone: false
 })
 export class EntityNotesTabComponent implements OnInit {
   @ViewChild('formRef', { static: true }) formRef: any;

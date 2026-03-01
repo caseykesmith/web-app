@@ -11,10 +11,10 @@ import { ProgressBarService } from 'app/core/progress-bar/progress-bar.service';
  * Pentaho Component
  */
 @Component({
-    selector: 'mifosx-pentaho',
-    templateUrl: './pentaho.component.html',
-    styleUrls: ['./pentaho.component.scss'],
-    standalone: false
+  selector: 'mifosx-pentaho',
+  templateUrl: './pentaho.component.html',
+  styleUrls: ['./pentaho.component.scss'],
+  standalone: false
 })
 export class PentahoComponent implements OnChanges {
   /** Run Report Data */

@@ -17,10 +17,10 @@ import { ConfigurationWizardService } from '../../configuration-wizard/configura
  * Closing entries component.
  */
 @Component({
-    selector: 'mifosx-closing-entries',
-    templateUrl: './closing-entries.component.html',
-    styleUrls: ['./closing-entries.component.scss'],
-    standalone: false
+  selector: 'mifosx-closing-entries',
+  templateUrl: './closing-entries.component.html',
+  styleUrls: ['./closing-entries.component.scss'],
+  standalone: false
 })
 export class ClosingEntriesComponent implements OnInit, AfterViewInit {
   /** Columns to be displayed in closing entries table. */

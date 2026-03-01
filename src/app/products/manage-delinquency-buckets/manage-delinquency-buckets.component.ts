@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'mifosx-manage-delinquency-buckets',
-    templateUrl: './manage-delinquency-buckets.component.html',
-    styleUrls: ['./manage-delinquency-buckets.component.scss'],
-    standalone: false
+  selector: 'mifosx-manage-delinquency-buckets',
+  templateUrl: './manage-delinquency-buckets.component.html',
+  styleUrls: ['./manage-delinquency-buckets.component.scss'],
+  standalone: false
 })
 export class ManageDelinquencyBucketsComponent {
   // Initialize an array of 2 boolean values, all set to false

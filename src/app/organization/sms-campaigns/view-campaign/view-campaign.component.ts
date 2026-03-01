@@ -22,10 +22,10 @@ import { Dates } from 'app/core/utils/dates';
  * View SMS Campaign Component
  */
 @Component({
-    selector: 'mifosx-view-campaign',
-    templateUrl: './view-campaign.component.html',
-    styleUrls: ['./view-campaign.component.scss'],
-    standalone: false
+  selector: 'mifosx-view-campaign',
+  templateUrl: './view-campaign.component.html',
+  styleUrls: ['./view-campaign.component.scss'],
+  standalone: false
 })
 export class ViewCampaignComponent implements OnInit {
   /** Minimum date allowed. */
@@ -141,7 +141,6 @@ export class ViewCampaignComponent implements OnInit {
         type: 'date',
         required: true
       })
-
     ];
     const data = {
       title: 'Close SMS Campaign',
@@ -179,7 +178,6 @@ export class ViewCampaignComponent implements OnInit {
         type: 'date',
         required: true
       })
-
     ];
     const data = {
       title: 'Activate SMS Campaign',
@@ -217,7 +215,6 @@ export class ViewCampaignComponent implements OnInit {
         type: 'date',
         required: true
       })
-
     ];
     const data = {
       title: 'Reactivate SMS Campaign',

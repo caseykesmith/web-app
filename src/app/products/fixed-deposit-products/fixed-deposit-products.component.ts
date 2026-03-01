@@ -16,10 +16,10 @@ import { ConfigurationWizardService } from '../../configuration-wizard/configura
  * Fixed Deposit Products component.
  */
 @Component({
-    selector: 'mifosx-fixed-deposit-products',
-    templateUrl: './fixed-deposit-products.component.html',
-    styleUrls: ['./fixed-deposit-products.component.scss'],
-    standalone: false
+  selector: 'mifosx-fixed-deposit-products',
+  templateUrl: './fixed-deposit-products.component.html',
+  styleUrls: ['./fixed-deposit-products.component.scss'],
+  standalone: false
 })
 export class FixedDepositProductsComponent implements OnInit, AfterViewInit {
   /** Fixed deposit products data. */

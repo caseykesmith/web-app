@@ -12,10 +12,10 @@ import { AuthenticationService } from '../../core/authentication/authentication.
  * Login form component.
  */
 @Component({
-    selector: 'mifosx-login-form',
-    templateUrl: './login-form.component.html',
-    styleUrls: ['./login-form.component.scss'],
-    standalone: false
+  selector: 'mifosx-login-form',
+  templateUrl: './login-form.component.html',
+  styleUrls: ['./login-form.component.scss'],
+  standalone: false
 })
 export class LoginFormComponent implements OnInit {
   /** Login form group. */
@@ -94,7 +94,8 @@ export class LoginFormComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.minLength(8)]
+          Validators.minLength(8)
+        ]
       ],
       remember: false
     });

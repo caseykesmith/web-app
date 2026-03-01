@@ -15,10 +15,10 @@ import { ReplaySubject, Subject } from 'rxjs';
  * Loans Account Details Step
  */
 @Component({
-    selector: 'mifosx-loans-account-details-step',
-    templateUrl: './loans-account-details-step.component.html',
-    styleUrls: ['./loans-account-details-step.component.scss'],
-    standalone: false
+  selector: 'mifosx-loans-account-details-step',
+  templateUrl: './loans-account-details-step.component.html',
+  styleUrls: ['./loans-account-details-step.component.scss'],
+  standalone: false
 })
 export class LoansAccountDetailsStepComponent implements OnInit, OnDestroy {
   //** Defining PlaceHolders for the search bar */

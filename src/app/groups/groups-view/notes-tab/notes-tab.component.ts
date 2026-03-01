@@ -12,10 +12,10 @@ import { GroupsService } from '../../groups.service';
  * Groups Notes Tab Component.
  */
 @Component({
-    selector: 'mifosx-notes-tab',
-    templateUrl: './notes-tab.component.html',
-    styleUrls: ['./notes-tab.component.scss'],
-    standalone: false
+  selector: 'mifosx-notes-tab',
+  templateUrl: './notes-tab.component.html',
+  styleUrls: ['./notes-tab.component.scss'],
+  standalone: false
 })
 export class NotesTabComponent implements OnInit {
   /** Group ID */

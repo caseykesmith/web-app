@@ -6,10 +6,10 @@ import { TranslateService } from '@ngx-translate/core';
 import { DeleteDialogComponent } from 'app/shared/delete-dialog/delete-dialog.component';
 
 @Component({
-    selector: 'mifosx-recurring-deposit-product-charges-step',
-    templateUrl: './recurring-deposit-product-charges-step.component.html',
-    styleUrls: ['./recurring-deposit-product-charges-step.component.scss'],
-    standalone: false
+  selector: 'mifosx-recurring-deposit-product-charges-step',
+  templateUrl: './recurring-deposit-product-charges-step.component.html',
+  styleUrls: ['./recurring-deposit-product-charges-step.component.scss'],
+  standalone: false
 })
 export class RecurringDepositProductChargesStepComponent implements OnInit {
   @Input() recurringDepositProductsTemplate: any;

@@ -12,10 +12,10 @@ import { Dates } from 'app/core/utils/dates';
  * Edit Employee Component.
  */
 @Component({
-    selector: 'mifosx-edit-employee',
-    templateUrl: './edit-employee.component.html',
-    styleUrls: ['./edit-employee.component.scss'],
-    standalone: false
+  selector: 'mifosx-edit-employee',
+  templateUrl: './edit-employee.component.html',
+  styleUrls: ['./edit-employee.component.scss'],
+  standalone: false
 })
 export class EditEmployeeComponent implements OnInit {
   /** Employee data. */
@@ -73,13 +73,15 @@ export class EditEmployeeComponent implements OnInit {
         this.employeeData.firstname,
         [
           Validators.required,
-          Validators.pattern('(^[A-z]).*')]
+          Validators.pattern('(^[A-z]).*')
+        ]
       ],
       lastname: [
         this.employeeData.lastname,
         [
           Validators.required,
-          Validators.pattern('(^[A-z]).*')]
+          Validators.pattern('(^[A-z]).*')
+        ]
       ],
       isLoanOfficer: [this.employeeData.isLoanOfficer],
       mobileNo: [this.employeeData.mobileNo],

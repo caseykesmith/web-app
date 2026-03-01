@@ -6,10 +6,10 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
  * Configuration Wizard Component.
  */
 @Component({
-    selector: 'mifosx-configuration-wizard',
-    templateUrl: './configuration-wizard.component.html',
-    styleUrls: ['./configuration-wizard.component.scss'],
-    standalone: false
+  selector: 'mifosx-configuration-wizard',
+  templateUrl: './configuration-wizard.component.html',
+  styleUrls: ['./configuration-wizard.component.scss'],
+  standalone: false
 })
 export class ConfigurationWizardComponent {
   show: number;

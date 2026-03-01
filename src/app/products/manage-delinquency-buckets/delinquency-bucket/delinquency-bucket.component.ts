@@ -5,10 +5,10 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-    selector: 'mifosx-delinquency-bucket',
-    templateUrl: './delinquency-bucket.component.html',
-    styleUrls: ['./delinquency-bucket.component.scss'],
-    standalone: false
+  selector: 'mifosx-delinquency-bucket',
+  templateUrl: './delinquency-bucket.component.html',
+  styleUrls: ['./delinquency-bucket.component.scss'],
+  standalone: false
 })
 export class DelinquencyBucketComponent implements OnInit {
   delinquencyBucketData: any;

@@ -12,10 +12,10 @@ import { of } from 'rxjs';
  * SMS Campaigns component.
  */
 @Component({
-    selector: 'mifosx-sms-campaigns',
-    templateUrl: './sms-campaigns.component.html',
-    styleUrls: ['./sms-campaigns.component.scss'],
-    standalone: false
+  selector: 'mifosx-sms-campaigns',
+  templateUrl: './sms-campaigns.component.html',
+  styleUrls: ['./sms-campaigns.component.scss'],
+  standalone: false
 })
 export class SmsCampaignsComponent implements OnInit {
   /** SMS Campaigns data. */

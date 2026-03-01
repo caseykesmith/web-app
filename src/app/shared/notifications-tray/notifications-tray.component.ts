@@ -12,11 +12,11 @@ import { environment } from 'environments/environment';
  * Notifications Tray Component
  */
 @Component({
-    selector: 'mifosx-notifications-tray',
-    templateUrl: './notifications-tray.component.html',
-    styleUrls: ['./notifications-tray.component.scss'],
-    encapsulation: ViewEncapsulation.None,
-    standalone: false
+  selector: 'mifosx-notifications-tray',
+  templateUrl: './notifications-tray.component.html',
+  styleUrls: ['./notifications-tray.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+  standalone: false
 })
 export class NotificationsTrayComponent implements OnInit, OnDestroy {
   /** Wait time between API status calls 60 seg */
@@ -53,7 +53,8 @@ export class NotificationsTrayComponent implements OnInit, OnDestroy {
   constructor(public notificationsService: NotificationsService) {
     forkJoin([
       this.notificationsService.getNotifications(true, 9),
-      this.notificationsService.getNotifications(false, 9)]).subscribe((response: any[]) => {
+      this.notificationsService.getNotifications(false, 9)
+    ]).subscribe((response: any[]) => {
       this.readNotifications = response[0].pageItems;
       this.unreadNotifications = response[1].pageItems;
       this.setNotifications();

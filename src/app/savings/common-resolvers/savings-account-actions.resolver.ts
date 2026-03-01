@@ -39,7 +39,8 @@ export class SavingsAccountActionsResolver {
       case 'Close':
         return forkJoin([
           this.savingsService.getSavingsTransactionTemplateResource(savingAccountId),
-          this.savingsService.getSavingsAccountData(savingAccountId)]);
+          this.savingsService.getSavingsAccountData(savingAccountId)
+        ]);
       case 'Apply Annual Fees':
         return this.savingsService.getSavingsAccountData(savingAccountId);
       default:

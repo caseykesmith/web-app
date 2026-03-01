@@ -10,10 +10,10 @@ import { ProductsService } from 'app/products/products.service';
 import { SettingsService } from 'app/settings/settings.service';
 
 @Component({
-    selector: 'mifosx-general-tab',
-    templateUrl: './general-tab.component.html',
-    styleUrls: ['./general-tab.component.scss'],
-    standalone: false
+  selector: 'mifosx-general-tab',
+  templateUrl: './general-tab.component.html',
+  styleUrls: ['./general-tab.component.scss'],
+  standalone: false
 })
 export class GeneralTabComponent implements OnInit {
   loanProduct: LoanProduct;
@@ -73,7 +73,6 @@ export class GeneralTabComponent implements OnInit {
         required: true,
         order: 2
       })
-
     ];
     const data = {
       title: `${this.translateService.instant('labels.buttons.Create')} ${this.translateService.instant('labels.inputs.Loan Product')}`,

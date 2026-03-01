@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-    selector: 'mifosx-fixed-deposit-datatable-tab',
-    templateUrl: './fixed-deposit-datatable-tab.component.html',
-    styleUrls: ['./fixed-deposit-datatable-tab.component.scss'],
-    standalone: false
+  selector: 'mifosx-fixed-deposit-datatable-tab',
+  templateUrl: './fixed-deposit-datatable-tab.component.html',
+  styleUrls: ['./fixed-deposit-datatable-tab.component.scss'],
+  standalone: false
 })
 export class FixedDepositDatatableTabComponent {
   entityId: string;

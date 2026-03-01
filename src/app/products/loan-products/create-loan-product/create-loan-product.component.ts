@@ -26,10 +26,10 @@ import { LoanProductCapitalizedIncomeStepComponent } from '../loan-product-stepp
 import { UntypedFormGroup } from '@angular/forms';
 
 @Component({
-    selector: 'mifosx-create-loan-product',
-    templateUrl: './create-loan-product.component.html',
-    styleUrls: ['./create-loan-product.component.scss'],
-    standalone: false
+  selector: 'mifosx-create-loan-product',
+  templateUrl: './create-loan-product.component.html',
+  styleUrls: ['./create-loan-product.component.scss'],
+  standalone: false
 })
 export class CreateLoanProductComponent implements OnInit {
   @ViewChild(LoanProductDetailsStepComponent, { static: true }) loanProductDetailsStep: LoanProductDetailsStepComponent;

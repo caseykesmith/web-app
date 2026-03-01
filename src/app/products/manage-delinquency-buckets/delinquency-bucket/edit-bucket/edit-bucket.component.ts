@@ -10,10 +10,10 @@ import { FormfieldBase } from 'app/shared/form-dialog/formfield/model/formfield-
 import { SelectBase } from 'app/shared/form-dialog/formfield/model/select-base';
 
 @Component({
-    selector: 'mifosx-edit-bucket',
-    templateUrl: './edit-bucket.component.html',
-    styleUrls: ['./edit-bucket.component.scss'],
-    standalone: false
+  selector: 'mifosx-edit-bucket',
+  templateUrl: './edit-bucket.component.html',
+  styleUrls: ['./edit-bucket.component.scss'],
+  standalone: false
 })
 export class EditBucketComponent implements OnInit {
   /** Delinquency Bucket form. */
@@ -98,7 +98,6 @@ export class EditBucketComponent implements OnInit {
         options: { label: 'classification', value: 'id', data: delinquencyRanges },
         order: 1
       })
-
     ];
     const data = {
       title: 'Add Delinquency Range',

@@ -8,10 +8,10 @@ import { ShareAccountTableComponent } from '../share-account-table/share-account
 import { MemberGroupsComponent } from '../member-groups/member-groups.component';
 
 @Component({
-    selector: 'mifosx-client-navigation',
-    templateUrl: './client-navigation.component.html',
-    styleUrls: ['./client-navigation.component.scss'],
-    standalone: false
+  selector: 'mifosx-client-navigation',
+  templateUrl: './client-navigation.component.html',
+  styleUrls: ['./client-navigation.component.scss'],
+  standalone: false
 })
 export class ClientNavigationComponent {
   @ViewChild(LoanAccountTableComponent) loanAccountTableComponent: LoanAccountTableComponent;

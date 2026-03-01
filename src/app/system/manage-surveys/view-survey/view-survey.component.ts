@@ -10,10 +10,10 @@ import { SystemService } from 'app/system/system.service';
  * View Survey Component.
  */
 @Component({
-    selector: 'mifosx-view-survey',
-    templateUrl: './view-survey.component.html',
-    styleUrls: ['./view-survey.component.scss'],
-    standalone: false
+  selector: 'mifosx-view-survey',
+  templateUrl: './view-survey.component.html',
+  styleUrls: ['./view-survey.component.scss'],
+  standalone: false
 })
 export class ViewSurveyComponent {
   /** Survey Data */

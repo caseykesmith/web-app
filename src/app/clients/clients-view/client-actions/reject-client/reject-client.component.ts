@@ -12,10 +12,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Reject Client Component
  */
 @Component({
-    selector: 'mifosx-reject-client',
-    templateUrl: './reject-client.component.html',
-    styleUrls: ['./reject-client.component.scss'],
-    standalone: false
+  selector: 'mifosx-reject-client',
+  templateUrl: './reject-client.component.html',
+  styleUrls: ['./reject-client.component.scss'],
+  standalone: false
 })
 export class RejectClientComponent implements OnInit {
   /** Minimum date allowed. */

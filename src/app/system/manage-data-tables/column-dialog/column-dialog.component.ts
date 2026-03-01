@@ -10,10 +10,10 @@ import { columnTypeData } from '../column-type-data';
  * Column Dialog Component.
  */
 @Component({
-    selector: 'mifosx-column-dialog',
-    templateUrl: './column-dialog.component.html',
-    styleUrls: ['./column-dialog.component.scss'],
-    standalone: false
+  selector: 'mifosx-column-dialog',
+  templateUrl: './column-dialog.component.html',
+  styleUrls: ['./column-dialog.component.scss'],
+  standalone: false
 })
 export class ColumnDialogComponent implements OnInit {
   /** Column Form. */
@@ -51,7 +51,6 @@ export class ColumnDialogComponent implements OnInit {
           disabled: this.data.type === 'existing'
         },
         Validators.required
-
       ],
       length: [
         {
@@ -59,7 +58,6 @@ export class ColumnDialogComponent implements OnInit {
           disabled: this.getColumnType(this.data.columnDisplayType) !== 'String' || this.data.type === 'existing'
         },
         Validators.required
-
       ],
       mandatory: [{ value: this.data.isColumnNullable, disabled: this.data.type === 'existing' }],
       unique: [
@@ -71,7 +69,6 @@ export class ColumnDialogComponent implements OnInit {
           disabled: this.getColumnType(this.data.columnDisplayType) !== 'Dropdown' || this.data.type === 'existing'
         },
         Validators.required
-
       ]
     });
     this.onColumnTypeChanges();

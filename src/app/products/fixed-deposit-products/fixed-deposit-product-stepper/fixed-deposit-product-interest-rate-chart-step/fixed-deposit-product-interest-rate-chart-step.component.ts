@@ -20,17 +20,17 @@ import { Dates } from 'app/core/utils/dates';
 import { SettingsService } from 'app/settings/settings.service';
 
 @Component({
-    selector: 'mifosx-fixed-deposit-product-interest-rate-chart-step',
-    templateUrl: './fixed-deposit-product-interest-rate-chart-step.component.html',
-    styleUrls: ['./fixed-deposit-product-interest-rate-chart-step.component.scss'],
-    animations: [
-        trigger('expandChartSlab', [
-            state('collapsed', style({ height: '0px', minHeight: '0' })),
-            state('expanded', style({ height: '*' })),
-            transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
-        ])
-    ],
-    standalone: false
+  selector: 'mifosx-fixed-deposit-product-interest-rate-chart-step',
+  templateUrl: './fixed-deposit-product-interest-rate-chart-step.component.html',
+  styleUrls: ['./fixed-deposit-product-interest-rate-chart-step.component.scss'],
+  animations: [
+    trigger('expandChartSlab', [
+      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('expanded', style({ height: '*' })),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
+    ])
+  ],
+  standalone: false
 })
 export class FixedDepositProductInterestRateChartStepComponent implements OnInit {
   @Input() fixedDepositProductsTemplate: any;
@@ -438,7 +438,6 @@ export class FixedDepositProductInterestRateChartStepComponent implements OnInit
         required: true,
         order: 7
       })
-
     ];
     return formfields;
   }

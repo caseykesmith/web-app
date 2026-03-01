@@ -9,10 +9,10 @@ import { SharesService } from 'app/shares/shares.service';
  * Undo Approval Shares Account Component
  */
 @Component({
-    selector: 'mifosx-undo-approval-shares-account',
-    templateUrl: './undo-approval-shares-account.component.html',
-    styleUrls: ['./undo-approval-shares-account.component.scss'],
-    standalone: false
+  selector: 'mifosx-undo-approval-shares-account',
+  templateUrl: './undo-approval-shares-account.component.html',
+  styleUrls: ['./undo-approval-shares-account.component.scss'],
+  standalone: false
 })
 export class UndoApprovalSharesAccountComponent {
   /** Shares Account Id */

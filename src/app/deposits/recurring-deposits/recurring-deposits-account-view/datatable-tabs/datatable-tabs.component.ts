@@ -6,10 +6,10 @@ import { ActivatedRoute } from '@angular/router';
  * Savings Datatable Tabs Component
  */
 @Component({
-    selector: 'mifosx-datatable-tabs',
-    templateUrl: './datatable-tabs.component.html',
-    styleUrls: ['./datatable-tabs.component.scss'],
-    standalone: false
+  selector: 'mifosx-datatable-tabs',
+  templateUrl: './datatable-tabs.component.html',
+  styleUrls: ['./datatable-tabs.component.scss'],
+  standalone: false
 })
 export class DatatableTabsComponent {
   entityId: string;

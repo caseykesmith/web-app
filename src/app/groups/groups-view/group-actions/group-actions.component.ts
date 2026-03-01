@@ -6,10 +6,10 @@ import { ActivatedRoute, Router } from '@angular/router';
  * Group actions component.
  */
 @Component({
-    selector: 'mifosx-group-actions',
-    templateUrl: './group-actions.component.html',
-    styleUrls: ['./group-actions.component.scss'],
-    standalone: false
+  selector: 'mifosx-group-actions',
+  templateUrl: './group-actions.component.html',
+  styleUrls: ['./group-actions.component.scss'],
+  standalone: false
 })
 export class GroupActionsComponent {
   /** Flag object to store possible actions and render appropriate UI to the user */

@@ -17,10 +17,10 @@ import { ClientNavigationComponent } from './client-navigation/client-navigation
  * Navigation component.
  */
 @Component({
-    selector: 'mifosx-navigation',
-    templateUrl: './navigation.component.html',
-    styleUrls: ['./navigation.component.scss'],
-    standalone: false
+  selector: 'mifosx-navigation',
+  templateUrl: './navigation.component.html',
+  styleUrls: ['./navigation.component.scss'],
+  standalone: false
 })
 export class NavigationComponent implements OnInit {
   /** Navigation Components */

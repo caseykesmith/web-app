@@ -9,10 +9,10 @@ import { ConfigurationWizardService } from '../../configuration-wizard/configura
 import { SystemService } from '../system.service';
 
 @Component({
-    selector: 'mifosx-configure-maker-checker-tasks',
-    templateUrl: './configure-maker-checker-tasks.component.html',
-    styleUrls: ['./configure-maker-checker-tasks.component.scss'],
-    standalone: false
+  selector: 'mifosx-configure-maker-checker-tasks',
+  templateUrl: './configure-maker-checker-tasks.component.html',
+  styleUrls: ['./configure-maker-checker-tasks.component.scss'],
+  standalone: false
 })
 export class ConfigureMakerCheckerTasksComponent implements OnInit, AfterViewInit {
   permissionsData: any;

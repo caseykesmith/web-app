@@ -18,10 +18,10 @@ import { ContinueSetupDialogComponent } from 'app/configuration-wizard/continue-
  * Create user component.
  */
 @Component({
-    selector: 'mifosx-create-user',
-    templateUrl: './create-user.component.html',
-    styleUrls: ['./create-user.component.scss'],
-    standalone: false
+  selector: 'mifosx-create-user',
+  templateUrl: './create-user.component.html',
+  styleUrls: ['./create-user.component.scss'],
+  standalone: false
 })
 export class CreateUserComponent implements OnInit, AfterViewInit {
   /** User form. */
@@ -93,13 +93,15 @@ export class CreateUserComponent implements OnInit, AfterViewInit {
           '',
           [
             Validators.required,
-            Validators.pattern('(^[A-z]).*')]
+            Validators.pattern('(^[A-z]).*')
+          ]
         ],
         lastname: [
           '',
           [
             Validators.required,
-            Validators.pattern('(^[A-z]).*')]
+            Validators.pattern('(^[A-z]).*')
+          ]
         ],
         sendPasswordToEmail: [true],
         passwordNeverExpires: [false],
@@ -147,7 +149,8 @@ export class CreateUserComponent implements OnInit, AfterViewInit {
           'repeatPassword',
           new UntypedFormControl('', [
             Validators.required,
-            this.passwordsUtility.confirmPassword('password')])
+            this.passwordsUtility.confirmPassword('password')
+          ])
         );
         this.userForm.get('email').setValidators([Validators.email]);
       }

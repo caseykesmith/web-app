@@ -6,10 +6,10 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
  * Unassign role dialog component.
  */
 @Component({
-    selector: 'mifosx-unassign-role-dialog',
-    templateUrl: './unassign-role-dialog.component.html',
-    styleUrls: ['./unassign-role-dialog.component.scss'],
-    standalone: false
+  selector: 'mifosx-unassign-role-dialog',
+  templateUrl: './unassign-role-dialog.component.html',
+  styleUrls: ['./unassign-role-dialog.component.scss'],
+  standalone: false
 })
 export class UnassignRoleDialogComponent {
   /**

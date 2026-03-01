@@ -12,10 +12,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Activate Savings Account Component
  */
 @Component({
-    selector: 'mifosx-activate-savings-account',
-    templateUrl: './activate-savings-account.component.html',
-    styleUrls: ['./activate-savings-account.component.scss'],
-    standalone: false
+  selector: 'mifosx-activate-savings-account',
+  templateUrl: './activate-savings-account.component.html',
+  styleUrls: ['./activate-savings-account.component.scss'],
+  standalone: false
 })
 export class ActivateSavingsAccountComponent implements OnInit {
   /** Minimum date allowed. */

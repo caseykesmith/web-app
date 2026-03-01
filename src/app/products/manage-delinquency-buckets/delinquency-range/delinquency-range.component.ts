@@ -5,10 +5,10 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-    selector: 'mifosx-delinquency-range',
-    templateUrl: './delinquency-range.component.html',
-    styleUrls: ['./delinquency-range.component.scss'],
-    standalone: false
+  selector: 'mifosx-delinquency-range',
+  templateUrl: './delinquency-range.component.html',
+  styleUrls: ['./delinquency-range.component.scss'],
+  standalone: false
 })
 export class DelinquencyRangeComponent implements OnInit {
   delinquencyRangeData: any;

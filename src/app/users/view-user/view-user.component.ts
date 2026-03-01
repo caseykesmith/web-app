@@ -14,10 +14,10 @@ import { ChangePasswordDialogComponent } from 'app/shared/change-password-dialog
  * View user component.
  */
 @Component({
-    selector: 'mifosx-view-user',
-    templateUrl: './view-user.component.html',
-    styleUrls: ['./view-user.component.scss'],
-    standalone: false
+  selector: 'mifosx-view-user',
+  templateUrl: './view-user.component.html',
+  styleUrls: ['./view-user.component.scss'],
+  standalone: false
 })
 export class ViewUserComponent {
   /** User Data. */

@@ -25,10 +25,10 @@ import { GlobalConfiguration } from 'app/system/configurations/global-configurat
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-    selector: 'mifosx-charges-tab',
-    templateUrl: './charges-tab.component.html',
-    styleUrls: ['./charges-tab.component.scss'],
-    standalone: false
+  selector: 'mifosx-charges-tab',
+  templateUrl: './charges-tab.component.html',
+  styleUrls: ['./charges-tab.component.scss'],
+  standalone: false
 })
 export class ChargesTabComponent implements OnInit {
   /** Loan Details Data */
@@ -130,7 +130,6 @@ export class ChargesTabComponent implements OnInit {
         type: 'date',
         required: true
       })
-
     ];
     const data = {
       title: `Pay Charge ${chargeId}`,
@@ -195,7 +194,6 @@ export class ChargesTabComponent implements OnInit {
         type: 'number',
         required: true
       })
-
     ];
     const data = {
       title: `Edit Charge ${charge.id}`,

@@ -12,10 +12,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Undo Client Rejection Component
  */
 @Component({
-    selector: 'mifosx-undo-client-rejection',
-    templateUrl: './undo-client-rejection.component.html',
-    styleUrls: ['./undo-client-rejection.component.scss'],
-    standalone: false
+  selector: 'mifosx-undo-client-rejection',
+  templateUrl: './undo-client-rejection.component.html',
+  styleUrls: ['./undo-client-rejection.component.scss'],
+  standalone: false
 })
 export class UndoClientRejectionComponent implements OnInit {
   /** Minimum date allowed. */

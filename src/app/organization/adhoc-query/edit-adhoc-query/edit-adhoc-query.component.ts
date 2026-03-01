@@ -10,10 +10,10 @@ import { OrganizationService } from '../../organization.service';
  * Edit Adhoc Query component.
  */
 @Component({
-    selector: 'mifosx-edit-adhoc-query',
-    templateUrl: './edit-adhoc-query.component.html',
-    styleUrls: ['./edit-adhoc-query.component.scss'],
-    standalone: false
+  selector: 'mifosx-edit-adhoc-query',
+  templateUrl: './edit-adhoc-query.component.html',
+  styleUrls: ['./edit-adhoc-query.component.scss'],
+  standalone: false
 })
 export class EditAdhocQueryComponent implements OnInit {
   /** Edit Adhoc Query form. */
@@ -90,7 +90,8 @@ export class EditAdhocQueryComponent implements OnInit {
           'reportRunEvery',
           new UntypedFormControl('', [
             Validators.required,
-            Validators.min(1)])
+            Validators.min(1)
+          ])
         );
         this.editAdhocQueryForm.get('reportRunEvery').patchValue(this.adhocQueryTemplateData.reportRunEvery);
       } else {

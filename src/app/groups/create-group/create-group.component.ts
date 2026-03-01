@@ -13,10 +13,10 @@ import { Dates } from 'app/core/utils/dates';
  * Create Group component.
  */
 @Component({
-    selector: 'mifosx-create-group',
-    templateUrl: './create-group.component.html',
-    styleUrls: ['./create-group.component.scss'],
-    standalone: false
+  selector: 'mifosx-create-group',
+  templateUrl: './create-group.component.html',
+  styleUrls: ['./create-group.component.scss'],
+  standalone: false
 })
 export class CreateGroupComponent implements OnInit, AfterViewInit {
   /** Minimum date allowed. */
@@ -92,7 +92,8 @@ export class CreateGroupComponent implements OnInit, AfterViewInit {
         '',
         [
           Validators.required,
-          Validators.pattern('(^[A-z]).*')]
+          Validators.pattern('(^[A-z]).*')
+        ]
       ],
       officeId: [
         '',

@@ -15,10 +15,10 @@ import { Dates } from 'app/core/utils/dates';
  * Business Rule Parameters Component.
  */
 @Component({
-    selector: 'mifosx-business-rule-parameters',
-    templateUrl: './business-rule-parameters.component.html',
-    styleUrls: ['./business-rule-parameters.component.scss'],
-    standalone: false
+  selector: 'mifosx-business-rule-parameters',
+  templateUrl: './business-rule-parameters.component.html',
+  styleUrls: ['./business-rule-parameters.component.scss'],
+  standalone: false
 })
 export class BusinessRuleParametersComponent implements OnInit, OnChanges {
   /** Run Report Parameters Data */

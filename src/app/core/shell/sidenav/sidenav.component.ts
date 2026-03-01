@@ -19,10 +19,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Sidenav component.
  */
 @Component({
-    selector: 'mifosx-sidenav',
-    templateUrl: './sidenav.component.html',
-    styleUrls: ['./sidenav.component.scss'],
-    standalone: false
+  selector: 'mifosx-sidenav',
+  templateUrl: './sidenav.component.html',
+  styleUrls: ['./sidenav.component.scss'],
+  standalone: false
 })
 export class SidenavComponent implements OnInit, AfterViewInit {
   /** True if sidenav is in collapsed state. */

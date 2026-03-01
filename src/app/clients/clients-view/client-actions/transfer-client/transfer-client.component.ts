@@ -12,10 +12,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Transfer Client Component
  */
 @Component({
-    selector: 'mifosx-transfer-client',
-    templateUrl: './transfer-client.component.html',
-    styleUrls: ['./transfer-client.component.scss'],
-    standalone: false
+  selector: 'mifosx-transfer-client',
+  templateUrl: './transfer-client.component.html',
+  styleUrls: ['./transfer-client.component.scss'],
+  standalone: false
 })
 export class TransferClientComponent implements OnInit {
   /** Minimum date allowed. */

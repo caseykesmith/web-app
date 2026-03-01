@@ -12,10 +12,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Reactivate Client Component
  */
 @Component({
-    selector: 'mifosx-reactivate-client',
-    templateUrl: './reactivate-client.component.html',
-    styleUrls: ['./reactivate-client.component.scss'],
-    standalone: false
+  selector: 'mifosx-reactivate-client',
+  templateUrl: './reactivate-client.component.html',
+  styleUrls: ['./reactivate-client.component.scss'],
+  standalone: false
 })
 export class ReactivateClientComponent implements OnInit {
   /** Minimum date allowed. */

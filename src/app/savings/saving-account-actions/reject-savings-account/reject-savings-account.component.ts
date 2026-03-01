@@ -12,10 +12,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Reject Savings Account Component
  */
 @Component({
-    selector: 'mifosx-reject-savings-account',
-    templateUrl: './reject-savings-account.component.html',
-    styleUrls: ['./reject-savings-account.component.scss'],
-    standalone: false
+  selector: 'mifosx-reject-savings-account',
+  templateUrl: './reject-savings-account.component.html',
+  styleUrls: ['./reject-savings-account.component.scss'],
+  standalone: false
 })
 export class RejectSavingsAccountComponent implements OnInit {
   /** Minimum date allowed. */

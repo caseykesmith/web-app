@@ -7,17 +7,17 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
  * Recurring Deposits Account Interest Rate Chart Step
  */
 @Component({
-    selector: 'mifosx-recurring-deposits-account-interest-rate-chart-step',
-    templateUrl: './recurring-deposits-account-interest-rate-chart-step.component.html',
-    styleUrls: ['./recurring-deposits-account-interest-rate-chart-step.component.scss'],
-    animations: [
-        trigger('expandChartSlab', [
-            state('collapsed', style({ height: '0px', minHeight: '0' })),
-            state('expanded', style({ height: '*' })),
-            transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
-        ])
-    ],
-    standalone: false
+  selector: 'mifosx-recurring-deposits-account-interest-rate-chart-step',
+  templateUrl: './recurring-deposits-account-interest-rate-chart-step.component.html',
+  styleUrls: ['./recurring-deposits-account-interest-rate-chart-step.component.scss'],
+  animations: [
+    trigger('expandChartSlab', [
+      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('expanded', style({ height: '*' })),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
+    ])
+  ],
+  standalone: false
 })
 export class RecurringDepositsAccountInterestRateChartStepComponent implements OnInit, OnChanges {
   @Input() recurringDepositsAccountTemplate: any;

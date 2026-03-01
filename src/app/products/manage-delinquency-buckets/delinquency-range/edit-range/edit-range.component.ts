@@ -5,10 +5,10 @@ import { ProductsService } from 'app/products/products.service';
 import { SettingsService } from 'app/settings/settings.service';
 
 @Component({
-    selector: 'mifosx-edit-range',
-    templateUrl: './edit-range.component.html',
-    styleUrls: ['./edit-range.component.scss'],
-    standalone: false
+  selector: 'mifosx-edit-range',
+  templateUrl: './edit-range.component.html',
+  styleUrls: ['./edit-range.component.scss'],
+  standalone: false
 })
 export class EditRangeComponent implements OnInit {
   /** Delinquency Range Data. */
@@ -46,13 +46,15 @@ export class EditRangeComponent implements OnInit {
         [
           Validators.required,
           Validators.pattern('^(0*[1-9][0-9]*?)$'),
-          Validators.max(1000)]
+          Validators.max(1000)
+        ]
       ],
       maximumAgeDays: [
         this.delinquencyRangeData.maximumAgeDays,
         [
           Validators.pattern('^(0*[1-9][0-9]*?)$'),
-          Validators.max(10000)]
+          Validators.max(10000)
+        ]
       ]
     });
   }

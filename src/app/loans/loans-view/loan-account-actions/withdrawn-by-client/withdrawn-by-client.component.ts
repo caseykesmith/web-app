@@ -12,10 +12,10 @@ import { Dates } from 'app/core/utils/dates';
  * Withdrawn By Applicant Loan Form
  */
 @Component({
-    selector: 'mifosx-withdrawn-by-client',
-    templateUrl: './withdrawn-by-client.component.html',
-    styleUrls: ['./withdrawn-by-client.component.scss'],
-    standalone: false
+  selector: 'mifosx-withdrawn-by-client',
+  templateUrl: './withdrawn-by-client.component.html',
+  styleUrls: ['./withdrawn-by-client.component.scss'],
+  standalone: false
 })
 export class WithdrawnByClientComponent implements OnInit {
   @Input() dataObject: any;

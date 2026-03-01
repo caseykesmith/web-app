@@ -10,10 +10,10 @@ import { ClientsService } from 'app/clients/clients.service';
  * Clients Assign Staff Component
  */
 @Component({
-    selector: 'mifosx-client-assign-staff',
-    templateUrl: './client-assign-staff.component.html',
-    styleUrls: ['./client-assign-staff.component.scss'],
-    standalone: false
+  selector: 'mifosx-client-assign-staff',
+  templateUrl: './client-assign-staff.component.html',
+  styleUrls: ['./client-assign-staff.component.scss'],
+  standalone: false
 })
 export class ClientAssignStaffComponent implements OnInit {
   /** Client Assign Staff form. */

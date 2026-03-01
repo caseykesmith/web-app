@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-    selector: 'mifosx-view-saving-product',
-    templateUrl: './view-saving-product.component.html',
-    styleUrls: ['./view-saving-product.component.scss'],
-    standalone: false
+  selector: 'mifosx-view-saving-product',
+  templateUrl: './view-saving-product.component.html',
+  styleUrls: ['./view-saving-product.component.scss'],
+  standalone: false
 })
 export class ViewSavingProductComponent {
   savingProductDatatables: any = [];

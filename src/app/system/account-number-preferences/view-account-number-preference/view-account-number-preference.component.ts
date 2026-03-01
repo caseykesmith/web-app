@@ -14,10 +14,10 @@ import { DeleteDialogComponent } from 'app/shared/delete-dialog/delete-dialog.co
  * View Account Number Preference Component.
  */
 @Component({
-    selector: 'mifosx-view-account-number-preference',
-    templateUrl: './view-account-number-preference.component.html',
-    styleUrls: ['./view-account-number-preference.component.scss'],
-    standalone: false
+  selector: 'mifosx-view-account-number-preference',
+  templateUrl: './view-account-number-preference.component.html',
+  styleUrls: ['./view-account-number-preference.component.scss'],
+  standalone: false
 })
 export class ViewAccountNumberPreferenceComponent {
   /** Account Number Preference Data */

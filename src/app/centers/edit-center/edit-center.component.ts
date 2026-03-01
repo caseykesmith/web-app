@@ -12,10 +12,10 @@ import { Dates } from 'app/core/utils/dates';
  * Edit Center component.
  */
 @Component({
-    selector: 'mifosx-edit-center',
-    templateUrl: './edit-center.component.html',
-    styleUrls: ['./edit-center.component.scss'],
-    standalone: false
+  selector: 'mifosx-edit-center',
+  templateUrl: './edit-center.component.html',
+  styleUrls: ['./edit-center.component.scss'],
+  standalone: false
 })
 export class EditCenterComponent implements OnInit {
   /** Center Data */
@@ -70,7 +70,8 @@ export class EditCenterComponent implements OnInit {
         this.centerData.name,
         [
           Validators.required,
-          Validators.pattern('(^[A-z]).*')]
+          Validators.pattern('(^[A-z]).*')
+        ]
       ],
       staffId: [this.centerData.staffId],
       externalId: [this.centerData.externalId]

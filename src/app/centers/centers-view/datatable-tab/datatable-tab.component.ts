@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-    selector: 'mifosx-datatable-tab',
-    templateUrl: './datatable-tab.component.html',
-    styleUrls: ['./datatable-tab.component.scss'],
-    standalone: false
+  selector: 'mifosx-datatable-tab',
+  templateUrl: './datatable-tab.component.html',
+  styleUrls: ['./datatable-tab.component.scss'],
+  standalone: false
 })
 export class DatatableTabComponent {
   entityId: string;

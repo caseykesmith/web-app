@@ -12,10 +12,10 @@ import { Dates } from 'app/core/utils/dates';
  * Edit Group component.
  */
 @Component({
-    selector: 'mifosx-edit-group',
-    templateUrl: './edit-group.component.html',
-    styleUrls: ['./edit-group.component.scss'],
-    standalone: false
+  selector: 'mifosx-edit-group',
+  templateUrl: './edit-group.component.html',
+  styleUrls: ['./edit-group.component.scss'],
+  standalone: false
 })
 export class EditGroupComponent implements OnInit {
   /** Minimum date allowed. */
@@ -79,7 +79,8 @@ export class EditGroupComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.pattern('(^[A-z]).*')]
+          Validators.pattern('(^[A-z]).*')
+        ]
       ],
       submittedOnDate: [
         '',

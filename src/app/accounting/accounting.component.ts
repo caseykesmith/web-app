@@ -10,10 +10,10 @@ import { PopoverService } from '../configuration-wizard/popover/popover.service'
  * Accounting component.
  */
 @Component({
-    selector: 'mifosx-accounting',
-    templateUrl: './accounting.component.html',
-    styleUrls: ['./accounting.component.scss'],
-    standalone: false
+  selector: 'mifosx-accounting',
+  templateUrl: './accounting.component.html',
+  styleUrls: ['./accounting.component.scss'],
+  standalone: false
 })
 export class AccountingComponent implements AfterViewInit {
   /* Reference of Chart of Accounts */

@@ -10,10 +10,10 @@ import { OrganizationService } from 'app/organization/organization.service';
  * Create Entity Data Table Checks component.
  */
 @Component({
-    selector: 'mifosx-create-enity-data-table-checks',
-    templateUrl: './create-enity-data-table-checks.component.html',
-    styleUrls: ['./create-enity-data-table-checks.component.scss'],
-    standalone: false
+  selector: 'mifosx-create-enity-data-table-checks',
+  templateUrl: './create-enity-data-table-checks.component.html',
+  styleUrls: ['./create-enity-data-table-checks.component.scss'],
+  standalone: false
 })
 export class CreateEnityDataTableChecksComponent implements OnInit {
   /** Create Entity Datatable Checks form. */

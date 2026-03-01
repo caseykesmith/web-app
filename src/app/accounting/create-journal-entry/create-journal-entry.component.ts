@@ -17,10 +17,10 @@ import { NextStepDialogComponent } from '../../configuration-wizard/next-step-di
  * Create Journal Entry component.
  */
 @Component({
-    selector: 'mifosx-create-journal-entry',
-    templateUrl: './create-journal-entry.component.html',
-    styleUrls: ['./create-journal-entry.component.scss'],
-    standalone: false
+  selector: 'mifosx-create-journal-entry',
+  templateUrl: './create-journal-entry.component.html',
+  styleUrls: ['./create-journal-entry.component.scss'],
+  standalone: false
 })
 export class CreateJournalEntryComponent implements OnInit, AfterViewInit {
   /** Minimum transaction date allowed. */

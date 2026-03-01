@@ -4,10 +4,10 @@ import { SystemService } from '../system.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-    selector: 'mifosx-manage-jobs',
-    templateUrl: './manage-jobs.component.html',
-    styleUrls: ['./manage-jobs.component.scss'],
-    standalone: false
+  selector: 'mifosx-manage-jobs',
+  templateUrl: './manage-jobs.component.html',
+  styleUrls: ['./manage-jobs.component.scss'],
+  standalone: false
 })
 export class ManageJobsComponent {
   /** Process running flag */

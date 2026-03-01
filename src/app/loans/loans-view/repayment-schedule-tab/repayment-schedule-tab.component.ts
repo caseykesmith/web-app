@@ -13,10 +13,10 @@ import { jsPDF, jsPDFOptions } from 'jspdf';
 import autoTable from 'jspdf-autotable';
 
 @Component({
-    selector: 'mifosx-repayment-schedule-tab',
-    templateUrl: './repayment-schedule-tab.component.html',
-    styleUrls: ['./repayment-schedule-tab.component.scss'],
-    standalone: false
+  selector: 'mifosx-repayment-schedule-tab',
+  templateUrl: './repayment-schedule-tab.component.html',
+  styleUrls: ['./repayment-schedule-tab.component.scss'],
+  standalone: false
 })
 export class RepaymentScheduleTabComponent implements OnInit, OnChanges {
   /** Currency Code */
@@ -185,7 +185,6 @@ export class RepaymentScheduleTabComponent implements OnInit, OnChanges {
         type: 'number',
         required: true
       })
-
     ];
 
     const data = {

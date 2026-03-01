@@ -10,10 +10,10 @@ import { SelectBase } from 'app/shared/form-dialog/formfield/model/select-base';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-    selector: 'mifosx-saving-product-accounting-step',
-    templateUrl: './saving-product-accounting-step.component.html',
-    styleUrls: ['./saving-product-accounting-step.component.scss'],
-    standalone: false
+  selector: 'mifosx-saving-product-accounting-step',
+  templateUrl: './saving-product-accounting-step.component.html',
+  styleUrls: ['./saving-product-accounting-step.component.scss'],
+  standalone: false
 })
 export class SavingProductAccountingStepComponent implements OnInit {
   @Input() savingProductsTemplate: any;
@@ -355,7 +355,6 @@ export class SavingProductAccountingStepComponent implements OnInit {
         required: true,
         order: 2
       })
-
     ];
     return formfields;
   }
@@ -378,7 +377,6 @@ export class SavingProductAccountingStepComponent implements OnInit {
         required: true,
         order: 2
       })
-
     ];
     return formfields;
   }
@@ -401,7 +399,6 @@ export class SavingProductAccountingStepComponent implements OnInit {
         required: true,
         order: 2
       })
-
     ];
     return formfields;
   }

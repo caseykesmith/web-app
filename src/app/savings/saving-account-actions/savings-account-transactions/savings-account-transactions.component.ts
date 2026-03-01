@@ -13,10 +13,10 @@ import { Currency } from 'app/shared/models/general.model';
  * Create savings account transactions component.
  */
 @Component({
-    selector: 'mifosx-savings-transactions',
-    templateUrl: './savings-account-transactions.component.html',
-    styleUrls: ['./savings-account-transactions.component.scss'],
-    standalone: false
+  selector: 'mifosx-savings-transactions',
+  templateUrl: './savings-account-transactions.component.html',
+  styleUrls: ['./savings-account-transactions.component.scss'],
+  standalone: false
 })
 export class SavingsAccountTransactionsComponent implements OnInit {
   /** Minimum Due Date allowed. */
@@ -36,7 +36,10 @@ export class SavingsAccountTransactionsComponent implements OnInit {
   /** Flag to enable payment details fields. */
   addPaymentDetailsFlag: Boolean = false;
   /** transaction type flag to render required UI */
-  transactionType: { [key: string]: boolean; deposit: boolean; withdrawal: boolean } = { deposit: false, withdrawal: false };
+  transactionType: { [key: string]: boolean; deposit: boolean; withdrawal: boolean } = {
+    deposit: false,
+    withdrawal: false
+  };
   /** transaction command for submit request */
   transactionCommand: string;
   /** saving account's Id */

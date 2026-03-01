@@ -7,10 +7,10 @@ import { ActivatedRoute } from '@angular/router';
  * Charges Tab Component
  */
 @Component({
-    selector: 'mifosx-charges-tab',
-    templateUrl: './charges-tab.component.html',
-    styleUrls: ['./charges-tab.component.scss'],
-    standalone: false
+  selector: 'mifosx-charges-tab',
+  templateUrl: './charges-tab.component.html',
+  styleUrls: ['./charges-tab.component.scss'],
+  standalone: false
 })
 export class ChargesTabComponent implements OnInit {
   /** Shares Account Data */

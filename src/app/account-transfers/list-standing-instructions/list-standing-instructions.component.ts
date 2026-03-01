@@ -17,10 +17,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Lists all the standing intructions of particular ID
  */
 @Component({
-    selector: 'mifosx-list-standing-instructions',
-    templateUrl: './list-standing-instructions.component.html',
-    styleUrls: ['./list-standing-instructions.component.scss'],
-    standalone: false
+  selector: 'mifosx-list-standing-instructions',
+  templateUrl: './list-standing-instructions.component.html',
+  styleUrls: ['./list-standing-instructions.component.scss'],
+  standalone: false
 })
 export class ListStandingInstructionsComponent {
   /** Recurring Deposits Data */

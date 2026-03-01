@@ -10,10 +10,10 @@ import { LoansService } from '../../../loans.service';
  * Undo Disbursal component.
  */
 @Component({
-    selector: 'mifosx-undo-disbursal',
-    templateUrl: './undo-disbursal.component.html',
-    styleUrls: ['./undo-disbursal.component.scss'],
-    standalone: false
+  selector: 'mifosx-undo-disbursal',
+  templateUrl: './undo-disbursal.component.html',
+  styleUrls: ['./undo-disbursal.component.scss'],
+  standalone: false
 })
 export class UndoDisbursalComponent implements OnInit {
   @Input() actionName: string;

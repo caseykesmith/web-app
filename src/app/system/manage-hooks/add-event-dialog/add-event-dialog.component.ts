@@ -7,10 +7,10 @@ import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms
  * Add Event Dialog Component.
  */
 @Component({
-    selector: 'mifosx-add-event-dialog',
-    templateUrl: './add-event-dialog.component.html',
-    styleUrls: ['./add-event-dialog.component.scss'],
-    standalone: false
+  selector: 'mifosx-add-event-dialog',
+  templateUrl: './add-event-dialog.component.html',
+  styleUrls: ['./add-event-dialog.component.scss'],
+  standalone: false
 })
 export class AddEventDialogComponent implements OnInit {
   /** Event Form. */

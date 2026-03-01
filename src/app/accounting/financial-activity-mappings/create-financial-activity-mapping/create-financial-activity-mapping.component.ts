@@ -11,10 +11,10 @@ import { GLAccount } from 'app/shared/models/general.model';
  * Create financial activity mapping component.
  */
 @Component({
-    selector: 'mifosx-create-financial-activity-mapping',
-    templateUrl: './create-financial-activity-mapping.component.html',
-    styleUrls: ['./create-financial-activity-mapping.component.scss'],
-    standalone: false
+  selector: 'mifosx-create-financial-activity-mapping',
+  templateUrl: './create-financial-activity-mapping.component.html',
+  styleUrls: ['./create-financial-activity-mapping.component.scss'],
+  standalone: false
 })
 export class CreateFinancialActivityMappingComponent implements OnInit {
   /** Financial activity mapping form. */

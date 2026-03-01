@@ -7,17 +7,17 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
  * Interest Rate Chart Tab Component.
  */
 @Component({
-    selector: 'mifosx-interest-rate-chart-tab',
-    templateUrl: './interest-rate-chart-tab.component.html',
-    styleUrls: ['./interest-rate-chart-tab.component.scss'],
-    animations: [
-        trigger('expandChartSlab', [
-            state('collapsed', style({ height: '0px', minHeight: '0' })),
-            state('expanded', style({ height: '*' })),
-            transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
-        ])
-    ],
-    standalone: false
+  selector: 'mifosx-interest-rate-chart-tab',
+  templateUrl: './interest-rate-chart-tab.component.html',
+  styleUrls: ['./interest-rate-chart-tab.component.scss'],
+  animations: [
+    trigger('expandChartSlab', [
+      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('expanded', style({ height: '*' })),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
+    ])
+  ],
+  standalone: false
 })
 export class InterestRateChartTabComponent {
   /** Interest Rate Chart Data */

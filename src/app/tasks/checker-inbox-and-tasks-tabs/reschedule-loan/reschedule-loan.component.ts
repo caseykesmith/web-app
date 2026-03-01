@@ -16,10 +16,10 @@ import { Dates } from 'app/core/utils/dates';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-    selector: 'mifosx-reschedule-loan',
-    templateUrl: './reschedule-loan.component.html',
-    styleUrls: ['./reschedule-loan.component.scss'],
-    standalone: false
+  selector: 'mifosx-reschedule-loan',
+  templateUrl: './reschedule-loan.component.html',
+  styleUrls: ['./reschedule-loan.component.scss'],
+  standalone: false
 })
 export class RescheduleLoanComponent {
   /** Loans Data */

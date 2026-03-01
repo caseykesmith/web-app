@@ -20,10 +20,10 @@ import * as XLSX from 'xlsx';
  * Table and SMS Component
  */
 @Component({
-    selector: 'mifosx-table-and-sms',
-    templateUrl: './table-and-sms.component.html',
-    styleUrls: ['./table-and-sms.component.scss'],
-    standalone: false
+  selector: 'mifosx-table-and-sms',
+  templateUrl: './table-and-sms.component.html',
+  styleUrls: ['./table-and-sms.component.scss'],
+  standalone: false
 })
 export class TableAndSmsComponent implements OnChanges {
   /** Run Report Data */
@@ -126,7 +126,6 @@ export class TableAndSmsComponent implements OnChanges {
         required: true,
         order: 2
       })
-
     ];
     const data = {
       title: 'Export data to File',

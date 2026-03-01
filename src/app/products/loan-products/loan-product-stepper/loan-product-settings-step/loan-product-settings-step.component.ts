@@ -7,10 +7,10 @@ import { CodeName, OptionData, StringEnumOptionData } from 'app/shared/models/op
 import { ProcessingStrategyService } from '../../services/processing-strategy.service';
 
 @Component({
-    selector: 'mifosx-loan-product-settings-step',
-    templateUrl: './loan-product-settings-step.component.html',
-    styleUrls: ['./loan-product-settings-step.component.scss'],
-    standalone: false
+  selector: 'mifosx-loan-product-settings-step',
+  templateUrl: './loan-product-settings-step.component.html',
+  styleUrls: ['./loan-product-settings-step.component.scss'],
+  standalone: false
 })
 export class LoanProductSettingsStepComponent implements OnInit {
   DAYS_BEFORE_REPAYMENT_IS_DUE = LoanProducts.DAYS_BEFORE_REPAYMENT_IS_DUE;
@@ -541,7 +541,8 @@ export class LoanProductSettingsStepComponent implements OnInit {
           'disbursedAmountPercentageForDownPayment',
           new UntypedFormControl(0, [
             Validators.required,
-            rangeValidator(0, 100)])
+            rangeValidator(0, 100)
+          ])
         );
         this.loanProductSettingsForm.addControl('enableAutoRepaymentForDownPayment', new UntypedFormControl(false, []));
       } else {

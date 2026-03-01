@@ -13,10 +13,10 @@ import { DeleteDialogComponent } from 'app/shared/delete-dialog/delete-dialog.co
  * View Report Component.
  */
 @Component({
-    selector: 'mifosx-view-report',
-    templateUrl: './view-report.component.html',
-    styleUrls: ['./view-report.component.scss'],
-    standalone: false
+  selector: 'mifosx-view-report',
+  templateUrl: './view-report.component.html',
+  styleUrls: ['./view-report.component.scss'],
+  standalone: false
 })
 export class ViewReportComponent {
   /** Report Data. */

@@ -10,10 +10,10 @@ import { OrganizationService } from '../../organization.service';
  * Create Payment Type Component.
  */
 @Component({
-    selector: 'mifosx-create-payment-type',
-    templateUrl: './create-payment-type.component.html',
-    styleUrls: ['./create-payment-type.component.scss'],
-    standalone: false
+  selector: 'mifosx-create-payment-type',
+  templateUrl: './create-payment-type.component.html',
+  styleUrls: ['./create-payment-type.component.scss'],
+  standalone: false
 })
 export class CreatePaymentTypeComponent implements OnInit {
   /** Payment Type form. */

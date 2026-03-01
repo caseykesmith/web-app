@@ -17,10 +17,10 @@ import { Dates } from 'app/core/utils/dates';
  * Create new recurring deposit account
  */
 @Component({
-    selector: 'mifosx-create-recurring-deposits-account',
-    templateUrl: './create-recurring-deposits-account.component.html',
-    styleUrls: ['./create-recurring-deposits-account.component.scss'],
-    standalone: false
+  selector: 'mifosx-create-recurring-deposits-account',
+  templateUrl: './create-recurring-deposits-account.component.html',
+  styleUrls: ['./create-recurring-deposits-account.component.scss'],
+  standalone: false
 })
 export class CreateRecurringDepositsAccountComponent {
   /** Imports all the step component */

@@ -19,10 +19,10 @@ import { ReportParameterDialogComponent } from '../report-parameter-dialog/repor
  * Create Report Component.
  */
 @Component({
-    selector: 'mifosx-create-report',
-    templateUrl: './create-report.component.html',
-    styleUrls: ['./create-report.component.scss'],
-    standalone: false
+  selector: 'mifosx-create-report',
+  templateUrl: './create-report.component.html',
+  styleUrls: ['./create-report.component.scss'],
+  standalone: false
 })
 export class CreateReportComponent implements OnInit {
   /** Report Form. */

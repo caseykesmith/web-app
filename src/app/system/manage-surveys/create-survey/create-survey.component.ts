@@ -15,10 +15,10 @@ import { CancelDialogComponent } from '../../../shared/cancel-dialog/cancel-dial
  * Create survey component.
  */
 @Component({
-    selector: 'mifosx-create-survey',
-    templateUrl: './create-survey.component.html',
-    styleUrls: ['./create-survey.component.scss'],
-    standalone: false
+  selector: 'mifosx-create-survey',
+  templateUrl: './create-survey.component.html',
+  styleUrls: ['./create-survey.component.scss'],
+  standalone: false
 })
 export class CreateSurveyComponent implements OnInit {
   /** Survey form. */
@@ -63,7 +63,8 @@ export class CreateSurveyComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.pattern('^\\s*([A-Za-z]{2})?\\s*$')]
+          Validators.pattern('^\\s*([A-Za-z]{2})?\\s*$')
+        ]
       ],
       description: [''],
       questionDatas: this.formBuilder.array([])
@@ -142,7 +143,8 @@ export class CreateSurveyComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.pattern('^\\s*[-]?\\d{0,4}\\s*$')]
+          Validators.pattern('^\\s*[-]?\\d{0,4}\\s*$')
+        ]
       ],
       sequenceNo: ['']
     });

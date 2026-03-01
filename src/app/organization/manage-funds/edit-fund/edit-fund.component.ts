@@ -4,10 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { OrganizationService } from 'app/organization/organization.service';
 
 @Component({
-    selector: 'mifosx-edit-fund',
-    templateUrl: './edit-fund.component.html',
-    styleUrls: ['./edit-fund.component.scss'],
-    standalone: false
+  selector: 'mifosx-edit-fund',
+  templateUrl: './edit-fund.component.html',
+  styleUrls: ['./edit-fund.component.scss'],
+  standalone: false
 })
 export class EditFundComponent implements OnInit {
   /** Selected Data. */

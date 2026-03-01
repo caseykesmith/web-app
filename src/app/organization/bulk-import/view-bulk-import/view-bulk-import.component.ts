@@ -14,10 +14,10 @@ import { BulkImports } from './bulk-imports';
  * View Bulk Imports Component
  */
 @Component({
-    selector: 'mifosx-view-bulk-import',
-    templateUrl: './view-bulk-import.component.html',
-    styleUrls: ['./view-bulk-import.component.scss'],
-    standalone: false
+  selector: 'mifosx-view-bulk-import',
+  templateUrl: './view-bulk-import.component.html',
+  styleUrls: ['./view-bulk-import.component.scss'],
+  standalone: false
 })
 export class ViewBulkImportComponent implements OnInit {
   /** offices Data */

@@ -13,10 +13,10 @@ import { DeleteDialogComponent } from '../../../shared/delete-dialog/delete-dial
  * View closure component.
  */
 @Component({
-    selector: 'mifosx-view-closure',
-    templateUrl: './view-closure.component.html',
-    styleUrls: ['./view-closure.component.scss'],
-    standalone: false
+  selector: 'mifosx-view-closure',
+  templateUrl: './view-closure.component.html',
+  styleUrls: ['./view-closure.component.scss'],
+  standalone: false
 })
 export class ViewClosureComponent {
   /** GL Account closure. */

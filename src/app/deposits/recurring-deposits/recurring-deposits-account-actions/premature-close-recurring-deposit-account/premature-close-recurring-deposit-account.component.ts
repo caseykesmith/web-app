@@ -13,10 +13,10 @@ import { Dates } from 'app/core/utils/dates';
  */
 
 @Component({
-    selector: 'mifosx-premature-close-recurring-deposit-account',
-    templateUrl: './premature-close-recurring-deposit-account.component.html',
-    styleUrls: ['./premature-close-recurring-deposit-account.component.scss'],
-    standalone: false
+  selector: 'mifosx-premature-close-recurring-deposit-account',
+  templateUrl: './premature-close-recurring-deposit-account.component.html',
+  styleUrls: ['./premature-close-recurring-deposit-account.component.scss'],
+  standalone: false
 })
 export class PrematureCloseRecurringDepositAccountComponent implements OnInit {
   /** Minimum date allowed. */

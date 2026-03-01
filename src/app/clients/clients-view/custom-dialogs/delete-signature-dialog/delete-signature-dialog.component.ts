@@ -6,10 +6,10 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
  * Delete signature dialog component.
  */
 @Component({
-    selector: 'mifosx-delete-signature-dialog',
-    templateUrl: './delete-signature-dialog.component.html',
-    styleUrls: ['./delete-signature-dialog.component.scss'],
-    standalone: false
+  selector: 'mifosx-delete-signature-dialog',
+  templateUrl: './delete-signature-dialog.component.html',
+  styleUrls: ['./delete-signature-dialog.component.scss'],
+  standalone: false
 })
 export class DeleteSignatureDialogComponent {
   /** Id of client signature in documents */

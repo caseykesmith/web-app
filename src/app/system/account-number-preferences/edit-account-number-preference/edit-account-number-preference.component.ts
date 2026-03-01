@@ -10,10 +10,10 @@ import { SystemService } from 'app/system/system.service';
  * Edit Account Number Preference Component.
  */
 @Component({
-    selector: 'mifosx-edit-account-number-preference',
-    templateUrl: './edit-account-number-preference.component.html',
-    styleUrls: ['./edit-account-number-preference.component.scss'],
-    standalone: false
+  selector: 'mifosx-edit-account-number-preference',
+  templateUrl: './edit-account-number-preference.component.html',
+  styleUrls: ['./edit-account-number-preference.component.scss'],
+  standalone: false
 })
 export class EditAccountNumberPreferenceComponent implements OnInit {
   /** Account Number Preference Form */

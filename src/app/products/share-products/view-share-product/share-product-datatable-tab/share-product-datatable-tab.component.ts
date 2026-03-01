@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-    selector: 'mifosx-share-product-datatable-tab',
-    templateUrl: './share-product-datatable-tab.component.html',
-    styleUrls: ['./share-product-datatable-tab.component.scss'],
-    standalone: false
+  selector: 'mifosx-share-product-datatable-tab',
+  templateUrl: './share-product-datatable-tab.component.html',
+  styleUrls: ['./share-product-datatable-tab.component.scss'],
+  standalone: false
 })
 export class ShareProductDatatableTabComponent {
   entityId: string;

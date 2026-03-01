@@ -19,10 +19,10 @@ import { AlertService } from 'app/core/alert/alert.service';
 import { DatepickerBase } from 'app/shared/form-dialog/formfield/model/datepicker-base';
 
 @Component({
-    selector: 'mifosx-transactions-tab',
-    templateUrl: './transactions-tab.component.html',
-    styleUrls: ['./transactions-tab.component.scss'],
-    standalone: false
+  selector: 'mifosx-transactions-tab',
+  templateUrl: './transactions-tab.component.html',
+  styleUrls: ['./transactions-tab.component.scss'],
+  standalone: false
 })
 export class TransactionsTabComponent implements OnInit {
   /** Loan Details Data */
@@ -400,7 +400,6 @@ export class TransactionsTabComponent implements OnInit {
               min: 0.001,
               order: 2
             })
-
           ];
           const data = {
             title: `Adjustment ${transaction.type.value} Transaction`,

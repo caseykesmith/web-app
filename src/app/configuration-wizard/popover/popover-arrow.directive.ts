@@ -12,8 +12,8 @@ import { PopoverRef } from './popover-ref';
  * Internal directive that shows the popover arrow.
  */
 @Directive({
-    selector: '[mifosxPopoverArrow]',
-    standalone: false
+  selector: '[mifosxPopoverArrow]',
+  standalone: false
 })
 export class PopoverArrowDirective implements OnDestroy {
   @HostBinding('style.width.px')

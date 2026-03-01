@@ -10,10 +10,10 @@ import { OrganizationService } from '../../organization.service';
  * Create Adhoc Query component.
  */
 @Component({
-    selector: 'mifosx-create-adhoc-query',
-    templateUrl: './create-adhoc-query.component.html',
-    styleUrls: ['./create-adhoc-query.component.scss'],
-    standalone: false
+  selector: 'mifosx-create-adhoc-query',
+  templateUrl: './create-adhoc-query.component.html',
+  styleUrls: ['./create-adhoc-query.component.scss'],
+  standalone: false
 })
 export class CreateAdhocQueryComponent implements OnInit {
   /** Adhoc Query form. */
@@ -90,7 +90,8 @@ export class CreateAdhocQueryComponent implements OnInit {
           'reportRunEvery',
           new UntypedFormControl('', [
             Validators.required,
-            Validators.min(1)])
+            Validators.min(1)
+          ])
         );
       } else {
         this.adhocQueryForm.removeControl('reportRunEvery');

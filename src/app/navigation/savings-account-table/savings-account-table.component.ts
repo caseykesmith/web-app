@@ -8,10 +8,10 @@ import { MatTableDataSource } from '@angular/material/table';
 import { AccountsFilterPipe } from '../../pipes/accounts-filter.pipe';
 
 @Component({
-    selector: 'mifosx-savings-account-table',
-    templateUrl: './savings-account-table.component.html',
-    styleUrls: ['./savings-account-table.component.scss'],
-    standalone: false
+  selector: 'mifosx-savings-account-table',
+  templateUrl: './savings-account-table.component.html',
+  styleUrls: ['./savings-account-table.component.scss'],
+  standalone: false
 })
 export class SavingsAccountTableComponent {
   /** Columns to be displayed in the savings accounts table. */

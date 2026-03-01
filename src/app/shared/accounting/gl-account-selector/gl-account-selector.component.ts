@@ -6,10 +6,10 @@ import { ReplaySubject, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({
-    selector: 'mifosx-gl-account-selector',
-    templateUrl: './gl-account-selector.component.html',
-    styleUrls: ['./gl-account-selector.component.scss'],
-    standalone: false
+  selector: 'mifosx-gl-account-selector',
+  templateUrl: './gl-account-selector.component.html',
+  styleUrls: ['./gl-account-selector.component.scss'],
+  standalone: false
 })
 export class GlAccountSelectorComponent implements OnInit, OnChanges, OnDestroy {
   @Input() inputFormControl: UntypedFormControl;

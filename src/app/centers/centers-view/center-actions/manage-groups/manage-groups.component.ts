@@ -12,10 +12,10 @@ import { GroupsService } from 'app/groups/groups.service';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
-    selector: 'mifosx-manage-groups',
-    templateUrl: './manage-groups.component.html',
-    styleUrls: ['./manage-groups.component.scss'],
-    standalone: false
+  selector: 'mifosx-manage-groups',
+  templateUrl: './manage-groups.component.html',
+  styleUrls: ['./manage-groups.component.scss'],
+  standalone: false
 })
 export class ManageGroupsComponent implements AfterViewInit {
   /** Center Data */

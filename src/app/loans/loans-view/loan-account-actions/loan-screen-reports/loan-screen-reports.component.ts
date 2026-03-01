@@ -11,10 +11,10 @@ import { DomSanitizer } from '@angular/platform-browser';
  * Loans Screen Reports Component.
  */
 @Component({
-    selector: 'mifosx-loan-screen-reports',
-    templateUrl: './loan-screen-reports.component.html',
-    styleUrls: ['./loan-screen-reports.component.scss'],
-    standalone: false
+  selector: 'mifosx-loan-screen-reports',
+  templateUrl: './loan-screen-reports.component.html',
+  styleUrls: ['./loan-screen-reports.component.scss'],
+  standalone: false
 })
 export class LoanScreenReportsComponent implements OnInit {
   @Input() dataObject: any;

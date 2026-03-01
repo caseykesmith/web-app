@@ -24,10 +24,10 @@ import { AddEventDialogComponent } from '../add-event-dialog/add-event-dialog.co
  */
 
 @Component({
-    selector: 'mifosx-edit-hook',
-    templateUrl: './edit-hook.component.html',
-    styleUrls: ['./edit-hook.component.scss'],
-    standalone: false
+  selector: 'mifosx-edit-hook',
+  templateUrl: './edit-hook.component.html',
+  styleUrls: ['./edit-hook.component.scss'],
+  standalone: false
 })
 export class EditHookComponent implements OnInit {
   @NgModule({
@@ -119,7 +119,6 @@ export class EditHookComponent implements OnInit {
           disabled: this.hookData.name !== 'SMS Bridge'
         },
         Validators.required
-
       ],
       smsProvider: [
         {
@@ -127,7 +126,6 @@ export class EditHookComponent implements OnInit {
           disabled: this.hookData.name !== 'SMS Bridge'
         },
         Validators.required
-
       ],
       smsProviderAccountId: [
         {
@@ -135,7 +133,6 @@ export class EditHookComponent implements OnInit {
           disabled: this.hookData.name !== 'SMS Bridge'
         },
         Validators.required
-
       ],
       smsProviderToken: [
         {
@@ -143,7 +140,6 @@ export class EditHookComponent implements OnInit {
           disabled: this.hookData.name !== 'SMS Bridge'
         },
         Validators.required
-
       ],
       contentType: [
         {
@@ -151,7 +147,6 @@ export class EditHookComponent implements OnInit {
           disabled: this.hookData.name !== 'Web'
         },
         Validators.required
-
       ],
       payloadUrl: [
         this.hookData.name === 'Web' ? this.hookData.config[1].fieldValue : this.hookData.config[0].fieldValue,

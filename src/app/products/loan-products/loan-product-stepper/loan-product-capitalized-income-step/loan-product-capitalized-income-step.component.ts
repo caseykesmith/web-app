@@ -4,10 +4,10 @@ import { CapitalizedIncome } from '../loan-product-payment-strategy-step/payment
 import { StringEnumOptionData } from 'app/shared/models/option-data.model';
 
 @Component({
-    selector: 'mifosx-loan-product-capitalized-income-step',
-    templateUrl: './loan-product-capitalized-income-step.component.html',
-    styleUrls: ['./loan-product-capitalized-income-step.component.scss'],
-    standalone: false
+  selector: 'mifosx-loan-product-capitalized-income-step',
+  templateUrl: './loan-product-capitalized-income-step.component.html',
+  styleUrls: ['./loan-product-capitalized-income-step.component.scss'],
+  standalone: false
 })
 export class LoanProductCapitalizedIncomeStepComponent implements OnChanges {
   @Input() capitalizedIncome: CapitalizedIncome;

@@ -18,10 +18,10 @@ import { Charge, Currency } from 'app/shared/models/general.model';
  * Fixed Deposit Account Charges Step
  */
 @Component({
-    selector: 'mifosx-fixed-deposit-account-charges-step',
-    templateUrl: './fixed-deposit-account-charges-step.component.html',
-    styleUrls: ['./fixed-deposit-account-charges-step.component.scss'],
-    standalone: false
+  selector: 'mifosx-fixed-deposit-account-charges-step',
+  templateUrl: './fixed-deposit-account-charges-step.component.html',
+  styleUrls: ['./fixed-deposit-account-charges-step.component.scss'],
+  standalone: false
 })
 export class FixedDepositAccountChargesStepComponent implements OnInit, OnChanges {
   /** Fixed deposits account template */
@@ -108,7 +108,6 @@ export class FixedDepositAccountChargesStepComponent implements OnInit, OnChange
         type: 'number',
         required: false
       })
-
     ];
     const data = {
       title: 'Edit Charge Amount',
@@ -139,7 +138,6 @@ export class FixedDepositAccountChargesStepComponent implements OnInit, OnChange
         type: 'datetime-local',
         required: false
       })
-
     ];
     const data = {
       title: 'Edit Charge Date',
@@ -181,7 +179,6 @@ export class FixedDepositAccountChargesStepComponent implements OnInit, OnChange
         type: 'text',
         required: false
       })
-
     ];
     const data = {
       title: 'Edit Charge Fee Interval',

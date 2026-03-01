@@ -18,10 +18,10 @@ import { ContinueSetupDialogComponent } from '../../../configuration-wizard/cont
  * Create employee component.
  */
 @Component({
-    selector: 'mifosx-create-employee',
-    templateUrl: './create-employee.component.html',
-    styleUrls: ['./create-employee.component.scss'],
-    standalone: false
+  selector: 'mifosx-create-employee',
+  templateUrl: './create-employee.component.html',
+  styleUrls: ['./create-employee.component.scss'],
+  standalone: false
 })
 export class CreateEmployeeComponent implements OnInit, AfterViewInit {
   /** Minimum joining date allowed. */
@@ -87,13 +87,15 @@ export class CreateEmployeeComponent implements OnInit, AfterViewInit {
         '',
         [
           Validators.required,
-          Validators.pattern('(^[A-z]).*')]
+          Validators.pattern('(^[A-z]).*')
+        ]
       ],
       lastname: [
         '',
         [
           Validators.required,
-          Validators.pattern('(^[A-z]).*')]
+          Validators.pattern('(^[A-z]).*')
+        ]
       ],
       isLoanOfficer: [false],
       mobileNo: [''],

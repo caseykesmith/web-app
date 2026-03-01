@@ -14,10 +14,10 @@ import { CampaignMessageStepComponent } from '../sms-campaign-stepper/campaign-m
  * Edit Campaign Component
  */
 @Component({
-    selector: 'mifosx-edit-campaign',
-    templateUrl: './edit-campaign.component.html',
-    styleUrls: ['./edit-campaign.component.scss'],
-    standalone: false
+  selector: 'mifosx-edit-campaign',
+  templateUrl: './edit-campaign.component.html',
+  styleUrls: ['./edit-campaign.component.scss'],
+  standalone: false
 })
 export class EditCampaignComponent {
   /** smsCampaign */

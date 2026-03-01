@@ -1,10 +1,10 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-    selector: 'mifosx-share-product-preview-step',
-    templateUrl: './share-product-preview-step.component.html',
-    styleUrls: ['./share-product-preview-step.component.scss'],
-    standalone: false
+  selector: 'mifosx-share-product-preview-step',
+  templateUrl: './share-product-preview-step.component.html',
+  styleUrls: ['./share-product-preview-step.component.scss'],
+  standalone: false
 })
 export class ShareProductPreviewStepComponent {
   @Input() shareProductsTemplate: any;

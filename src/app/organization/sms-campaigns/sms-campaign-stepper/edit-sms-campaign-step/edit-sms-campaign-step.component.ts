@@ -13,10 +13,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Edit SMS Campaign step.
  */
 @Component({
-    selector: 'mifosx-edit-sms-campaign-step',
-    templateUrl: './edit-sms-campaign-step.component.html',
-    styleUrls: ['./edit-sms-campaign-step.component.scss'],
-    standalone: false
+  selector: 'mifosx-edit-sms-campaign-step',
+  templateUrl: './edit-sms-campaign-step.component.html',
+  styleUrls: ['./edit-sms-campaign-step.component.scss'],
+  standalone: false
 })
 export class EditSmsCampaignStepComponent implements OnInit {
   /** SMS Campaign Template */

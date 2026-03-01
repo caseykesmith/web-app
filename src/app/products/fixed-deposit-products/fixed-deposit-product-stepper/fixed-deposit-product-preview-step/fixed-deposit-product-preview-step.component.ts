@@ -4,17 +4,17 @@ import { Accounting } from 'app/core/utils/accounting';
 import { OptionData } from 'app/shared/models/option-data.model';
 
 @Component({
-    selector: 'mifosx-fixed-deposit-product-preview-step',
-    templateUrl: './fixed-deposit-product-preview-step.component.html',
-    styleUrls: ['./fixed-deposit-product-preview-step.component.scss'],
-    animations: [
-        trigger('expandChartSlab', [
-            state('collapsed', style({ height: '0px', minHeight: '0' })),
-            state('expanded', style({ height: '*' })),
-            transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
-        ])
-    ],
-    standalone: false
+  selector: 'mifosx-fixed-deposit-product-preview-step',
+  templateUrl: './fixed-deposit-product-preview-step.component.html',
+  styleUrls: ['./fixed-deposit-product-preview-step.component.scss'],
+  animations: [
+    trigger('expandChartSlab', [
+      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('expanded', style({ height: '*' })),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
+    ])
+  ],
+  standalone: false
 })
 export class FixedDepositProductPreviewStepComponent implements OnInit, OnChanges {
   @Input() fixedDepositProductsTemplate: any;

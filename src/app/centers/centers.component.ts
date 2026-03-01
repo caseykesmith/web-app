@@ -21,10 +21,10 @@ import { CentersDataSource } from './centers.datasource';
  * Centers component.
  */
 @Component({
-    selector: 'mifosx-app-centers',
-    templateUrl: './centers.component.html',
-    styleUrls: ['./centers.component.scss'],
-    standalone: false
+  selector: 'mifosx-app-centers',
+  templateUrl: './centers.component.html',
+  styleUrls: ['./centers.component.scss'],
+  standalone: false
 })
 export class CentersComponent implements OnInit, AfterViewInit {
   @ViewChild('showClosedCenters', { static: true }) showClosedCenters: MatCheckbox;

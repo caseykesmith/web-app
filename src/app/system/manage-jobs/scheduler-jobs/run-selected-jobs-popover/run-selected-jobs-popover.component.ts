@@ -25,10 +25,10 @@ export interface JobDataType {
 }
 
 @Component({
-    selector: 'mifosx-run-selected-jobs-popover',
-    templateUrl: './run-selected-jobs-popover.component.html',
-    styleUrls: ['./run-selected-jobs-popover.component.scss'],
-    standalone: false
+  selector: 'mifosx-run-selected-jobs-popover',
+  templateUrl: './run-selected-jobs-popover.component.html',
+  styleUrls: ['./run-selected-jobs-popover.component.scss'],
+  standalone: false
 })
 export class RunSelectedJobsPopoverComponent implements OnInit {
   /** Confirmed jobs event emitter */

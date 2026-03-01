@@ -21,10 +21,10 @@ import { SelectBase } from 'app/shared/form-dialog/formfield/model/select-base';
  * Center Attendance component.
  */
 @Component({
-    selector: 'mifosx-center-attendance',
-    templateUrl: './center-attendance.component.html',
-    styleUrls: ['./center-attendance.component.scss'],
-    standalone: false
+  selector: 'mifosx-center-attendance',
+  templateUrl: './center-attendance.component.html',
+  styleUrls: ['./center-attendance.component.scss'],
+  standalone: false
 })
 export class CenterAttendanceComponent implements OnInit {
   /** Members data. */
@@ -111,7 +111,6 @@ export class CenterAttendanceComponent implements OnInit {
         options: { label: 'value', value: 'id', data: this.attendanceTypeOptions },
         required: false
       })
-
     ];
     const data = {
       title:

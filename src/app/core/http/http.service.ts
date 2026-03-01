@@ -81,7 +81,8 @@ export class HttpService extends HttpClient {
       // Configure default interceptors that can be disabled here
       this.interceptors = [
         this.injector.get(ApiPrefixInterceptor),
-        this.injector.get(ErrorHandlerInterceptor)];
+        this.injector.get(ErrorHandlerInterceptor)
+      ];
     }
   }
 

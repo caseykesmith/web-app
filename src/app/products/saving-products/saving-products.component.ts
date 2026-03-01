@@ -10,10 +10,10 @@ import { PopoverService } from '../../configuration-wizard/popover/popover.servi
 import { ConfigurationWizardService } from '../../configuration-wizard/configuration-wizard.service';
 
 @Component({
-    selector: 'mifosx-saving-products',
-    templateUrl: './saving-products.component.html',
-    styleUrls: ['./saving-products.component.scss'],
-    standalone: false
+  selector: 'mifosx-saving-products',
+  templateUrl: './saving-products.component.html',
+  styleUrls: ['./saving-products.component.scss'],
+  standalone: false
 })
 export class SavingProductsComponent implements OnInit, AfterViewInit {
   savingProductsData: any;

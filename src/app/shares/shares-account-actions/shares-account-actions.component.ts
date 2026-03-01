@@ -9,10 +9,10 @@ import { SharesService } from '../shares.service';
  * Shares Account Actions Component
  */
 @Component({
-    selector: 'mifosx-shares-account-actions',
-    templateUrl: './shares-account-actions.component.html',
-    styleUrls: ['./shares-account-actions.component.scss'],
-    standalone: false
+  selector: 'mifosx-shares-account-actions',
+  templateUrl: './shares-account-actions.component.html',
+  styleUrls: ['./shares-account-actions.component.scss'],
+  standalone: false
 })
 export class SharesAccountActionsComponent {
   /** Shares Account Data */

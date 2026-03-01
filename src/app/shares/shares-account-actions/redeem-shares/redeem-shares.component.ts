@@ -12,10 +12,10 @@ import { Dates } from 'app/core/utils/dates';
  * Redeem Shares Component
  */
 @Component({
-    selector: 'mifosx-redeem-shares',
-    templateUrl: './redeem-shares.component.html',
-    styleUrls: ['./redeem-shares.component.scss'],
-    standalone: false
+  selector: 'mifosx-redeem-shares',
+  templateUrl: './redeem-shares.component.html',
+  styleUrls: ['./redeem-shares.component.scss'],
+  standalone: false
 })
 export class RedeemSharesComponent implements OnInit {
   /** Shares account data. */

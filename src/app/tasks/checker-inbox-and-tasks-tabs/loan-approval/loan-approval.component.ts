@@ -16,10 +16,10 @@ import { Dates } from 'app/core/utils/dates';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-    selector: 'mifosx-loan-approval',
-    templateUrl: './loan-approval.component.html',
-    styleUrls: ['./loan-approval.component.scss'],
-    standalone: false
+  selector: 'mifosx-loan-approval',
+  templateUrl: './loan-approval.component.html',
+  styleUrls: ['./loan-approval.component.scss'],
+  standalone: false
 })
 export class LoanApprovalComponent {
   /** Offices Data */

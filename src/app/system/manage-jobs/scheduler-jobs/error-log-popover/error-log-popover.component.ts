@@ -8,10 +8,10 @@ interface ErrorJobDataType {
 }
 
 @Component({
-    selector: 'mifosx-error-log-popover',
-    templateUrl: './error-log-popover.component.html',
-    styleUrls: ['./error-log-popover.component.scss'],
-    standalone: false
+  selector: 'mifosx-error-log-popover',
+  templateUrl: './error-log-popover.component.html',
+  styleUrls: ['./error-log-popover.component.scss'],
+  standalone: false
 })
 export class ErrorLogPopoverComponent implements OnInit {
   show = false;

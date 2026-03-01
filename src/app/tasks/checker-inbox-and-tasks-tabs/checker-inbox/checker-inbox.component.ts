@@ -16,10 +16,10 @@ import { Dates } from 'app/core/utils/dates';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-    selector: 'mifosx-checker-inbox',
-    templateUrl: './checker-inbox.component.html',
-    styleUrls: ['./checker-inbox.component.scss'],
-    standalone: false
+  selector: 'mifosx-checker-inbox',
+  templateUrl: './checker-inbox.component.html',
+  styleUrls: ['./checker-inbox.component.scss'],
+  standalone: false
 })
 export class CheckerInboxComponent implements OnInit {
   /** Data to be displayed */

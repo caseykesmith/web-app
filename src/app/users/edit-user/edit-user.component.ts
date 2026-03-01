@@ -10,10 +10,10 @@ import { UsersService } from '../users.service';
  * Edit User Component.
  */
 @Component({
-    selector: 'mifosx-edit-user',
-    templateUrl: './edit-user.component.html',
-    styleUrls: ['./edit-user.component.scss'],
-    standalone: false
+  selector: 'mifosx-edit-user',
+  templateUrl: './edit-user.component.html',
+  styleUrls: ['./edit-user.component.scss'],
+  standalone: false
 })
 export class EditUserComponent implements OnInit {
   /** User Data */
@@ -73,13 +73,15 @@ export class EditUserComponent implements OnInit {
         this.userData.firstname,
         [
           Validators.required,
-          Validators.pattern('(^[A-z]).*')]
+          Validators.pattern('(^[A-z]).*')
+        ]
       ],
       lastname: [
         this.userData.lastname,
         [
           Validators.required,
-          Validators.pattern('(^[A-z]).*')]
+          Validators.pattern('(^[A-z]).*')
+        ]
       ],
       passwordNeverExpires: [this.userData.passwordNeverExpires],
       officeId: [

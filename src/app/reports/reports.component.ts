@@ -9,10 +9,10 @@ import { ActivatedRoute, Router } from '@angular/router';
  * Reports component.
  */
 @Component({
-    selector: 'mifosx-reports',
-    templateUrl: './reports.component.html',
-    styleUrls: ['./reports.component.scss'],
-    standalone: false
+  selector: 'mifosx-reports',
+  templateUrl: './reports.component.html',
+  styleUrls: ['./reports.component.scss'],
+  standalone: false
 })
 export class ReportsComponent implements OnInit {
   /** Reports data. */

@@ -6,10 +6,10 @@ import { ActivatedRoute } from '@angular/router';
  * View Tax Group component.
  */
 @Component({
-    selector: 'mifosx-view-tax-group',
-    templateUrl: './view-tax-group.component.html',
-    styleUrls: ['./view-tax-group.component.scss'],
-    standalone: false
+  selector: 'mifosx-view-tax-group',
+  templateUrl: './view-tax-group.component.html',
+  styleUrls: ['./view-tax-group.component.scss'],
+  standalone: false
 })
 export class ViewTaxGroupComponent {
   /** tax Group Data. */

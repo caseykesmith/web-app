@@ -12,10 +12,10 @@ import { Dates } from 'app/core/utils/dates';
  * Create Tax Component component.
  */
 @Component({
-    selector: 'mifosx-create-tax-component',
-    templateUrl: './create-tax-component.component.html',
-    styleUrls: ['./create-tax-component.component.scss'],
-    standalone: false
+  selector: 'mifosx-create-tax-component',
+  templateUrl: './create-tax-component.component.html',
+  styleUrls: ['./create-tax-component.component.scss'],
+  standalone: false
 })
 export class CreateTaxComponentComponent implements OnInit {
   /** Minimum start date allowed. */
@@ -82,7 +82,8 @@ export class CreateTaxComponentComponent implements OnInit {
         [
           Validators.required,
           Validators.pattern('^(0*[1-9][0-9]*(\\.[0-9]+)?|0+\\.[0-9]*[1-9][0-9]*)$'),
-          Validators.max(100)]
+          Validators.max(100)
+        ]
       ],
       creditAccountType: [''],
       debitAccountType: [''],

@@ -20,10 +20,10 @@ import { Dates } from 'app/core/utils/dates';
  * Search journal entry component.
  */
 @Component({
-    selector: 'mifosx-search-journal-entry',
-    templateUrl: './search-journal-entry.component.html',
-    styleUrls: ['./search-journal-entry.component.scss'],
-    standalone: false
+  selector: 'mifosx-search-journal-entry',
+  templateUrl: './search-journal-entry.component.html',
+  styleUrls: ['./search-journal-entry.component.scss'],
+  standalone: false
 })
 export class SearchJournalEntryComponent implements OnInit, AfterViewInit {
   /** Minimum transaction date allowed. */

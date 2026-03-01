@@ -19,10 +19,10 @@ import { Charge } from './models/charge.model';
  * Charges component.
  */
 @Component({
-    selector: 'mifosx-charges',
-    templateUrl: './charges.component.html',
-    styleUrls: ['./charges.component.scss'],
-    standalone: false
+  selector: 'mifosx-charges',
+  templateUrl: './charges.component.html',
+  styleUrls: ['./charges.component.scss'],
+  standalone: false
 })
 export class ChargesComponent implements OnInit, AfterViewInit {
   /** Charge data. */

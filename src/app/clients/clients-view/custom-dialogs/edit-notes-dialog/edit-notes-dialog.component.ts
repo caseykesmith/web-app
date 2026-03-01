@@ -4,10 +4,10 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 
 @Component({
-    selector: 'mifosx-edit-notes-dialog',
-    templateUrl: './edit-notes-dialog.component.html',
-    styleUrls: ['./edit-notes-dialog.component.scss'],
-    standalone: false
+  selector: 'mifosx-edit-notes-dialog',
+  templateUrl: './edit-notes-dialog.component.html',
+  styleUrls: ['./edit-notes-dialog.component.scss'],
+  standalone: false
 })
 export class EditNotesDialogComponent implements OnInit {
   noteForm: UntypedFormGroup;

@@ -18,10 +18,10 @@ import { TranslateService } from '@ngx-translate/core';
  * Savings Account Charges Step
  */
 @Component({
-    selector: 'mifosx-savings-account-charges-step',
-    templateUrl: './savings-account-charges-step.component.html',
-    styleUrls: ['./savings-account-charges-step.component.scss'],
-    standalone: false
+  selector: 'mifosx-savings-account-charges-step',
+  templateUrl: './savings-account-charges-step.component.html',
+  styleUrls: ['./savings-account-charges-step.component.scss'],
+  standalone: false
 })
 export class SavingsAccountChargesStepComponent implements OnInit, OnChanges {
   /** Savings Account Product Template */
@@ -116,7 +116,6 @@ export class SavingsAccountChargesStepComponent implements OnInit, OnChanges {
         type: 'number',
         required: false
       })
-
     ];
     const data = {
       title: this.translateService.instant('labels.heading.Edit Charge Amount'),
@@ -147,7 +146,6 @@ export class SavingsAccountChargesStepComponent implements OnInit, OnChanges {
         type: 'datetime-local',
         required: false
       })
-
     ];
     const data = {
       title: this.translateService.instant('labels.heading.Edit Charge Date'),
@@ -191,7 +189,6 @@ export class SavingsAccountChargesStepComponent implements OnInit, OnChanges {
         type: 'text',
         required: false
       })
-
     ];
     const data = {
       title: 'Edit Charge Fee Interval',

@@ -14,10 +14,10 @@ import Chart from 'chart.js';
  * Chart Component
  */
 @Component({
-    selector: 'mifosx-chart',
-    templateUrl: './chart.component.html',
-    styleUrls: ['./chart.component.scss'],
-    standalone: false
+  selector: 'mifosx-chart',
+  templateUrl: './chart.component.html',
+  styleUrls: ['./chart.component.scss'],
+  standalone: false
 })
 export class ChartComponent implements OnChanges {
   /** Run Report Data */

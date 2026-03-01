@@ -22,10 +22,10 @@ import { ClientsService } from '../../clients.service';
  * Identities Tab Component
  */
 @Component({
-    selector: 'mifosx-identities-tab',
-    templateUrl: './identities-tab.component.html',
-    styleUrls: ['./identities-tab.component.scss'],
-    standalone: false
+  selector: 'mifosx-identities-tab',
+  templateUrl: './identities-tab.component.html',
+  styleUrls: ['./identities-tab.component.scss'],
+  standalone: false
 })
 export class IdentitiesTabComponent {
   /** Client Identities */
@@ -126,7 +126,6 @@ export class IdentitiesTabComponent {
         type: 'text',
         order: 4
       })
-
     ];
     const data = {
       title: this.translateService.instant('labels.heading.Add Client Identifier'),

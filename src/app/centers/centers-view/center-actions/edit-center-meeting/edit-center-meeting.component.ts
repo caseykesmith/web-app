@@ -12,10 +12,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Edit Center Meetings Component
  */
 @Component({
-    selector: 'mifosx-edit-center-meeting',
-    templateUrl: './edit-center-meeting.component.html',
-    styleUrls: ['./edit-center-meeting.component.scss'],
-    standalone: false
+  selector: 'mifosx-edit-center-meeting',
+  templateUrl: './edit-center-meeting.component.html',
+  styleUrls: ['./edit-center-meeting.component.scss'],
+  standalone: false
 })
 export class EditCenterMeetingComponent implements OnInit {
   /** Minimum date allowed. */

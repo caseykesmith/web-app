@@ -14,10 +14,10 @@ import { maxNumberValueValidator } from 'app/shared/validators/max-number-value.
  * Create charge component.
  */
 @Component({
-    selector: 'mifosx-create-charge',
-    templateUrl: './create-charge.component.html',
-    styleUrls: ['./create-charge.component.scss'],
-    standalone: false
+  selector: 'mifosx-create-charge',
+  templateUrl: './create-charge.component.html',
+  styleUrls: ['./create-charge.component.scss'],
+  standalone: false
 })
 export class CreateChargeComponent implements OnInit {
   /** Charge form. */
@@ -107,7 +107,8 @@ export class CreateChargeComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.pattern('^\\s*(?=.*[1-9])\\d*(?:\\.\\d+)?\\s*$')]
+          Validators.pattern('^\\s*(?=.*[1-9])\\d*(?:\\.\\d+)?\\s*$')
+        ]
       ],
       active: [false],
       penalty: [false],
@@ -247,7 +248,8 @@ export class CreateChargeComponent implements OnInit {
               Validators.required,
               Validators.min(1),
               Validators.max(12),
-              Validators.pattern('^[1-9]\\d*$')])
+              Validators.pattern('^[1-9]\\d*$')
+            ])
           );
           this.repeatEveryLabel = 'Months';
           break;
@@ -261,7 +263,8 @@ export class CreateChargeComponent implements OnInit {
                 'feeInterval',
                 new UntypedFormControl('', [
                   Validators.required,
-                  Validators.pattern('^[1-9]\\d*$')])
+                  Validators.pattern('^[1-9]\\d*$')
+                ])
               );
             } else {
               this.chargeForm.removeControl('feeFrequency');
@@ -274,7 +277,8 @@ export class CreateChargeComponent implements OnInit {
             'feeInterval',
             new UntypedFormControl('', [
               Validators.required,
-              Validators.pattern('^[1-9]\\d*$')])
+              Validators.pattern('^[1-9]\\d*$')
+            ])
           );
           this.repeatEveryLabel = 'Weeks';
           break;

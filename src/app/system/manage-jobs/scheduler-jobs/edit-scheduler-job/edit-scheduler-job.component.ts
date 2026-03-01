@@ -10,10 +10,10 @@ import { SystemService } from 'app/system/system.service';
  * Edit scheduler job component.
  */
 @Component({
-    selector: 'mifosx-edit-scheduler-job',
-    templateUrl: './edit-scheduler-job.component.html',
-    styleUrls: ['./edit-scheduler-job.component.scss'],
-    standalone: false
+  selector: 'mifosx-edit-scheduler-job',
+  templateUrl: './edit-scheduler-job.component.html',
+  styleUrls: ['./edit-scheduler-job.component.scss'],
+  standalone: false
 })
 export class EditSchedulerJobComponent implements OnInit {
   /** Job Data. */
