@@ -46,7 +46,12 @@
     </mat-error>
   </mat-form-field>
 
-  <mat-form-field class="flex-fill" Fill *ngIf="formfield.controlType === 'datetimepicker'" (click)="datetimeDatePicker.open()">
+  <mat-form-field
+    class="flex-fill"
+    Fill
+    *ngIf="formfield.controlType === 'datetimepicker'"
+    (click)="datetimeDatePicker.open()"
+  >
     <mat-label>{{ formfield.label }}</mat-label>
     <input
       matInput
