@@ -11,9 +11,10 @@ import { FormfieldBase } from 'app/shared/form-dialog/formfield/model/formfield-
 import { AnyKindOfDictionary } from 'cypress/types/lodash';
 
 @Component({
-  selector: 'mifosx-loan-term-variations-tab',
-  templateUrl: './loan-term-variations-tab.component.html',
-  styleUrls: ['./loan-term-variations-tab.component.scss']
+    selector: 'mifosx-loan-term-variations-tab',
+    templateUrl: './loan-term-variations-tab.component.html',
+    styleUrls: ['./loan-term-variations-tab.component.scss'],
+    standalone: false
 })
 export class LoanTermVariationsTabComponent {
   /** Loan Term Variation Data */

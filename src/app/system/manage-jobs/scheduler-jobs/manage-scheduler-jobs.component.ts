@@ -25,9 +25,10 @@ import { RunSelectedJobsPopoverComponent } from './run-selected-jobs-popover/run
  * Manage scheduler jobs component.
  */
 @Component({
-  selector: 'mifosx-manage-scheduler-jobs',
-  templateUrl: './manage-scheduler-jobs.component.html',
-  styleUrls: ['./manage-scheduler-jobs.component.scss']
+    selector: 'mifosx-manage-scheduler-jobs',
+    templateUrl: './manage-scheduler-jobs.component.html',
+    styleUrls: ['./manage-scheduler-jobs.component.scss'],
+    standalone: false
 })
 export class ManageSchedulerJobsComponent implements OnInit, AfterViewInit {
   /** Jobs data. */

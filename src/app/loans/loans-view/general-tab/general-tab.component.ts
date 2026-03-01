@@ -3,9 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
-  selector: 'mifosx-general-tab',
-  templateUrl: './general-tab.component.html',
-  styleUrls: ['./general-tab.component.scss']
+    selector: 'mifosx-general-tab',
+    templateUrl: './general-tab.component.html',
+    styleUrls: ['./general-tab.component.scss'],
+    standalone: false
 })
 export class GeneralTabComponent implements OnInit {
   /** Currency Code */

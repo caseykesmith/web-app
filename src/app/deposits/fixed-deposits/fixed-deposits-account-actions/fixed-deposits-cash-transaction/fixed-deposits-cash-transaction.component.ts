@@ -7,9 +7,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Currency, PaymentType } from 'app/shared/models/general.model';
 
 @Component({
-  selector: 'mifosx-fixed-deposits-cash-transaction',
-  templateUrl: './fixed-deposits-cash-transaction.component.html',
-  styleUrls: ['./fixed-deposits-cash-transaction.component.scss']
+    selector: 'mifosx-fixed-deposits-cash-transaction',
+    templateUrl: './fixed-deposits-cash-transaction.component.html',
+    styleUrls: ['./fixed-deposits-cash-transaction.component.scss'],
+    standalone: false
 })
 export class FixedDepositsCashTransactionComponent implements OnInit {
   /** Minimum Due Date allowed. */
@@ -23,7 +24,7 @@ export class FixedDepositsCashTransactionComponent implements OnInit {
   /** Flag to enable payment details fields. */
   addPaymentDetailsFlag: Boolean = false;
   /** transaction type flag to render required UI */
-  transactionType: { deposit: boolean; withdrawal: boolean } = { deposit: false, withdrawal: false };
+  transactionType: { [key: string]: boolean; deposit: boolean; withdrawal: boolean } = { deposit: false, withdrawal: false };
   /** transaction command for submit request */
   transactionCommand: string;
   actionName: string;

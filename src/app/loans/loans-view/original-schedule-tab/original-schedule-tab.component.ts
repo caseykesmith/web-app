@@ -3,9 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { Currency } from 'app/shared/models/general.model';
 
 @Component({
-  selector: 'mifosx-original-schedule-tab',
-  templateUrl: './original-schedule-tab.component.html',
-  styleUrls: ['./original-schedule-tab.component.scss']
+    selector: 'mifosx-original-schedule-tab',
+    templateUrl: './original-schedule-tab.component.html',
+    styleUrls: ['./original-schedule-tab.component.scss'],
+    standalone: false
 })
 export class OriginalScheduleTabComponent {
   /** Loan Details Data */

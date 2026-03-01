@@ -36,7 +36,6 @@ import { EntityDatatableTabComponent } from './tabs/entity-datatable-tab/entity-
 import { DatatableSingleRowComponent } from './tabs/entity-datatable-tab/datatable-single-row/datatable-single-row.component';
 import { DatatableMultiRowComponent } from './tabs/entity-datatable-tab/datatable-multi-row/datatable-multi-row.component';
 import { SvgIconComponent } from './svg-icon/svg-icon.component';
-import { NgxMatDatetimePickerModule, NgxMatNativeDateModule } from '@angular-material-components/datetime-picker';
 import { ViewJournalEntryComponent } from './accounting/view-journal-entry/view-journal-entry.component';
 import { ViewJournalEntryTransactionComponent } from './accounting/view-journal-entry-transaction/view-journal-entry-transaction.component';
 import { AccountNumberComponent } from './account-number/account-number.component';
@@ -66,8 +65,6 @@ import { InputPasswordComponent } from './input-password/input-password.componen
     TranslateModule,
     PipesModule,
     DirectivesModule,
-    NgxMatDatetimePickerModule,
-    NgxMatNativeDateModule
   ],
   declarations: [
     FormfieldComponent,

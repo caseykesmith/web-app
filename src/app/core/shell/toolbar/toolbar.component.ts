@@ -34,9 +34,10 @@ import { NotificationsTrayComponent } from 'app/shared/notifications-tray/notifi
  * Toolbar component.
  */
 @Component({
-  selector: 'mifosx-toolbar',
-  templateUrl: './toolbar.component.html',
-  styleUrls: ['./toolbar.component.scss']
+    selector: 'mifosx-toolbar',
+    templateUrl: './toolbar.component.html',
+    styleUrls: ['./toolbar.component.scss'],
+    standalone: false
 })
 export class ToolbarComponent implements OnInit, AfterViewInit, AfterContentChecked {
   /* Reference of institution */

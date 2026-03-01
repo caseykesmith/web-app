@@ -15,9 +15,10 @@ import { BusinessRuleParametersComponent } from './business-rule-parameters/busi
  * SMS Campaign Step Component
  */
 @Component({
-  selector: 'mifosx-sms-campaign-step',
-  templateUrl: './sms-campaign-step.component.html',
-  styleUrls: ['./sms-campaign-step.component.scss']
+    selector: 'mifosx-sms-campaign-step',
+    templateUrl: './sms-campaign-step.component.html',
+    styleUrls: ['./sms-campaign-step.component.scss'],
+    standalone: false
 })
 export class SmsCampaignStepComponent implements OnInit {
   /** SMS Campaign Template */

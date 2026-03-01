@@ -17,9 +17,10 @@ import { Dates } from 'app/core/utils/dates';
  * Create Fixed Deposit Account Component
  */
 @Component({
-  selector: 'mifosx-create-fixed-deposit-account',
-  templateUrl: './create-fixed-deposit-account.component.html',
-  styleUrls: ['./create-fixed-deposit-account.component.scss']
+    selector: 'mifosx-create-fixed-deposit-account',
+    templateUrl: './create-fixed-deposit-account.component.html',
+    styleUrls: ['./create-fixed-deposit-account.component.scss'],
+    standalone: false
 })
 export class CreateFixedDepositAccountComponent {
   /** Fixed Deposits Account Details Step */

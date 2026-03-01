@@ -6,9 +6,10 @@ import { ExternalAssetOwnerService } from 'app/loans/services/external-asset-own
 import { SettingsService } from 'app/settings/settings.service';
 
 @Component({
-  selector: 'mifosx-asset-transfer-loan',
-  templateUrl: './asset-transfer-loan.component.html',
-  styleUrls: ['./asset-transfer-loan.component.scss']
+    selector: 'mifosx-asset-transfer-loan',
+    templateUrl: './asset-transfer-loan.component.html',
+    styleUrls: ['./asset-transfer-loan.component.scss'],
+    standalone: false
 })
 export class AssetTransferLoanComponent implements OnInit {
   BUYBACK_COMMAND = 'buyback';

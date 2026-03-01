@@ -12,9 +12,10 @@ import { Dates } from 'app/core/utils/dates';
  * Edit Family Member Component
  */
 @Component({
-  selector: 'mifosx-edit-family-member',
-  templateUrl: './edit-family-member.component.html',
-  styleUrls: ['./edit-family-member.component.scss']
+    selector: 'mifosx-edit-family-member',
+    templateUrl: './edit-family-member.component.html',
+    styleUrls: ['./edit-family-member.component.scss'],
+    standalone: false
 })
 export class EditFamilyMemberComponent implements OnInit {
   /** Maximum Due Date allowed. */

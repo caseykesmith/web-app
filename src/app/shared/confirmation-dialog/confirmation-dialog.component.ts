@@ -8,9 +8,10 @@ import { Dialogs } from 'app/core/dialogs/dialogs';
  * Delete dialog component.
  */
 @Component({
-  selector: 'mifosx-confirmation-dialog',
-  templateUrl: './confirmation-dialog.component.html',
-  styleUrls: ['./confirmation-dialog.component.scss']
+    selector: 'mifosx-confirmation-dialog',
+    templateUrl: './confirmation-dialog.component.html',
+    styleUrls: ['./confirmation-dialog.component.scss'],
+    standalone: false
 })
 export class ConfirmationDialogComponent implements OnInit {
   color: string;

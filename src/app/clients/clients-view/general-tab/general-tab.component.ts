@@ -9,9 +9,10 @@ import { ClientsService } from 'app/clients/clients.service';
  * General Tab component.
  */
 @Component({
-  selector: 'mifosx-general-tab',
-  templateUrl: './general-tab.component.html',
-  styleUrls: ['./general-tab.component.scss']
+    selector: 'mifosx-general-tab',
+    templateUrl: './general-tab.component.html',
+    styleUrls: ['./general-tab.component.scss'],
+    standalone: false
 })
 export class GeneralTabComponent {
   /** Open Loan Accounts Columns */

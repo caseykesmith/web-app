@@ -12,9 +12,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Add Clients Charge component.
  */
 @Component({
-  selector: 'mifosx-add-client-charge',
-  templateUrl: './add-client-charge.component.html',
-  styleUrls: ['./add-client-charge.component.scss']
+    selector: 'mifosx-add-client-charge',
+    templateUrl: './add-client-charge.component.html',
+    styleUrls: ['./add-client-charge.component.scss'],
+    standalone: false
 })
 export class AddClientChargeComponent implements OnInit {
   /** Minimum Due Date allowed. */

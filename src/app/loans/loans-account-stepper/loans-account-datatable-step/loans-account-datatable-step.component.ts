@@ -4,9 +4,10 @@ import { Dates } from 'app/core/utils/dates';
 import { SettingsService } from 'app/settings/settings.service';
 
 @Component({
-  selector: 'mifosx-loans-account-datatable-step',
-  templateUrl: './loans-account-datatable-step.component.html',
-  styleUrls: ['./loans-account-datatable-step.component.scss']
+    selector: 'mifosx-loans-account-datatable-step',
+    templateUrl: './loans-account-datatable-step.component.html',
+    styleUrls: ['./loans-account-datatable-step.component.scss'],
+    standalone: false
 })
 export class LoansAccountDatatableStepComponent implements OnInit {
   /** Input Fields Data */
@@ -85,7 +86,7 @@ export class LoansAccountDatatableStepComponent implements OnInit {
   get payload(): any {
     const dateFormat = this.settingsService.dateFormat;
     const datatableDataValues = this.datatableForm.value;
-    const data = {
+    const data: Record<string, any> = {
       locale: this.settingsService.language.code
     };
     let existDate = false;

@@ -17,9 +17,10 @@ import { DeleteDialogComponent } from 'app/shared/delete-dialog/delete-dialog.co
  * View Data Table Component
  */
 @Component({
-  selector: 'mifosx-view-data-table',
-  templateUrl: './view-data-table.component.html',
-  styleUrls: ['./view-data-table.component.scss']
+    selector: 'mifosx-view-data-table',
+    templateUrl: './view-data-table.component.html',
+    styleUrls: ['./view-data-table.component.scss'],
+    standalone: false
 })
 export class ViewDataTableComponent implements OnInit {
   /** Data Table Data */

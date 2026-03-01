@@ -2,9 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Clipboard } from '@angular/cdk/clipboard';
 
 @Component({
-  selector: 'mifosx-entity-name',
-  templateUrl: './entity-name.component.html',
-  styleUrls: ['./entity-name.component.scss']
+    selector: 'mifosx-entity-name',
+    templateUrl: './entity-name.component.html',
+    styleUrls: ['./entity-name.component.scss'],
+    standalone: false
 })
 export class EntityNameComponent implements OnInit {
   @Input() entityName: string;

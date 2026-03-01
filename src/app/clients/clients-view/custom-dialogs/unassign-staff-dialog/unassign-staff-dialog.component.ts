@@ -6,9 +6,10 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
  * Unassign staff dialog component.
  */
 @Component({
-  selector: 'mifosx-unassign-staff-dialog',
-  templateUrl: './unassign-staff-dialog.component.html',
-  styleUrls: ['./unassign-staff-dialog.component.scss']
+    selector: 'mifosx-unassign-staff-dialog',
+    templateUrl: './unassign-staff-dialog.component.html',
+    styleUrls: ['./unassign-staff-dialog.component.scss'],
+    standalone: false
 })
 export class UnassignStaffDialogComponent {
   /**

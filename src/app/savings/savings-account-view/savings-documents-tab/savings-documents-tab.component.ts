@@ -6,9 +6,10 @@ import { SettingsService } from 'app/settings/settings.service';
 import { environment } from 'environments/environment';
 
 @Component({
-  selector: 'mifosx-savings-documents-tab',
-  templateUrl: './savings-documents-tab.component.html',
-  styleUrls: ['./savings-documents-tab.component.scss']
+    selector: 'mifosx-savings-documents-tab',
+    templateUrl: './savings-documents-tab.component.html',
+    styleUrls: ['./savings-documents-tab.component.scss'],
+    standalone: false
 })
 export class SavingsDocumentsTabComponent {
   /** Stores the resolved savings documents data */

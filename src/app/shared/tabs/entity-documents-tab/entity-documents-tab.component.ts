@@ -11,9 +11,10 @@ import { DeleteDialogComponent } from 'app/shared/delete-dialog/delete-dialog.co
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'mifosx-entity-documents-tab',
-  templateUrl: './entity-documents-tab.component.html',
-  styleUrls: ['./entity-documents-tab.component.scss']
+    selector: 'mifosx-entity-documents-tab',
+    templateUrl: './entity-documents-tab.component.html',
+    styleUrls: ['./entity-documents-tab.component.scss'],
+    standalone: false
 })
 export class EntityDocumentsTabComponent implements OnInit {
   @ViewChild('documentsTable', { static: true }) documentsTable: MatTable<Element>;

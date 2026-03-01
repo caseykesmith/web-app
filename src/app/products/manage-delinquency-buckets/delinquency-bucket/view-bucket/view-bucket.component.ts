@@ -5,9 +5,10 @@ import { ProductsService } from 'app/products/products.service';
 import { DeleteDialogComponent } from 'app/shared/delete-dialog/delete-dialog.component';
 
 @Component({
-  selector: 'mifosx-view-bucket',
-  templateUrl: './view-bucket.component.html',
-  styleUrls: ['./view-bucket.component.scss']
+    selector: 'mifosx-view-bucket',
+    templateUrl: './view-bucket.component.html',
+    styleUrls: ['./view-bucket.component.scss'],
+    standalone: false
 })
 export class ViewBucketComponent {
   /** Delinquency Bucket Data. */

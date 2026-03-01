@@ -3,9 +3,10 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'mifosx-loans-active-client-members',
-  templateUrl: './loans-active-client-members.component.html',
-  styleUrls: ['./loans-active-client-members.component.scss']
+    selector: 'mifosx-loans-active-client-members',
+    templateUrl: './loans-active-client-members.component.html',
+    styleUrls: ['./loans-active-client-members.component.scss'],
+    standalone: false
 })
 export class LoansActiveClientMembersComponent implements OnInit {
   loanId: any = null;

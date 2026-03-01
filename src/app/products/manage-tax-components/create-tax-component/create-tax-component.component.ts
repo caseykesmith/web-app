@@ -12,9 +12,10 @@ import { Dates } from 'app/core/utils/dates';
  * Create Tax Component component.
  */
 @Component({
-  selector: 'mifosx-create-tax-component',
-  templateUrl: './create-tax-component.component.html',
-  styleUrls: ['./create-tax-component.component.scss']
+    selector: 'mifosx-create-tax-component',
+    templateUrl: './create-tax-component.component.html',
+    styleUrls: ['./create-tax-component.component.scss'],
+    standalone: false
 })
 export class CreateTaxComponentComponent implements OnInit {
   /** Minimum start date allowed. */

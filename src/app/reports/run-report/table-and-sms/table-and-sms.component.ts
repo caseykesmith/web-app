@@ -20,9 +20,10 @@ import * as XLSX from 'xlsx';
  * Table and SMS Component
  */
 @Component({
-  selector: 'mifosx-table-and-sms',
-  templateUrl: './table-and-sms.component.html',
-  styleUrls: ['./table-and-sms.component.scss']
+    selector: 'mifosx-table-and-sms',
+    templateUrl: './table-and-sms.component.html',
+    styleUrls: ['./table-and-sms.component.scss'],
+    standalone: false
 })
 export class TableAndSmsComponent implements OnChanges {
   /** Run Report Data */
@@ -143,7 +144,7 @@ export class TableAndSmsComponent implements OnChanges {
   exportToXLS(): void {
     const fileName = `${this.dataObject.report.name}.xlsx`;
     const data = this.csvData.map((object: any) => {
-      const row = {};
+      const row: Record<string, any> = {};
       for (let i = 0; i < this.displayedColumns.length; i++) {
         row[this.displayedColumns[i]] = object.row[i];
       }

@@ -16,9 +16,10 @@ import { TemplatesService } from '../templates.service';
  * Create Template Component.
  */
 @Component({
-  selector: 'mifosx-create-edit-template',
-  templateUrl: './create-edit-template.component.html',
-  styleUrls: ['./create-edit-template.component.scss']
+    selector: 'mifosx-create-edit-template',
+    templateUrl: './create-edit-template.component.html',
+    styleUrls: ['./create-edit-template.component.scss'],
+    standalone: false
 })
 export class CreateEditComponent implements OnInit {
   /** CKEditor5 */

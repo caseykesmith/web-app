@@ -20,16 +20,17 @@ import { Dates } from 'app/core/utils/dates';
 import { SettingsService } from 'app/settings/settings.service';
 
 @Component({
-  selector: 'mifosx-fixed-deposit-product-interest-rate-chart-step',
-  templateUrl: './fixed-deposit-product-interest-rate-chart-step.component.html',
-  styleUrls: ['./fixed-deposit-product-interest-rate-chart-step.component.scss'],
-  animations: [
-    trigger('expandChartSlab', [
-      state('collapsed', style({ height: '0px', minHeight: '0' })),
-      state('expanded', style({ height: '*' })),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))])
-
-  ]
+    selector: 'mifosx-fixed-deposit-product-interest-rate-chart-step',
+    templateUrl: './fixed-deposit-product-interest-rate-chart-step.component.html',
+    styleUrls: ['./fixed-deposit-product-interest-rate-chart-step.component.scss'],
+    animations: [
+        trigger('expandChartSlab', [
+            state('collapsed', style({ height: '0px', minHeight: '0' })),
+            state('expanded', style({ height: '*' })),
+            transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
+        ])
+    ],
+    standalone: false
 })
 export class FixedDepositProductInterestRateChartStepComponent implements OnInit {
   @Input() fixedDepositProductsTemplate: any;
@@ -145,7 +146,7 @@ export class FixedDepositProductInterestRateChartStepComponent implements OnInit
         formArray.push(chartSlabInfo);
 
         // Iterate for every slab in chartSlab
-        const chartIncentiveControl = chartDetailControl.controls['chartSlabs']['controls'][j];
+        const chartIncentiveControl = (chartDetailControl.controls['chartSlabs'] as any)['controls'][j];
 
         // Iterate to input all the incentive for particular chart slab
         this.chartsDetail[i].chartSlabs[j].incentives.forEach((chartIncentiveDetail: any) => {
@@ -193,7 +194,7 @@ export class FixedDepositProductInterestRateChartStepComponent implements OnInit
         chartSlabs: this.getChartSlabsData(chartData)
       };
       if (chartData.id) {
-        chart['id'] = chartData.id;
+        (chart as Record<string, any>)['id'] = chartData.id;
       }
       this.chartsDetail.push(chart);
     });
@@ -224,7 +225,7 @@ export class FixedDepositProductInterestRateChartStepComponent implements OnInit
         incentives: this.getIncentivesData(chartSlabData)
       };
       if (eachChartSlabData.id) {
-        chartSlab['id'] = eachChartSlabData.id;
+        (chartSlab as Record<string, any>)['id'] = eachChartSlabData.id;
       }
       chartSlabs.push(chartSlab);
     });

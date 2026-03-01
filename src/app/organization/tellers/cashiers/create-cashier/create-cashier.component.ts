@@ -12,9 +12,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Create Cashier component.
  */
 @Component({
-  selector: 'mifosx-create-cashier',
-  templateUrl: './create-cashier.component.html',
-  styleUrls: ['./create-cashier.component.scss']
+    selector: 'mifosx-create-cashier',
+    templateUrl: './create-cashier.component.html',
+    styleUrls: ['./create-cashier.component.scss'],
+    standalone: false
 })
 export class CreateCashierComponent implements OnInit {
   /** Minimum Date allowed. */

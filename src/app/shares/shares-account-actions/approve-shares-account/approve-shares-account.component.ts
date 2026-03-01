@@ -12,9 +12,10 @@ import { Dates } from 'app/core/utils/dates';
  * Approve Shares Account Component
  */
 @Component({
-  selector: 'mifosx-approve-shares-account',
-  templateUrl: './approve-shares-account.component.html',
-  styleUrls: ['./approve-shares-account.component.scss']
+    selector: 'mifosx-approve-shares-account',
+    templateUrl: './approve-shares-account.component.html',
+    styleUrls: ['./approve-shares-account.component.scss'],
+    standalone: false
 })
 export class ApproveSharesAccountComponent implements OnInit {
   /** Minimum date allowed. */

@@ -10,9 +10,10 @@ import { SystemService } from 'app/system/system.service';
  * Edit Email Configuration Component.
  */
 @Component({
-  selector: 'mifosx-edit-email',
-  templateUrl: './edit-email.component.html',
-  styleUrls: ['./edit-email.component.scss']
+    selector: 'mifosx-edit-email',
+    templateUrl: './edit-email.component.html',
+    styleUrls: ['./edit-email.component.scss'],
+    standalone: false
 })
 export class EditEmailComponent implements OnInit {
   /** Password input field type. */

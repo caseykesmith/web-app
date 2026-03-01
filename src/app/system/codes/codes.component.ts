@@ -10,9 +10,10 @@ import { PopoverService } from '../../configuration-wizard/popover/popover.servi
 import { ConfigurationWizardService } from '../../configuration-wizard/configuration-wizard.service';
 
 @Component({
-  selector: 'mifosx-codes',
-  templateUrl: './codes.component.html',
-  styleUrls: ['./codes.component.scss']
+    selector: 'mifosx-codes',
+    templateUrl: './codes.component.html',
+    styleUrls: ['./codes.component.scss'],
+    standalone: false
 })
 export class CodesComponent implements OnInit, AfterViewInit {
   /** Codes data. */

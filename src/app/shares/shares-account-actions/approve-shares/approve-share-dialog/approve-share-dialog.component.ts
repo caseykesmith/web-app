@@ -6,9 +6,10 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
  * Approve share dialog component.
  */
 @Component({
-  selector: 'mifosx-approve-share-dialog',
-  templateUrl: './approve-share-dialog.component.html',
-  styleUrls: ['./approve-share-dialog.component.scss']
+    selector: 'mifosx-approve-share-dialog',
+    templateUrl: './approve-share-dialog.component.html',
+    styleUrls: ['./approve-share-dialog.component.scss'],
+    standalone: false
 })
 export class ApproveShareDialogComponent {
   /**

@@ -7,16 +7,17 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
  * Fixed Deposits Account Interest Rate Chart Step
  */
 @Component({
-  selector: 'mifosx-fixed-deposit-account-interest-rate-chart-step',
-  templateUrl: './fixed-deposit-account-interest-rate-chart-step.component.html',
-  styleUrls: ['./fixed-deposit-account-interest-rate-chart-step.component.scss'],
-  animations: [
-    trigger('expandChartSlab', [
-      state('collapsed', style({ height: '0px', minHeight: '0' })),
-      state('expanded', style({ height: '*' })),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))])
-
-  ]
+    selector: 'mifosx-fixed-deposit-account-interest-rate-chart-step',
+    templateUrl: './fixed-deposit-account-interest-rate-chart-step.component.html',
+    styleUrls: ['./fixed-deposit-account-interest-rate-chart-step.component.scss'],
+    animations: [
+        trigger('expandChartSlab', [
+            state('collapsed', style({ height: '0px', minHeight: '0' })),
+            state('expanded', style({ height: '*' })),
+            transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
+        ])
+    ],
+    standalone: false
 })
 export class FixedDepositAccountInterestRateChartStepComponent implements OnChanges {
   /** Fixed deposits account template */

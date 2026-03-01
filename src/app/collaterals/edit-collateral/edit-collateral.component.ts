@@ -8,9 +8,10 @@ import { SettingsService } from 'app/settings/settings.service';
 import { CollateralsService } from '../collaterals.service';
 
 @Component({
-  selector: 'mifosx-edit-collateral',
-  templateUrl: './edit-collateral.component.html',
-  styleUrls: ['./edit-collateral.component.scss']
+    selector: 'mifosx-edit-collateral',
+    templateUrl: './edit-collateral.component.html',
+    styleUrls: ['./edit-collateral.component.scss'],
+    standalone: false
 })
 export class EditCollateralComponent implements OnInit {
   /** Client Collateral Form */

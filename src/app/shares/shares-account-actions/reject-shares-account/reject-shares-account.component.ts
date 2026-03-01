@@ -12,9 +12,10 @@ import { Dates } from 'app/core/utils/dates';
  * Reject Shares Account Component
  */
 @Component({
-  selector: 'mifosx-reject-shares-account',
-  templateUrl: './reject-shares-account.component.html',
-  styleUrls: ['./reject-shares-account.component.scss']
+    selector: 'mifosx-reject-shares-account',
+    templateUrl: './reject-shares-account.component.html',
+    styleUrls: ['./reject-shares-account.component.scss'],
+    standalone: false
 })
 export class RejectSharesAccountComponent implements OnInit {
   /** Minimum date allowed. */

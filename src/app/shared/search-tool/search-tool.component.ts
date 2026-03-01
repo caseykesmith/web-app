@@ -8,20 +8,21 @@ import { UntypedFormControl } from '@angular/forms';
  * Search Tool Component
  */
 @Component({
-  selector: 'mifosx-search-tool',
-  templateUrl: './search-tool.component.html',
-  styleUrls: ['./search-tool.component.scss'],
-  animations: [
-    trigger('fadeInOut', [
-      transition(':enter', [
-        style({ opacity: 0 }),
-        animate(500, style({ opacity: 1 }))]),
-      transition(':leave', [
-        animate(500, style({ opacity: 0 }))])
-
-    ])
-
-  ]
+    selector: 'mifosx-search-tool',
+    templateUrl: './search-tool.component.html',
+    styleUrls: ['./search-tool.component.scss'],
+    animations: [
+        trigger('fadeInOut', [
+            transition(':enter', [
+                style({ opacity: 0 }),
+                animate(500, style({ opacity: 1 }))
+            ]),
+            transition(':leave', [
+                animate(500, style({ opacity: 0 }))
+            ])
+        ])
+    ],
+    standalone: false
 })
 export class SearchToolComponent {
   /** Query Form Control */

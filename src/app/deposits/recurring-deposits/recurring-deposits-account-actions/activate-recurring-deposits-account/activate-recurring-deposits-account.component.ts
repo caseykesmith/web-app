@@ -12,9 +12,10 @@ import { Dates } from 'app/core/utils/dates';
  * Activate Recurring Deposits Account Component
  */
 @Component({
-  selector: 'mifosx-activate-recurring-deposits-account',
-  templateUrl: './activate-recurring-deposits-account.component.html',
-  styleUrls: ['./activate-recurring-deposits-account.component.scss']
+    selector: 'mifosx-activate-recurring-deposits-account',
+    templateUrl: './activate-recurring-deposits-account.component.html',
+    styleUrls: ['./activate-recurring-deposits-account.component.scss'],
+    standalone: false
 })
 export class ActivateRecurringDepositsAccountComponent implements OnInit {
   /** Minimum date allowed. */

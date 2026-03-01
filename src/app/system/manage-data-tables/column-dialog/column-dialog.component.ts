@@ -10,9 +10,10 @@ import { columnTypeData } from '../column-type-data';
  * Column Dialog Component.
  */
 @Component({
-  selector: 'mifosx-column-dialog',
-  templateUrl: './column-dialog.component.html',
-  styleUrls: ['./column-dialog.component.scss']
+    selector: 'mifosx-column-dialog',
+    templateUrl: './column-dialog.component.html',
+    styleUrls: ['./column-dialog.component.scss'],
+    standalone: false
 })
 export class ColumnDialogComponent implements OnInit {
   /** Column Form. */

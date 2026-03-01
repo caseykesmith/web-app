@@ -18,9 +18,10 @@ import { ConfigurationWizardService } from '../../configuration-wizard/configura
  * Holidays component.
  */
 @Component({
-  selector: 'mifosx-holidays',
-  templateUrl: './holidays.component.html',
-  styleUrls: ['./holidays.component.scss']
+    selector: 'mifosx-holidays',
+    templateUrl: './holidays.component.html',
+    styleUrls: ['./holidays.component.scss'],
+    standalone: false
 })
 export class HolidaysComponent implements OnInit, AfterViewInit {
   /** Office selector. */

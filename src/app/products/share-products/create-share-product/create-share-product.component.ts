@@ -17,9 +17,10 @@ import { SettingsService } from 'app/settings/settings.service';
 import { Accounting } from 'app/core/utils/accounting';
 
 @Component({
-  selector: 'mifosx-create-share-product',
-  templateUrl: './create-share-product.component.html',
-  styleUrls: ['./create-share-product.component.scss']
+    selector: 'mifosx-create-share-product',
+    templateUrl: './create-share-product.component.html',
+    styleUrls: ['./create-share-product.component.scss'],
+    standalone: false
 })
 export class CreateShareProductComponent {
   @ViewChild(ShareProductDetailsStepComponent, { static: true })

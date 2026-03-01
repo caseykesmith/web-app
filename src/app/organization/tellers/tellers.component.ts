@@ -12,9 +12,10 @@ import { of } from 'rxjs';
  * Tellers component.
  */
 @Component({
-  selector: 'mifosx-tellers',
-  templateUrl: './tellers.component.html',
-  styleUrls: ['./tellers.component.scss']
+    selector: 'mifosx-tellers',
+    templateUrl: './tellers.component.html',
+    styleUrls: ['./tellers.component.scss'],
+    standalone: false
 })
 export class TellersComponent implements OnInit {
   /** Tellers data. */

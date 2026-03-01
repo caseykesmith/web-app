@@ -2,9 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import { UntypedFormGroup, UntypedFormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'mifosx-share-product-settings-step',
-  templateUrl: './share-product-settings-step.component.html',
-  styleUrls: ['./share-product-settings-step.component.scss']
+    selector: 'mifosx-share-product-settings-step',
+    templateUrl: './share-product-settings-step.component.html',
+    styleUrls: ['./share-product-settings-step.component.scss'],
+    standalone: false
 })
 export class ShareProductSettingsStepComponent implements OnInit {
   @Input() shareProductsTemplate: any;

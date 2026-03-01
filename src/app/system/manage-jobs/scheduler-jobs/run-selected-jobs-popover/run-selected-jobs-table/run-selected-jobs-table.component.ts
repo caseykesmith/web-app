@@ -5,9 +5,10 @@ import { JobDataType } from '../run-selected-jobs-popover.component';
  * Run Selected Jobs Table Component
  */
 @Component({
-  selector: 'mifosx-run-selected-jobs-table',
-  templateUrl: './run-selected-jobs-table.component.html',
-  styleUrls: ['./run-selected-jobs-table.component.scss']
+    selector: 'mifosx-run-selected-jobs-table',
+    templateUrl: './run-selected-jobs-table.component.html',
+    styleUrls: ['./run-selected-jobs-table.component.scss'],
+    standalone: false
 })
 export class RunSelectedJobsTableComponent {
   /** Selected Jobs For Table */

@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'mifosx-view-loan-product',
-  templateUrl: './view-loan-product.component.html',
-  styleUrls: ['./view-loan-product.component.scss']
+    selector: 'mifosx-view-loan-product',
+    templateUrl: './view-loan-product.component.html',
+    styleUrls: ['./view-loan-product.component.scss'],
+    standalone: false
 })
 export class ViewLoanProductComponent {
   loanProductDatatables: any = [];

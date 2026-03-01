@@ -12,9 +12,10 @@ import { Dates } from 'app/core/utils/dates';
  * Edit Center component.
  */
 @Component({
-  selector: 'mifosx-edit-center',
-  templateUrl: './edit-center.component.html',
-  styleUrls: ['./edit-center.component.scss']
+    selector: 'mifosx-edit-center',
+    templateUrl: './edit-center.component.html',
+    styleUrls: ['./edit-center.component.scss'],
+    standalone: false
 })
 export class EditCenterComponent implements OnInit {
   /** Center Data */

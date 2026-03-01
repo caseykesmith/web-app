@@ -14,9 +14,10 @@ import { Location } from '@angular/common';
  * View financial activity mapping component.
  */
 @Component({
-  selector: 'mifosx-view-financial-activity-mapping',
-  templateUrl: './view-financial-activity-mapping.component.html',
-  styleUrls: ['./view-financial-activity-mapping.component.scss']
+    selector: 'mifosx-view-financial-activity-mapping',
+    templateUrl: './view-financial-activity-mapping.component.html',
+    styleUrls: ['./view-financial-activity-mapping.component.scss'],
+    standalone: false
 })
 export class ViewFinancialActivityMappingComponent {
   /** Financial activity account ID. */

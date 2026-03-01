@@ -6,9 +6,10 @@ import { LoansService } from 'app/loans/loans.service';
 import { SettingsService } from 'app/settings/settings.service';
 
 @Component({
-  selector: 'mifosx-add-interest-pause',
-  templateUrl: './add-interest-pause.component.html',
-  styleUrls: ['./add-interest-pause.component.scss']
+    selector: 'mifosx-add-interest-pause',
+    templateUrl: './add-interest-pause.component.html',
+    styleUrls: ['./add-interest-pause.component.scss'],
+    standalone: false
 })
 export class AddInterestPauseComponent implements OnInit {
   @Input() dataObject: any;

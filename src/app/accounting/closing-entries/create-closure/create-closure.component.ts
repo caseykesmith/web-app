@@ -11,9 +11,10 @@ import { Dates } from 'app/core/utils/dates';
  * Create closure component.
  */
 @Component({
-  selector: 'mifosx-create-closure',
-  templateUrl: './create-closure.component.html',
-  styleUrls: ['./create-closure.component.scss']
+    selector: 'mifosx-create-closure',
+    templateUrl: './create-closure.component.html',
+    styleUrls: ['./create-closure.component.scss'],
+    standalone: false
 })
 export class CreateClosureComponent implements OnInit {
   /** Minimum closing date allowed. */

@@ -7,9 +7,10 @@ import { Dates } from 'app/core/utils/dates';
 import { SettingsService } from 'app/settings/settings.service';
 
 @Component({
-  selector: 'mifosx-loan-product-details-step',
-  templateUrl: './loan-product-details-step.component.html',
-  styleUrls: ['./loan-product-details-step.component.scss']
+    selector: 'mifosx-loan-product-details-step',
+    templateUrl: './loan-product-details-step.component.html',
+    styleUrls: ['./loan-product-details-step.component.scss'],
+    standalone: false
 })
 export class LoanProductDetailsStepComponent implements OnInit {
   @Input() loanProductsTemplate: any;

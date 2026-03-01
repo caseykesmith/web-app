@@ -8,9 +8,10 @@ import { SettingsService } from 'app/settings/settings.service';
 import { Dates } from 'app/core/utils/dates';
 
 @Component({
-  selector: 'mifosx-close-as-rescheduled',
-  templateUrl: './close-as-rescheduled.component.html',
-  styleUrls: ['./close-as-rescheduled.component.scss']
+    selector: 'mifosx-close-as-rescheduled',
+    templateUrl: './close-as-rescheduled.component.html',
+    styleUrls: ['./close-as-rescheduled.component.scss'],
+    standalone: false
 })
 export class CloseAsRescheduledComponent implements OnInit {
   @Input() dataObject: any;

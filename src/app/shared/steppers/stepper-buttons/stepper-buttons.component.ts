@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'mifosx-stepper-buttons',
-  templateUrl: './stepper-buttons.component.html',
-  styleUrls: ['./stepper-buttons.component.scss']
+    selector: 'mifosx-stepper-buttons',
+    templateUrl: './stepper-buttons.component.html',
+    styleUrls: ['./stepper-buttons.component.scss'],
+    standalone: false
 })
 export class StepperButtonsComponent {
   @Input() disablePrevious = false;

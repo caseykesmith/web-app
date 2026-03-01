@@ -8,9 +8,10 @@ import { MatTableDataSource } from '@angular/material/table';
  * SMS Configuration Component.
  */
 @Component({
-  selector: 'mifosx-sms',
-  templateUrl: './sms.component.html',
-  styleUrls: ['./sms.component.scss']
+    selector: 'mifosx-sms',
+    templateUrl: './sms.component.html',
+    styleUrls: ['./sms.component.scss'],
+    standalone: false
 })
 export class SMSComponent implements OnInit {
   /** SMS configuration data. */

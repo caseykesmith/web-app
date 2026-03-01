@@ -9,9 +9,10 @@ import { ActivatedRoute } from '@angular/router';
  * Client Charge Overview component.
  */
 @Component({
-  selector: 'mifosx-charges-overview',
-  templateUrl: './charges-overview.component.html',
-  styleUrls: ['./charges-overview.component.scss']
+    selector: 'mifosx-charges-overview',
+    templateUrl: './charges-overview.component.html',
+    styleUrls: ['./charges-overview.component.scss'],
+    standalone: false
 })
 export class ChargesOverviewComponent implements OnInit {
   /** Columns to be displayed in charge overview table. */

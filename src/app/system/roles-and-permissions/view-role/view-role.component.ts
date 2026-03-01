@@ -16,9 +16,10 @@ import { EnableDialogComponent } from '../../../shared/enable-dialog/enable-dial
  * View Role and Permissions Component
  */
 @Component({
-  selector: 'mifosx-view-role',
-  templateUrl: './view-role.component.html',
-  styleUrls: ['./view-role.component.scss']
+    selector: 'mifosx-view-role',
+    templateUrl: './view-role.component.html',
+    styleUrls: ['./view-role.component.scss'],
+    standalone: false
 })
 export class ViewRoleComponent implements OnInit {
   /** Role Permissions Data */
@@ -44,9 +45,7 @@ export class ViewRoleComponent implements OnInit {
   /** Creates Backup form */
   backupform: UntypedFormGroup;
   /** Temporarily stores Permission data */
-  tempPermissionUIData: {
-    permissions: { code: string }[];
-  }[];
+  tempPermissionUIData: Record<string, any>;
   /** Stores permissions */
   permissions: {
     permissions: { code: string; id: number }[];
@@ -220,8 +219,8 @@ export class ViewRoleComponent implements OnInit {
    */
   submit() {
     const value = this.formGroup.get('roster').value;
-    const data = {};
-    const permissionData = {
+    const data: Record<string, any> = {};
+    const permissionData: Record<string, any> = {
       permissions: {}
     };
     for (let i = 0; i < value.length; i++) {
@@ -239,7 +238,7 @@ export class ViewRoleComponent implements OnInit {
    */
   selectAll() {
     for (let i = 0; i < this.permissions.permissions.length; i++) {
-      this.formGroup.controls.roster['controls'][this.permissions.permissions[i].id].patchValue({
+      (this.formGroup.controls.roster as any)['controls'][this.permissions.permissions[i].id].patchValue({
         selected: true
       });
     }
@@ -250,7 +249,7 @@ export class ViewRoleComponent implements OnInit {
    */
   deselectAll() {
     for (let i = 0; i < this.permissions.permissions.length; i++) {
-      this.formGroup.controls.roster['controls'][this.permissions.permissions[i].id].patchValue({
+      (this.formGroup.controls.roster as any)['controls'][this.permissions.permissions[i].id].patchValue({
         selected: false
       });
     }

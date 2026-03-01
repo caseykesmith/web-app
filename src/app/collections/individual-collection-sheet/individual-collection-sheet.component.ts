@@ -26,9 +26,10 @@ import { Dates } from 'app/core/utils/dates';
  * Individual Collection Sheet
  */
 @Component({
-  selector: 'mifosx-individual-collection-sheet',
-  templateUrl: './individual-collection-sheet.component.html',
-  styleUrls: ['./individual-collection-sheet.component.scss']
+    selector: 'mifosx-individual-collection-sheet',
+    templateUrl: './individual-collection-sheet.component.html',
+    styleUrls: ['./individual-collection-sheet.component.scss'],
+    standalone: false
 })
 export class IndividualCollectionSheetComponent implements OnInit {
   /** Offices Data */
@@ -261,7 +262,7 @@ export class IndividualCollectionSheetComponent implements OnInit {
       if (response.data) {
         if (type === 'loans') {
           const totalDue = this.getLoanTotalDueAmount(selectedData);
-          const loanTransaction = {
+          const loanTransaction: Record<string, any> = {
             loanId: selectedData.loanId,
             transactionAmount: totalDue
           };
@@ -279,7 +280,7 @@ export class IndividualCollectionSheetComponent implements OnInit {
           if (isNaN(dueAmount)) {
             dueAmount = 0;
           }
-          const savingsTransaction = {
+          const savingsTransaction: Record<string, any> = {
             savingsId: selectedData.savingsId,
             transactionAmount: dueAmount,
             depositAccountType:
@@ -340,8 +341,8 @@ export class IndividualCollectionSheetComponent implements OnInit {
   submit() {
     const locale = this.settingsService.language.code;
     const dateFormat = this.settingsService.dateFormat;
-    this.bulkDisbursementTransactionsData['bulkRepaymentTransactions'] = this.bulkRepaymentTransactions;
-    this.bulkDisbursementTransactionsData['bulkSavingsDueTransactions'] = this.bulkSavingsDueTransactions;
+    (this.bulkDisbursementTransactionsData as Record<string, any>)['bulkRepaymentTransactions'] = this.bulkRepaymentTransactions;
+    (this.bulkDisbursementTransactionsData as Record<string, any>)['bulkSavingsDueTransactions'] = this.bulkSavingsDueTransactions;
     const finalSubmitData = {
       dateFormat,
       locale,

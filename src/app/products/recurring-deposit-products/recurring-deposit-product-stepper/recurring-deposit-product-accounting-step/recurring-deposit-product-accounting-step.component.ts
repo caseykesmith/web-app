@@ -11,9 +11,10 @@ import { Accounting } from 'app/core/utils/accounting';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'mifosx-recurring-deposit-product-accounting-step',
-  templateUrl: './recurring-deposit-product-accounting-step.component.html',
-  styleUrls: ['./recurring-deposit-product-accounting-step.component.scss']
+    selector: 'mifosx-recurring-deposit-product-accounting-step',
+    templateUrl: './recurring-deposit-product-accounting-step.component.html',
+    styleUrls: ['./recurring-deposit-product-accounting-step.component.scss'],
+    standalone: false
 })
 export class RecurringDepositProductAccountingStepComponent implements OnInit {
   @Input() recurringDepositProductsTemplate: any;

@@ -20,9 +20,10 @@ import { AlertService } from 'app/core/alert/alert.service';
  * Run report component.
  */
 @Component({
-  selector: 'mifosx-run-report',
-  templateUrl: './run-report.component.html',
-  styleUrls: ['./run-report.component.scss']
+    selector: 'mifosx-run-report',
+    templateUrl: './run-report.component.html',
+    styleUrls: ['./run-report.component.scss'],
+    standalone: false
 })
 export class RunReportComponent implements OnInit {
   /** Minimum date allowed. */
@@ -251,7 +252,7 @@ export class RunReportComponent implements OnInit {
           formattedResponse[newKey] = value;
           break;
         case 'select':
-          formattedResponse[newKey] = value['id'];
+          formattedResponse[newKey] = (value as any)['id'];
           break;
         case 'date':
           if (this.isTableReport()) {
@@ -342,7 +343,7 @@ export class RunReportComponent implements OnInit {
   exportToXLS(reportName: string, csvData: any, displayedColumns: string[]): void {
     const fileName = `${reportName}.xlsx`;
     const data = csvData.map((object: any) => {
-      const row = {};
+      const row: Record<string, any> = {};
       for (let i = 0; i < displayedColumns.length; i++) {
         row[displayedColumns[i]] = object.row[i];
       }

@@ -10,9 +10,10 @@ import { CentersService } from 'app/centers/centers.service';
  * Centers Assign Staff Component
  */
 @Component({
-  selector: 'mifosx-center-assign-staff',
-  templateUrl: './center-assign-staff.component.html',
-  styleUrls: ['./center-assign-staff.component.scss']
+    selector: 'mifosx-center-assign-staff',
+    templateUrl: './center-assign-staff.component.html',
+    styleUrls: ['./center-assign-staff.component.scss'],
+    standalone: false
 })
 export class CenterAssignStaffComponent implements OnInit {
   /** Center Assign Staff form. */

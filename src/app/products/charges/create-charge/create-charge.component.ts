@@ -14,9 +14,10 @@ import { maxNumberValueValidator } from 'app/shared/validators/max-number-value.
  * Create charge component.
  */
 @Component({
-  selector: 'mifosx-create-charge',
-  templateUrl: './create-charge.component.html',
-  styleUrls: ['./create-charge.component.scss']
+    selector: 'mifosx-create-charge',
+    templateUrl: './create-charge.component.html',
+    styleUrls: ['./create-charge.component.scss'],
+    standalone: false
 })
 export class CreateChargeComponent implements OnInit {
   /** Charge form. */

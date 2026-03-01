@@ -12,9 +12,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Undo Client Transfer Component
  */
 @Component({
-  selector: 'mifosx-undo-client-transfer',
-  templateUrl: './undo-client-transfer.component.html',
-  styleUrls: ['./undo-client-transfer.component.scss']
+    selector: 'mifosx-undo-client-transfer',
+    templateUrl: './undo-client-transfer.component.html',
+    styleUrls: ['./undo-client-transfer.component.scss'],
+    standalone: false
 })
 export class UndoClientTransferComponent implements OnInit {
   /** Undo Client Transfer form. */

@@ -16,9 +16,10 @@ import { DeleteDialogComponent } from '../../shared/delete-dialog/delete-dialog.
  * Payment Types component.
  */
 @Component({
-  selector: 'mifosx-payment-types',
-  templateUrl: './payment-types.component.html',
-  styleUrls: ['./payment-types.component.scss']
+    selector: 'mifosx-payment-types',
+    templateUrl: './payment-types.component.html',
+    styleUrls: ['./payment-types.component.scss'],
+    standalone: false
 })
 export class PaymentTypesComponent implements OnInit {
   /** Payment Types data. */

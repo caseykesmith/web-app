@@ -21,9 +21,10 @@ import { SelectBase } from 'app/shared/form-dialog/formfield/model/select-base';
  * Edit Tax Group component.
  */
 @Component({
-  selector: 'mifosx-edit-tax-group',
-  templateUrl: './edit-tax-group.component.html',
-  styleUrls: ['./edit-tax-group.component.scss']
+    selector: 'mifosx-edit-tax-group',
+    templateUrl: './edit-tax-group.component.html',
+    styleUrls: ['./edit-tax-group.component.scss'],
+    standalone: false
 })
 export class EditTaxGroupComponent implements OnInit {
   /** Minimum start date allowed. */

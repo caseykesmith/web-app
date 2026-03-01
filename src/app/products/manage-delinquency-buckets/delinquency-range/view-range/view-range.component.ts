@@ -5,9 +5,10 @@ import { ProductsService } from 'app/products/products.service';
 import { DeleteDialogComponent } from 'app/shared/delete-dialog/delete-dialog.component';
 
 @Component({
-  selector: 'mifosx-view-range',
-  templateUrl: './view-range.component.html',
-  styleUrls: ['./view-range.component.scss']
+    selector: 'mifosx-view-range',
+    templateUrl: './view-range.component.html',
+    styleUrls: ['./view-range.component.scss'],
+    standalone: false
 })
 export class ViewRangeComponent {
   /** Delinquency Range Data. */

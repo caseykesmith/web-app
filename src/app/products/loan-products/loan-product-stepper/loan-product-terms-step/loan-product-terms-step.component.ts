@@ -12,9 +12,10 @@ import { ProcessingStrategyService } from '../../services/processing-strategy.se
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'mifosx-loan-product-terms-step',
-  templateUrl: './loan-product-terms-step.component.html',
-  styleUrls: ['./loan-product-terms-step.component.scss']
+    selector: 'mifosx-loan-product-terms-step',
+    templateUrl: './loan-product-terms-step.component.html',
+    styleUrls: ['./loan-product-terms-step.component.scss'],
+    standalone: false
 })
 export class LoanProductTermsStepComponent implements OnInit, OnChanges {
   @Input() loanProductsTemplate: any;

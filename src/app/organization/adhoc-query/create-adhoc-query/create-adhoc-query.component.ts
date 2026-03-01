@@ -10,9 +10,10 @@ import { OrganizationService } from '../../organization.service';
  * Create Adhoc Query component.
  */
 @Component({
-  selector: 'mifosx-create-adhoc-query',
-  templateUrl: './create-adhoc-query.component.html',
-  styleUrls: ['./create-adhoc-query.component.scss']
+    selector: 'mifosx-create-adhoc-query',
+    templateUrl: './create-adhoc-query.component.html',
+    styleUrls: ['./create-adhoc-query.component.scss'],
+    standalone: false
 })
 export class CreateAdhocQueryComponent implements OnInit {
   /** Adhoc Query form. */

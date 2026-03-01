@@ -24,10 +24,10 @@ export class IdleTimeoutService {
       'mousedown',
       'scroll'
     ];
-    const $signal = merge(...events.map((eventName) => fromEvent(document, eventName)));
+    const $signal = merge(...events.map((eventName: string) => fromEvent(document, eventName)));
     this.$onSessionTimeout = interval(this.timeoutDelay).pipe(
       takeUntil($signal),
-      map(() => undefined),
+      map((): void => undefined),
       repeat()
     );
   }

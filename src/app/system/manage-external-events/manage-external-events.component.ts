@@ -6,9 +6,10 @@ import { ActivatedRoute } from '@angular/router';
 import { SystemService } from '../system.service';
 
 @Component({
-  selector: 'mifosx-manage-external-events',
-  templateUrl: './manage-external-events.component.html',
-  styleUrls: ['./manage-external-events.component.scss']
+    selector: 'mifosx-manage-external-events',
+    templateUrl: './manage-external-events.component.html',
+    styleUrls: ['./manage-external-events.component.scss'],
+    standalone: false
 })
 export class ManageExternalEventsComponent implements OnInit {
   /** Events Data. */

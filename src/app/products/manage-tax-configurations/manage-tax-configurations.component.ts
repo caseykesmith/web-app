@@ -5,8 +5,9 @@ import { Component } from '@angular/core';
  * Manage Tax Configurations component.
  */
 @Component({
-  selector: 'mifosx-manage-tax-configurations',
-  templateUrl: './manage-tax-configurations.component.html'
+    selector: 'mifosx-manage-tax-configurations',
+    templateUrl: './manage-tax-configurations.component.html',
+    standalone: false
 })
 export class ManageTaxConfigurationsComponent {
   // Initialize an array of 2 boolean values, all set to false

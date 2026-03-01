@@ -13,9 +13,10 @@ import Chart from 'chart.js';
  * Amount Disbursed Pie Chart Component
  */
 @Component({
-  selector: 'mifosx-amount-disbursed-pie',
-  templateUrl: './amount-disbursed-pie.component.html',
-  styleUrls: ['./amount-disbursed-pie.component.scss']
+    selector: 'mifosx-amount-disbursed-pie',
+    templateUrl: './amount-disbursed-pie.component.html',
+    styleUrls: ['./amount-disbursed-pie.component.scss'],
+    standalone: false
 })
 export class AmountDisbursedPieComponent implements OnInit {
   /** Static Form control for office Id */

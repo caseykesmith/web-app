@@ -5,9 +5,10 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
-  selector: 'mifosx-member-groups',
-  templateUrl: './member-groups.component.html',
-  styleUrls: ['./member-groups.component.scss']
+    selector: 'mifosx-member-groups',
+    templateUrl: './member-groups.component.html',
+    styleUrls: ['./member-groups.component.scss'],
+    standalone: false
 })
 export class MemberGroupsComponent {
   /** Columns to be displayed in the member groups table. */

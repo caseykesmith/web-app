@@ -6,9 +6,10 @@ import { ExternalAssetOwnerService } from 'app/loans/services/external-asset-own
 import { CancelDialogComponent } from 'app/shared/cancel-dialog/cancel-dialog.component';
 
 @Component({
-  selector: 'mifosx-external-asset-owner-tab',
-  templateUrl: './external-asset-owner-tab.component.html',
-  styleUrls: ['./external-asset-owner-tab.component.scss']
+    selector: 'mifosx-external-asset-owner-tab',
+    templateUrl: './external-asset-owner-tab.component.html',
+    styleUrls: ['./external-asset-owner-tab.component.scss'],
+    standalone: false
 })
 export class ExternalAssetOwnerTabComponent implements OnInit {
   defaultDate = '9999-12-31';

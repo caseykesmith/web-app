@@ -18,9 +18,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Approve shares component.
  */
 @Component({
-  selector: 'mifosx-approve-shares',
-  templateUrl: './approve-shares.component.html',
-  styleUrls: ['./approve-shares.component.scss']
+    selector: 'mifosx-approve-shares',
+    templateUrl: './approve-shares.component.html',
+    styleUrls: ['./approve-shares.component.scss'],
+    standalone: false
 })
 export class ApproveSharesComponent implements OnInit {
   /** Shares account data. */

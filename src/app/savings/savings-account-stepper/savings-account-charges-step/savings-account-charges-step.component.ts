@@ -18,9 +18,10 @@ import { TranslateService } from '@ngx-translate/core';
  * Savings Account Charges Step
  */
 @Component({
-  selector: 'mifosx-savings-account-charges-step',
-  templateUrl: './savings-account-charges-step.component.html',
-  styleUrls: ['./savings-account-charges-step.component.scss']
+    selector: 'mifosx-savings-account-charges-step',
+    templateUrl: './savings-account-charges-step.component.html',
+    styleUrls: ['./savings-account-charges-step.component.scss'],
+    standalone: false
 })
 export class SavingsAccountChargesStepComponent implements OnInit, OnChanges {
   /** Savings Account Product Template */

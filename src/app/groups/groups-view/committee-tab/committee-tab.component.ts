@@ -14,9 +14,10 @@ import { GroupsService } from 'app/groups/groups.service';
  * Groups Committee Tab Component
  */
 @Component({
-  selector: 'mifosx-committee-tab',
-  templateUrl: './committee-tab.component.html',
-  styleUrls: ['./committee-tab.component.scss']
+    selector: 'mifosx-committee-tab',
+    templateUrl: './committee-tab.component.html',
+    styleUrls: ['./committee-tab.component.scss'],
+    standalone: false
 })
 export class CommitteeTabComponent {
   /** Group Status */

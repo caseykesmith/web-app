@@ -10,9 +10,10 @@ import { PopoverService } from '../../configuration-wizard/popover/popover.servi
 import { ConfigurationWizardService } from '../../configuration-wizard/configuration-wizard.service';
 
 @Component({
-  selector: 'mifosx-share-products',
-  templateUrl: './share-products.component.html',
-  styleUrls: ['./share-products.component.scss']
+    selector: 'mifosx-share-products',
+    templateUrl: './share-products.component.html',
+    styleUrls: ['./share-products.component.scss'],
+    standalone: false
 })
 export class ShareProductsComponent implements OnInit, AfterViewInit {
   shareProductsData: any;

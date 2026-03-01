@@ -17,9 +17,10 @@ import { SettingsService } from 'app/settings/settings.service';
 import { Accounting } from 'app/core/utils/accounting';
 
 @Component({
-  selector: 'mifosx-create-recurring-deposit-product',
-  templateUrl: './create-recurring-deposit-product.component.html',
-  styleUrls: ['./create-recurring-deposit-product.component.scss']
+    selector: 'mifosx-create-recurring-deposit-product',
+    templateUrl: './create-recurring-deposit-product.component.html',
+    styleUrls: ['./create-recurring-deposit-product.component.scss'],
+    standalone: false
 })
 export class CreateRecurringDepositProductComponent {
   @ViewChild(RecurringDepositProductDetailsStepComponent, { static: true })

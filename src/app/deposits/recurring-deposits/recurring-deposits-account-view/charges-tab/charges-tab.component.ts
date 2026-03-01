@@ -24,9 +24,10 @@ import { TranslateService } from '@ngx-translate/core';
  * Charges Tab Component
  */
 @Component({
-  selector: 'mifosx-charges-tab',
-  templateUrl: './charges-tab.component.html',
-  styleUrls: ['./charges-tab.component.scss']
+    selector: 'mifosx-charges-tab',
+    templateUrl: './charges-tab.component.html',
+    styleUrls: ['./charges-tab.component.scss'],
+    standalone: false
 })
 export class ChargesTabComponent implements OnInit {
   /** Recurring Deposits Account Data */

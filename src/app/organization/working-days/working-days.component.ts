@@ -20,9 +20,10 @@ const recurrenceDefaultValue = 'FREQ=WEEKLY;INTERVAL=1;BYDAY=';
  * Working days component.
  */
 @Component({
-  selector: 'mifosx-working-days',
-  templateUrl: './working-days.component.html',
-  styleUrls: ['./working-days.component.scss']
+    selector: 'mifosx-working-days',
+    templateUrl: './working-days.component.html',
+    styleUrls: ['./working-days.component.scss'],
+    standalone: false
 })
 export class WorkingDaysComponent implements OnInit, AfterViewInit {
   /** Working days form. */

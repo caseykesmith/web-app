@@ -8,9 +8,10 @@ import { ActivatedRoute } from '@angular/router';
  * GSIM Accounts Overview component.
  */
 @Component({
-  selector: 'mifosx-gsim-account',
-  templateUrl: './gsim-account.component.html',
-  styleUrls: ['./gsim-account.component.scss']
+    selector: 'mifosx-gsim-account',
+    templateUrl: './gsim-account.component.html',
+    styleUrls: ['./gsim-account.component.scss'],
+    standalone: false
 })
 export class GsimAccountComponent implements OnInit {
   /** Columns to be displayed in charge overview table. */

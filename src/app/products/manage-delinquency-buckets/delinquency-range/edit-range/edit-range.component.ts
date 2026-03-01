@@ -5,9 +5,10 @@ import { ProductsService } from 'app/products/products.service';
 import { SettingsService } from 'app/settings/settings.service';
 
 @Component({
-  selector: 'mifosx-edit-range',
-  templateUrl: './edit-range.component.html',
-  styleUrls: ['./edit-range.component.scss']
+    selector: 'mifosx-edit-range',
+    templateUrl: './edit-range.component.html',
+    styleUrls: ['./edit-range.component.scss'],
+    standalone: false
 })
 export class EditRangeComponent implements OnInit {
   /** Delinquency Range Data. */

@@ -16,9 +16,10 @@ import { Dates } from 'app/core/utils/dates';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'mifosx-reschedule-loan',
-  templateUrl: './reschedule-loan.component.html',
-  styleUrls: ['./reschedule-loan.component.scss']
+    selector: 'mifosx-reschedule-loan',
+    templateUrl: './reschedule-loan.component.html',
+    styleUrls: ['./reschedule-loan.component.scss'],
+    standalone: false
 })
 export class RescheduleLoanComponent {
   /** Loans Data */
@@ -107,7 +108,7 @@ export class RescheduleLoanComponent {
     const dateFormat = this.settingsService.dateFormat;
     const transactionDate = this.dateUtils.formatDate(this.settingsService.businessDate, dateFormat);
     const locale = this.settingsService.language.code;
-    const formData = {
+    const formData: Record<string, any> = {
       dateFormat,
       locale
     };

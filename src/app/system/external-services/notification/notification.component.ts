@@ -8,9 +8,10 @@ import { MatTableDataSource } from '@angular/material/table';
  * Notification Configuration Component.
  */
 @Component({
-  selector: 'mifosx-notification',
-  templateUrl: './notification.component.html',
-  styleUrls: ['./notification.component.scss']
+    selector: 'mifosx-notification',
+    templateUrl: './notification.component.html',
+    styleUrls: ['./notification.component.scss'],
+    standalone: false
 })
 export class NotificationComponent implements OnInit {
   /** Notification configuration data. */

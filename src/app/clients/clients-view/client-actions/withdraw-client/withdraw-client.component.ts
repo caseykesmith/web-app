@@ -12,9 +12,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Withdraw Client Component
  */
 @Component({
-  selector: 'mifosx-withdraw-client',
-  templateUrl: './withdraw-client.component.html',
-  styleUrls: ['./withdraw-client.component.scss']
+    selector: 'mifosx-withdraw-client',
+    templateUrl: './withdraw-client.component.html',
+    styleUrls: ['./withdraw-client.component.scss'],
+    standalone: false
 })
 export class WithdrawClientComponent implements OnInit {
   /** Minimum date allowed. */

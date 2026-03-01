@@ -10,9 +10,10 @@ import { FixedDepositsService } from '../../fixed-deposits.service';
  * Fixed Deposits Account Details Step
  */
 @Component({
-  selector: 'mifosx-fixed-deposit-account-details-step',
-  templateUrl: './fixed-deposit-account-details-step.component.html',
-  styleUrls: ['./fixed-deposit-account-details-step.component.scss']
+    selector: 'mifosx-fixed-deposit-account-details-step',
+    templateUrl: './fixed-deposit-account-details-step.component.html',
+    styleUrls: ['./fixed-deposit-account-details-step.component.scss'],
+    standalone: false
 })
 export class FixedDepositAccountDetailsStepComponent implements OnInit {
   /** Fixed Deposits Account Template */

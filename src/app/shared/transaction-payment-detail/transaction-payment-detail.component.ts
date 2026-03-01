@@ -2,9 +2,10 @@ import { Component, Input } from '@angular/core';
 import { PaymentDetail } from './payment-detail-model';
 
 @Component({
-  selector: 'mifosx-transaction-payment-detail',
-  templateUrl: './transaction-payment-detail.component.html',
-  styleUrls: ['./transaction-payment-detail.component.scss']
+    selector: 'mifosx-transaction-payment-detail',
+    templateUrl: './transaction-payment-detail.component.html',
+    styleUrls: ['./transaction-payment-detail.component.scss'],
+    standalone: false
 })
 export class TransactionPaymentDetailComponent {
   @Input() paymentDetailData: PaymentDetail;

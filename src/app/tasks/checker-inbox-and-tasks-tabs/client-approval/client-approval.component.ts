@@ -17,9 +17,10 @@ import { SettingsService } from 'app/settings/settings.service';
 import { Dates } from 'app/core/utils/dates';
 
 @Component({
-  selector: 'mifosx-client-approval',
-  templateUrl: './client-approval.component.html',
-  styleUrls: ['./client-approval.component.scss']
+    selector: 'mifosx-client-approval',
+    templateUrl: './client-approval.component.html',
+    styleUrls: ['./client-approval.component.scss'],
+    standalone: false
 })
 export class ClientApprovalComponent {
   /** Grouped Clients Data */

@@ -12,9 +12,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Approve Fixed Deposits Account Component
  */
 @Component({
-  selector: 'mifosx-approve-fixed-deposits-account',
-  templateUrl: './approve-fixed-deposits-account.component.html',
-  styleUrls: ['./approve-fixed-deposits-account.component.scss']
+    selector: 'mifosx-approve-fixed-deposits-account',
+    templateUrl: './approve-fixed-deposits-account.component.html',
+    styleUrls: ['./approve-fixed-deposits-account.component.scss'],
+    standalone: false
 })
 export class ApproveFixedDepositsAccountComponent implements OnInit {
   /** Minimum date allowed. */

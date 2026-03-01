@@ -4,16 +4,17 @@ import { OptionData } from 'app/shared/models/option-data.model';
 import { Accounting } from 'app/core/utils/accounting';
 
 @Component({
-  selector: 'mifosx-recurring-deposit-product-preview-step',
-  templateUrl: './recurring-deposit-product-preview-step.component.html',
-  styleUrls: ['./recurring-deposit-product-preview-step.component.scss'],
-  animations: [
-    trigger('expandChartSlab', [
-      state('collapsed', style({ height: '0px', minHeight: '0' })),
-      state('expanded', style({ height: '*' })),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))])
-
-  ]
+    selector: 'mifosx-recurring-deposit-product-preview-step',
+    templateUrl: './recurring-deposit-product-preview-step.component.html',
+    styleUrls: ['./recurring-deposit-product-preview-step.component.scss'],
+    animations: [
+        trigger('expandChartSlab', [
+            state('collapsed', style({ height: '0px', minHeight: '0' })),
+            state('expanded', style({ height: '*' })),
+            transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
+        ])
+    ],
+    standalone: false
 })
 export class RecurringDepositProductPreviewStepComponent implements OnInit, OnChanges {
   @Input() recurringDepositProductsTemplate: any;

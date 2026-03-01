@@ -11,9 +11,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Overdue charges tab component
  */
 @Component({
-  selector: 'mifosx-loan-documents-tab',
-  templateUrl: './loan-documents-tab.component.html',
-  styleUrls: ['./loan-documents-tab.component.scss']
+    selector: 'mifosx-loan-documents-tab',
+    templateUrl: './loan-documents-tab.component.html',
+    styleUrls: ['./loan-documents-tab.component.scss'],
+    standalone: false
 })
 export class LoanDocumentsTabComponent implements OnInit {
   /** Stores the resolved loan documents data */

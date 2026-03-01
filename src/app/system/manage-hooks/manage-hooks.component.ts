@@ -9,9 +9,10 @@ import { ActivatedRoute } from '@angular/router';
  * Manage Hooks Component.
  */
 @Component({
-  selector: 'mifosx-manage-hooks',
-  templateUrl: './manage-hooks.component.html',
-  styleUrls: ['./manage-hooks.component.scss']
+    selector: 'mifosx-manage-hooks',
+    templateUrl: './manage-hooks.component.html',
+    styleUrls: ['./manage-hooks.component.scss'],
+    standalone: false
 })
 export class ManageHooksComponent implements OnInit {
   /** Hook data. */

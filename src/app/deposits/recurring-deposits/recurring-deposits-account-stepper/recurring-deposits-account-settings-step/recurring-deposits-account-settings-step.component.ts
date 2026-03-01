@@ -9,9 +9,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Recurring Deposits Account Settings Step
  */
 @Component({
-  selector: 'mifosx-recurring-deposits-account-settings-step',
-  templateUrl: './recurring-deposits-account-settings-step.component.html',
-  styleUrls: ['./recurring-deposits-account-settings-step.component.scss']
+    selector: 'mifosx-recurring-deposits-account-settings-step',
+    templateUrl: './recurring-deposits-account-settings-step.component.html',
+    styleUrls: ['./recurring-deposits-account-settings-step.component.scss'],
+    standalone: false
 })
 export class RecurringDepositsAccountSettingsStepComponent implements OnInit, OnChanges {
   @Input() isNew = true;

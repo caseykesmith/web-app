@@ -24,9 +24,10 @@ import { AddEventDialogComponent } from '../add-event-dialog/add-event-dialog.co
  */
 
 @Component({
-  selector: 'mifosx-edit-hook',
-  templateUrl: './edit-hook.component.html',
-  styleUrls: ['./edit-hook.component.scss']
+    selector: 'mifosx-edit-hook',
+    templateUrl: './edit-hook.component.html',
+    styleUrls: ['./edit-hook.component.scss'],
+    standalone: false
 })
 export class EditHookComponent implements OnInit {
   @NgModule({

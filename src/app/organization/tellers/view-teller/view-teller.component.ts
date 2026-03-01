@@ -13,9 +13,10 @@ import { DeleteDialogComponent } from '../../../shared/delete-dialog/delete-dial
  * View Teller Component.
  */
 @Component({
-  selector: 'mifosx-view-teller',
-  templateUrl: './view-teller.component.html',
-  styleUrls: ['./view-teller.component.scss']
+    selector: 'mifosx-view-teller',
+    templateUrl: './view-teller.component.html',
+    styleUrls: ['./view-teller.component.scss'],
+    standalone: false
 })
 export class ViewTellerComponent {
   /** Teller data. */

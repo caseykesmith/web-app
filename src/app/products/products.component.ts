@@ -10,9 +10,10 @@ import { PopoverService } from '../configuration-wizard/popover/popover.service'
  * Products component.
  */
 @Component({
-  selector: 'mifosx-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss']
+    selector: 'mifosx-products',
+    templateUrl: './products.component.html',
+    styleUrls: ['./products.component.scss'],
+    standalone: false
 })
 export class ProductsComponent implements AfterViewInit {
   /* Reference of charges */

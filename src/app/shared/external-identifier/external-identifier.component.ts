@@ -3,9 +3,10 @@ import { Clipboard } from '@angular/cdk/clipboard';
 import { AlertService } from 'app/core/alert/alert.service';
 
 @Component({
-  selector: 'mifosx-external-identifier',
-  templateUrl: './external-identifier.component.html',
-  styleUrls: ['./external-identifier.component.scss']
+    selector: 'mifosx-external-identifier',
+    templateUrl: './external-identifier.component.html',
+    styleUrls: ['./external-identifier.component.scss'],
+    standalone: false
 })
 export class ExternalIdentifierComponent implements OnInit {
   @Input() externalId: string;

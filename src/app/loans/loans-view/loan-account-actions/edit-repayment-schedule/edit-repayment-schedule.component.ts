@@ -12,9 +12,10 @@ import { InputBase } from 'app/shared/form-dialog/formfield/model/input-base';
 import { SelectBase } from 'app/shared/form-dialog/formfield/model/select-base';
 
 @Component({
-  selector: 'mifosx-edit-repayment-schedule',
-  templateUrl: './edit-repayment-schedule.component.html',
-  styleUrls: ['./edit-repayment-schedule.component.scss']
+    selector: 'mifosx-edit-repayment-schedule',
+    templateUrl: './edit-repayment-schedule.component.html',
+    styleUrls: ['./edit-repayment-schedule.component.scss'],
+    standalone: false
 })
 export class EditRepaymentScheduleComponent implements OnInit {
   /** Loan ID. */
@@ -24,7 +25,7 @@ export class EditRepaymentScheduleComponent implements OnInit {
   /** Indicates If the Schedule has been validated */
   wasValidated = false;
   /** Stores the Repayment Schedule data */
-  repaymentScheduleDetails: any[] | null = null;
+  repaymentScheduleDetails: Record<string, any> | null = null;
   /** Stores the Installments changed */
   repaymentScheduleChanges: any = {};
 

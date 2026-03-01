@@ -11,9 +11,10 @@ import { ClientFamilyMemberDialogComponent } from './client-family-member-dialog
  * Client Family Members Step
  */
 @Component({
-  selector: 'mifosx-client-family-members-step',
-  templateUrl: './client-family-members-step.component.html',
-  styleUrls: ['./client-family-members-step.component.scss']
+    selector: 'mifosx-client-family-members-step',
+    templateUrl: './client-family-members-step.component.html',
+    styleUrls: ['./client-family-members-step.component.scss'],
+    standalone: false
 })
 export class ClientFamilyMembersStepComponent {
   /** Cient Template */

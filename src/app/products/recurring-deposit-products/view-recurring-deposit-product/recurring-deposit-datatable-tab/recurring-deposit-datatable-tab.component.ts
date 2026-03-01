@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'mifosx-recurring-deposit-datatable-tab',
-  templateUrl: './recurring-deposit-datatable-tab.component.html',
-  styleUrls: ['./recurring-deposit-datatable-tab.component.scss']
+    selector: 'mifosx-recurring-deposit-datatable-tab',
+    templateUrl: './recurring-deposit-datatable-tab.component.html',
+    styleUrls: ['./recurring-deposit-datatable-tab.component.scss'],
+    standalone: false
 })
 export class RecurringDepositDatatableTabComponent {
   entityId: string;

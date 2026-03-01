@@ -12,9 +12,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Accept Client Transfer Component
  */
 @Component({
-  selector: 'mifosx-accept-client-transfer',
-  templateUrl: './accept-client-transfer.component.html',
-  styleUrls: ['./accept-client-transfer.component.scss']
+    selector: 'mifosx-accept-client-transfer',
+    templateUrl: './accept-client-transfer.component.html',
+    styleUrls: ['./accept-client-transfer.component.scss'],
+    standalone: false
 })
 export class AcceptClientTransferComponent implements OnInit {
   /** Accept Client Transfer form. */

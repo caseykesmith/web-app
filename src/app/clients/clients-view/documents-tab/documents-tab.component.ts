@@ -6,9 +6,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { ClientsService } from '../../clients.service';
 
 @Component({
-  selector: 'mifosx-documents-tab',
-  templateUrl: './documents-tab.component.html',
-  styleUrls: ['./documents-tab.component.scss']
+    selector: 'mifosx-documents-tab',
+    templateUrl: './documents-tab.component.html',
+    styleUrls: ['./documents-tab.component.scss'],
+    standalone: false
 })
 export class DocumentsTabComponent {
   entityDocuments: any;

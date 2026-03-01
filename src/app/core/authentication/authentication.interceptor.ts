@@ -13,7 +13,7 @@ import { SettingsService } from 'app/settings/settings.service';
 const httpOptions = {
   headers: {
     'Fineract-Platform-TenantId': environment.fineractPlatformTenantId
-  }
+  } as Record<string, string>
 };
 
 /** Authorization header. */

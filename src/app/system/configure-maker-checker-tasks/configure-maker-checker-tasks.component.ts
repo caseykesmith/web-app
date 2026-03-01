@@ -9,14 +9,15 @@ import { ConfigurationWizardService } from '../../configuration-wizard/configura
 import { SystemService } from '../system.service';
 
 @Component({
-  selector: 'mifosx-configure-maker-checker-tasks',
-  templateUrl: './configure-maker-checker-tasks.component.html',
-  styleUrls: ['./configure-maker-checker-tasks.component.scss']
+    selector: 'mifosx-configure-maker-checker-tasks',
+    templateUrl: './configure-maker-checker-tasks.component.html',
+    styleUrls: ['./configure-maker-checker-tasks.component.scss'],
+    standalone: false
 })
 export class ConfigureMakerCheckerTasksComponent implements OnInit, AfterViewInit {
   permissionsData: any;
   groupings: string[] = [];
-  formData = {};
+  formData: Record<string, any> = {};
   isDisabled = true;
   newEntry: any;
   selectedItem = '';
@@ -29,9 +30,7 @@ export class ConfigureMakerCheckerTasksComponent implements OnInit, AfterViewIni
   permissions: {
     permissions: { code: string; id: number }[];
   };
-  tempPermissionUIData: {
-    permissions: { code: string }[];
-  }[];
+  tempPermissionUIData: Record<string, any>;
 
   /* Reference of edit button */
   @ViewChild('buttonEdit') buttonEdit: ElementRef<any>;
@@ -177,8 +176,8 @@ export class ConfigureMakerCheckerTasksComponent implements OnInit, AfterViewIni
 
   submit() {
     const value = this.formGroup.get('roster').value;
-    const data = {};
-    const permissionData = {
+    const data: Record<string, any> = {};
+    const permissionData: Record<string, any> = {
       permissions: {}
     };
     for (let i = 0; i < value.length; i++) {

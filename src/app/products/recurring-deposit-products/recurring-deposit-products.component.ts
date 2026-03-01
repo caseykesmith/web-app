@@ -20,9 +20,10 @@ import { NextStepDialogComponent } from '../../configuration-wizard/next-step-di
  * Recurring Deposit Products component.
  */
 @Component({
-  selector: 'mifosx-recurring-deposit-products',
-  templateUrl: './recurring-deposit-products.component.html',
-  styleUrls: ['./recurring-deposit-products.component.scss']
+    selector: 'mifosx-recurring-deposit-products',
+    templateUrl: './recurring-deposit-products.component.html',
+    styleUrls: ['./recurring-deposit-products.component.scss'],
+    standalone: false
 })
 export class RecurringDepositProductsComponent implements OnInit, AfterViewInit {
   /** Data table data. */

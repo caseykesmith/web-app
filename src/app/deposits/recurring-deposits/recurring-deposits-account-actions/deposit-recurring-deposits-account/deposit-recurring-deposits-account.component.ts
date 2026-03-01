@@ -13,9 +13,10 @@ import { Currency } from 'app/shared/models/general.model';
  * Deposits Recurring Deposits Account Component
  */
 @Component({
-  selector: 'mifosx-deposit-recurring-deposits-account',
-  templateUrl: './deposit-recurring-deposits-account.component.html',
-  styleUrls: ['./deposit-recurring-deposits-account.component.scss']
+    selector: 'mifosx-deposit-recurring-deposits-account',
+    templateUrl: './deposit-recurring-deposits-account.component.html',
+    styleUrls: ['./deposit-recurring-deposits-account.component.scss'],
+    standalone: false
 })
 export class DepositRecurringDepositsAccountComponent implements OnInit {
   @Input() currency: Currency;
@@ -40,7 +41,7 @@ export class DepositRecurringDepositsAccountComponent implements OnInit {
   action: string;
   actionName: string;
   transactionCommand: string;
-  transactionType: { deposit: boolean; withdrawal: boolean } = { deposit: false, withdrawal: false };
+  transactionType: { [key: string]: boolean; deposit: boolean; withdrawal: boolean } = { deposit: false, withdrawal: false };
 
   /**
    * Retrieves action details transactions template data from `resolve`

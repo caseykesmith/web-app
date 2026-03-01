@@ -6,9 +6,10 @@ import { TranslateService } from '@ngx-translate/core';
 import { DeleteDialogComponent } from 'app/shared/delete-dialog/delete-dialog.component';
 
 @Component({
-  selector: 'mifosx-loan-product-charges-step',
-  templateUrl: './loan-product-charges-step.component.html',
-  styleUrls: ['./loan-product-charges-step.component.scss']
+    selector: 'mifosx-loan-product-charges-step',
+    templateUrl: './loan-product-charges-step.component.html',
+    styleUrls: ['./loan-product-charges-step.component.scss'],
+    standalone: false
 })
 export class LoanProductChargesStepComponent implements OnInit {
   @Input() loanProductsTemplate: any;

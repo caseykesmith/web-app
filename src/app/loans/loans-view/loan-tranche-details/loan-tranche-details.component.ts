@@ -12,9 +12,10 @@ import { FormfieldBase } from 'app/shared/form-dialog/formfield/model/formfield-
 import { InputBase } from 'app/shared/form-dialog/formfield/model/input-base';
 
 @Component({
-  selector: 'mifosx-loan-tranche-details',
-  templateUrl: './loan-tranche-details.component.html',
-  styleUrls: ['./loan-tranche-details.component.scss']
+    selector: 'mifosx-loan-tranche-details',
+    templateUrl: './loan-tranche-details.component.html',
+    styleUrls: ['./loan-tranche-details.component.scss'],
+    standalone: false
 })
 export class LoanTrancheDetailsComponent implements OnInit {
   loanDetails: any;

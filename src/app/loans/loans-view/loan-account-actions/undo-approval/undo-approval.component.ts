@@ -9,9 +9,10 @@ import { LoansService } from 'app/loans/loans.service';
  * Undo Loan component.
  */
 @Component({
-  selector: 'mifosx-undo-approval',
-  templateUrl: './undo-approval.component.html',
-  styleUrls: ['./undo-approval.component.scss']
+    selector: 'mifosx-undo-approval',
+    templateUrl: './undo-approval.component.html',
+    styleUrls: ['./undo-approval.component.scss'],
+    standalone: false
 })
 export class UndoApprovalComponent implements OnInit {
   /** Form Controller. */

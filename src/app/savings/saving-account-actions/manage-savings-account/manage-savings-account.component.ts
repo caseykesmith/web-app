@@ -8,9 +8,10 @@ import { Currency } from 'app/shared/models/general.model';
 import { SystemService } from 'app/system/system.service';
 
 @Component({
-  selector: 'mifosx-manage-savings-account',
-  templateUrl: './manage-savings-account.component.html',
-  styleUrls: ['./manage-savings-account.component.scss']
+    selector: 'mifosx-manage-savings-account',
+    templateUrl: './manage-savings-account.component.html',
+    styleUrls: ['./manage-savings-account.component.scss'],
+    standalone: false
 })
 export class ManageSavingsAccountComponent implements OnInit {
   @Input() currency: Currency;
@@ -27,6 +28,7 @@ export class ManageSavingsAccountComponent implements OnInit {
   reasonOptions: any = [];
 
   transactionType: {
+    [key: string]: boolean;
     holdamount: boolean;
     blockaccount: boolean;
     blockdeposit: boolean;
@@ -130,7 +132,7 @@ export class ManageSavingsAccountComponent implements OnInit {
 
   submit() {
     let command = '';
-    let payload = {};
+    let payload: Record<string, any> = {};
 
     if (this.transactionType.holdamount) {
       const manageSavingsAccountFormData = this.manageSavingsAccountForm.value;

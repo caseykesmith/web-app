@@ -10,9 +10,10 @@ import { SavingsService } from 'app/savings/savings.service';
  * Undo Approval Savings Account Component
  */
 @Component({
-  selector: 'mifosx-undo-approval-savings-account',
-  templateUrl: './undo-approval-savings-account.component.html',
-  styleUrls: ['./undo-approval-savings-account.component.scss']
+    selector: 'mifosx-undo-approval-savings-account',
+    templateUrl: './undo-approval-savings-account.component.html',
+    styleUrls: ['./undo-approval-savings-account.component.scss'],
+    standalone: false
 })
 export class UndoApprovalSavingsAccountComponent implements OnInit {
   /** Undo Approval Savings Account form. */

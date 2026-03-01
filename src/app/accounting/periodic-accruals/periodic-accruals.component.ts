@@ -11,9 +11,10 @@ import { Dates } from 'app/core/utils/dates';
  * Periodic accruals component.
  */
 @Component({
-  selector: 'mifosx-periodic-accruals',
-  templateUrl: './periodic-accruals.component.html',
-  styleUrls: ['./periodic-accruals.component.scss']
+    selector: 'mifosx-periodic-accruals',
+    templateUrl: './periodic-accruals.component.html',
+    styleUrls: ['./periodic-accruals.component.scss'],
+    standalone: false
 })
 export class PeriodicAccrualsComponent implements OnInit {
   /** Minimum accrue date allowed. */

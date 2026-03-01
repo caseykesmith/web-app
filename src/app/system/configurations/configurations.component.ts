@@ -6,9 +6,10 @@ import { Subscription } from 'rxjs';
 import { SystemService } from '../system.service';
 
 @Component({
-  selector: 'mifosx-configurations',
-  templateUrl: './configurations.component.html',
-  styleUrls: ['./configurations.component.scss']
+    selector: 'mifosx-configurations',
+    templateUrl: './configurations.component.html',
+    styleUrls: ['./configurations.component.scss'],
+    standalone: false
 })
 export class ConfigurationsComponent implements OnInit {
   /** Subscription to alerts. */

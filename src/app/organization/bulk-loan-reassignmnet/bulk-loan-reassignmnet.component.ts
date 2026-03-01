@@ -12,9 +12,10 @@ import { Dates } from 'app/core/utils/dates';
  * Bulk Loan Reassignment component.
  */
 @Component({
-  selector: 'mifosx-bulk-loan-reassignmnet',
-  templateUrl: './bulk-loan-reassignmnet.component.html',
-  styleUrls: ['./bulk-loan-reassignmnet.component.scss']
+    selector: 'mifosx-bulk-loan-reassignmnet',
+    templateUrl: './bulk-loan-reassignmnet.component.html',
+    styleUrls: ['./bulk-loan-reassignmnet.component.scss'],
+    standalone: false
 })
 export class BulkLoanReassignmnetComponent implements OnInit {
   /** Bulk Loan form. */

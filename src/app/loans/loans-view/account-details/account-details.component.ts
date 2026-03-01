@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'mifosx-account-details',
-  templateUrl: './account-details.component.html',
-  styleUrls: ['./account-details.component.scss']
+    selector: 'mifosx-account-details',
+    templateUrl: './account-details.component.html',
+    styleUrls: ['./account-details.component.scss'],
+    standalone: false
 })
 export class AccountDetailsComponent {
   loanDetails: any;

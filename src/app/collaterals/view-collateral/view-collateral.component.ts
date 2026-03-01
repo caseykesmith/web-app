@@ -7,9 +7,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { DeleteDialogComponent } from '../../shared/delete-dialog/delete-dialog.component';
 
 @Component({
-  selector: 'mifosx-view-collateral',
-  templateUrl: './view-collateral.component.html',
-  styleUrls: ['./view-collateral.component.scss']
+    selector: 'mifosx-view-collateral',
+    templateUrl: './view-collateral.component.html',
+    styleUrls: ['./view-collateral.component.scss'],
+    standalone: false
 })
 export class ViewCollateralComponent {
   clientCollateralData: any;

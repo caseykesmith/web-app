@@ -10,9 +10,10 @@ import { ActivatedRoute } from '@angular/router';
  * Recurring Deposits Standing Instructions Tab
  */
 @Component({
-  selector: 'mifosx-list-transactions',
-  templateUrl: './list-transactions.component.html',
-  styleUrls: ['./list-transactions.component.scss']
+    selector: 'mifosx-list-transactions',
+    templateUrl: './list-transactions.component.html',
+    styleUrls: ['./list-transactions.component.scss'],
+    standalone: false
 })
 export class ListTransactionsComponent {
   /** List Transactions Data */

@@ -10,9 +10,10 @@ import { AuthenticationService } from '../../../../core/authentication/authentic
  * Take Survey Component
  */
 @Component({
-  selector: 'mifosx-take-survey',
-  templateUrl: './take-survey.component.html',
-  styleUrls: ['./take-survey.component.scss']
+    selector: 'mifosx-take-survey',
+    templateUrl: './take-survey.component.html',
+    styleUrls: ['./take-survey.component.scss'],
+    standalone: false
 })
 export class TakeSurveyComponent {
   /** List of all Survey Data */
@@ -72,7 +73,7 @@ export class TakeSurveyComponent {
 
   // TODO: document the function
   groupBy(array: any, func: any) {
-    const groups = {};
+    const groups: Record<string, any[]> = {};
     array.forEach((ele: any) => {
       const group = JSON.stringify(func(ele));
       groups[group] = groups[group] || [];

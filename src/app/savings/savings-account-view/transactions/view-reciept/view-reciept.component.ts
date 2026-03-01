@@ -7,9 +7,10 @@ import { ActivatedRoute } from '@angular/router';
  * View Transaction Reciept Component
  */
 @Component({
-  selector: 'mifosx-view-reciept',
-  templateUrl: './view-reciept.component.html',
-  styleUrls: ['./view-reciept.component.scss']
+    selector: 'mifosx-view-reciept',
+    templateUrl: './view-reciept.component.html',
+    styleUrls: ['./view-reciept.component.scss'],
+    standalone: false
 })
 export class ViewRecieptComponent implements OnInit {
   /** trusted resource url for pentaho output */

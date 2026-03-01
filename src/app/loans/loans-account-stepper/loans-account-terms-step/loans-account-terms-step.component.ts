@@ -19,9 +19,10 @@ import { CodeName, OptionData } from 'app/shared/models/option-data.model';
  * Create Loans Account Terms Step
  */
 @Component({
-  selector: 'mifosx-loans-account-terms-step',
-  templateUrl: './loans-account-terms-step.component.html',
-  styleUrls: ['./loans-account-terms-step.component.scss']
+    selector: 'mifosx-loans-account-terms-step',
+    templateUrl: './loans-account-terms-step.component.html',
+    styleUrls: ['./loans-account-terms-step.component.scss'],
+    standalone: false
 })
 export class LoansAccountTermsStepComponent implements OnInit, OnChanges {
   /** Loans Product Options */
@@ -509,7 +510,7 @@ export class LoansAccountTermsStepComponent implements OnInit, OnChanges {
     });
     dialogRef.afterClosed().subscribe((response: any) => {
       if (response.delete) {
-        const principal = this.disbursementDataSource[index]['principal'] * 1;
+        const principal = (this.disbursementDataSource[index] as Record<string, any>)['principal'] * 1;
         this.disbursementDataSource.splice(index, 1);
         this.disbursementDataSource = this.disbursementDataSource.concat([]);
         this.totalMultiDisbursed -= principal;

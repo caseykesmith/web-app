@@ -5,8 +5,9 @@ import { Component } from '@angular/core';
  * External Services component.
  */
 @Component({
-  selector: 'mifosx-external-services',
-  templateUrl: './external-services.component.html'
+    selector: 'mifosx-external-services',
+    templateUrl: './external-services.component.html',
+    standalone: false
 })
 export class ExternalServicesComponent {
   // Initialize an array of 4 boolean values, all set to false

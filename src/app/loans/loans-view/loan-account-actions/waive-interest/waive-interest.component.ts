@@ -13,9 +13,10 @@ import { Currency } from 'app/shared/models/general.model';
  * Waive Interest component.
  */
 @Component({
-  selector: 'mifosx-waive-interest',
-  templateUrl: './waive-interest.component.html',
-  styleUrls: ['./waive-interest.component.scss']
+    selector: 'mifosx-waive-interest',
+    templateUrl: './waive-interest.component.html',
+    styleUrls: ['./waive-interest.component.scss'],
+    standalone: false
 })
 export class WaiveInterestComponent implements OnInit {
   @Input() dataObject: any;

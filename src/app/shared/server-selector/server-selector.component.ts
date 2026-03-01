@@ -10,9 +10,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Server Selector Component
  */
 @Component({
-  selector: 'mifosx-server-selector',
-  templateUrl: './server-selector.component.html',
-  styleUrls: ['./server-selector.component.scss']
+    selector: 'mifosx-server-selector',
+    templateUrl: './server-selector.component.html',
+    styleUrls: ['./server-selector.component.scss'],
+    standalone: false
 })
 export class ServerSelectorComponent implements OnInit {
   /** Input server. */

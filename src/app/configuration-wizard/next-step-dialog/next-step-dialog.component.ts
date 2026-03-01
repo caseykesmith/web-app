@@ -6,9 +6,10 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
  * Next Step Dialog Component.
  */
 @Component({
-  selector: 'mifosx-next-step-dialog',
-  templateUrl: './next-step-dialog.component.html',
-  styleUrls: ['./next-step-dialog.component.scss']
+    selector: 'mifosx-next-step-dialog',
+    templateUrl: './next-step-dialog.component.html',
+    styleUrls: ['./next-step-dialog.component.scss'],
+    standalone: false
 })
 export class NextStepDialogComponent {
   /* Step Percentage */

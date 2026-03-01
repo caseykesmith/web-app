@@ -9,9 +9,10 @@ import { ActivatedRoute } from '@angular/router';
  * Overdue charges tab component
  */
 @Component({
-  selector: 'mifosx-overdue-charges-tab',
-  templateUrl: './overdue-charges-tab.component.html',
-  styleUrls: ['./overdue-charges-tab.component.scss']
+    selector: 'mifosx-overdue-charges-tab',
+    templateUrl: './overdue-charges-tab.component.html',
+    styleUrls: ['./overdue-charges-tab.component.scss'],
+    standalone: false
 })
 export class OverdueChargesTabComponent implements OnInit {
   /** Stores the resolved loan data */

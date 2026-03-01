@@ -14,9 +14,10 @@ import { GroupsService } from '../groups.service';
  * Groups View Component.
  */
 @Component({
-  selector: 'mifosx-groups-view',
-  templateUrl: './groups-view.component.html',
-  styleUrls: ['./groups-view.component.scss']
+    selector: 'mifosx-groups-view',
+    templateUrl: './groups-view.component.html',
+    styleUrls: ['./groups-view.component.scss'],
+    standalone: false
 })
 export class GroupsViewComponent {
   /** Group view data */

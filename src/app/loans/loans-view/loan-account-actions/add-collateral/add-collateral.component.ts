@@ -10,9 +10,10 @@ import { LoansService } from 'app/loans/loans.service';
  * Add Collateral component.
  */
 @Component({
-  selector: 'mifosx-add-collateral',
-  templateUrl: './add-collateral.component.html',
-  styleUrls: ['./add-collateral.component.scss']
+    selector: 'mifosx-add-collateral',
+    templateUrl: './add-collateral.component.html',
+    styleUrls: ['./add-collateral.component.scss'],
+    standalone: false
 })
 export class AddCollateralComponent implements OnInit {
   @Input() dataObject: any;

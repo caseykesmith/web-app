@@ -14,9 +14,10 @@ import { Location } from '@angular/common';
  * View gl account component.
  */
 @Component({
-  selector: 'mifosx-view-gl-account',
-  templateUrl: './view-gl-account.component.html',
-  styleUrls: ['./view-gl-account.component.scss']
+    selector: 'mifosx-view-gl-account',
+    templateUrl: './view-gl-account.component.html',
+    styleUrls: ['./view-gl-account.component.scss'],
+    standalone: false
 })
 export class ViewGlAccountComponent {
   /** GL Account. */

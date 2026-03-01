@@ -12,9 +12,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Group Meetings Component
  */
 @Component({
-  selector: 'mifosx-attach-group-meeting',
-  templateUrl: './attach-group-meeting.component.html',
-  styleUrls: ['./attach-group-meeting.component.scss']
+    selector: 'mifosx-attach-group-meeting',
+    templateUrl: './attach-group-meeting.component.html',
+    styleUrls: ['./attach-group-meeting.component.scss'],
+    standalone: false
 })
 export class AttachGroupMeetingComponent implements OnInit {
   /** Minimum date allowed. */

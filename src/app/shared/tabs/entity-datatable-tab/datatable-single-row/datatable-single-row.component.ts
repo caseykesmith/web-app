@@ -10,9 +10,10 @@ import { FormfieldBase } from 'app/shared/form-dialog/formfield/model/formfield-
 import { SystemService } from 'app/system/system.service';
 
 @Component({
-  selector: 'mifosx-datatable-single-row',
-  templateUrl: './datatable-single-row.component.html',
-  styleUrls: ['./datatable-single-row.component.scss']
+    selector: 'mifosx-datatable-single-row',
+    templateUrl: './datatable-single-row.component.html',
+    styleUrls: ['./datatable-single-row.component.scss'],
+    standalone: false
 })
 export class DatatableSingleRowComponent implements OnInit {
   @Input() dataObject: any;

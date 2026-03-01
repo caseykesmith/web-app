@@ -3,9 +3,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Currency } from 'app/shared/models/general.model';
 
 @Component({
-  selector: 'mifosx-general-tab',
-  templateUrl: './general-tab.component.html',
-  styleUrls: ['./general-tab.component.scss']
+    selector: 'mifosx-general-tab',
+    templateUrl: './general-tab.component.html',
+    styleUrls: ['./general-tab.component.scss'],
+    standalone: false
 })
 export class GeneralTabComponent {
   recurringDepositsAccountData: any;

@@ -6,9 +6,10 @@ import { LoanAccountTableComponent } from '../loan-account-table/loan-account-ta
 import { SavingsAccountTableComponent } from '../savings-account-table/savings-account-table.component';
 
 @Component({
-  selector: 'mifosx-group-navigation',
-  templateUrl: './group-navigation.component.html',
-  styleUrls: ['./group-navigation.component.scss']
+    selector: 'mifosx-group-navigation',
+    templateUrl: './group-navigation.component.html',
+    styleUrls: ['./group-navigation.component.scss'],
+    standalone: false
 })
 export class GroupNavigationComponent {
   @ViewChild(LoanAccountTableComponent) loanAccountTableComponent: LoanAccountTableComponent;

@@ -9,9 +9,10 @@ import { ActivatedRoute } from '@angular/router';
  * GSIM Accounts Overview component.
  */
 @Component({
-  selector: 'mifosx-glim-account',
-  templateUrl: './glim-account.component.html',
-  styleUrls: ['./glim-account.component.scss']
+    selector: 'mifosx-glim-account',
+    templateUrl: './glim-account.component.html',
+    styleUrls: ['./glim-account.component.scss'],
+    standalone: false
 })
 export class GlimAccountComponent implements OnInit {
   /** Columns to be displayed in GLIM overview table. */

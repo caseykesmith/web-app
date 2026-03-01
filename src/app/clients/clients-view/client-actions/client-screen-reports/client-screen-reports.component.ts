@@ -11,9 +11,10 @@ import { DomSanitizer } from '@angular/platform-browser';
  * Client Screen Reports Component.
  */
 @Component({
-  selector: 'mifosx-client-screen-reports',
-  templateUrl: './client-screen-reports.component.html',
-  styleUrls: ['./client-screen-reports.component.scss']
+    selector: 'mifosx-client-screen-reports',
+    templateUrl: './client-screen-reports.component.html',
+    styleUrls: ['./client-screen-reports.component.scss'],
+    standalone: false
 })
 export class ClientScreenReportsComponent implements OnInit {
   /** Client Screen Reportform. */

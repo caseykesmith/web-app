@@ -12,9 +12,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Edit Group Meetings Schedule Component
  */
 @Component({
-  selector: 'mifosx-edit-group-meeting-schedule',
-  templateUrl: './edit-group-meeting-schedule.component.html',
-  styleUrls: ['./edit-group-meeting-schedule.component.scss']
+    selector: 'mifosx-edit-group-meeting-schedule',
+    templateUrl: './edit-group-meeting-schedule.component.html',
+    styleUrls: ['./edit-group-meeting-schedule.component.scss'],
+    standalone: false
 })
 export class EditGroupMeetingScheduleComponent implements OnInit {
   /** Minimum date allowed. */

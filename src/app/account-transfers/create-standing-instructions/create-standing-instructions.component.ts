@@ -12,9 +12,10 @@ import { Dates } from 'app/core/utils/dates';
  * Create Standing Instructions
  */
 @Component({
-  selector: 'mifosx-create-standing-instructions',
-  templateUrl: './create-standing-instructions.component.html',
-  styleUrls: ['./create-standing-instructions.component.scss']
+    selector: 'mifosx-create-standing-instructions',
+    templateUrl: './create-standing-instructions.component.html',
+    styleUrls: ['./create-standing-instructions.component.scss'],
+    standalone: false
 })
 export class CreateStandingInstructionsComponent implements OnInit {
   /** Standing Instructions Data */
@@ -263,7 +264,7 @@ export class CreateStandingInstructionsComponent implements OnInit {
   /** Refine Object
    * Removes the object param with null or '' values
    */
-  refineObject(dataObj: Object) {
+  refineObject(dataObj: Record<string, any>) {
     const propNames = Object.getOwnPropertyNames(dataObj);
     for (let i = 0; i < propNames.length; i++) {
       const propName = propNames[i];

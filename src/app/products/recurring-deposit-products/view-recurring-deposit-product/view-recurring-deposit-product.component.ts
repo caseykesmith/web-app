@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'mifosx-view-recurring-deposit-product',
-  templateUrl: './view-recurring-deposit-product.component.html',
-  styleUrls: ['./view-recurring-deposit-product.component.scss']
+    selector: 'mifosx-view-recurring-deposit-product',
+    templateUrl: './view-recurring-deposit-product.component.html',
+    styleUrls: ['./view-recurring-deposit-product.component.scss'],
+    standalone: false
 })
 export class ViewRecurringDepositProductComponent {
   recurringDepositDatatables: any = [];

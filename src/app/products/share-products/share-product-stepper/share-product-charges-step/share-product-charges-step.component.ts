@@ -6,9 +6,10 @@ import { TranslateService } from '@ngx-translate/core';
 import { DeleteDialogComponent } from 'app/shared/delete-dialog/delete-dialog.component';
 
 @Component({
-  selector: 'mifosx-share-product-charges-step',
-  templateUrl: './share-product-charges-step.component.html',
-  styleUrls: ['./share-product-charges-step.component.scss']
+    selector: 'mifosx-share-product-charges-step',
+    templateUrl: './share-product-charges-step.component.html',
+    styleUrls: ['./share-product-charges-step.component.scss'],
+    standalone: false
 })
 export class ShareProductChargesStepComponent implements OnInit {
   @Input() shareProductsTemplate: any;

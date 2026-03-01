@@ -12,9 +12,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Savings Account Unassign Staff Component
  */
 @Component({
-  selector: 'mifosx-savings-account-unassign-staff',
-  templateUrl: './savings-account-unassign-staff.component.html',
-  styleUrls: ['./savings-account-unassign-staff.component.scss']
+    selector: 'mifosx-savings-account-unassign-staff',
+    templateUrl: './savings-account-unassign-staff.component.html',
+    styleUrls: ['./savings-account-unassign-staff.component.scss'],
+    standalone: false
 })
 export class SavingsAccountUnassignStaffComponent implements OnInit {
   /** Minimum date allowed. */

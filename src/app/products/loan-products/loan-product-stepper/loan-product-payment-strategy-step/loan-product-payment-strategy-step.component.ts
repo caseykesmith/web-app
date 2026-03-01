@@ -17,9 +17,10 @@ import { MatTabGroup } from '@angular/material/tabs';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'mifosx-loan-product-payment-strategy-step',
-  templateUrl: './loan-product-payment-strategy-step.component.html',
-  styleUrls: ['./loan-product-payment-strategy-step.component.scss']
+    selector: 'mifosx-loan-product-payment-strategy-step',
+    templateUrl: './loan-product-payment-strategy-step.component.html',
+    styleUrls: ['./loan-product-payment-strategy-step.component.scss'],
+    standalone: false
 })
 export class LoanProductPaymentStrategyStepComponent implements OnInit {
   @Input() advancedPaymentAllocations: AdvancedPaymentAllocation[] = [];

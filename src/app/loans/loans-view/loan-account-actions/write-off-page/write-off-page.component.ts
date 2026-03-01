@@ -12,9 +12,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Write Off component.
  */
 @Component({
-  selector: 'mifosx-write-off-page',
-  templateUrl: './write-off-page.component.html',
-  styleUrls: ['./write-off-page.component.scss']
+    selector: 'mifosx-write-off-page',
+    templateUrl: './write-off-page.component.html',
+    styleUrls: ['./write-off-page.component.scss'],
+    standalone: false
 })
 export class WriteOffPageComponent implements OnInit {
   @Input() dataObject: any;

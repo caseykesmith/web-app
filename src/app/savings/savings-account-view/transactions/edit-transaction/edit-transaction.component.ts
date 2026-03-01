@@ -13,9 +13,10 @@ import { Currency } from 'app/shared/models/general.model';
  * Edit Transaction component.
  */
 @Component({
-  selector: 'mifosx-edit-transaction',
-  templateUrl: './edit-transaction.component.html',
-  styleUrls: ['./edit-transaction.component.scss']
+    selector: 'mifosx-edit-transaction',
+    templateUrl: './edit-transaction.component.html',
+    styleUrls: ['./edit-transaction.component.scss'],
+    standalone: false
 })
 export class EditTransactionComponent implements OnInit {
   /** Minimum Due Date allowed. */

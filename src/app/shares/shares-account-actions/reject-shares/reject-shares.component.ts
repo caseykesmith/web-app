@@ -18,9 +18,10 @@ import { SettingsService } from 'app/settings/settings.service';
  * Reject shares component.
  */
 @Component({
-  selector: 'mifosx-reject-shares',
-  templateUrl: './reject-shares.component.html',
-  styleUrls: ['./reject-shares.component.scss']
+    selector: 'mifosx-reject-shares',
+    templateUrl: './reject-shares.component.html',
+    styleUrls: ['./reject-shares.component.scss'],
+    standalone: false
 })
 export class RejectSharesComponent implements OnInit {
   /** Shares account data. */

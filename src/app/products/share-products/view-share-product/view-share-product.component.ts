@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'mifosx-view-share-product',
-  templateUrl: './view-share-product.component.html',
-  styleUrls: ['./view-share-product.component.scss']
+    selector: 'mifosx-view-share-product',
+    templateUrl: './view-share-product.component.html',
+    styleUrls: ['./view-share-product.component.scss'],
+    standalone: false
 })
 export class ViewShareProductComponent {
   shareProductDatatables: any = [];

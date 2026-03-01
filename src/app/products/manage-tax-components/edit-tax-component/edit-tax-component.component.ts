@@ -13,9 +13,10 @@ import { TranslateService } from '@ngx-translate/core';
  * Edit tax component.
  */
 @Component({
-  selector: 'mifosx-edit-tax-component',
-  templateUrl: './edit-tax-component.component.html',
-  styleUrls: ['./edit-tax-component.component.scss']
+    selector: 'mifosx-edit-tax-component',
+    templateUrl: './edit-tax-component.component.html',
+    styleUrls: ['./edit-tax-component.component.scss'],
+    standalone: false
 })
 export class EditTaxComponentComponent implements OnInit {
   /** Minimum date allowed. */

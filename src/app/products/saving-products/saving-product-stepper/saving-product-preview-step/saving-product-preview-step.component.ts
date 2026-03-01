@@ -3,9 +3,10 @@ import { Accounting } from 'app/core/utils/accounting';
 import { OptionData } from 'app/shared/models/option-data.model';
 
 @Component({
-  selector: 'mifosx-saving-product-preview-step',
-  templateUrl: './saving-product-preview-step.component.html',
-  styleUrls: ['./saving-product-preview-step.component.scss']
+    selector: 'mifosx-saving-product-preview-step',
+    templateUrl: './saving-product-preview-step.component.html',
+    styleUrls: ['./saving-product-preview-step.component.scss'],
+    standalone: false
 })
 export class SavingProductPreviewStepComponent implements OnInit, OnChanges {
   @Input() savingProductsTemplate: any;

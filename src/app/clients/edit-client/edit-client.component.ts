@@ -12,9 +12,10 @@ import { Dates } from 'app/core/utils/dates';
  * Edit Client Component
  */
 @Component({
-  selector: 'mifosx-edit-client',
-  templateUrl: './edit-client.component.html',
-  styleUrls: ['./edit-client.component.scss']
+    selector: 'mifosx-edit-client',
+    templateUrl: './edit-client.component.html',
+    styleUrls: ['./edit-client.component.scss'],
+    standalone: false
 })
 export class EditClientComponent implements OnInit {
   /** Minimum date allowed. */

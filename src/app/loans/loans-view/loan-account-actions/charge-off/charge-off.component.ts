@@ -6,9 +6,10 @@ import { LoansService } from 'app/loans/loans.service';
 import { SettingsService } from 'app/settings/settings.service';
 
 @Component({
-  selector: 'mifosx-charge-off',
-  templateUrl: './charge-off.component.html',
-  styleUrls: ['./charge-off.component.scss']
+    selector: 'mifosx-charge-off',
+    templateUrl: './charge-off.component.html',
+    styleUrls: ['./charge-off.component.scss'],
+    standalone: false
 })
 export class ChargeOffComponent implements OnInit {
   @Input() dataObject: any;

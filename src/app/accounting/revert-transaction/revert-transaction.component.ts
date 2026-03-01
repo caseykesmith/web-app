@@ -7,9 +7,10 @@ import { UntypedFormControl } from '@angular/forms';
  * Revert transaction dialog component.
  */
 @Component({
-  selector: 'mifosx-revert-transaction',
-  templateUrl: './revert-transaction.component.html',
-  styleUrls: ['./revert-transaction.component.scss']
+    selector: 'mifosx-revert-transaction',
+    templateUrl: './revert-transaction.component.html',
+    styleUrls: ['./revert-transaction.component.scss'],
+    standalone: false
 })
 export class RevertTransactionComponent {
   /** Comments input form control. */

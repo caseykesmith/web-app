@@ -17,9 +17,10 @@ import { GLAccount } from 'app/shared/models/general.model';
  * Create gl account component.
  */
 @Component({
-  selector: 'mifosx-create-gl-account',
-  templateUrl: './create-gl-account.component.html',
-  styleUrls: ['./create-gl-account.component.scss']
+    selector: 'mifosx-create-gl-account',
+    templateUrl: './create-gl-account.component.html',
+    styleUrls: ['./create-gl-account.component.scss'],
+    standalone: false
 })
 export class CreateGlAccountComponent implements OnInit, AfterViewInit {
   /** GL account form. */

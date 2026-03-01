@@ -2,9 +2,10 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'mifosx-office-navigation',
-  templateUrl: './office-navigation.component.html',
-  styleUrls: ['./office-navigation.component.scss']
+    selector: 'mifosx-office-navigation',
+    templateUrl: './office-navigation.component.html',
+    styleUrls: ['./office-navigation.component.scss'],
+    standalone: false
 })
 export class OfficeNavigationComponent {
   @Input() officeData: any;

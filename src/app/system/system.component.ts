@@ -7,9 +7,10 @@ import { ConfigurationWizardService } from '../configuration-wizard/configuratio
 import { PopoverService } from '../configuration-wizard/popover/popover.service';
 
 @Component({
-  selector: 'mifosx-system',
-  templateUrl: './system.component.html',
-  styleUrls: ['./system.component.scss']
+    selector: 'mifosx-system',
+    templateUrl: './system.component.html',
+    styleUrls: ['./system.component.scss'],
+    standalone: false
 })
 export class SystemComponent implements AfterViewInit {
   /* Reference of manage datatables */

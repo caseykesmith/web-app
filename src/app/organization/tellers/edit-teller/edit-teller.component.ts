@@ -13,9 +13,10 @@ import { Dates } from 'app/core/utils/dates';
  */
 
 @Component({
-  selector: 'mifosx-edit-teller',
-  templateUrl: './edit-teller.component.html',
-  styleUrls: ['./edit-teller.component.scss']
+    selector: 'mifosx-edit-teller',
+    templateUrl: './edit-teller.component.html',
+    styleUrls: ['./edit-teller.component.scss'],
+    standalone: false
 })
 export class EditTellerComponent implements OnInit {
   /** Minimum date allowed. */

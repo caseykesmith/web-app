@@ -2,9 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'mifosx-recurring-deposit-product-terms-step',
-  templateUrl: './recurring-deposit-product-terms-step.component.html',
-  styleUrls: ['./recurring-deposit-product-terms-step.component.scss']
+    selector: 'mifosx-recurring-deposit-product-terms-step',
+    templateUrl: './recurring-deposit-product-terms-step.component.html',
+    styleUrls: ['./recurring-deposit-product-terms-step.component.scss'],
+    standalone: false
 })
 export class RecurringDepositProductTermsStepComponent implements OnInit {
   @Input() recurringDepositProductsTemplate: any;

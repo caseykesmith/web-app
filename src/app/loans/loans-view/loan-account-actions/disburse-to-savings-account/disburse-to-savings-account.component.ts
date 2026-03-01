@@ -7,9 +7,10 @@ import { SettingsService } from 'app/settings/settings.service';
 import { Currency } from 'app/shared/models/general.model';
 
 @Component({
-  selector: 'mifosx-disburse-to-savings-account',
-  templateUrl: './disburse-to-savings-account.component.html',
-  styleUrls: ['./disburse-to-savings-account.component.scss']
+    selector: 'mifosx-disburse-to-savings-account',
+    templateUrl: './disburse-to-savings-account.component.html',
+    styleUrls: ['./disburse-to-savings-account.component.scss'],
+    standalone: false
 })
 export class DisburseToSavingsAccountComponent implements OnInit {
   @Input() dataObject: any;

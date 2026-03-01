@@ -12,9 +12,10 @@ import { SystemService } from 'app/system/system.service';
 import { JobStep } from './workflow-diagram/workflow-diagram.component';
 
 @Component({
-  selector: 'mifosx-workflow-jobs',
-  templateUrl: './workflow-jobs.component.html',
-  styleUrls: ['./workflow-jobs.component.scss']
+    selector: 'mifosx-workflow-jobs',
+    templateUrl: './workflow-jobs.component.html',
+    styleUrls: ['./workflow-jobs.component.scss'],
+    standalone: false
 })
 export class WorkflowJobsComponent implements OnInit {
   stepOrderHasChanged = false;

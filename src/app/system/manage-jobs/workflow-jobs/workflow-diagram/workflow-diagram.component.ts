@@ -10,9 +10,10 @@ export class JobStep {
 }
 
 @Component({
-  selector: 'mifosx-workflow-diagram',
-  templateUrl: './workflow-diagram.component.html',
-  styleUrls: ['./workflow-diagram.component.scss']
+    selector: 'mifosx-workflow-diagram',
+    templateUrl: './workflow-diagram.component.html',
+    styleUrls: ['./workflow-diagram.component.scss'],
+    standalone: false
 })
 export class WorkflowDiagramComponent implements OnInit {
   @Input() jobStepsData: JobStep[] = [];

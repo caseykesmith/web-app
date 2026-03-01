@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'mifosx-saving-product-datatable-tab',
-  templateUrl: './saving-product-datatable-tab.component.html',
-  styleUrls: ['./saving-product-datatable-tab.component.scss']
+    selector: 'mifosx-saving-product-datatable-tab',
+    templateUrl: './saving-product-datatable-tab.component.html',
+    styleUrls: ['./saving-product-datatable-tab.component.scss'],
+    standalone: false
 })
 export class SavingProductDatatableTabComponent {
   entityId: string;

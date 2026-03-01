@@ -10,9 +10,10 @@ import { FormfieldBase } from 'app/shared/form-dialog/formfield/model/formfield-
 import { SelectBase } from 'app/shared/form-dialog/formfield/model/select-base';
 
 @Component({
-  selector: 'mifosx-edit-bucket',
-  templateUrl: './edit-bucket.component.html',
-  styleUrls: ['./edit-bucket.component.scss']
+    selector: 'mifosx-edit-bucket',
+    templateUrl: './edit-bucket.component.html',
+    styleUrls: ['./edit-bucket.component.scss'],
+    standalone: false
 })
 export class EditBucketComponent implements OnInit {
   /** Delinquency Bucket form. */

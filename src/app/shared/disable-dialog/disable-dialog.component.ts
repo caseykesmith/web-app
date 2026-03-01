@@ -6,9 +6,10 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
  * Disable dialog component.
  */
 @Component({
-  selector: 'mifosx-disable-dialog',
-  templateUrl: './disable-dialog.component.html',
-  styleUrls: ['./disable-dialog.component.scss']
+    selector: 'mifosx-disable-dialog',
+    templateUrl: './disable-dialog.component.html',
+    styleUrls: ['./disable-dialog.component.scss'],
+    standalone: false
 })
 export class DisableDialogComponent {
   /**

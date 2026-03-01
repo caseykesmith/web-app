@@ -21,9 +21,10 @@ import { Currency } from 'app/shared/models/general.model';
  * Fixed Deposits Account View Component
  */
 @Component({
-  selector: 'mifosx-fixed-deposit-account-view',
-  templateUrl: './fixed-deposit-account-view.component.html',
-  styleUrls: ['./fixed-deposit-account-view.component.scss']
+    selector: 'mifosx-fixed-deposit-account-view',
+    templateUrl: './fixed-deposit-account-view.component.html',
+    styleUrls: ['./fixed-deposit-account-view.component.scss'],
+    standalone: false
 })
 export class FixedDepositAccountViewComponent implements OnInit {
   /** Fixed Deposits Account Data */

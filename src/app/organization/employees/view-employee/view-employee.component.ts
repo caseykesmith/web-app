@@ -6,9 +6,10 @@ import { ActivatedRoute } from '@angular/router';
  * View Employee Component.
  */
 @Component({
-  selector: 'mifosx-view-employee',
-  templateUrl: './view-employee.component.html',
-  styleUrls: ['./view-employee.component.scss']
+    selector: 'mifosx-view-employee',
+    templateUrl: './view-employee.component.html',
+    styleUrls: ['./view-employee.component.scss'],
+    standalone: false
 })
 export class ViewEmployeeComponent {
   /** Employee data. */

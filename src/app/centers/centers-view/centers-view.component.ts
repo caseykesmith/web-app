@@ -14,9 +14,10 @@ import { TranslateService } from '@ngx-translate/core';
  * Create Center View
  */
 @Component({
-  selector: 'mifosx-centers-view',
-  templateUrl: './centers-view.component.html',
-  styleUrls: ['./centers-view.component.scss']
+    selector: 'mifosx-centers-view',
+    templateUrl: './centers-view.component.html',
+    styleUrls: ['./centers-view.component.scss'],
+    standalone: false
 })
 export class CentersViewComponent implements OnInit {
   /** Stores Center View Data */

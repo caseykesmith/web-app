@@ -18,9 +18,10 @@ import { AddEventDialogComponent } from '../add-event-dialog/add-event-dialog.co
  * Create Hook Component.
  */
 @Component({
-  selector: 'mifosx-create-hook',
-  templateUrl: './create-hook.component.html',
-  styleUrls: ['./create-hook.component.scss']
+    selector: 'mifosx-create-hook',
+    templateUrl: './create-hook.component.html',
+    styleUrls: ['./create-hook.component.scss'],
+    standalone: false
 })
 export class CreateHookComponent implements OnInit {
   /** Hooks Template Data. */

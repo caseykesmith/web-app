@@ -23,9 +23,10 @@ import { Dates } from 'app/core/utils/dates';
  * View Charge Component.
  */
 @Component({
-  selector: 'mifosx-view-charge',
-  templateUrl: './view-charge.component.html',
-  styleUrls: ['./view-charge.component.scss']
+    selector: 'mifosx-view-charge',
+    templateUrl: './view-charge.component.html',
+    styleUrls: ['./view-charge.component.scss'],
+    standalone: false
 })
 export class ViewChargeComponent {
   /** Charge data. */

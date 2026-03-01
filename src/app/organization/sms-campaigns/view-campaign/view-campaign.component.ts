@@ -22,9 +22,10 @@ import { Dates } from 'app/core/utils/dates';
  * View SMS Campaign Component
  */
 @Component({
-  selector: 'mifosx-view-campaign',
-  templateUrl: './view-campaign.component.html',
-  styleUrls: ['./view-campaign.component.scss']
+    selector: 'mifosx-view-campaign',
+    templateUrl: './view-campaign.component.html',
+    styleUrls: ['./view-campaign.component.scss'],
+    standalone: false
 })
 export class ViewCampaignComponent implements OnInit {
   /** Minimum date allowed. */

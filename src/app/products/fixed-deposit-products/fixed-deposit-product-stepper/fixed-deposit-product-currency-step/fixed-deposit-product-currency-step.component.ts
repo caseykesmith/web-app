@@ -2,9 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'mifosx-fixed-deposit-product-currency-step',
-  templateUrl: './fixed-deposit-product-currency-step.component.html',
-  styleUrls: ['./fixed-deposit-product-currency-step.component.scss']
+    selector: 'mifosx-fixed-deposit-product-currency-step',
+    templateUrl: './fixed-deposit-product-currency-step.component.html',
+    styleUrls: ['./fixed-deposit-product-currency-step.component.scss'],
+    standalone: false
 })
 export class FixedDepositProductCurrencyStepComponent implements OnInit {
   @Input() fixedDepositProductsTemplate: any;

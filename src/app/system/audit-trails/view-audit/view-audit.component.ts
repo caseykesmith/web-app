@@ -9,9 +9,10 @@ import { MatTableDataSource } from '@angular/material/table';
  * View Audit Component.
  */
 @Component({
-  selector: 'mifosx-view-audit',
-  templateUrl: './view-audit.component.html',
-  styleUrls: ['./view-audit.component.scss']
+    selector: 'mifosx-view-audit',
+    templateUrl: './view-audit.component.html',
+    styleUrls: ['./view-audit.component.scss'],
+    standalone: false
 })
 export class ViewAuditComponent implements OnInit {
   /** Audit Trail Data. */

@@ -25,9 +25,10 @@ import { TranslateService } from '@ngx-translate/core';
  * TODO: Add support for account transfers.
  */
 @Component({
-  selector: 'mifosx-view-transaction',
-  templateUrl: './view-transaction.component.html',
-  styleUrls: ['./view-transaction.component.scss']
+    selector: 'mifosx-view-transaction',
+    templateUrl: './view-transaction.component.html',
+    styleUrls: ['./view-transaction.component.scss'],
+    standalone: false
 })
 export class ViewTransactionComponent implements OnInit {
   /** Transaction data. */

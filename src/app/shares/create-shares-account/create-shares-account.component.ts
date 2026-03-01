@@ -16,9 +16,10 @@ import { Dates } from 'app/core/utils/dates';
  * Create Shares Account Component
  */
 @Component({
-  selector: 'mifosx-create-shares-account',
-  templateUrl: './create-shares-account.component.html',
-  styleUrls: ['./create-shares-account.component.scss']
+    selector: 'mifosx-create-shares-account',
+    templateUrl: './create-shares-account.component.html',
+    styleUrls: ['./create-shares-account.component.scss'],
+    standalone: false
 })
 export class CreateSharesAccountComponent {
   /** Shares Account Template */

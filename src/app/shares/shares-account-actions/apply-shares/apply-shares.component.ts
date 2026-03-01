@@ -12,9 +12,10 @@ import { Dates } from 'app/core/utils/dates';
  * Apply Shares Component
  */
 @Component({
-  selector: 'mifosx-apply-shares',
-  templateUrl: './apply-shares.component.html',
-  styleUrls: ['./apply-shares.component.scss']
+    selector: 'mifosx-apply-shares',
+    templateUrl: './apply-shares.component.html',
+    styleUrls: ['./apply-shares.component.scss'],
+    standalone: false
 })
 export class ApplySharesComponent implements OnInit {
   /** Shares account data. */

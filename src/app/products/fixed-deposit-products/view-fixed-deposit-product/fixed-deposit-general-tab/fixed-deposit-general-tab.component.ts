@@ -3,16 +3,17 @@ import { ActivatedRoute } from '@angular/router';
 import { trigger, state, transition, animate, style } from '@angular/animations';
 
 @Component({
-  selector: 'mifosx-fixed-deposit-general-tab',
-  templateUrl: './fixed-deposit-general-tab.component.html',
-  styleUrls: ['./fixed-deposit-general-tab.component.scss'],
-  animations: [
-    trigger('expandChartSlab', [
-      state('collapsed', style({ height: '0px', minHeight: '0' })),
-      state('expanded', style({ height: '*' })),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))])
-
-  ]
+    selector: 'mifosx-fixed-deposit-general-tab',
+    templateUrl: './fixed-deposit-general-tab.component.html',
+    styleUrls: ['./fixed-deposit-general-tab.component.scss'],
+    animations: [
+        trigger('expandChartSlab', [
+            state('collapsed', style({ height: '0px', minHeight: '0' })),
+            state('expanded', style({ height: '*' })),
+            transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
+        ])
+    ],
+    standalone: false
 })
 export class FixedDepositGeneralTabComponent {
   /** Fixed Deposit Product data. */

@@ -17,9 +17,10 @@ import { SettingsService } from 'app/settings/settings.service';
 import { Accounting } from 'app/core/utils/accounting';
 
 @Component({
-  selector: 'mifosx-create-fixed-deposit-product',
-  templateUrl: './create-fixed-deposit-product.component.html',
-  styleUrls: ['./create-fixed-deposit-product.component.scss']
+    selector: 'mifosx-create-fixed-deposit-product',
+    templateUrl: './create-fixed-deposit-product.component.html',
+    styleUrls: ['./create-fixed-deposit-product.component.scss'],
+    standalone: false
 })
 export class CreateFixedDepositProductComponent {
   @ViewChild(FixedDepositProductDetailsStepComponent, { static: true })

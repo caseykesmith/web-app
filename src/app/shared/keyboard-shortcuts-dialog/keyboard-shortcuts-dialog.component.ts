@@ -6,9 +6,10 @@ import { KeyboardShortcutsConfiguration } from '../../keyboards-shortcut-config'
  * Delete dialog component.
  */
 @Component({
-  selector: 'mifosx-keyboard-shortcuts-dialog',
-  templateUrl: './keyboard-shortcuts-dialog.component.html',
-  styleUrls: ['./keyboard-shortcuts-dialog.component.scss']
+    selector: 'mifosx-keyboard-shortcuts-dialog',
+    templateUrl: './keyboard-shortcuts-dialog.component.html',
+    styleUrls: ['./keyboard-shortcuts-dialog.component.scss'],
+    standalone: false
 })
 export class KeyboardShortcutsDialogComponent implements OnInit {
   buttonConfig: KeyboardShortcutsConfiguration;

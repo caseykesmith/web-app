@@ -6,9 +6,10 @@ import { ActivatedRoute } from '@angular/router';
  * Office View General Tab
  */
 @Component({
-  selector: 'mifosx-general-tab',
-  templateUrl: './general-tab.component.html',
-  styleUrls: ['./general-tab.component.scss']
+    selector: 'mifosx-general-tab',
+    templateUrl: './general-tab.component.html',
+    styleUrls: ['./general-tab.component.scss'],
+    standalone: false
 })
 export class GeneralTabComponent {
   /** Office data */

@@ -13,9 +13,10 @@ import { Dates } from 'app/core/utils/dates';
  * Create Center component.
  */
 @Component({
-  selector: 'mifosx-create-center',
-  templateUrl: './create-center.component.html',
-  styleUrls: ['./create-center.component.scss']
+    selector: 'mifosx-create-center',
+    templateUrl: './create-center.component.html',
+    styleUrls: ['./create-center.component.scss'],
+    standalone: false
 })
 export class CreateCenterComponent implements OnInit {
   /** Minimum date allowed. */

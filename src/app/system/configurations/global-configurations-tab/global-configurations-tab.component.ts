@@ -13,9 +13,10 @@ import { PopoverService } from '../../../configuration-wizard/popover/popover.se
 import { ConfigurationWizardService } from '../../../configuration-wizard/configuration-wizard.service';
 
 @Component({
-  selector: 'mifosx-global-configurations-tab',
-  templateUrl: './global-configurations-tab.component.html',
-  styleUrls: ['./global-configurations-tab.component.scss']
+    selector: 'mifosx-global-configurations-tab',
+    templateUrl: './global-configurations-tab.component.html',
+    styleUrls: ['./global-configurations-tab.component.scss'],
+    standalone: false
 })
 export class GlobalConfigurationsTabComponent implements OnInit, AfterViewInit {
   /** Configuration data. */

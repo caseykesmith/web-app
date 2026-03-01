@@ -12,9 +12,10 @@ import { SavingsAccountTransaction } from 'app/savings/models/savings-account-tr
  * Transactions Tab Component.
  */
 @Component({
-  selector: 'mifosx-transactions-tab',
-  templateUrl: './transactions-tab.component.html',
-  styleUrls: ['./transactions-tab.component.scss']
+    selector: 'mifosx-transactions-tab',
+    templateUrl: './transactions-tab.component.html',
+    styleUrls: ['./transactions-tab.component.scss'],
+    standalone: false
 })
 export class TransactionsTabComponent implements OnInit {
   accountId: string;

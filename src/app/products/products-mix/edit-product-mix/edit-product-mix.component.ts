@@ -10,9 +10,10 @@ import { ProductsService } from '../../products.service';
  * Edit Product mix component.
  */
 @Component({
-  selector: 'mifosx-edit-product-mix',
-  templateUrl: './edit-product-mix.component.html',
-  styleUrls: ['./edit-product-mix.component.scss']
+    selector: 'mifosx-edit-product-mix',
+    templateUrl: './edit-product-mix.component.html',
+    styleUrls: ['./edit-product-mix.component.scss'],
+    standalone: false
 })
 export class EditProductMixComponent implements OnInit {
   /** Product mix form. */

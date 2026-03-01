@@ -6,9 +6,10 @@ import { OrganizationService } from 'app/organization/organization.service';
 import { SettingsService } from 'app/settings/settings.service';
 
 @Component({
-  selector: 'mifosx-adjust-loan-charge',
-  templateUrl: './adjust-loan-charge.component.html',
-  styleUrls: ['./adjust-loan-charge.component.scss']
+    selector: 'mifosx-adjust-loan-charge',
+    templateUrl: './adjust-loan-charge.component.html',
+    styleUrls: ['./adjust-loan-charge.component.scss'],
+    standalone: false
 })
 export class AdjustLoanChargeComponent implements OnInit {
   /** Loan Id */

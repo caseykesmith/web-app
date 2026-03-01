@@ -23,9 +23,10 @@ import { TranslateService } from '@ngx-translate/core';
  * View Charge Component.
  */
 @Component({
-  selector: 'mifosx-view-charge',
-  templateUrl: './view-charge.component.html',
-  styleUrls: ['./view-charge.component.scss']
+    selector: 'mifosx-view-charge',
+    templateUrl: './view-charge.component.html',
+    styleUrls: ['./view-charge.component.scss'],
+    standalone: false
 })
 export class ViewChargeComponent {
   /** Charge data. */

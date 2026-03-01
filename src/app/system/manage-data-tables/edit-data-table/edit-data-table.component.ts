@@ -23,9 +23,10 @@ import { DatatableColumn } from '../datatable-column.model';
  * Edit Data Table Component.
  */
 @Component({
-  selector: 'mifosx-edit-data-table',
-  templateUrl: './edit-data-table.component.html',
-  styleUrls: ['./edit-data-table.component.scss']
+    selector: 'mifosx-edit-data-table',
+    templateUrl: './edit-data-table.component.html',
+    styleUrls: ['./edit-data-table.component.scss'],
+    standalone: false
 })
 export class EditDataTableComponent implements OnInit {
   /** Data Table Form. */

@@ -12,9 +12,10 @@ import { of } from 'rxjs';
  * Loan Provisioning Criteria component.
  */
 @Component({
-  selector: 'mifosx-loan-provisioning-criteria',
-  templateUrl: './loan-provisioning-criteria.component.html',
-  styleUrls: ['./loan-provisioning-criteria.component.scss']
+    selector: 'mifosx-loan-provisioning-criteria',
+    templateUrl: './loan-provisioning-criteria.component.html',
+    styleUrls: ['./loan-provisioning-criteria.component.scss'],
+    standalone: false
 })
 export class LoanProvisioningCriteriaComponent implements OnInit {
   /** Loan Provisioning Criteria data. */

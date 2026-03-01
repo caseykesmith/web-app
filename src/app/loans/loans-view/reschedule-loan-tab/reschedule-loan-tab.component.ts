@@ -9,9 +9,10 @@ import { SettingsService } from 'app/settings/settings.service';
 import { ConfirmationDialogComponent } from 'app/shared/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
-  selector: 'mifosx-reschedule-loan-tab',
-  templateUrl: './reschedule-loan-tab.component.html',
-  styleUrls: ['./reschedule-loan-tab.component.scss']
+    selector: 'mifosx-reschedule-loan-tab',
+    templateUrl: './reschedule-loan-tab.component.html',
+    styleUrls: ['./reschedule-loan-tab.component.scss'],
+    standalone: false
 })
 export class RescheduleLoanTabComponent {
   @Input() loanStatus: LoanStatus;
@@ -56,7 +57,7 @@ export class RescheduleLoanTabComponent {
       if (response.confirm) {
         const locale = this.settingsService.language.code;
         const dateFormat = this.settingsService.dateFormat;
-        const payload = {
+        const payload: Record<string, any> = {
           dateFormat,
           locale
         };

@@ -25,9 +25,10 @@ import { Dates } from 'app/core/utils/dates';
  * Note: Fixed deposits endpoints are not supported so using Savings endpoints.
  */
 @Component({
-  selector: 'mifosx-charges-tab',
-  templateUrl: './charges-tab.component.html',
-  styleUrls: ['./charges-tab.component.scss']
+    selector: 'mifosx-charges-tab',
+    templateUrl: './charges-tab.component.html',
+    styleUrls: ['./charges-tab.component.scss'],
+    standalone: false
 })
 export class ChargesTabComponent implements OnInit {
   /** Fixed Deposits Account Data */

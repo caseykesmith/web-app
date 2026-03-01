@@ -6,9 +6,10 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
  * Waive charge dialog component.
  */
 @Component({
-  selector: 'mifosx-waive-charge-dialog',
-  templateUrl: './waive-charge-dialog.component.html',
-  styleUrls: ['./waive-charge-dialog.component.scss']
+    selector: 'mifosx-waive-charge-dialog',
+    templateUrl: './waive-charge-dialog.component.html',
+    styleUrls: ['./waive-charge-dialog.component.scss'],
+    standalone: false
 })
 export class WaiveChargeDialogComponent {
   /**

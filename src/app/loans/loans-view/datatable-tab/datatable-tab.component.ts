@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'mifosx-datatable-tab',
-  templateUrl: './datatable-tab.component.html',
-  styleUrls: ['./datatable-tab.component.scss']
+    selector: 'mifosx-datatable-tab',
+    templateUrl: './datatable-tab.component.html',
+    styleUrls: ['./datatable-tab.component.scss'],
+    standalone: false
 })
 export class DatatableTabComponent implements OnInit {
   entityId: string;

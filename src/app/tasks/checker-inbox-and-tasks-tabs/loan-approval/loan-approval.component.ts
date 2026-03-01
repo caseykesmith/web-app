@@ -16,9 +16,10 @@ import { Dates } from 'app/core/utils/dates';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'mifosx-loan-approval',
-  templateUrl: './loan-approval.component.html',
-  styleUrls: ['./loan-approval.component.scss']
+    selector: 'mifosx-loan-approval',
+    templateUrl: './loan-approval.component.html',
+    styleUrls: ['./loan-approval.component.scss'],
+    standalone: false
 })
 export class LoanApprovalComponent {
   /** Offices Data */
@@ -32,7 +33,7 @@ export class LoanApprovalComponent {
   /** Row Selection Data */
   selection: SelectionModel<any>;
   /** Map data */
-  idToNodeMap = {};
+  idToNodeMap: Record<string, any> = {};
   /** Grouped Office Data */
   officesArray: any[];
   /** List of Requests */
@@ -79,7 +80,7 @@ export class LoanApprovalComponent {
     });
     this.loans.forEach((loanEle: any) => {
       if (loanEle.status.pendingApproval) {
-        let tempOffice = {};
+        let tempOffice: Record<string, any> = {};
         if (loanEle.clientOfficeId) {
           tempOffice = this.idToNodeMap[loanEle.clientOfficeId];
           tempOffice['loans'].push(loanEle);

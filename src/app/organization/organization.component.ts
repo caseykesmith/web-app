@@ -10,9 +10,10 @@ import { PopoverService } from '../configuration-wizard/popover/popover.service'
  * Organization component.
  */
 @Component({
-  selector: 'mifosx-products',
-  templateUrl: './organization.component.html',
-  styleUrls: ['./organization.component.scss']
+    selector: 'mifosx-products',
+    templateUrl: './organization.component.html',
+    styleUrls: ['./organization.component.scss'],
+    standalone: false
 })
 export class OrganizationComponent implements AfterViewInit {
   shouldShowFundMapping = false;

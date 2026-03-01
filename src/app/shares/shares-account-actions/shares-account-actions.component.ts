@@ -9,15 +9,17 @@ import { SharesService } from '../shares.service';
  * Shares Account Actions Component
  */
 @Component({
-  selector: 'mifosx-shares-account-actions',
-  templateUrl: './shares-account-actions.component.html',
-  styleUrls: ['./shares-account-actions.component.scss']
+    selector: 'mifosx-shares-account-actions',
+    templateUrl: './shares-account-actions.component.html',
+    styleUrls: ['./shares-account-actions.component.scss'],
+    standalone: false
 })
 export class SharesAccountActionsComponent {
   /** Shares Account Data */
   sharesAccountData: any;
   /** Flag object to store possible actions and render appropriate UI to the user */
   actions: {
+    [key: string]: boolean;
     Approve: boolean;
     Reject: boolean;
     Close: boolean;

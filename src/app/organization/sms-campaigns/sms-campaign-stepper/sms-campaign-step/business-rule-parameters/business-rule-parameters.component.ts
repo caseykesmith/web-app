@@ -15,9 +15,10 @@ import { Dates } from 'app/core/utils/dates';
  * Business Rule Parameters Component.
  */
 @Component({
-  selector: 'mifosx-business-rule-parameters',
-  templateUrl: './business-rule-parameters.component.html',
-  styleUrls: ['./business-rule-parameters.component.scss']
+    selector: 'mifosx-business-rule-parameters',
+    templateUrl: './business-rule-parameters.component.html',
+    styleUrls: ['./business-rule-parameters.component.scss'],
+    standalone: false
 })
 export class BusinessRuleParametersComponent implements OnInit, OnChanges {
   /** Run Report Parameters Data */
@@ -161,7 +162,7 @@ export class BusinessRuleParametersComponent implements OnInit, OnChanges {
           formattedResponse[newKey] = value;
           break;
         case 'select':
-          formattedResponse[newKey] = value['id'];
+          formattedResponse[newKey] = (value as any)['id'];
           break;
         case 'date':
           const dateFormat = this.settingsService.dateFormat;

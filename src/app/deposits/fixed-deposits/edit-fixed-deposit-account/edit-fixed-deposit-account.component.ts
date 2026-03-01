@@ -18,9 +18,10 @@ import { Currency } from 'app/shared/models/general.model';
  * Edit Fixed Deposit Account Component
  */
 @Component({
-  selector: 'mifosx-edit-fixed-deposit-account',
-  templateUrl: './edit-fixed-deposit-account.component.html',
-  styleUrls: ['./edit-fixed-deposit-account.component.scss']
+    selector: 'mifosx-edit-fixed-deposit-account',
+    templateUrl: './edit-fixed-deposit-account.component.html',
+    styleUrls: ['./edit-fixed-deposit-account.component.scss'],
+    standalone: false
 })
 export class EditFixedDepositAccountComponent {
   /** Fixed Deposits Account Details Step */

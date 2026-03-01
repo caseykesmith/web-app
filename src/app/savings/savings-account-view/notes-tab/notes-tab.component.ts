@@ -4,9 +4,10 @@ import { AuthenticationService } from 'app/core/authentication/authentication.se
 import { SavingsService } from 'app/savings/savings.service';
 
 @Component({
-  selector: 'mifosx-notes-tab',
-  templateUrl: './notes-tab.component.html',
-  styleUrls: ['./notes-tab.component.scss']
+    selector: 'mifosx-notes-tab',
+    templateUrl: './notes-tab.component.html',
+    styleUrls: ['./notes-tab.component.scss'],
+    standalone: false
 })
 export class NotesTabComponent {
   entityId: string;

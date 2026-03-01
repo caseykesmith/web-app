@@ -3,9 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { Accounting } from 'app/core/utils/accounting';
 
 @Component({
-  selector: 'mifosx-share-product-general-tab',
-  templateUrl: './share-product-general-tab.component.html',
-  styleUrls: ['./share-product-general-tab.component.scss']
+    selector: 'mifosx-share-product-general-tab',
+    templateUrl: './share-product-general-tab.component.html',
+    styleUrls: ['./share-product-general-tab.component.scss'],
+    standalone: false
 })
 export class ShareProductGeneralTabComponent {
   shareProduct: any;

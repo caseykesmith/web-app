@@ -9,9 +9,10 @@ import { MatTableDataSource } from '@angular/material/table';
  * Floating Rates Component.
  */
 @Component({
-  selector: 'mifosx-floating-rates',
-  templateUrl: './floating-rates.component.html',
-  styleUrls: ['./floating-rates.component.scss']
+    selector: 'mifosx-floating-rates',
+    templateUrl: './floating-rates.component.html',
+    styleUrls: ['./floating-rates.component.scss'],
+    standalone: false
 })
 export class FloatingRatesComponent implements OnInit {
   /** Floating Rates data. */

@@ -6,9 +6,10 @@ import { ActivatedRoute } from '@angular/router';
  * Groups View General Tab Component.
  */
 @Component({
-  selector: 'mifosx-general-tab',
-  templateUrl: './general-tab.component.html',
-  styleUrls: ['./general-tab.component.scss']
+    selector: 'mifosx-general-tab',
+    templateUrl: './general-tab.component.html',
+    styleUrls: ['./general-tab.component.scss'],
+    standalone: false
 })
 export class GeneralTabComponent {
   /** Group's all accounts data */

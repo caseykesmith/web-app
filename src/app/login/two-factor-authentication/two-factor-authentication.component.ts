@@ -12,9 +12,10 @@ import { AuthenticationService } from '../../core/authentication/authentication.
  * Two factor authentication component.
  */
 @Component({
-  selector: 'mifosx-two-factor-authentication',
-  templateUrl: './two-factor-authentication.component.html',
-  styleUrls: ['./two-factor-authentication.component.scss']
+    selector: 'mifosx-two-factor-authentication',
+    templateUrl: './two-factor-authentication.component.html',
+    styleUrls: ['./two-factor-authentication.component.scss'],
+    standalone: false
 })
 export class TwoFactorAuthenticationComponent implements OnInit {
   /** Available delivery methods to receive OTP. */

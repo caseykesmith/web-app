@@ -2,9 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ExternalAssetOwner } from 'app/loans/services/external-asset-owner';
 
 @Component({
-  selector: 'mifosx-external-asset-transfer',
-  templateUrl: './external-asset-transfer.component.html',
-  styleUrls: ['./external-asset-transfer.component.scss']
+    selector: 'mifosx-external-asset-transfer',
+    templateUrl: './external-asset-transfer.component.html',
+    styleUrls: ['./external-asset-transfer.component.scss'],
+    standalone: false
 })
 export class ExternalAssetTransferComponent {
   /** Input Fields Data */

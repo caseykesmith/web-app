@@ -16,9 +16,10 @@ import { TranslateService } from '@ngx-translate/core';
  * Shares Account Charges Step
  */
 @Component({
-  selector: 'mifosx-shares-account-charges-step',
-  templateUrl: './shares-account-charges-step.component.html',
-  styleUrls: ['./shares-account-charges-step.component.scss']
+    selector: 'mifosx-shares-account-charges-step',
+    templateUrl: './shares-account-charges-step.component.html',
+    styleUrls: ['./shares-account-charges-step.component.scss'],
+    standalone: false
 })
 export class SharesAccountChargesStepComponent implements OnInit, OnChanges {
   /** Shares Account Product Template */

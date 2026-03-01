@@ -21,9 +21,10 @@ import { SelectBase } from 'app/shared/form-dialog/formfield/model/select-base';
  * Center Attendance component.
  */
 @Component({
-  selector: 'mifosx-center-attendance',
-  templateUrl: './center-attendance.component.html',
-  styleUrls: ['./center-attendance.component.scss']
+    selector: 'mifosx-center-attendance',
+    templateUrl: './center-attendance.component.html',
+    styleUrls: ['./center-attendance.component.scss'],
+    standalone: false
 })
 export class CenterAttendanceComponent implements OnInit {
   /** Members data. */

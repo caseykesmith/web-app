@@ -6,13 +6,15 @@ import { ActivatedRoute } from '@angular/router';
  * Fixed deposits account actions component.
  */
 @Component({
-  selector: 'mifosx-fixed-deposits-account-actions',
-  templateUrl: './fixed-deposits-account-actions.component.html',
-  styleUrls: ['./fixed-deposits-account-actions.component.scss']
+    selector: 'mifosx-fixed-deposits-account-actions',
+    templateUrl: './fixed-deposits-account-actions.component.html',
+    styleUrls: ['./fixed-deposits-account-actions.component.scss'],
+    standalone: false
 })
 export class FixedDepositsAccountActionsComponent {
   /** Flag object to store possible actions and render appropriate UI to the user */
   actions: {
+    [key: string]: boolean;
     Approve: boolean;
     Reject: boolean;
     Activate: boolean;

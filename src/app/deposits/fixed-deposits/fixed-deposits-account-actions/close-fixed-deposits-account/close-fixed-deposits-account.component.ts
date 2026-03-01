@@ -12,9 +12,10 @@ import { Dates } from 'app/core/utils/dates';
  * Close On Maturity Fixed Deposits Account Component
  */
 @Component({
-  selector: 'mifosx-close-fixed-deposits-account',
-  templateUrl: './close-fixed-deposits-account.component.html',
-  styleUrls: ['./close-fixed-deposits-account.component.scss']
+    selector: 'mifosx-close-fixed-deposits-account',
+    templateUrl: './close-fixed-deposits-account.component.html',
+    styleUrls: ['./close-fixed-deposits-account.component.scss'],
+    standalone: false
 })
 export class CloseFixedDepositsAccountComponent implements OnInit {
   /** Minimum date allowed. */

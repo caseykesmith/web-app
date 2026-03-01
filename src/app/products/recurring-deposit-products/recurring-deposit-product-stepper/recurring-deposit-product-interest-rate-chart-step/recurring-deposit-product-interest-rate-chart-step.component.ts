@@ -19,16 +19,17 @@ import { Dates } from 'app/core/utils/dates';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'mifosx-recurring-deposit-product-interest-rate-chart-step',
-  templateUrl: './recurring-deposit-product-interest-rate-chart-step.component.html',
-  styleUrls: ['./recurring-deposit-product-interest-rate-chart-step.component.scss'],
-  animations: [
-    trigger('expandChartSlab', [
-      state('collapsed', style({ height: '0px', minHeight: '0' })),
-      state('expanded', style({ height: '*' })),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))])
-
-  ]
+    selector: 'mifosx-recurring-deposit-product-interest-rate-chart-step',
+    templateUrl: './recurring-deposit-product-interest-rate-chart-step.component.html',
+    styleUrls: ['./recurring-deposit-product-interest-rate-chart-step.component.scss'],
+    animations: [
+        trigger('expandChartSlab', [
+            state('collapsed', style({ height: '0px', minHeight: '0' })),
+            state('expanded', style({ height: '*' })),
+            transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
+        ])
+    ],
+    standalone: false
 })
 export class RecurringDepositProductInterestRateChartStepComponent implements OnInit {
   @Input() recurringDepositProductsTemplate: any;
@@ -145,7 +146,7 @@ export class RecurringDepositProductInterestRateChartStepComponent implements On
         formArray.push(chartSlabInfo);
 
         // Iterate for every slab in chartSlab
-        const chartIncentiveControl = chartDetailControl.controls['chartSlabs']['controls'][j];
+        const chartIncentiveControl = (chartDetailControl.controls['chartSlabs'] as any)['controls'][j];
 
         // Iterate to input all the incentive for particular chart slab
         this.chartsDetail[i].chartSlabs[j].incentives.forEach((chartIncentiveDetail: any) => {
@@ -192,7 +193,7 @@ export class RecurringDepositProductInterestRateChartStepComponent implements On
         chartSlabs: this.getChartSlabsData(chartData)
       };
       if (chartData.id) {
-        chart['id'] = chartData.id;
+        (chart as Record<string, any>)['id'] = chartData.id;
       }
       this.chartsDetail.push(chart);
     });
@@ -223,7 +224,7 @@ export class RecurringDepositProductInterestRateChartStepComponent implements On
         incentives: this.getIncentivesData(chartSlabData)
       };
       if (eachChartSlabData.id) {
-        chartSlab['id'] = eachChartSlabData.id;
+        (chartSlab as Record<string, any>)['id'] = eachChartSlabData.id;
       }
       chartSlabs.push(chartSlab);
     });
