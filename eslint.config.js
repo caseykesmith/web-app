@@ -51,7 +51,9 @@ module.exports = [
           style: 'camelCase',
           type: 'attribute'
         }
-      ]
+      ],
+      // Disable prefer-standalone since this app uses NgModule-based architecture
+      '@angular-eslint/prefer-standalone': 'off'
     }
   },
 
