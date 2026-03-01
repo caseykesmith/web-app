@@ -12,8 +12,6 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "ignoreDeprecations": "5.0",
     "target": "ES2022",
     "typeRoots": [
       "node_modules/@types",
