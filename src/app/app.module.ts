@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpBackend, HttpClient, HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 /** Environment Configuration */
 
@@ -38,14 +38,9 @@ import { PortalModule } from '@angular/cdk/portal';
 
 /** Main Routing Module */
 import { AppRoutingModule } from './app-routing.module';
-import { DatePipe, LocationStrategy } from '@angular/common';
-import {
-  TranslateLoader,
-  TranslateModule,
-  MissingTranslationHandler,
-  MissingTranslationHandlerParams
-} from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { DatePipe } from '@angular/common';
+import { TranslateModule, MissingTranslationHandler, MissingTranslationHandlerParams } from '@ngx-translate/core';
+import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 
 export class CustomMissingTranslationHandler implements MissingTranslationHandler {
   handle(params: MissingTranslationHandlerParams): string {
@@ -60,29 +55,18 @@ export class CustomMissingTranslationHandler implements MissingTranslationHandle
  * Core module and all feature modules should be imported here in proper order.
  */
 
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
-}
-
 @NgModule({
+  declarations: [
+    WebAppComponent,
+    NotFoundComponent
+  ],
+  bootstrap: [WebAppComponent],
   imports: [
     TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: (httpBackend: HttpBackend, locationStrategy: LocationStrategy) => {
-          const http = new HttpClient(httpBackend);
-          return new TranslateHttpLoader(http, `/assets/translations/`, '.json');
-        },
-        deps: [
-          HttpBackend,
-          LocationStrategy
-        ]
-      },
       missingTranslationHandler: { provide: MissingTranslationHandler, useClass: CustomMissingTranslationHandler }
     }),
     BrowserModule,
     BrowserAnimationsModule,
-    HttpClientModule,
     PortalModule,
     CoreModule,
     HomeModule,
@@ -106,13 +90,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     TasksModule,
     ConfigurationWizardModule,
     AppRoutingModule
-
   ],
-  declarations: [
-    WebAppComponent,
-    NotFoundComponent
-  ],
-  providers: [DatePipe],
-  bootstrap: [WebAppComponent]
+  providers: [
+    DatePipe,
+    provideHttpClient(withInterceptorsFromDi()),
+    provideTranslateHttpLoader({ prefix: '/assets/translations/', suffix: '.json', useHttpBackend: true })
+  ]
 })
 export class AppModule {}

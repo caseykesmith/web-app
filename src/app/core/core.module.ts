@@ -1,6 +1,6 @@
 /** Angular Imports */
 import { NgModule, Optional, SkipSelf } from '@angular/core';
-import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { RouteReuseStrategy, RouterModule } from '@angular/router';
 
 /** Translation Imports */
@@ -41,12 +41,6 @@ import { ContentComponent } from './shell/content/content.component';
  * Main app shell components and singleton services should be here.
  */
 @NgModule({
-  imports: [
-    SharedModule,
-    HttpClientModule,
-    TranslateModule,
-    RouterModule
-  ],
   declarations: [
     ShellComponent,
     SidenavComponent,
@@ -56,7 +50,11 @@ import { ContentComponent } from './shell/content/content.component';
   ],
   exports: [
     SharedModule // TO BE REMOVED: Once all components have replaced the core module import by shared module.
-
+  ],
+  imports: [
+    SharedModule,
+    TranslateModule,
+    RouterModule
   ],
   providers: [
     AuthenticationService,
@@ -84,7 +82,8 @@ import { ContentComponent } from './shell/content/content.component';
     {
       provide: RouteReuseStrategy,
       useClass: RouteReusableStrategy
-    }
+    },
+    provideHttpClient(withInterceptorsFromDi())
   ]
 })
 export class CoreModule {
